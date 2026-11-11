@@ -1,0 +1,359 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Reply-Triggered Live Demo | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><span>/</span><span>Reply-Triggered Live Demo</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 14 · Send, reply and conversion</div>
+<h1>Reply-Triggered Live Demo</h1>
+<div class='meta'><div><b>Trigger</b> A yes reply when the product can demo itself</div><div><b>Outcome</b> The product calls them within 5 minutes</div><div><b>Channels</b> email, call</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-reply-triggered-live-demo' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-reply-triggered-live-demo'>Install the Pipeline.tech &quot;Reply-Triggered Live Demo&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/reply-triggered-live-demo/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-reply-triggered-live-demo/SKILL.md, then run /pipeline-reply-triggered-live-demo.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-reply-triggered-live-demo.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/reply-triggered-live-demo.svg' alt='Reply-Triggered Live Demo workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/reply-triggered-live-demo.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>A calendar link asks the prospect to do work before they have seen anything. When the product can act on a phone number, an email, a domain or a URL on its own, the yes reply should fire the product, not a booking page. An AI voice agent client ran this for two and a half months: the prospect replies yes, the agent calls within five minutes, and the demo is the product.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>What the product does from one input with nothing else from the prospect: a call to a number, a sample site from a URL, an audit on a domain, a report from their data.</li>
+<li>The product API: endpoint, auth, the input field, what it returns and how long it takes.</li>
+<li>Verticals as exact business types, the regions, and the calling hours in each.</li>
+<li>Stack answers from core section 1, the Slack channel, and the rep who reviews text output.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Confirm the product qualifies</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span></div>
+<ul>
+<li>The test: can the product do something real for the prospect from one field you already hold? If the prospect has to install, connect or fill anything first, run a different play.</li>
+<li>Write down input, output, time to deliver and what a failed run looks like. Never promise five minutes if the product takes thirty.</li>
+<li>Text output (a site, an audit, a report) needs a human review before it goes out. Decide now who reviews it.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Build the list by vertical</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Google Maps</span><span class="chip">Serper</span><span class="chip">Ocean.io</span><span class="chip">Apollo</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">BlitzAPI</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>Local businesses come from Google Maps and Serper, SaaS and larger firms from Ocean.io and Apollo. One list per vertical. Apply core: lists and exclusions.</li>
+<li>The contact is the owner or the ops lead. For an AI voice agent client, personal injury law was the hottest vertical; in a dental clinics campaign the office manager answered as often as the owner.</li>
+<li>Apply core: enrichment, plus a direct dial or mobile pass where the demo is a call. A contact with no number stays on the list with a flag.</li>
+<li>Apply core: verification.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Write the copy: the offer is the demo</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span></div>
+<ul>
+<li>Apply core: copy and send rules. The offer is the demo, not a meeting: "reply yes and our agent calls you in five minutes", "reply yes and we build your sample site today". Under 50 words, no link in email 1.</li>
+<li>Two variants. A carries the product's own phone number; B has no number and only asks for the yes. An AI voice agent client ran both: no number produced more positive replies; the number produced more inbound calls a day and far higher intent, callers who stayed on the line for minutes and asked to meet the team.</li>
+<li>Avoid the word "AI" in the subject and first line; it trips filters. Say what happens: "it calls you back".</li>
+<li>Email 2 is a threaded nudge, one line restating the demo. Show drafts before upload.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Launch one campaign per vertical</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">Attio</span></div>
+<ul>
+<li>Apply core: send rules. One campaign per vertical, split evenly between the two variants, from its own inbox set.</li>
+<li>Send inside the calling window from the inputs; a yes at 11 pm must not fire a call at 11:05.</li>
+<li>Write every contact to the CRM with play name, vertical, variant and date.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>The yes fires the product</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">n8n</span><span class="chip">Claude</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">BlitzAPI</span><span class="chip">Product API</span><span class="chip">Slack</span></div>
+<ul>
+<li>Catch the positive reply with a webhook from the sending tool, or a polling pass every two minutes. Classify it with the Reply Routing play's classifier and apply core: CRM and alerts. Only <code>interested</code> fires.</li>
+<li>If the demo is a call and the row has no number, read the signature, then run the waterfall. Nothing inside three minutes: a rep asks in the thread and the clock restarts when the number arrives.</li>
+<li>Call the product API with the one input. Log triggered time, completed time and result URL on the CRM record, and post a Slack card.</li>
+<li>Text output never goes out without a human review. The reviewer approves or edits in Slack, then the reply goes back in the same thread: three bullets on what the demo showed and a soft ask for 15 minutes.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Follow up on the demo, not the reply</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Phone</span><span class="chip">Calendly</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>If the demo connected (call answered, site opened, report viewed), a rep calls and emails the same day, two or three touches.</li>
+<li>If not, one retry the next business day inside calling hours, then a dated recall. Never a third automatic attempt.</li>
+<li>Inbound calls to the product's number count as connected demos even without a reply.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Measure product touches, not replies</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>Weekly: sent, yes replies, demos triggered, demos completed, inbound calls, outputs viewed, meetings, by vertical and by variant. Positive replies are the wrong KPI here; optimizing for them produces a thin stream of lukewarm leads who forget to answer once you send the number.</li>
+<li>Expect a worse contact-to-lead ratio than a plain offer. Cut verticals where demos trigger but never complete.</li>
+<li>Log whether each meeting came from the agent, the thread or the website.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>Never auto-call or auto-build without the yes. A question or an objection goes to a human.</li>
+<li>Respect calling hours and consent rules in the prospect's region. A yes outside the window fires at the start of the next one.</li>
+<li>A demo that fails returns an apology from a human within the hour.</li>
+<li>The product output never carries the Pipeline.tech credit.</li>
+<li>One campaign per vertical, nothing else on the same domain in the same month.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-reply-triggered-live-demo for an AI receptionist that calls back missed leads; verticals are dental clinics, personal injury law firms and HVAC contractors in Texas and Florida"</p>
+<ol>
+<li>Product qualifies: takes a phone number, calls within 90 seconds. Promise set to five minutes. EmailBison plus n8n plus Attio plus Slack.</li>
+<li>4,120 businesses from Google Maps and Serper, 3,610 after exclusions, 2,205 verified valid, 1,480 with a direct dial or mobile, 118 catch-all in their own campaigns.</li>
+<li>Two variants per vertical plus one threaded nudge, approved after one round.</li>
+<li>Six campaigns live, 2,205 contacts, started Monday.</li>
+<li>Week three: 61 yes replies, 58 demos triggered, 49 calls answered. The number variant also produced 34 inbound calls with no reply at all.</li>
+<li>Same-day follow-up on 49 connected demos and 34 inbound callers, 27 meetings booked, 14 of them personal injury law.</li>
+<li>No-number variant 1.9% yes rate, number variant 1.2% but 2.3x the meetings once inbound calls were counted. Scaled law firms, cut HVAC.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/reply-triggered-live-demo/SKILL.md</b><span>The skill file behind this page, 125 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-reply-triggered-live-demo'>Copy skill file</button></div>
+<pre>---
+name: pipeline-reply-triggered-live-demo
+description: Pipeline.tech play. When the product can demonstrate itself, the yes reply fires the product instead of a calendar. A webhook catches the positive reply, enriches the phone number if needed, triggers the product&#x27;s API within five minutes (the agent calls, the generator builds, the audit runs), and the output goes back in the same thread with three bullets and a soft ask. Measures product touches, not replies. USE WHEN user says &quot;/pipeline-reply-triggered-live-demo&quot; OR &quot;reply-triggered demo&quot; OR &quot;live demo play&quot; OR &quot;the product calls them&quot; OR &quot;reply yes and the agent calls&quot; OR &quot;product as the demo&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/reply-triggered-live-demo)
+version: 0.1.0</pre><div class='more'>… 120 more lines</div>
+<pre id='raw-reply-triggered-live-demo' class='hidden'>---
+name: pipeline-reply-triggered-live-demo
+description: Pipeline.tech play. When the product can demonstrate itself, the yes reply fires the product instead of a calendar. A webhook catches the positive reply, enriches the phone number if needed, triggers the product&#x27;s API within five minutes (the agent calls, the generator builds, the audit runs), and the output goes back in the same thread with three bullets and a soft ask. Measures product touches, not replies. USE WHEN user says &quot;/pipeline-reply-triggered-live-demo&quot; OR &quot;reply-triggered demo&quot; OR &quot;live demo play&quot; OR &quot;the product calls them&quot; OR &quot;reply yes and the agent calls&quot; OR &quot;product as the demo&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/reply-triggered-live-demo)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: A yes reply when the product can demo itself
+outcome: The product calls them within 5 minutes
+category: send-reply
+channels: email, call
+tools: Claude, Google Maps, Serper, Ocean.io, Apollo, LeadMagic, Prospeo, BlitzAPI, MillionVerifier, BounceBan, EmailBison, Instantly, Attio, n8n, Product API, Slack, Phone, Calendly
+---
+
+# Reply-Triggered Live Demo
+
+A calendar link asks the prospect to do work before they have seen anything. When the product can act on a phone number, an email, a domain or a URL on its own, the yes reply should fire the product, not a booking page. An AI voice agent client ran this for two and a half months: the prospect replies yes, the agent calls within five minutes, and the demo is the product.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. What the product does from one input with nothing else from the prospect: a call to a number, a sample site from a URL, an audit on a domain, a report from their data.
+2. The product API: endpoint, auth, the input field, what it returns and how long it takes.
+3. Verticals as exact business types, the regions, and the calling hours in each.
+4. Stack answers from core section 1, the Slack channel, and the rep who reviews text output.
+
+## Steps
+
+### 1. Confirm the product qualifies
+Tools: Claude
+Flow:
+- One input, zero setup | The product acts on a phone number, an email, a domain or a URL with nothing from the prospect | with: Claude | chips: voice agent calls, site generator builds, audit runs, sample report
+= Fit verdict in writing | What fires, what the prospect receives, how long it takes, what a failure looks like | chips: input, output, minutes to deliver, failure mode
+
+- The test: can the product do something real for the prospect from one field you already hold? If the prospect has to install, connect or fill anything first, run a different play.
+- Write down input, output, time to deliver and what a failed run looks like. Never promise five minutes if the product takes thirty.
+- Text output (a site, an audit, a report) needs a human review before it goes out. Decide now who reviews it.
+
+### 2. Build the list by vertical
+Tools: Google Maps, Serper, Ocean.io, Apollo, LeadMagic, Prospeo, BlitzAPI, MillionVerifier, BounceBan
+Flow:
+- Businesses where the demo lands | Clinics, law firms, trades, local services, small SaaS; one list per vertical, owner or ops lead | with: Google Maps, Serper, Ocean.io, Apollo | chips: owner, ops lead, vertical, region
+- Email waterfall plus a direct dial | Each vendor only sees what the one before it missed; a mobile or direct dial where the demo is a call | with: LeadMagic, Prospeo, BlitzAPI | tag: core: enrichment
+- Two-pass verification | Valid to the main campaign, catch-all to its own | with: MillionVerifier, BounceBan | tag: core: verification
+
+- Local businesses come from Google Maps and Serper, SaaS and larger firms from Ocean.io and Apollo. One list per vertical. Apply core: lists and exclusions.
+- The contact is the owner or the ops lead. For an AI voice agent client, personal injury law was the hottest vertical; in a dental clinics campaign the office manager answered as often as the owner.
+- Apply core: enrichment, plus a direct dial or mobile pass where the demo is a call. A contact with no number stays on the list with a flag.
+- Apply core: verification.
+
+### 3. Write the copy: the offer is the demo
+Tools: Claude
+Flow:
+- Email 1, the demo as the offer | Reply yes and our agent calls you in five minutes; reply yes and we build your sample site today | with: Claude | chips: {VERTICAL}, {CITY}, {PRODUCT_NUMBER}
+- Two variants | With the product&#x27;s phone number in the email and without it | with: Claude | tag: number vs no number
+= Email 2, threaded nudge | Same thread, under 50 words, the demo restated in one line | with: Claude
+
+- Apply core: copy and send rules. The offer is the demo, not a meeting: &quot;reply yes and our agent calls you in five minutes&quot;, &quot;reply yes and we build your sample site today&quot;. Under 50 words, no link in email 1.
+- Two variants. A carries the product&#x27;s own phone number; B has no number and only asks for the yes. An AI voice agent client ran both: no number produced more positive replies; the number produced more inbound calls a day and far higher intent, callers who stayed on the line for minutes and asked to meet the team.
+- Avoid the word &quot;AI&quot; in the subject and first line; it trips filters. Say what happens: &quot;it calls you back&quot;.
+- Email 2 is a threaded nudge, one line restating the demo. Show drafts before upload.
+
+### 4. Launch one campaign per vertical
+Tools: EmailBison, Instantly (option), Attio
+Flow:
+= One campaign per vertical, two variants each | Own inbox set, recipient&#x27;s business hours, written to the CRM with play and variant | with: EmailBison, Instantly, Attio | tag: send
+
+- Apply core: send rules. One campaign per vertical, split evenly between the two variants, from its own inbox set.
+- Send inside the calling window from the inputs; a yes at 11 pm must not fire a call at 11:05.
+- Write every contact to the CRM with play name, vertical, variant and date.
+
+### 5. The yes fires the product
+Tools: n8n, Claude, LeadMagic, Prospeo, BlitzAPI, Product API, Slack
+Flow:
+- Catch the yes | A webhook from the sending tool or a polling pass every two minutes; interested only, nothing else fires | with: n8n, Claude | tag: core: reply routing
+- Enrich at reply time | The reply&#x27;s own signature read first, then the phone waterfall if the row has no number | with: LeadMagic, Prospeo, BlitzAPI | chips: mobile, direct dial, signature
+- Trigger within 5 minutes | Product API called with the one input; the agent calls, the generator builds, the audit runs | with: Product API, Slack | chips: triggered at, completed at, result URL
+= Output back in the same thread | Three bullets on what the demo showed and a soft ask; text output waits for a human review | with: Claude, Slack
+
+- Catch the positive reply with a webhook from the sending tool, or a polling pass every two minutes. Classify it with the Reply Routing play&#x27;s classifier and apply core: CRM and alerts. Only `interested` fires.
+- If the demo is a call and the row has no number, read the signature, then run the waterfall. Nothing inside three minutes: a rep asks in the thread and the clock restarts when the number arrives.
+- Call the product API with the one input. Log triggered time, completed time and result URL on the CRM record, and post a Slack card.
+- Text output never goes out without a human review. The reviewer approves or edits in Slack, then the reply goes back in the same thread: three bullets on what the demo showed and a soft ask for 15 minutes.
+
+### 6. Follow up on the demo, not the reply
+Tools: Phone, Calendly, Attio, Slack
+Flow:
+- Demo connected | Call answered, site opened or report viewed: a rep follows up the same day with two or three touches | with: Phone, Calendly | tag: same day
+- Demo missed | One retry the next business day, then a dated recall on the CRM record | with: Attio, Slack | tag: one retry
+
+- If the demo connected (call answered, site opened, report viewed), a rep calls and emails the same day, two or three touches.
+- If not, one retry the next business day inside calling hours, then a dated recall. Never a third automatic attempt.
+- Inbound calls to the product&#x27;s number count as connected demos even without a reply.
+
+### 7. Measure product touches, not replies
+Tools: Attio, Slack
+Flow:
+= Weekly read by vertical and by variant | Sent, yes replies, demos triggered, demos completed, inbound calls, viewed, meetings; number and no number side by side | with: Attio, Slack
+
+- Weekly: sent, yes replies, demos triggered, demos completed, inbound calls, outputs viewed, meetings, by vertical and by variant. Positive replies are the wrong KPI here; optimizing for them produces a thin stream of lukewarm leads who forget to answer once you send the number.
+- Expect a worse contact-to-lead ratio than a plain offer. Cut verticals where demos trigger but never complete.
+- Log whether each meeting came from the agent, the thread or the website.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- Never auto-call or auto-build without the yes. A question or an objection goes to a human.
+- Respect calling hours and consent rules in the prospect&#x27;s region. A yes outside the window fires at the start of the next one.
+- A demo that fails returns an apology from a human within the hour.
+- The product output never carries the Pipeline.tech credit.
+- One campaign per vertical, nothing else on the same domain in the same month.
+
+## Example run
+
+User: &quot;/pipeline-reply-triggered-live-demo for an AI receptionist that calls back missed leads; verticals are dental clinics, personal injury law firms and HVAC contractors in Texas and Florida&quot;
+
+1. Product qualifies: takes a phone number, calls within 90 seconds. Promise set to five minutes. EmailBison plus n8n plus Attio plus Slack.
+2. 4,120 businesses from Google Maps and Serper, 3,610 after exclusions, 2,205 verified valid, 1,480 with a direct dial or mobile, 118 catch-all in their own campaigns.
+3. Two variants per vertical plus one threaded nudge, approved after one round.
+4. Six campaigns live, 2,205 contacts, started Monday.
+5. Week three: 61 yes replies, 58 demos triggered, 49 calls answered. The number variant also produced 34 inbound calls with no reply at all.
+6. Same-day follow-up on 49 connected demos and 34 inbound callers, 27 meetings booked, 14 of them personal injury law.
+7. No-number variant 1.9% yes rate, number variant 1.2% but 2.3x the meetings once inbound calls were counted. Scaled law firms, cut HVAC.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Reply-Triggered Live Demo end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/reply-triggered-live-demo'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../film-it-for-you/index.html'><span class='eyebrow'>Previous</span><b>Film-It-For-You</b></a>
+<a href='../new-funding/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>New Funding</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

@@ -1,0 +1,369 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>TAM Rotation | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><span>/</span><span>TAM Rotation</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 09 · Send, reply and conversion</div>
+<h1>TAM Rotation</h1>
+<div class='meta'><div><b>Trigger</b> A list that has been worked once</div><div><b>Outcome</b> Pipeline from every 60 to 90 day cycle</div><div><b>Channels</b> email, linkedin</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-tam-rotation' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-tam-rotation'>Install the Pipeline.tech &quot;TAM Rotation&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/tam-rotation/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-tam-rotation/SKILL.md, then run /pipeline-tam-rotation.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-tam-rotation.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/tam-rotation.svg' alt='TAM Rotation workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/tam-rotation.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>You cannot spawn more market, so once the TAM is mapped and sent, the only question is what you do with the list the second time. Most teams treat a worked list as spent and go hunting for a fresh one that does not exist. Treat it as an asset instead: suppress, refresh, change the angle, rotate the inboxes, and the same market pays out again every 60 to 90 days.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The worked list from <code>pipeline-full-tam-cold-email</code> or any list sent once, with cell name, send date and reply bucket per contact.</li>
+<li>The reply export per campaign, classified into the core buckets.</li>
+<li>The current offer per segment and the phase each cell reached.</li>
+<li>Inbox inventory: live and reserve batches with warmup scores.</li>
+<li>Stack answers from core section 1.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Audit the last cycle</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Attio</span><span class="chip">Claude</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Per cell, log sent, bounce, reply rate, interested, meetings and emails per interested lead (E2L). Rank the cells; one or two usually carried the run and the aggregate hides it.</li>
+<li>Read every reply, not only the interested ones. Group objections and questions into a counted list; each line feeds step 3.</li>
+<li>Profile the repliers: title, company size, sub-vertical, receiving provider. Note what they share that non-responders do not.</li>
+<li>One sheet, one row per cell, so cycles compare line by line.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Suppress and refresh the list</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span><span class="chip">EmailBison</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>Apply core: lists. Apply core: exclusions. Then remove every replier in any bucket, customers and open deals, opt-outs, hard bounces and anyone contacted in the last 90 days. The pool is non-responders only.</li>
+<li>Re-enrich what remains, monthly: confirm each contact is still in seat, replace movers with the current role holder, add decision makers who joined since the last pull. Apply core: enrichment.</li>
+<li>Apply core: verification on the whole pool, including rows that were valid last cycle. Addresses die between cycles.</li>
+<li>Keep suppressed rows with a reason column. "Not now" replies return on their recall date, not on the cycle.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Draft the next experiment</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Serper</span><span class="chip">Google Sheets</span><span class="chip">Slack</span></div>
+<ul>
+<li>Write each experiment as hypothesis, segment, copy: "price objectors respond to a cost-per-outcome angle; construction x owner; three variants plus a threaded nudge."</li>
+<li>Three inputs feed it: the objection list from step 1 (answer the most common one in the opener), account news via Serper dated inside 90 days, and the traits of the repliers (write for the seat and size that answered).</li>
+<li>Phase rule: phase 1 settles the offer, phase 2 holds the offer and tests wording, phase 3 scales. Cells do not skip a phase between cycles.</li>
+<li>Success is 2% positive reply or 20% of replies positive. A variant that lifts replies but lowers meetings loses.</li>
+<li>Apply core: copy and send rules. Post the plain-text experiments to the user. Nothing is spintaxed or uploaded until each one has a yes.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Add volume you do not have yet</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Apollo</span><span class="chip">Ocean.io</span><span class="chip">Firecrawl</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">HeyReach (option)</span></div>
+<ul>
+<li>Adjacent titles. At every account in the pool, add the role one seat over or one level down. Their "forwarding this to the right person" is the internal referral the first cycle never got.</li>
+<li>Adjacent vertical. Pick one vertical explicitly outside the ICP that shares the problem. A proxy and web-data client found agencies, not its target market, converting on a lane nobody expected to work. Run it as one high-volume backup campaign. If it lands under 1 lead per 500 emails, investigate why and promote it to a full segment next cycle.</li>
+<li>Public-inbox lane. Scrape info@, hello@ and contact@ from each company's website, never guess them. It runs as its own campaign because results conflict across offers: one source saw 2 to 4% reply and 10 to 15% positive, mostly low-urgency "sure, why not" replies; another offer saw role emails fail to convert at all. Keep or cut it per offer on its own numbers.</li>
+<li>Tier 2 contacts in the adjacent-title lane also get a LinkedIn connection request two days after email 1. Apply core: tiering.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Rotate the infrastructure</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">EmailGuard</span></div>
+<ul>
+<li>Apply core: send rules. Pause any campaign above 3% bounce.</li>
+<li>Hold a reserve at a 1 to 1 ratio. Month 1 batch A sends while batch B warms; month 2 they swap. A cycle never launches from the batch that just finished.</li>
+<li>Check blocklists daily. A listed domain is replaced, not nursed: the redirect moves to a fresh secondary domain and its inboxes rebuild from warmup.</li>
+<li>Any campaign paused two weeks or more is re-verified before it resumes.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Relaunch the non-responders</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">HeyReach (option)</span><span class="chip">Attio</span><span class="chip">Claude</span></div>
+<ul>
+<li>Spintax the approved experiments and run the <code>pipeline-full-tam-cold-email</code> step 5 QA gate. Zero blockers or no launch.</li>
+<li>One campaign per cell as before, cell name plus a cycle suffix, from the rested batch. Step 4 lanes get their own campaigns and inboxes so they read alone.</li>
+<li>Never the same email twice to the same person. If the new angle shares opener, proof or ask with the cycle 1 angle for that cell, rewrite before upload.</li>
+<li>Apply core: CRM and alerts, with cycle number, cell and angle on every contact.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Read and schedule the next cycle</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Attio</span><span class="chip">Slack</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Weekly diagnostic chain: bounce indicts verification, low replies the list, low interested the offer, no meetings the handover.</li>
+<li>Compare each cell against its last-cycle line. Improved cells move to the next phase; cells that failed twice are retired until the offer changes.</li>
+<li>Judge the added lanes alone: promote the adjacent vertical under 1:500, keep the public-inbox lane only if it clears the success threshold.</li>
+<li>Rhythm: copy rotates every 4 to 8 weeks, the list re-enriches monthly, the whole market turns over every 60 to 90 days. Book the next audit before this cycle finishes.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>Never send the same email twice to the same person, across cycles or lanes.</li>
+<li>Non-responders only. A reply in any bucket removes the contact from rotation; recalls return on their own date.</li>
+<li>No experiment sends without the user's approval on the plain text.</li>
+<li>The public-inbox lane never shares a campaign with decision-maker contacts.</li>
+<li>Never launch from the batch that just finished, or from any inbox under its 14-day warmup.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-tam-rotation on the bookkeeping TAM, cycle 1 finished ten weeks ago"</p>
+<ol>
+<li>Audit: 23 campaigns, 21,400 sent, 1.6% reply, 48 interested, 19 meetings, E2L 1:446. Two cells carried 31 of 48. Objections: 14 "we have a bookkeeper", 9 "not the right person", 6 on price.</li>
+<li>7,480 contacts, 1,180 suppressed. Re-enrichment replaced 612 movers and added 290 decision makers. 6,710 verified valid, 380 catch-all kept.</li>
+<li>Three experiments approved: clinics answer "we have a bookkeeper" with a month-end-close angle (phase 2), construction holds the offer and tests proof wording, agencies try a cash-flow angle (phase 1).</li>
+<li>Added 2,140 adjacent titles, 1,900 adjacent-vertical contacts (dental labs) and 3,300 scraped public inboxes.</li>
+<li>Batch B (36 inboxes, warmup 92 or higher) took the sends, batch A back to warmup. Two blocklisted domains replaced.</li>
+<li>31 campaigns tagged cycle 2 launched Monday.</li>
+<li>Week 4: 14,200 sent, 0.8% bounce, 1.9% reply, 34 interested, E2L 1:418. Clinics improved to 1:260. Adjacent vertical 1:470, promoted. Public inboxes 2.6% reply, 9 interested, kept. Next audit booked eleven weeks out.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/tam-rotation/SKILL.md</b><span>The skill file behind this page, 129 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-tam-rotation'>Copy skill file</button></div>
+<pre>---
+name: pipeline-tam-rotation
+description: Pipeline.tech play. Work a list that has already been sent once as a rotating asset on a 60 to 90 day cycle. Audits the last cycle per cell, suppresses and re-enriches the pool, drafts the next experiment from objections, account news and the traits of repliers, adds adjacent titles, an adjacent vertical and a public-inbox lane, rotates reserve inboxes, and relaunches only the non-responders with a fresh angle. USE WHEN user says &quot;/pipeline-tam-rotation&quot; OR &quot;TAM rotation&quot; OR &quot;we ran out of TAM&quot; OR &quot;recycle the list&quot; OR &quot;relaunch the non-responders&quot; OR &quot;next cycle on this list&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/tam-rotation)
+version: 0.1.0</pre><div class='more'>… 124 more lines</div>
+<pre id='raw-tam-rotation' class='hidden'>---
+name: pipeline-tam-rotation
+description: Pipeline.tech play. Work a list that has already been sent once as a rotating asset on a 60 to 90 day cycle. Audits the last cycle per cell, suppresses and re-enriches the pool, drafts the next experiment from objections, account news and the traits of repliers, adds adjacent titles, an adjacent vertical and a public-inbox lane, rotates reserve inboxes, and relaunches only the non-responders with a fresh angle. USE WHEN user says &quot;/pipeline-tam-rotation&quot; OR &quot;TAM rotation&quot; OR &quot;we ran out of TAM&quot; OR &quot;recycle the list&quot; OR &quot;relaunch the non-responders&quot; OR &quot;next cycle on this list&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/tam-rotation)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: A list that has been worked once
+outcome: Pipeline from every 60 to 90 day cycle
+category: send-reply
+channels: email, linkedin
+tools: EmailBison, Instantly (option), Attio, HubSpot (option), Claude, Serper, Apollo, Ocean.io, Firecrawl, LeadMagic, Prospeo, MillionVerifier, BounceBan, EmailGuard, HeyReach (option), Google Sheets, Slack
+---
+
+# TAM Rotation
+
+You cannot spawn more market, so once the TAM is mapped and sent, the only question is what you do with the list the second time. Most teams treat a worked list as spent and go hunting for a fresh one that does not exist. Treat it as an asset instead: suppress, refresh, change the angle, rotate the inboxes, and the same market pays out again every 60 to 90 days.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The worked list from `pipeline-full-tam-cold-email` or any list sent once, with cell name, send date and reply bucket per contact.
+2. The reply export per campaign, classified into the core buckets.
+3. The current offer per segment and the phase each cell reached.
+4. Inbox inventory: live and reserve batches with warmup scores.
+5. Stack answers from core section 1.
+
+## Steps
+
+### 1. Audit the last cycle
+Tools: EmailBison, Attio, Claude, Google Sheets
+Flow:
+- Per-cell scorecard | Sent, replies, interested, meetings and emails per lead for every cell of the last cycle | with: EmailBison, Attio, Google Sheets | chips: E2L under 1:300 keep, over 1:1000 cut
+- Read the replies | Objections and questions bucketed with counts; repliers profiled by title, size and sub-vertical | with: Claude | chips: what replied, what objected, which cells carried
+
+- Per cell, log sent, bounce, reply rate, interested, meetings and emails per interested lead (E2L). Rank the cells; one or two usually carried the run and the aggregate hides it.
+- Read every reply, not only the interested ones. Group objections and questions into a counted list; each line feeds step 3.
+- Profile the repliers: title, company size, sub-vertical, receiving provider. Note what they share that non-responders do not.
+- One sheet, one row per cell, so cycles compare line by line.
+
+### 2. Suppress and refresh the list
+Tools: Attio, HubSpot (option), EmailBison, LeadMagic, Prospeo, MillionVerifier, BounceBan
+Flow:
+- Suppress | Repliers in any bucket, customers, opt-outs, bounces and anyone contacted in the last 90 days come off | with: Attio, EmailBison | chips: 90-day rule, non-responders only
+- Re-enrich and re-verify | Job changes caught, movers replaced, new decision makers added, then two verification passes | with: LeadMagic, Prospeo, MillionVerifier, BounceBan | tag: core: lists and exclusions
+
+- Apply core: lists. Apply core: exclusions. Then remove every replier in any bucket, customers and open deals, opt-outs, hard bounces and anyone contacted in the last 90 days. The pool is non-responders only.
+- Re-enrich what remains, monthly: confirm each contact is still in seat, replace movers with the current role holder, add decision makers who joined since the last pull. Apply core: enrichment.
+- Apply core: verification on the whole pool, including rows that were valid last cycle. Addresses die between cycles.
+- Keep suppressed rows with a reason column. &quot;Not now&quot; replies return on their recall date, not on the cycle.
+
+### 3. Draft the next experiment
+Tools: Claude, Serper, Google Sheets, Slack
+Flow:
+- Three inputs | Objections from the replies, news on the accounts, traits of the people who replied | with: Claude, Serper | chips: objection, news, trait
+- One hypothesis per cell | A segment, a fresh angle and the phase it sits in; the user approves before anything sends | with: Slack, Google Sheets | tag: approval gate
+
+- Write each experiment as hypothesis, segment, copy: &quot;price objectors respond to a cost-per-outcome angle; construction x owner; three variants plus a threaded nudge.&quot;
+- Three inputs feed it: the objection list from step 1 (answer the most common one in the opener), account news via Serper dated inside 90 days, and the traits of the repliers (write for the seat and size that answered).
+- Phase rule: phase 1 settles the offer, phase 2 holds the offer and tests wording, phase 3 scales. Cells do not skip a phase between cycles.
+- Success is 2% positive reply or 20% of replies positive. A variant that lifts replies but lowers meetings loses.
+- Apply core: copy and send rules. Post the plain-text experiments to the user. Nothing is spintaxed or uploaded until each one has a yes.
+
+### 4. Add volume you do not have yet
+Tools: Apollo, Ocean.io, Firecrawl, LeadMagic, Prospeo, HeyReach (option)
+Flow:
+- Adjacent titles | The seat beside the buyer at the same accounts; they forward internally | with: Apollo, LeadMagic, Prospeo | chips: internal referral, same accounts
+- Adjacent vertical | A vertical outside the ICP that shares the need, run as backup volume; promote it under 1 lead per 500 emails | with: Ocean.io | chips: backup lane, promote at 1:500
+- Public-inbox lane | info@ and hello@ scraped from the site, never guessed, always its own campaign | with: Firecrawl | chips: scraped not guessed, own campaign
+
+- Adjacent titles. At every account in the pool, add the role one seat over or one level down. Their &quot;forwarding this to the right person&quot; is the internal referral the first cycle never got.
+- Adjacent vertical. Pick one vertical explicitly outside the ICP that shares the problem. A proxy and web-data client found agencies, not its target market, converting on a lane nobody expected to work. Run it as one high-volume backup campaign. If it lands under 1 lead per 500 emails, investigate why and promote it to a full segment next cycle.
+- Public-inbox lane. Scrape info@, hello@ and contact@ from each company&#x27;s website, never guess them. It runs as its own campaign because results conflict across offers: one source saw 2 to 4% reply and 10 to 15% positive, mostly low-urgency &quot;sure, why not&quot; replies; another offer saw role emails fail to convert at all. Keep or cut it per offer on its own numbers.
+- Tier 2 contacts in the adjacent-title lane also get a LinkedIn connection request two days after email 1. Apply core: tiering.
+
+### 5. Rotate the infrastructure
+Tools: EmailBison, Instantly (option), EmailGuard
+Flow:
+- Reserve at 1 to 1 | For every live inbox a reserve inbox is warming; batches swap month over month | with: EmailBison | chips: batch A sends, batch B warms, swap monthly
+- Daily health | Blocklist checks, burned domains replaced, pause above 3% bounce, re-verify after a 2-week pause | with: EmailGuard | tag: core: send rules
+
+- Apply core: send rules. Pause any campaign above 3% bounce.
+- Hold a reserve at a 1 to 1 ratio. Month 1 batch A sends while batch B warms; month 2 they swap. A cycle never launches from the batch that just finished.
+- Check blocklists daily. A listed domain is replaced, not nursed: the redirect moves to a fresh secondary domain and its inboxes rebuild from warmup.
+- Any campaign paused two weeks or more is re-verified before it resumes.
+
+### 6. Relaunch the non-responders
+Tools: EmailBison, Instantly (option), HeyReach (option), Attio, Claude
+Flow:
+= One campaign per cell, fresh angle, rested inbox batch | Non-responders only, never the same email twice to one person, cycle number on every contact | with: EmailBison, HeyReach, Attio | chips: cycle 2, new angle, rested inboxes | tag: send
+
+- Spintax the approved experiments and run the `pipeline-full-tam-cold-email` step 5 QA gate. Zero blockers or no launch.
+- One campaign per cell as before, cell name plus a cycle suffix, from the rested batch. Step 4 lanes get their own campaigns and inboxes so they read alone.
+- Never the same email twice to the same person. If the new angle shares opener, proof or ask with the cycle 1 angle for that cell, rewrite before upload.
+- Apply core: CRM and alerts, with cycle number, cell and angle on every contact.
+
+### 7. Read and schedule the next cycle
+Tools: EmailBison, Attio, Slack, Google Sheets
+Flow:
+- Cycle against cycle | The step 1 sheet with this cycle beside the last one per cell | with: EmailBison, Attio, Google Sheets | chips: E2L, interested, meetings
+- Rhythm | Copy every 4 to 8 weeks, list monthly, whole market every 60 to 90 days | with: Slack | chips: copy 4 to 8 weeks, list monthly, market 60 to 90 days
+
+- Weekly diagnostic chain: bounce indicts verification, low replies the list, low interested the offer, no meetings the handover.
+- Compare each cell against its last-cycle line. Improved cells move to the next phase; cells that failed twice are retired until the offer changes.
+- Judge the added lanes alone: promote the adjacent vertical under 1:500, keep the public-inbox lane only if it clears the success threshold.
+- Rhythm: copy rotates every 4 to 8 weeks, the list re-enriches monthly, the whole market turns over every 60 to 90 days. Book the next audit before this cycle finishes.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- Never send the same email twice to the same person, across cycles or lanes.
+- Non-responders only. A reply in any bucket removes the contact from rotation; recalls return on their own date.
+- No experiment sends without the user&#x27;s approval on the plain text.
+- The public-inbox lane never shares a campaign with decision-maker contacts.
+- Never launch from the batch that just finished, or from any inbox under its 14-day warmup.
+
+## Example run
+
+User: &quot;/pipeline-tam-rotation on the bookkeeping TAM, cycle 1 finished ten weeks ago&quot;
+
+1. Audit: 23 campaigns, 21,400 sent, 1.6% reply, 48 interested, 19 meetings, E2L 1:446. Two cells carried 31 of 48. Objections: 14 &quot;we have a bookkeeper&quot;, 9 &quot;not the right person&quot;, 6 on price.
+2. 7,480 contacts, 1,180 suppressed. Re-enrichment replaced 612 movers and added 290 decision makers. 6,710 verified valid, 380 catch-all kept.
+3. Three experiments approved: clinics answer &quot;we have a bookkeeper&quot; with a month-end-close angle (phase 2), construction holds the offer and tests proof wording, agencies try a cash-flow angle (phase 1).
+4. Added 2,140 adjacent titles, 1,900 adjacent-vertical contacts (dental labs) and 3,300 scraped public inboxes.
+5. Batch B (36 inboxes, warmup 92 or higher) took the sends, batch A back to warmup. Two blocklisted domains replaced.
+6. 31 campaigns tagged cycle 2 launched Monday.
+7. Week 4: 14,200 sent, 0.8% bounce, 1.9% reply, 34 interested, E2L 1:418. Clinics improved to 1:260. Adjacent vertical 1:470, promoted. Public inboxes 2.6% reply, 9 interested, kept. Next audit booked eleven weeks out.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs TAM Rotation end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/tam-rotation'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../full-tam-cold-email/index.html'><span class='eyebrow'>Previous</span><b>Full-TAM Cold Email</b></a>
+<a href='../cold-calling-five-lists/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Cold Calling on Five Lists</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

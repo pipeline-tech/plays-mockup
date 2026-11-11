@@ -1,0 +1,374 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Lookalike Sub-Verticals | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-foundation'>Foundation</a><span>/</span><span>Lookalike Sub-Verticals</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 03 · Foundation</div>
+<h1>Lookalike Sub-Verticals</h1>
+<div class='meta'><div><b>Trigger</b> Best customers as seeds</div><div><b>Outcome</b> One campaign per sub-vertical, losers cut, winners scaled</div><div><b>Channels</b> email, linkedin</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-lookalike-sub-verticals' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-lookalike-sub-verticals'>Install the Pipeline.tech &quot;Lookalike Sub-Verticals&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/lookalike-sub-verticals/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-lookalike-sub-verticals/SKILL.md, then run /pipeline-lookalike-sub-verticals.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-lookalike-sub-verticals.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/lookalike-sub-verticals.svg' alt='Lookalike Sub-Verticals workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/lookalike-sub-verticals.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>One broad ICP campaign averages every pain into one message and one number. Your best customers already show which sub-verticals buy, so expand from them, split the result into lanes, and give each lane its own copy and its own read. A proxy and web-data client went from about 1 lead per 2,290 emails on a broad send to about 1 per 283 on targeted sub-vertical lanes.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>Five to ten seed domains: the customers the user would clone, picked by revenue, retention and ease of close, not logo size. Strip <code>https://</code>, <code>www.</code> and trailing slashes.</li>
+<li>The ICP in one paragraph: headcount band, geography, the problem you solve, who owns it, and what disqualifies an account.</li>
+<li>Stack answers from core section 1. Lookalike tool: Ocean.io first, AI Ark or DiscoLike if the user already has one.</li>
+<li>The offer in one sentence and one proof point per sub-vertical where the user has them.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Expand from the seeds</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Ocean.io</span><span class="chip">AI Ark (option)</span><span class="chip">DiscoLike (option)</span></div>
+<ul>
+<li>Run the lookalike search three times with the same seeds and filters, once at each similarity floor: strict (0.85 and above), standard (0.79), broad (0.70). Keep the three pulls as separate lists with a <code>similarity_band</code> column. Each band is measured on its own in step 8.</li>
+<li>Filter on the user's headcount band and countries only. No industry filters; the sort happens in step 2 from the website, not vendor labels.</li>
+<li>Paginate until the pull is exhausted. A band under 50 companies: widen headcount before lowering the floor.</li>
+<li>Apply core: lists (second source, dedupe by domain, <code>source</code> column, keep the raw pull).</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Sort into sub-verticals</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Serper</span><span class="chip">Claude</span></div>
+<ul>
+<li>Fetch each company's homepage and one product page. Write a two-sentence summary: what they sell, to whom.</li>
+<li>Ask the user to name 5 to 8 sub-verticals. Examples from the proof run, for a proxy and web-data offer: retail analytics, social media analytics, brand protection, ticketing, travel, SEO, web data extraction. If the user cannot name them, cluster the summaries with the model and propose labels for approval.</li>
+<li>Label every row with exactly one sub-vertical, or <code>other</code>. If <code>other</code> passes 25 percent of a band, the seeds are too mixed; ask the user to split them.</li>
+<li>Name one adjacent vertical outside the ICP that shares the underlying need (agencies for a data vendor, integrators for a platform). It gets its own list and campaign in step 7.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Qualify before anything paid</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span></div>
+<ul>
+<li>Score every account 0 to 100 against the written ICP from the website summary, with one line of reasoning. Default pass mark 60. Apply core: lists (qualify before any paid lookup).</li>
+<li>Expect 50 to 70 percent to pass. Under 40 means the seeds and the ICP paragraph disagree; stop and show the user the top disqualification reasons.</li>
+<li>Apply core: exclusions.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Find decision makers with title keywords</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Ocean.io</span><span class="chip">Apollo</span><span class="chip">LinkedIn</span></div>
+<ul>
+<li>Pick the buyer roles by company size. Apply core: enrichment (decision maker by size).</li>
+<li>For each role, generate 20 to 30 title keyword variations with the model: canonical, informal, legacy and regional forms ("data engineering", "data platform", "data infrastructure", "VP data", "director of data"). Search people by those keywords, not by seniority filters. Seniority filters miss the messy real titles, and that is where the volume is.</li>
+<li>Target 3 to 5 contacts per company: the owner of the problem, the person above them, one or two peers who feel the pain. Under 50 people, one or two.</li>
+<li>Apply core: enrichment (waterfall) and core: verification.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Build one campaign per sub-vertical</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">HeyReach</span></div>
+<ul>
+<li>One campaign per sub-vertical, standard band first. Strict and broad follow as their own campaigns in weeks 2 and 3, so every band reads separately against the same copy. Own inbox set per campaign. Apply core: send rules.</li>
+<li>Name campaigns <code><span class=\"var\">{PLAY}</span> <span class=\"var\">{SUBVERTICAL}</span> <span class=\"var\">{BAND}</span> <span class=\"var\">{MONTH}</span></code> so weekly reporting can group by any of the four.</li>
+<li>Tier 2 contacts also get a LinkedIn connection request, no note, the same week as email one.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Write pain-specific copy</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span></div>
+<ul>
+<li>Apply core: copy and send rules.</li>
+<li>One pain per sub-vertical, in the words that sub-vertical uses. Ticketing gets a line about blocked checkouts during on-sales; brand protection gets marketplaces that geo-fence listings. Same offer, different first sentence, different proof point.</li>
+<li>Draft 2 angle variants for email 1 per sub-vertical and one threaded nudge for email 2. Show the full set to the user before upload. A sub-vertical with no proof point runs the general angle and is flagged in the report.</li>
+<li>Variables: <code><span class=\"var\">{SUBVERTICAL_PAIN}</span></code>, <code><span class=\"var\">{PROOF}</span></code>, <code><span class=\"var\">{TITLE_SHORT}</span></code>. No company-name personalization tricks; the lane is the personalization.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Add the adjacent-vertical probe</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span></div>
+<ul>
+<li>Launch the adjacent vertical from step 2 as one more campaign at the standard band, same two-step structure, general angle. It is backup volume and a cheap test of a market the user has not considered.</li>
+<li>If the probe lands under 1 lead per 500 emails over two weeks, read the replies for why, give it a sub-vertical label, and promote it to a full lane in step 5.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Read lanes weekly, cut and scale</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>Every Monday, per campaign: sent, replies, interested, emails per interested lead. Emails per lead decides; reply rate alone misleads.</li>
+<li>Under 1 lead per 300 emails: scale. Add inboxes, pull the next similarity band, add adjacent titles.</li>
+<li>Between 1:300 and 1:1,000: hold, rotate copy after 4 weeks.</li>
+<li>Over 1 lead per 1,000 emails after 1,500 sends: cut the lane. Pause, log the reason, move the inboxes to a winner.</li>
+<li>Do not judge a lane under 1,000 sends. Low volume reads as noise in both directions.</li>
+<li>Apply core: CRM and alerts. Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>Never merge the three similarity bands into one list. Each band and each sub-vertical is measured by itself.</li>
+<li>Never buy contacts for an account that has not passed the website ICP check. People lookups are the expensive step; the model read costs cents.</li>
+<li>Never write the sub-vertical label into the email as a category ("as a ticketing company"). Write the pain it stands for.</li>
+<li>Never cut a lane on reply rate. Cut on emails per lead, after the send floor.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-lookalike-sub-verticals, seeds are our 8 best customers, ICP is B2B software 100 to 2,000 people in the US and UK, we sell residential proxies"</p>
+<ol>
+<li>Confirmed seeds and ICP paragraph, Ocean.io plus EmailBison plus HeyReach plus Attio.</li>
+<li>Three pulls: 410 strict, 1,180 standard, 2,640 broad. 3,560 unique companies after dedupe, each with its band label.</li>
+<li>Website summaries sorted into 7 sub-verticals plus <code>other</code> (14 percent). Adjacent vertical: marketing agencies.</li>
+<li>2,210 passed the ICP check at 60, 88 removed as customers, open deals or recent sequences.</li>
+<li>24 title variations per role, 7,340 contacts found, 5,910 verified valid, catch-alls in their own campaigns.</li>
+<li>7 standard-band campaigns plus one agency probe launched across 16 inboxes after copy approval; strict and broad bands queued for weeks 2 and 3.</li>
+<li>Week 4 read: web data extraction at 1:240 and brand protection at 1:310 scaled; travel at 1:1,900 cut; agency probe at 1:470 flagged for promotion.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/lookalike-sub-verticals/SKILL.md</b><span>The skill file behind this page, 132 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-lookalike-sub-verticals'>Copy skill file</button></div>
+<pre>---
+name: pipeline-lookalike-sub-verticals
+description: Pipeline.tech play. Turn your best 5 to 10 customers into a segmented account list. Expands seeds with a lookalike tool at three similarity levels kept apart, reads each company&#x27;s website to sort it into 5 to 8 sub-verticals, qualifies against the ICP before any paid lookup, finds 3 to 5 decision makers per account with title keyword variations, then runs one campaign per sub-vertical plus an adjacent-vertical probe and cuts or scales each lane on emails per lead. USE WHEN user says &quot;/pipeline-lookalike-sub-verticals&quot; OR &quot;lookalike sub-verticals&quot; OR &quot;lookalike play&quot; OR &quot;expand from our best customers&quot; OR &quot;seed companies to campaigns&quot; OR &quot;split the ICP into sub-verticals&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/lookalike-sub-verticals)
+version: 0.1.0</pre><div class='more'>… 127 more lines</div>
+<pre id='raw-lookalike-sub-verticals' class='hidden'>---
+name: pipeline-lookalike-sub-verticals
+description: Pipeline.tech play. Turn your best 5 to 10 customers into a segmented account list. Expands seeds with a lookalike tool at three similarity levels kept apart, reads each company&#x27;s website to sort it into 5 to 8 sub-verticals, qualifies against the ICP before any paid lookup, finds 3 to 5 decision makers per account with title keyword variations, then runs one campaign per sub-vertical plus an adjacent-vertical probe and cuts or scales each lane on emails per lead. USE WHEN user says &quot;/pipeline-lookalike-sub-verticals&quot; OR &quot;lookalike sub-verticals&quot; OR &quot;lookalike play&quot; OR &quot;expand from our best customers&quot; OR &quot;seed companies to campaigns&quot; OR &quot;split the ICP into sub-verticals&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/lookalike-sub-verticals)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: Best customers as seeds
+outcome: One campaign per sub-vertical, losers cut, winners scaled
+category: foundation
+channels: email, linkedin
+tools: Ocean.io, AI Ark (option), DiscoLike (option), Serper, Claude, LeadMagic, Prospeo, MillionVerifier, BounceBan, EmailBison, HeyReach, Attio
+---
+
+# Lookalike Sub-Verticals
+
+One broad ICP campaign averages every pain into one message and one number. Your best customers already show which sub-verticals buy, so expand from them, split the result into lanes, and give each lane its own copy and its own read. A proxy and web-data client went from about 1 lead per 2,290 emails on a broad send to about 1 per 283 on targeted sub-vertical lanes.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. Five to ten seed domains: the customers the user would clone, picked by revenue, retention and ease of close, not logo size. Strip `https://`, `www.` and trailing slashes.
+2. The ICP in one paragraph: headcount band, geography, the problem you solve, who owns it, and what disqualifies an account.
+3. Stack answers from core section 1. Lookalike tool: Ocean.io first, AI Ark or DiscoLike if the user already has one.
+4. The offer in one sentence and one proof point per sub-vertical where the user has them.
+
+## Steps
+
+### 1. Expand from the seeds
+Tools: Ocean.io, AI Ark (option), DiscoLike (option)
+Flow:
+- Strict, 0.85 | with: Ocean.io | tag: band 1
+- Standard, 0.79 | with: Ocean.io | tag: band 2
+- Broad, 0.70 | with: Ocean.io | tag: band 3
+= Three lists kept apart, deduped by domain | Headcount and country filters only; no industry filters from vendor labels | with: AI Ark, DiscoLike | chips: similarity_band, source
+
+- Run the lookalike search three times with the same seeds and filters, once at each similarity floor: strict (0.85 and above), standard (0.79), broad (0.70). Keep the three pulls as separate lists with a `similarity_band` column. Each band is measured on its own in step 8.
+- Filter on the user&#x27;s headcount band and countries only. No industry filters; the sort happens in step 2 from the website, not vendor labels.
+- Paginate until the pull is exhausted. A band under 50 companies: widen headcount before lowering the floor.
+- Apply core: lists (second source, dedupe by domain, `source` column, keep the raw pull).
+
+### 2. Sort into sub-verticals
+Tools: Serper, Claude
+Flow:
+= Website read, one sub-vertical per row | 5 to 8 labels from the user or clustered and approved; other over 25% means the seeds are mixed | with: Serper, Claude | chips: retail analytics, brand protection, ticketing, other, adjacent vertical
+
+- Fetch each company&#x27;s homepage and one product page. Write a two-sentence summary: what they sell, to whom.
+- Ask the user to name 5 to 8 sub-verticals. Examples from the proof run, for a proxy and web-data offer: retail analytics, social media analytics, brand protection, ticketing, travel, SEO, web data extraction. If the user cannot name them, cluster the summaries with the model and propose labels for approval.
+- Label every row with exactly one sub-vertical, or `other`. If `other` passes 25 percent of a band, the seeds are too mixed; ask the user to split them.
+- Name one adjacent vertical outside the ICP that shares the underlying need (agencies for a data vendor, integrators for a platform). It gets its own list and campaign in step 7.
+
+### 3. Qualify before anything paid
+Tools: Claude
+Flow:
+= 0 to 100 against the ICP, pass at 60 | Under 40% passing means the seeds and the ICP disagree | with: Claude | tag: core: exclusions
+
+- Score every account 0 to 100 against the written ICP from the website summary, with one line of reasoning. Default pass mark 60. Apply core: lists (qualify before any paid lookup).
+- Expect 50 to 70 percent to pass. Under 40 means the seeds and the ICP paragraph disagree; stop and show the user the top disqualification reasons.
+- Apply core: exclusions.
+
+### 4. Find decision makers with title keywords
+Tools: Ocean.io, Apollo, LinkedIn
+Flow:
+- 20 to 30 title keyword variations | Search people by keywords, not seniority filters; 3 to 5 per company | with: Ocean.io, Apollo, LinkedIn | chips: owner of the problem, the person above, peers
+- Waterfall and two-pass verification | with: LeadMagic, Prospeo, MillionVerifier, BounceBan | tag: core
+
+- Pick the buyer roles by company size. Apply core: enrichment (decision maker by size).
+- For each role, generate 20 to 30 title keyword variations with the model: canonical, informal, legacy and regional forms (&quot;data engineering&quot;, &quot;data platform&quot;, &quot;data infrastructure&quot;, &quot;VP data&quot;, &quot;director of data&quot;). Search people by those keywords, not by seniority filters. Seniority filters miss the messy real titles, and that is where the volume is.
+- Target 3 to 5 contacts per company: the owner of the problem, the person above them, one or two peers who feel the pain. Under 50 people, one or two.
+- Apply core: enrichment (waterfall) and core: verification.
+
+### 5. Build one campaign per sub-vertical
+Tools: EmailBison, Instantly (option), HeyReach
+Flow:
+= One campaign per sub-vertical, standard band first | Strict and broad follow in weeks 2 and 3, each its own inbox set | with: EmailBison, Instantly, HeyReach | chips: {PLAY} {SUBVERTICAL} {BAND} {MONTH}, Tier 2 LinkedIn connect | tag: send
+
+- One campaign per sub-vertical, standard band first. Strict and broad follow as their own campaigns in weeks 2 and 3, so every band reads separately against the same copy. Own inbox set per campaign. Apply core: send rules.
+- Name campaigns `{PLAY} {SUBVERTICAL} {BAND} {MONTH}` so weekly reporting can group by any of the four.
+- Tier 2 contacts also get a LinkedIn connection request, no note, the same week as email one.
+
+### 6. Write pain-specific copy
+Tools: Claude
+Flow:
+= One pain per sub-vertical, in its words | Two angles for email 1, one threaded nudge; the lane is the personalization | with: Claude | chips: {SUBVERTICAL_PAIN}, {PROOF}, {TITLE_SHORT}
+
+- Apply core: copy and send rules.
+- One pain per sub-vertical, in the words that sub-vertical uses. Ticketing gets a line about blocked checkouts during on-sales; brand protection gets marketplaces that geo-fence listings. Same offer, different first sentence, different proof point.
+- Draft 2 angle variants for email 1 per sub-vertical and one threaded nudge for email 2. Show the full set to the user before upload. A sub-vertical with no proof point runs the general angle and is flagged in the report.
+- Variables: `{SUBVERTICAL_PAIN}`, `{PROOF}`, `{TITLE_SHORT}`. No company-name personalization tricks; the lane is the personalization.
+
+### 7. Add the adjacent-vertical probe
+Tools: EmailBison, Instantly (option)
+Flow:
+= Adjacent vertical as backup volume | Same two-step structure; under 1:500 over two weeks it becomes a full lane | with: EmailBison, Instantly | tag: probe
+
+- Launch the adjacent vertical from step 2 as one more campaign at the standard band, same two-step structure, general angle. It is backup volume and a cheap test of a market the user has not considered.
+- If the probe lands under 1 lead per 500 emails over two weeks, read the replies for why, give it a sub-vertical label, and promote it to a full lane in step 5.
+
+### 8. Read lanes weekly, cut and scale
+Tools: EmailBison, Attio, Slack
+Flow:
+- Scale under 1:300 | Add inboxes, pull the next band, add adjacent titles | with: EmailBison, Attio
+- Hold 1:300 to 1:1,000 | Rotate copy after 4 weeks | with: Attio
+- Cut over 1:1,000 | After 1,500 sends; move the inboxes to a winner | with: Slack
+
+- Every Monday, per campaign: sent, replies, interested, emails per interested lead. Emails per lead decides; reply rate alone misleads.
+- Under 1 lead per 300 emails: scale. Add inboxes, pull the next similarity band, add adjacent titles.
+- Between 1:300 and 1:1,000: hold, rotate copy after 4 weeks.
+- Over 1 lead per 1,000 emails after 1,500 sends: cut the lane. Pause, log the reason, move the inboxes to a winner.
+- Do not judge a lane under 1,000 sends. Low volume reads as noise in both directions.
+- Apply core: CRM and alerts. Apply core: credits and handoff.
+
+## Guardrails
+
+- Never merge the three similarity bands into one list. Each band and each sub-vertical is measured by itself.
+- Never buy contacts for an account that has not passed the website ICP check. People lookups are the expensive step; the model read costs cents.
+- Never write the sub-vertical label into the email as a category (&quot;as a ticketing company&quot;). Write the pain it stands for.
+- Never cut a lane on reply rate. Cut on emails per lead, after the send floor.
+
+## Example run
+
+User: &quot;/pipeline-lookalike-sub-verticals, seeds are our 8 best customers, ICP is B2B software 100 to 2,000 people in the US and UK, we sell residential proxies&quot;
+
+1. Confirmed seeds and ICP paragraph, Ocean.io plus EmailBison plus HeyReach plus Attio.
+2. Three pulls: 410 strict, 1,180 standard, 2,640 broad. 3,560 unique companies after dedupe, each with its band label.
+3. Website summaries sorted into 7 sub-verticals plus `other` (14 percent). Adjacent vertical: marketing agencies.
+4. 2,210 passed the ICP check at 60, 88 removed as customers, open deals or recent sequences.
+5. 24 title variations per role, 7,340 contacts found, 5,910 verified valid, catch-alls in their own campaigns.
+6. 7 standard-band campaigns plus one agency probe launched across 16 inboxes after copy approval; strict and broad bands queued for weeks 2 and 3.
+7. Week 4 read: web data extraction at 1:240 and brand protection at 1:310 scaled; travel at 1:1,900 cut; agency probe at 1:470 flagged for promotion.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Lookalike Sub-Verticals end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/lookalike-sub-verticals'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../full-tam-map/index.html'><span class='eyebrow'>Previous</span><b>Full-TAM Map</b></a>
+<a href='../pain-qualified-segments/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Pain-Qualified Segments</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

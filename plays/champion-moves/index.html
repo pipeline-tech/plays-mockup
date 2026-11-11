@@ -1,0 +1,371 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Champion Moves | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-signal'>Third-party signals</a><span>/</span><span>Champion Moves</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 23 · Third-party signals</div>
+<h1>Champion Moves</h1>
+<div class='meta'><div><b>Trigger</b> A past buyer, user or advocate lands at an ICP company</div><div><b>Outcome</b> A meeting at the new logo</div><div><b>Channels</b> email, linkedin, call</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-champion-moves' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-champion-moves'>Install the Pipeline.tech &quot;Champion Moves&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/champion-moves/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-champion-moves/SKILL.md, then run /pipeline-champion-moves.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-champion-moves.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/champion-moves.svg' alt='Champion Moves workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/champion-moves.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>The warmest cold email there is goes to someone who already bought from you, used you or vouched for you, on the day they land somewhere new with budget and a problem they know you solve. The trust a stranger would have to earn is already on record in your CRM. This play keeps a roster of those people, watches for the move, and puts the person who worked with them in front of them before the new stack is decided.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1 and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The ICP in one paragraph: industries, headcount band, geography, the problem you solve.</li>
+<li>Where the relationship history lives: CRM, product user list, event lists, newsletter replies, and who owned each account.</li>
+<li>Stack answers from core section 1.</li>
+<li>Which results and customer names may be named in writing.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Build the champion roster</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span><span class="chip">Salesforce (option)</span><span class="chip">Google Sheets</span><span class="chip">Claude</span></div>
+<ul>
+<li>Export every contact at a closed-won account and tag their role in the deal: signer, champion, daily user. The product's user list knows who logged in every day, and those people move too.</li>
+<li>Add the warm non-customers: churned on good terms, replied interested or booked but never closed, event contacts, newsletter readers who wrote back.</li>
+<li>Tag every row with relationship strength (bought, used, advocated, met), the owner at the time, and the result they saw where it is on record. No record, no number in the copy.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Watch for moves</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Apollo</span><span class="chip">AI Ark (option)</span><span class="chip">LinkedIn</span><span class="chip">Sales Navigator</span></div>
+<ul>
+<li>Re-enrich current company, title and start date on every roster row on the same day each month. Apollo for most rosters, AI Ark past a few thousand rows.</li>
+<li>Load the roster into Sales Navigator as saved lead lists so alerts arrive between runs.</li>
+<li>A changed company is a move and continues here. A changed title at the same company is a promotion: a congratulations note from the owner, then back to the roster, never a sequence.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Confirm and qualify the landing</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">LinkedIn</span><span class="chip">Ocean.io</span><span class="chip">Apollo</span><span class="chip">Claude</span><span class="chip">Attio</span></div>
+<ul>
+<li>Confirm every move with a second source. One feed gets start dates wrong by months and reads an advisory role as a move.</li>
+<li>ICP check on the new company: headcount, industry, location, a yes or no with one reason. Apply core: exclusions. The relationship does not make a non-ICP company ICP.</li>
+<li>If the new company is already a customer or an open deal, this is not a sequence. Write it as an expansion intro and route it to that account's owner, who just gained an internal ally.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>The hole left behind</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Slack</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span></div>
+<ul>
+<li>When the person leaving sits at a current customer, Slack the account owner the same day. The account just lost its internal advocate; the next renewal runs through someone who did not pick you.</li>
+<li>Log a churn flag with the departed champion's role and date. The owner maps who holds the seat now and books a call within two weeks. A retention step, and it lives here because the signal arrives here first.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Enrich and verify the new address</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>Find the address at the new company; the old one is dead or forwards to a stranger.</li>
+<li>New addresses reach the vendors two to four weeks after the start date, so re-run the waterfall weekly on empty rows. LinkedIn carries the personal note meanwhile.</li>
+<li>Apply core: enrichment. Apply core: verification.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Tier and route</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Slack</span><span class="chip">Attio</span><span class="chip">Phone</span><span class="chip">LinkedIn</span><span class="chip">Gmail</span></div>
+<ul>
+<li>Tier 1: they bought, and the new company fits. Slack the original owner with the move, the shared history and a one-line opener. The owner sends a personal note from their own inbox and calls. No campaign for Tier 1, ever.</li>
+<li>Tier 2: they used it or advocated for it. The person who worked with them writes a personal email; if silent by day 14, a two-step sequence follows from the same inbox.</li>
+<li>Tier 3: met only. Two-step sequence from the owner's own inbox.</li>
+<li>Write every row to the CRM with play name, tier, relationship strength, old account, new company, start date and source URL. If a cold play is working the new company, the champion wins and the cold row pauses.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Write and launch</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Gmail</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">HeyReach</span></div>
+<ul>
+<li>Apply core: copy and send rules, with one change: these emails come from a named person's real inbox, not a play inbox set.</li>
+<li>Email 1: congratulate on the specific move, recall the shared history in one line (what they used it for and the result, named only if on record and permitted), offer to show how it would look at the new company. Email 2 is a threaded nudge.</li>
+<li>The committee ask lives in the reply thread, never in the sequence.</li>
+<li>Draft one variant per tier and show them to the user before anything sends. Load Tier 2 and 3 with <code><span class=\"var\">{NEW_COMPANY}</span></code>, <code><span class=\"var\">{OLD_COMPANY}</span></code>, <code><span class=\"var\">{RESULT}</span></code> and <code><span class=\"var\">{OWNER_NAME}</span></code>; stop at day 90 or on a reply.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Report monthly</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>Monthly, after the re-enrichment run: moves caught, ICP landings, expansion intros, notes sent, sequences started, reply rate, meetings, plus churn flags raised at old accounts and how many got a new contact mapped.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>A personal note may go any time after the move is public; the business ask waits until day 14.</li>
+<li>No overlap with New Leader in Seat. That play watches the buying seat at target accounts for any newcomer; Champion Moves watches the people who already know you, wherever they land. A person in both is removed from New Leader in Seat; the champion relationship wins.</li>
+<li>Always from the person who worked with them, never a cold inbox set. If that person has left, the owner who inherited the relationship sends, and the email says so.</li>
+<li>Never reveal CRM detail they would not expect you to remember. A result they reported on a call is fair; seat count, contract value or a support ticket is not.</li>
+<li>A champion who lands outside the ICP gets a congratulations note and stays on the roster. The roster is never a cold list.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-champion-moves for our outbound agency, 140 closed-won accounts over four years, Attio plus a product user export"</p>
+<ol>
+<li>Asked for nameable results and account owners; confirmed Attio, Apollo, Sales Navigator, EmailBison, Gmail and Slack.</li>
+<li>Roster: 612 rows. 318 at closed-won accounts (97 signers, 141 champions, 80 daily users), 64 churned well, 146 interested but never closed, 84 event and newsletter contacts. 221 bought, 119 used, 58 advocated, 214 met.</li>
+<li>First monthly run: 41 changes, 29 moves, 12 promotions to their own lane. Sales Navigator added 6 moves between runs.</li>
+<li>35 moves, 31 confirmed; 17 at ICP companies, 3 at current customers routed as expansion intros, 11 outside the ICP, congratulations note only.</li>
+<li>9 departed champions sat at current customers: 9 same-day Slack alerts and churn flags, 6 new contacts mapped within two weeks.</li>
+<li>14 new addresses found, 3 waiting for next week's re-run; 13 verified valid, 1 catch-all in its own campaign.</li>
+<li>6 Tier 1: personal notes and calls from the original owners, 4 calls held. 7 Tier 2: 3 replied inside 14 days, 4 moved to the two-step sequence. 4 Tier 3 loaded from the owner's inbox.</li>
+<li>Month one: 5 meetings at new logos, 3 expansion intros, 9 churn flags raised.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/champion-moves/SKILL.md</b><span>The skill file behind this page, 133 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-champion-moves'>Copy skill file</button></div>
+<pre>---
+name: pipeline-champion-moves
+description: Pipeline.tech play. Reach a past buyer, user or advocate on the day they land somewhere new with budget and a problem they already know you solve. Builds a champion roster from the CRM and the product, re-enriches it monthly for company and title changes alongside LinkedIn job-change alerts, confirms every move with a second source, checks the new company against the ICP, flags the hole left at the old account to its owner the same day, then routes by relationship strength: a personal note and a call from the original owner for past buyers, a personal email then a two-step sequence for users and advocates. USE WHEN user says &quot;/pipeline-champion-moves&quot; OR &quot;champion moves&quot; OR &quot;champion tracking&quot; OR &quot;past customer changed jobs&quot; OR &quot;our champion left&quot; OR &quot;track where our users went&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/champion-moves)
+version: 0.1.0</pre><div class='more'>… 128 more lines</div>
+<pre id='raw-champion-moves' class='hidden'>---
+name: pipeline-champion-moves
+description: Pipeline.tech play. Reach a past buyer, user or advocate on the day they land somewhere new with budget and a problem they already know you solve. Builds a champion roster from the CRM and the product, re-enriches it monthly for company and title changes alongside LinkedIn job-change alerts, confirms every move with a second source, checks the new company against the ICP, flags the hole left at the old account to its owner the same day, then routes by relationship strength: a personal note and a call from the original owner for past buyers, a personal email then a two-step sequence for users and advocates. USE WHEN user says &quot;/pipeline-champion-moves&quot; OR &quot;champion moves&quot; OR &quot;champion tracking&quot; OR &quot;past customer changed jobs&quot; OR &quot;our champion left&quot; OR &quot;track where our users went&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/champion-moves)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: A past buyer, user or advocate lands at an ICP company
+outcome: A meeting at the new logo
+category: signal
+channels: email, linkedin, call
+tools: Attio, HubSpot, Salesforce, Google Sheets, Apollo, AI Ark, LinkedIn, Sales Navigator, Ocean.io, Claude, LeadMagic, Prospeo, MillionVerifier, BounceBan, Slack, HeyReach, Phone, EmailBison, Instantly, Gmail
+---
+
+# Champion Moves
+
+The warmest cold email there is goes to someone who already bought from you, used you or vouched for you, on the day they land somewhere new with budget and a problem they know you solve. The trust a stranger would have to earn is already on record in your CRM. This play keeps a roster of those people, watches for the move, and puts the person who worked with them in front of them before the new stack is decided.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1 and save them to `./pipeline-plays.config.json`:
+
+1. The ICP in one paragraph: industries, headcount band, geography, the problem you solve.
+2. Where the relationship history lives: CRM, product user list, event lists, newsletter replies, and who owned each account.
+3. Stack answers from core section 1.
+4. Which results and customer names may be named in writing.
+
+## Steps
+
+### 1. Build the champion roster
+Tools: Attio, HubSpot (option), Salesforce (option), Google Sheets, Claude
+Flow:
+- Contacts from closed-won | Every contact at a closed-won account tagged by their role in the deal; the product user list fills the daily-user gap the CRM misses | with: Attio, HubSpot, Salesforce | chips: signer, champion, daily user
+- Warm non-customers | Churned on good terms, replied interested or booked but never closed, met at an event, wrote back to the newsletter | with: Attio, Google Sheets | chips: churned well, interested, booked, event, newsletter reply
+= Tag relationship strength | Bought, used, advocated or met, plus the account owner at the time and the result they saw where it is on record | with: Claude | chips: bought, used, advocated, met, result on record
+
+- Export every contact at a closed-won account and tag their role in the deal: signer, champion, daily user. The product&#x27;s user list knows who logged in every day, and those people move too.
+- Add the warm non-customers: churned on good terms, replied interested or booked but never closed, event contacts, newsletter readers who wrote back.
+- Tag every row with relationship strength (bought, used, advocated, met), the owner at the time, and the result they saw where it is on record. No record, no number in the copy.
+
+### 2. Watch for moves
+Tools: Apollo, AI Ark (option), LinkedIn, Sales Navigator
+Flow:
+- Monthly re-enrichment | Current company, title and start date on every roster row, run on the same day each month so the delta is clean | with: Apollo, AI Ark | chips: company, title, start date
+- Job-change alerts | The roster saved as lead lists so changes surface between monthly runs | with: LinkedIn, Sales Navigator | tag: second feed
+= Move or promotion | A changed company is a move and runs this play; a changed title at the same company is a promotion and goes to its own lane | chips: move, promotion
+
+- Re-enrich current company, title and start date on every roster row on the same day each month. Apollo for most rosters, AI Ark past a few thousand rows.
+- Load the roster into Sales Navigator as saved lead lists so alerts arrive between runs.
+- A changed company is a move and continues here. A changed title at the same company is a promotion: a congratulations note from the owner, then back to the roster, never a sequence.
+
+### 3. Confirm and qualify the landing
+Tools: LinkedIn, Ocean.io, Apollo, Claude, Attio
+Flow:
+- Second source | LinkedIn profile or the new company&#x27;s team page before any move counts, with start date and previous company | with: LinkedIn, Claude | chips: confirmed, start date, source URL
+- ICP check on the new company | Headcount, industry, location and a yes or no with one reason from the website | with: Ocean.io, Apollo, Claude | tag: core: exclusions
+= Customer or open deal | A landing at a current customer or open deal becomes an expansion intro routed to that account&#x27;s owner, not a sequence | with: Attio | tag: expansion intro
+
+- Confirm every move with a second source. One feed gets start dates wrong by months and reads an advisory role as a move.
+- ICP check on the new company: headcount, industry, location, a yes or no with one reason. Apply core: exclusions. The relationship does not make a non-ICP company ICP.
+- If the new company is already a customer or an open deal, this is not a sequence. Write it as an expansion intro and route it to that account&#x27;s owner, who just gained an internal ally.
+
+### 4. The hole left behind
+Tools: Slack, Attio, HubSpot (option)
+Flow:
+= Same-day alert to the old account&#x27;s owner | The account just lost its internal advocate and needs a new one; log a churn flag with the departed champion&#x27;s role and date | with: Slack, Attio, HubSpot | chips: account, departed champion, role, owner | tag: retention
+
+- When the person leaving sits at a current customer, Slack the account owner the same day. The account just lost its internal advocate; the next renewal runs through someone who did not pick you.
+- Log a churn flag with the departed champion&#x27;s role and date. The owner maps who holds the seat now and books a call within two weeks. A retention step, and it lives here because the signal arrives here first.
+
+### 5. Enrich and verify the new address
+Tools: LeadMagic, Prospeo, MillionVerifier, BounceBan
+Flow:
+- Email waterfall at the new company | The new work address, never the one on the old record; each vendor only sees what the one before it missed | with: LeadMagic, Prospeo | tag: core: enrichment
+- Two-pass verification | Valid to the main campaign, catch-all to its own | with: MillionVerifier, BounceBan | tag: core: verification
+
+- Find the address at the new company; the old one is dead or forwards to a stranger.
+- New addresses reach the vendors two to four weeks after the start date, so re-run the waterfall weekly on empty rows. LinkedIn carries the personal note meanwhile.
+- Apply core: enrichment. Apply core: verification.
+
+### 6. Tier and route
+Tools: Slack, Attio, Phone, LinkedIn, Gmail
+Flow:
+- Tier 1: bought | Past buyer at an ICP landing: the original owner sends a personal note and calls, never a campaign | with: Slack, Phone, LinkedIn, Gmail | tag: high touch
+- Tier 2: used or advocated | Personal email from the person who worked with them, then a two-step sequence from that same inbox if silent at day 14 | with: Gmail, Attio | chips: personal first, sequence second
+- Tier 3: met | Two-step sequence from the owner&#x27;s own inbox | with: Attio | chips: event, newsletter reply
+
+- Tier 1: they bought, and the new company fits. Slack the original owner with the move, the shared history and a one-line opener. The owner sends a personal note from their own inbox and calls. No campaign for Tier 1, ever.
+- Tier 2: they used it or advocated for it. The person who worked with them writes a personal email; if silent by day 14, a two-step sequence follows from the same inbox.
+- Tier 3: met only. Two-step sequence from the owner&#x27;s own inbox.
+- Write every row to the CRM with play name, tier, relationship strength, old account, new company, start date and source URL. If a cold play is working the new company, the champion wins and the cold row pauses.
+
+### 7. Write and launch
+Tools: Claude, Gmail, EmailBison, Instantly (option), HeyReach
+Flow:
+- Congratulate and recall | The move named specifically, one line of shared history with the result only if on record and permitted, an offer to show how it would look at the new company | with: Claude | chips: {NEW_COMPANY}, {OLD_COMPANY}, {RESULT}, {OWNER_NAME}
+- Ask for the committee later | The new committee is asked for only after they reply; email 1 asks for nothing but a look | with: Claude | tag: one ask
+= Launch from the owner&#x27;s inbox | Personal note any time after the move is public, business ask from day 14, stop at day 90 or on a reply | with: Gmail, EmailBison, Instantly, HeyReach | tag: send
+
+- Apply core: copy and send rules, with one change: these emails come from a named person&#x27;s real inbox, not a play inbox set.
+- Email 1: congratulate on the specific move, recall the shared history in one line (what they used it for and the result, named only if on record and permitted), offer to show how it would look at the new company. Email 2 is a threaded nudge.
+- The committee ask lives in the reply thread, never in the sequence.
+- Draft one variant per tier and show them to the user before anything sends. Load Tier 2 and 3 with `{NEW_COMPANY}`, `{OLD_COMPANY}`, `{RESULT}` and `{OWNER_NAME}`; stop at day 90 or on a reply.
+
+### 8. Report monthly
+Tools: Attio, Slack
+Flow:
+= Monthly read by tier | Moves caught, promotions split out, ICP landings, expansion intros, meetings, churn flags raised at the old accounts | with: Attio, Slack
+
+- Monthly, after the re-enrichment run: moves caught, ICP landings, expansion intros, notes sent, sequences started, reply rate, meetings, plus churn flags raised at old accounts and how many got a new contact mapped.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- A personal note may go any time after the move is public; the business ask waits until day 14.
+- No overlap with New Leader in Seat. That play watches the buying seat at target accounts for any newcomer; Champion Moves watches the people who already know you, wherever they land. A person in both is removed from New Leader in Seat; the champion relationship wins.
+- Always from the person who worked with them, never a cold inbox set. If that person has left, the owner who inherited the relationship sends, and the email says so.
+- Never reveal CRM detail they would not expect you to remember. A result they reported on a call is fair; seat count, contract value or a support ticket is not.
+- A champion who lands outside the ICP gets a congratulations note and stays on the roster. The roster is never a cold list.
+
+## Example run
+
+User: &quot;/pipeline-champion-moves for our outbound agency, 140 closed-won accounts over four years, Attio plus a product user export&quot;
+
+1. Asked for nameable results and account owners; confirmed Attio, Apollo, Sales Navigator, EmailBison, Gmail and Slack.
+2. Roster: 612 rows. 318 at closed-won accounts (97 signers, 141 champions, 80 daily users), 64 churned well, 146 interested but never closed, 84 event and newsletter contacts. 221 bought, 119 used, 58 advocated, 214 met.
+3. First monthly run: 41 changes, 29 moves, 12 promotions to their own lane. Sales Navigator added 6 moves between runs.
+4. 35 moves, 31 confirmed; 17 at ICP companies, 3 at current customers routed as expansion intros, 11 outside the ICP, congratulations note only.
+5. 9 departed champions sat at current customers: 9 same-day Slack alerts and churn flags, 6 new contacts mapped within two weeks.
+6. 14 new addresses found, 3 waiting for next week&#x27;s re-run; 13 verified valid, 1 catch-all in its own campaign.
+7. 6 Tier 1: personal notes and calls from the original owners, 4 calls held. 7 Tier 2: 3 replied inside 14 days, 4 moved to the two-step sequence. 4 Tier 3 loaded from the owner&#x27;s inbox.
+8. Month one: 5 meetings at new logos, 3 expansion intros, 9 churn flags raised.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Champion Moves end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/champion-moves'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../closed-lost-revival/index.html'><span class='eyebrow'>Previous</span><b>Closed-Lost Revival</b></a>
+<a href='../competitor-post-engagers/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Competitor Post Engagers</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

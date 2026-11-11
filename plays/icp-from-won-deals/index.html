@@ -1,0 +1,358 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>ICP from Won Deals | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-foundation'>Foundation</a><span>/</span><span>ICP from Won Deals</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 01 · Foundation</div>
+<h1>ICP from Won Deals</h1>
+<div class='meta'><div><b>Trigger</b> Closed-won and closed-lost deals from the last 12 to 24 months plus the best 10 customers</div><div><b>Outcome</b> A buildable ICP every list can be tested against</div><div><b>Channels</b> email</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-icp-from-won-deals' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-icp-from-won-deals'>Install the Pipeline.tech &quot;ICP from Won Deals&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/icp-from-won-deals/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-icp-from-won-deals/SKILL.md, then run /pipeline-icp-from-won-deals.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-icp-from-won-deals.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/icp-from-won-deals.svg' alt='ICP from Won Deals workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/icp-from-won-deals.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>"B2B SaaS, 50 to 500 people" is a market, not an ICP, and a list built on it exhausts the budget before it finds the buyer. The real ICP is the exact company and persona most likely to buy and stay, and your closed-won deals already describe it while your closed-lost deals describe the edges. This play reads both, writes the ICP as five parts a list builder can act on, and proves it by backtesting against the deals you already closed.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>CRM access (Attio first, HubSpot as the option) or a CSV export of deals. Stack answers from core section 1.</li>
+<li>The window. Default 24 months, never less than 12. Under 30 closed-won deals, say so and widen the window or add current customers with their start date as the close date.</li>
+<li>The best 10 customers by revenue, retention and ease of close. If the user cannot name them, rank by annual value times months retained and show the top 15 for a hand pick.</li>
+<li>Planned send volume per month. This sets the TAM floor in step 4.</li>
+<li>What the product does in one sentence, so the model can judge which function owns the problem.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Export the deals</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span><span class="chip">CSV</span></div>
+<ul>
+<li>Pull every closed-won and closed-lost deal in the window with value, cycle length in days, close date, stage reached, the loss reason as the rep wrote it, and the first contact's title.</li>
+<li>Resolve a domain for every company in its own pass. A row with no domain cannot be enriched or backtested.</li>
+<li>Write one CSV with an <code>outcome</code> column. Keep the raw export untouched beside it.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Enrich the companies</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Ocean.io</span><span class="chip">Apollo</span><span class="chip">BuiltWith</span><span class="chip">AI Ark (optional)</span></div>
+<ul>
+<li>Add firmographics to every row, then technographics from the website. The stack says more about buying behaviour than the industry label does.</li>
+<li>Add the 12-month headcount change and open roles in the function you sell to. These are the trigger candidates for step 4.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Find the patterns</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span></div>
+<ul>
+<li>Give the model the enriched file and ask for three lists: traits far more common in won than in lost, traits far more common in lost than in won, and loss reasons that repeat three times or more. Every claim cites the count on each side.</li>
+<li>Reverse-engineer the best 10 customers one at a time: headcount at signing, who signed, what the company was doing that quarter, the stack at the time. What was true before they bought is the ICP. What is true now is the result of being a customer.</li>
+<li>Where the 10 disagree with the aggregate, trust the 10. They are the customers you want more of.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Write the five buildable parts</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Write the ICP as five parts a list builder can filter on: a revenue or headcount floor, the function that owns the problem, a trigger visible this quarter, the disqualifiers written out, and a TAM large enough for the planned send volume. A 400-company ICP exhausts in six weeks.</li>
+<li>Define the decision maker per company size band. Apply core: enrichment for the bands, then name the titles the won deals actually signed with inside each band.</li>
+<li>Run the one-message test. Draft one 40-word opener. If it fits every company in the segment, the segment holds. If some companies need a different first sentence, the segment splits and each half gets its own five parts.</li>
+<li>Count the TAM. If it covers fewer than four months of planned volume, loosen the floor or the trigger, never the disqualifiers.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Backtest against the deals</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">CSV</span></div>
+<ul>
+<li>Score every company in the deal file against the written ICP with the outcome column hidden. The scorer sees only the enrichment and the website.</li>
+<li>Target: 95 percent or more of closed-won pass. Losses should cluster outside the ICP, or inside it with the same loss reason. A loss that passes with a unique reason is a sales problem, not an ICP problem, so leave it.</li>
+<li>Below 95 percent, read the won deals that failed. If they share a trait, the ICP is too narrow on that trait. If they share nothing, they are exceptions and the ICP stands.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Score any list against it</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Serper</span><span class="chip">Firecrawl</span><span class="chip">Claude</span></div>
+<ul>
+<li>Pull the homepage and one product or about page per company. Search results fill the gap when a site will not load.</li>
+<li>A cheap model scores each company 0 to 100 against the five parts with one reason. 80 and above is strong, 60 to 79 likely, below 60 is out. Pass at 60. A company matching a disqualifier scores 0 regardless.</li>
+<li>Read the drop reasons in bulk. One reason repeating across many rows means the ICP wording is wrong, not the list. Hand-sample 50 keeps.</li>
+<li>Apply core: lists for the sourcing order. This step runs before any paid people lookup.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Save and review quarterly</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">CSV</span><span class="chip">Google Sheets</span><span class="chip">Attio</span></div>
+<ul>
+<li>Write <code>./icp.md</code> with the five parts, the decision maker per size band, the disqualifiers, the backtest numbers and the date. Write the same content as structured fields into <code>./pipeline-plays.config.json</code> under <code>icp</code>, so the signal plays and list plays filter on it without asking.</li>
+<li>Every 90 days, export the deals closed since the last review and rerun step 5 on them alone. Change the ICP only when the pass rate drops or a new loss reason repeats.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>Never write an industry label as the ICP. "SaaS" or "e-commerce" is a market. The five parts are the ICP.</li>
+<li>Never let the model see the outcome column during the backtest or the list scoring. A scorer that knows the answer proves nothing.</li>
+<li>Never loosen a disqualifier to hit the TAM number. Loosen the floor or the trigger instead.</li>
+<li>Never carry customer names, deal values or loss reasons into any file a prospect could see. The ICP is the pattern, not the roster.</li>
+<li>Fewer than 30 closed-won deals is a thin sample. Say so in <code>icp.md</code> and schedule the first review at 60 days instead of 90.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-icp-from-won-deals, we sell a revenue intelligence tool, Attio is the CRM"</p>
+<ol>
+<li>Exported 24 months from Attio: 68 closed-won, 214 closed-lost, 11 rows with no domain fixed by hand.</li>
+<li>Enriched 282 companies. Headcount, revenue band and stack found for 271.</li>
+<li>Four win traits: 80 to 400 headcount, a VP of Sales or CRO in seat under 18 months, an outbound stack running, at least one open SDR role. "No budget" and "too early" repeated 61 times, almost all under 40 people.</li>
+<li>Best 10 agreed on three of the four and added a Series A or B in the prior 12 months. Wrote the five parts, set the floor at 80 headcount and the trigger as an SDR or AE role opened this quarter. The one-message test split the segment into mid-market with a CRO and SMB with a founder-led sales team.</li>
+<li>Backtest: 65 of 68 won passed (96 percent); 183 of 214 lost failed, 24 of the rest shared the loss reason "already using a competitor".</li>
+<li>Scored a 2.4K-company Apollo pull: 1.1K passed at 60, 390 strong. Drop reason "no outbound motion" repeated 600 times, so the ICP gained a stack requirement.</li>
+<li>Saved <code>icp.md</code> and the config, next review booked for 90 days out.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/icp-from-won-deals/SKILL.md</b><span>The skill file behind this page, 126 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-icp-from-won-deals'>Copy skill file</button></div>
+<pre>---
+name: pipeline-icp-from-won-deals
+description: Pipeline.tech play. Build the ICP from closed-won and closed-lost deals instead of a market label. Exports 12 to 24 months of deals, enriches the companies, finds shared win traits and loss traits with a model, reverse-engineers the best 10 customers, writes the ICP as five buildable parts, backtests it against the deals, and saves it so every other play reads it. USE WHEN user says &quot;/pipeline-icp-from-won-deals&quot; OR &quot;ICP from won deals&quot; OR &quot;build our ICP&quot; OR &quot;define the ICP&quot; OR &quot;who should we target&quot; OR &quot;backtest the ICP&quot; OR &quot;score this list against the ICP&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/icp-from-won-deals)
+version: 0.1.0</pre><div class='more'>… 121 more lines</div>
+<pre id='raw-icp-from-won-deals' class='hidden'>---
+name: pipeline-icp-from-won-deals
+description: Pipeline.tech play. Build the ICP from closed-won and closed-lost deals instead of a market label. Exports 12 to 24 months of deals, enriches the companies, finds shared win traits and loss traits with a model, reverse-engineers the best 10 customers, writes the ICP as five buildable parts, backtests it against the deals, and saves it so every other play reads it. USE WHEN user says &quot;/pipeline-icp-from-won-deals&quot; OR &quot;ICP from won deals&quot; OR &quot;build our ICP&quot; OR &quot;define the ICP&quot; OR &quot;who should we target&quot; OR &quot;backtest the ICP&quot; OR &quot;score this list against the ICP&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/icp-from-won-deals)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: Closed-won and closed-lost deals from the last 12 to 24 months plus the best 10 customers
+outcome: A buildable ICP every list can be tested against
+category: foundation
+channels: email
+tools: Attio, HubSpot, Ocean.io, Apollo, AI Ark, BuiltWith, Claude, Serper, Firecrawl, Google Sheets, CSV
+---
+
+# ICP from Won Deals
+
+&quot;B2B SaaS, 50 to 500 people&quot; is a market, not an ICP, and a list built on it exhausts the budget before it finds the buyer. The real ICP is the exact company and persona most likely to buy and stay, and your closed-won deals already describe it while your closed-lost deals describe the edges. This play reads both, writes the ICP as five parts a list builder can act on, and proves it by backtesting against the deals you already closed.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. CRM access (Attio first, HubSpot as the option) or a CSV export of deals. Stack answers from core section 1.
+2. The window. Default 24 months, never less than 12. Under 30 closed-won deals, say so and widen the window or add current customers with their start date as the close date.
+3. The best 10 customers by revenue, retention and ease of close. If the user cannot name them, rank by annual value times months retained and show the top 15 for a hand pick.
+4. Planned send volume per month. This sets the TAM floor in step 4.
+5. What the product does in one sentence, so the model can judge which function owns the problem.
+
+## Steps
+
+### 1. Export the deals
+Tools: Attio, HubSpot (option), CSV
+Flow:
+- Closed-won | Every won deal in the window with value, cycle length, close date and the first contact&#x27;s title | with: Attio, HubSpot | chips: value, cycle days, close date, first title
+- Closed-lost | Every lost deal in the window with the loss reason as written by the rep | with: Attio, HubSpot | chips: loss reason, stage reached, days open
+= One row per deal | Won and lost in one file so the model sees both sides | with: CSV | chips: outcome, domain, value, cycle, reason
+
+- Pull every closed-won and closed-lost deal in the window with value, cycle length in days, close date, stage reached, the loss reason as the rep wrote it, and the first contact&#x27;s title.
+- Resolve a domain for every company in its own pass. A row with no domain cannot be enriched or backtested.
+- Write one CSV with an `outcome` column. Keep the raw export untouched beside it.
+
+### 2. Enrich the companies
+Tools: Ocean.io, Apollo, BuiltWith, AI Ark (optional)
+Flow:
+- Firmographics | Headcount, revenue band, industry, founding year, geography, funding stage on every row | with: Ocean.io, Apollo
+- Technographics | The stack the company runs, since a tool on the site often predicts the buyer better than the industry | with: BuiltWith | chips: CRM, sending tool, data vendor, analytics
+- Growth marks | Headcount change over 12 months and open roles in the owning function | with: AI Ark, Apollo | tag: dated
+
+- Add firmographics to every row, then technographics from the website. The stack says more about buying behaviour than the industry label does.
+- Add the 12-month headcount change and open roles in the function you sell to. These are the trigger candidates for step 4.
+
+### 3. Find the patterns
+Tools: Claude
+Flow:
+- Win traits | What the won deals share, ranked by how much more often it appears in won than in lost | with: Claude | chips: headcount band, function, stack, trigger
+- Loss traits and negative indicators | What the lost deals share that the won deals lack, plus loss reasons that repeat | with: Claude | tag: disqualifiers
+= Best 10 reverse-engineered | What was true at each of the 10 customers before they bought, not after | with: Claude | chips: size at signing, who signed, what changed that quarter
+
+- Give the model the enriched file and ask for three lists: traits far more common in won than in lost, traits far more common in lost than in won, and loss reasons that repeat three times or more. Every claim cites the count on each side.
+- Reverse-engineer the best 10 customers one at a time: headcount at signing, who signed, what the company was doing that quarter, the stack at the time. What was true before they bought is the ICP. What is true now is the result of being a customer.
+- Where the 10 disagree with the aggregate, trust the 10. They are the customers you want more of.
+
+### 4. Write the five buildable parts
+Tools: Claude, Google Sheets
+Flow:
+- Floor and function | A revenue or headcount floor and the function that owns the problem | with: Claude | chips: floor, owning function
+- Trigger and disqualifiers | One this-quarter trigger a list can be filtered on, and the disqualifiers written out | with: Claude | tag: core: exclusions
+- TAM check | Companies matching the first four parts, counted against planned send volume | with: Google Sheets | chips: companies, contacts, months of volume
+= One-message test | One message must fit every company in the segment or the segment splits | with: Claude | tag: split or pass
+
+- Write the ICP as five parts a list builder can filter on: a revenue or headcount floor, the function that owns the problem, a trigger visible this quarter, the disqualifiers written out, and a TAM large enough for the planned send volume. A 400-company ICP exhausts in six weeks.
+- Define the decision maker per company size band. Apply core: enrichment for the bands, then name the titles the won deals actually signed with inside each band.
+- Run the one-message test. Draft one 40-word opener. If it fits every company in the segment, the segment holds. If some companies need a different first sentence, the segment splits and each half gets its own five parts.
+- Count the TAM. If it covers fewer than four months of planned volume, loosen the floor or the trigger, never the disqualifiers.
+
+### 5. Backtest against the deals
+Tools: Claude, CSV
+Flow:
+- Score every deal | Each won and lost company scored against the written ICP without seeing its outcome | with: Claude | chips: score, pass or fail, reason
+= Two numbers | Share of closed-won that pass and share of closed-lost that fail; 95 percent and a clear cluster, or the ICP goes back a step | with: CSV | tag: 95 percent won pass
+
+- Score every company in the deal file against the written ICP with the outcome column hidden. The scorer sees only the enrichment and the website.
+- Target: 95 percent or more of closed-won pass. Losses should cluster outside the ICP, or inside it with the same loss reason. A loss that passes with a unique reason is a sales problem, not an ICP problem, so leave it.
+- Below 95 percent, read the won deals that failed. If they share a trait, the ICP is too narrow on that trait. If they share nothing, they are exceptions and the ICP stands.
+
+### 6. Score any list against it
+Tools: Serper, Firecrawl, Claude
+Flow:
+- Website read | Homepage and one product page per company, pulled cheap | with: Serper, Firecrawl
+- Score 0 to 100 | A cheap model reads the site and the ICP, returns a score, a label and one reason | with: Claude | chips: 80 plus strong, 60 to 79 likely, under 60 out | tag: pass at 60
+
+- Pull the homepage and one product or about page per company. Search results fill the gap when a site will not load.
+- A cheap model scores each company 0 to 100 against the five parts with one reason. 80 and above is strong, 60 to 79 likely, below 60 is out. Pass at 60. A company matching a disqualifier scores 0 regardless.
+- Read the drop reasons in bulk. One reason repeating across many rows means the ICP wording is wrong, not the list. Hand-sample 50 keeps.
+- Apply core: lists for the sourcing order. This step runs before any paid people lookup.
+
+### 7. Save and review quarterly
+Tools: CSV, Google Sheets, Attio
+Flow:
+- Two files | The ICP as prose and the same ICP as structured fields every other play reads | with: CSV, Google Sheets | chips: icp.md, pipeline-plays.config.json
+= Quarterly review | Last 90 days of won and lost rescored; the ICP moves only when the numbers do | with: Attio | tag: every 90 days
+
+- Write `./icp.md` with the five parts, the decision maker per size band, the disqualifiers, the backtest numbers and the date. Write the same content as structured fields into `./pipeline-plays.config.json` under `icp`, so the signal plays and list plays filter on it without asking.
+- Every 90 days, export the deals closed since the last review and rerun step 5 on them alone. Change the ICP only when the pass rate drops or a new loss reason repeats.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- Never write an industry label as the ICP. &quot;SaaS&quot; or &quot;e-commerce&quot; is a market. The five parts are the ICP.
+- Never let the model see the outcome column during the backtest or the list scoring. A scorer that knows the answer proves nothing.
+- Never loosen a disqualifier to hit the TAM number. Loosen the floor or the trigger instead.
+- Never carry customer names, deal values or loss reasons into any file a prospect could see. The ICP is the pattern, not the roster.
+- Fewer than 30 closed-won deals is a thin sample. Say so in `icp.md` and schedule the first review at 60 days instead of 90.
+
+## Example run
+
+User: &quot;/pipeline-icp-from-won-deals, we sell a revenue intelligence tool, Attio is the CRM&quot;
+
+1. Exported 24 months from Attio: 68 closed-won, 214 closed-lost, 11 rows with no domain fixed by hand.
+2. Enriched 282 companies. Headcount, revenue band and stack found for 271.
+3. Four win traits: 80 to 400 headcount, a VP of Sales or CRO in seat under 18 months, an outbound stack running, at least one open SDR role. &quot;No budget&quot; and &quot;too early&quot; repeated 61 times, almost all under 40 people.
+4. Best 10 agreed on three of the four and added a Series A or B in the prior 12 months. Wrote the five parts, set the floor at 80 headcount and the trigger as an SDR or AE role opened this quarter. The one-message test split the segment into mid-market with a CRO and SMB with a founder-led sales team.
+5. Backtest: 65 of 68 won passed (96 percent); 183 of 214 lost failed, 24 of the rest shared the loss reason &quot;already using a competitor&quot;.
+6. Scored a 2.4K-company Apollo pull: 1.1K passed at 60, 390 strong. Drop reason &quot;no outbound motion&quot; repeated 600 times, so the ICP gained a stack requirement.
+7. Saved `icp.md` and the config, next review booked for 90 days out.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs ICP from Won Deals end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/icp-from-won-deals'>View on GitHub</a></div>
+<div class='pager'>
+<span></span>
+<a href='../full-tam-map/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Full-TAM Map</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

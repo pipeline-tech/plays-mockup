@@ -1,0 +1,363 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Cold Calling on Five Lists | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><span>/</span><span>Cold Calling on Five Lists</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 10 · Send, reply and conversion</div>
+<h1>Cold Calling on Five Lists</h1>
+<div class='meta'><div><b>Trigger</b> Five lists pooled into one calling queue</div><div><b>Outcome</b> Meetings booked on the call</div><div><b>Channels</b> call, email</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-cold-calling-five-lists' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-cold-calling-five-lists'>Install the Pipeline.tech &quot;Cold Calling on Five Lists&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/cold-calling-five-lists/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-cold-calling-five-lists/SKILL.md, then run /pipeline-cold-calling-five-lists.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-cold-calling-five-lists.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/cold-calling-five-lists.svg' alt='Cold Calling on Five Lists workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/cold-calling-five-lists.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>Calling works when three things are true at once: the list is warm or at least qualified, the script is fixed, and the dialer runs lines in parallel so the caller spends the hour talking instead of listening to ringtones. Most teams get one of the three right and write the channel off. This play pools five lists into one queue, tags every row with its source, and books the meeting while the person is still on the line.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>Stack answers from core section 1, plus the dialer, caller, calling hours and time zone.</li>
+<li>The ICP in one paragraph and the Full-TAM Map export, or the sheet that stands in for it.</li>
+<li>The offer in one sentence, one proof point and the booking calendar.</li>
+<li>Which of the five sources exist today. A missing source is skipped, never faked.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Define the five lists and their sources</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span><span class="chip">Beehiiv</span><span class="chip">EmailBison</span><span class="chip">RB2B</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>List 1, cold ICP: Full-TAM Map accounts that passed the written ICP. Apply core: enrichment for the decision maker by size band.</li>
+<li>List 2, subscribers and lead-magnet downloads: two clicks in 30 days or a signup in the last 7 days, matched to a company by domain. Opens never make the list.</li>
+<li>List 3, unbooked replies: the handoff from Reply Routing. Interested, question and cost replies that never became a booked time. The number found during routing travels with the reply.</li>
+<li>List 4, website visitors: identified visitors, plus repeat visits to pricing or demo inside 14 days.</li>
+<li>List 5, missed deals: no-shows, deals stalled 30 days, closed-lost inside the revival window (6 months by default).</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Pool into one queue and enrich the numbers</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Google Sheets</span><span class="chip">BlitzAPI</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>Merge the five lists into one queue. Every row keeps its <code>source</code> tag and the date it qualified. Dedupe by person; on two lists, keep the warmer tag (list 3 beats list 1) and note both.</li>
+<li>Apply core: exclusions. Also remove anyone on a do-not-call list or who asked not to be called.</li>
+<li>Numbers go through a waterfall, each vendor seeing only what the one before it missed. BlitzAPI first for owner-operators. LeadMagic then Prospeo for business mobiles and direct dials. Normalise every number to one format with the country code and record its time zone.</li>
+<li>Any email used alongside the call: apply core: verification. A number with no valid email is still called.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Tier and set the cadence</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span></div>
+<ul>
+<li>Apply core: tiering, with the source doing most of the work. Tier 1 is lists 3, 4 and 5 plus anyone met in person: called the same day they land, then every 2 to 3 days for two weeks.</li>
+<li>Tier 2 is list 2 plus any list 1 account with a dated signal: one attempt a week for four weeks.</li>
+<li>Tier 3 is the rest of list 1: parallel blocks by time zone, two attempts per quarter, then email only.</li>
+<li>Claude writes a one-line context note per Tier 1 row from the reply thread or visit history, so the caller knows the hook before the line connects.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Lock the script</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>One script per list, approved by the owner and memorized by the caller. No ad-libbed positioning. Sentences may move, claims may not.</li>
+<li>The hook lands inside the first twenty seconds and names the source: "you downloaded X", "you replied to Y about Z", "you were on our pricing page on Tuesday". Cold ICP opens with the segment's pain, never a compliment.</li>
+<li>Then one question, and the caller listens.</li>
+<li>Close by confirming the email on file and booking live with two specific times inside 2 business days. Never "I'll send a link". The invite goes out on the line.</li>
+<li>A voicemail script under 15 seconds: name, company, the source hook, a call-back number. No pitch.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Run the dialer in parallel</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">ReadyMode</span><span class="chip">Nooks (option)</span><span class="chip">Salesfinity (option)</span><span class="chip">Dialer (option)</span><span class="chip">Phone</span></div>
+<ul>
+<li>Load the queue with the source tag and context note. Dial 3 to 5 lines in parallel, voicemail auto-skip on, local presence on where it is lawful.</li>
+<li>Volume follows list quality: Tier 1 on 2 lines, 100 to 300 dials a day; Tier 3 cold blocks at 1K to 2K dials a day per caller.</li>
+<li>A 90-minute block per time zone, late morning and mid afternoon local time, inside the calling hours and consent rules of the recipient's country and state. A small team runs the same blocks from a plain dialer or the phone.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Log and route every call</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span><span class="chip">Calendly</span><span class="chip">Slack</span><span class="chip">EmailBison</span></div>
+<ul>
+<li>Apply core: CRM and alerts. Every call writes the recording link, disposition, source tag, duration and next step date. A booked call opens a deal; no-shows stay deals in a lost stage.</li>
+<li>Booked meetings enter the pre-call reminder cadence from Reply Routing: confirmation now, reminders at 24 hours, 4 hours, 1 hour and 10 minutes. Nothing booked past 2 days.</li>
+<li>A callback is a dated task at the time the prospect gave, never a note. A wrong number goes back to step 2 for a second pass; still none, the row stays on the list with a flag.</li>
+<li>"Do not call" removes the number from the dialer and the CRM the same day.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Read the week by list</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Google Sheets</span><span class="chip">Claude</span><span class="chip">Slack</span></div>
+<ul>
+<li>Weekly, per list: dials, connects, conversations over 2 minutes, meetings booked, meetings held, show rate. Connect rate by list and by hour in the prospect's zone.</li>
+<li>Move dial time toward the lists that convert. If list 3 books every 15 connects and list 1 every 80, list 3 is called first each morning.</li>
+<li>Two recordings per caller per week are checked against the script; drift is fixed before the next block.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>Calling hours, consent and do-not-call rules of the recipient's country and state come first.</li>
+<li>The script is the script. A caller who cannot answer a question says so and books the call.</li>
+<li>Never "I'll send a link". Two times, booked live, invite sent before the call ends.</li>
+<li>Opens are not a signal. List 2 is clicks and signups only.</li>
+<li>A number found through Reply Routing is for the warm call about that reply. It never moves to a cold block.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-cold-calling-five-lists for our payroll offer to 20 to 200 person companies, one caller, Eastern hours, we have the newsletter and visitor identification"</p>
+<ol>
+<li>Confirmed the CRM, newsletter tool, visitor tool, reply routing and dialer. Loaded the ICP and offer.</li>
+<li>Week one: 1,840 cold ICP, 212 subscribers, 38 unbooked replies, 61 visitors, 27 missed deals. After dedupe and exclusions 2,104 rows, 126 in Tier 1.</li>
+<li>Numbers found for 1,537 rows (73 percent), 1,120 of them mobiles. 88 wrong numbers flagged back after the first blocks.</li>
+<li>Five scripts approved, caller drilled for two days, voicemail under 15 seconds.</li>
+<li>4,210 dials across four blocks a day. 389 connects, 141 conversations over 2 minutes, 23 meetings booked on the call, 19 held.</li>
+<li>By list: replies 9 meetings from 41 connects, missed deals 5 from 29, visitors 4 from 38, subscribers 3 from 67, cold 2 from 214. Cold blocks moved to the last hour; Tier 1 dialed first each morning.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/cold-calling-five-lists/SKILL.md</b><span>The skill file behind this page, 126 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-cold-calling-five-lists'>Copy skill file</button></div>
+<pre>---
+name: pipeline-cold-calling-five-lists
+description: Pipeline.tech play. Five lists (cold ICP accounts, newsletter subscribers, unbooked replies, identified website visitors, missed deals) pooled into one calling queue with a source tag, a fixed script and a parallel dialer, so the meeting is booked on the call instead of over a link. USE WHEN user says &quot;/pipeline-cold-calling-five-lists&quot; OR &quot;cold calling&quot; OR &quot;calling queue&quot; OR &quot;warm calling&quot; OR &quot;dialer play&quot; OR &quot;call the replies&quot; OR &quot;five lists&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/cold-calling-five-lists)
+version: 0.1.0</pre><div class='more'>… 121 more lines</div>
+<pre id='raw-cold-calling-five-lists' class='hidden'>---
+name: pipeline-cold-calling-five-lists
+description: Pipeline.tech play. Five lists (cold ICP accounts, newsletter subscribers, unbooked replies, identified website visitors, missed deals) pooled into one calling queue with a source tag, a fixed script and a parallel dialer, so the meeting is booked on the call instead of over a link. USE WHEN user says &quot;/pipeline-cold-calling-five-lists&quot; OR &quot;cold calling&quot; OR &quot;calling queue&quot; OR &quot;warm calling&quot; OR &quot;dialer play&quot; OR &quot;call the replies&quot; OR &quot;five lists&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/cold-calling-five-lists)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: Five lists pooled into one calling queue
+outcome: Meetings booked on the call
+category: send-reply
+channels: call, email
+tools: Attio, HubSpot, Beehiiv, EmailBison, RB2B, BlitzAPI, LeadMagic, Prospeo, MillionVerifier, BounceBan, Claude, ReadyMode, Nooks, Salesfinity, Dialer, Phone, Slack, Calendly, Google Sheets
+---
+
+# Cold Calling on Five Lists
+
+Calling works when three things are true at once: the list is warm or at least qualified, the script is fixed, and the dialer runs lines in parallel so the caller spends the hour talking instead of listening to ringtones. Most teams get one of the three right and write the channel off. This play pools five lists into one queue, tags every row with its source, and books the meeting while the person is still on the line.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. Stack answers from core section 1, plus the dialer, caller, calling hours and time zone.
+2. The ICP in one paragraph and the Full-TAM Map export, or the sheet that stands in for it.
+3. The offer in one sentence, one proof point and the booking calendar.
+4. Which of the five sources exist today. A missing source is skipped, never faked.
+
+## Steps
+
+### 1. Define the five lists and their sources
+Tools: Attio, HubSpot (option), Beehiiv, EmailBison, RB2B, Google Sheets
+Flow:
+- Cold ICP accounts | Full-TAM Map, owner or function head by size band | with: Attio, Google Sheets | tag: list 1
+- Subscribers | Repeat clickers and new signups matched to a company, never opens | with: Beehiiv | tag: list 2
+- Unbooked replies and visitors | Positive, neutral, question and cost replies that never booked, plus identified visitors to pricing or demo pages | with: EmailBison, RB2B | tag: lists 3 and 4
+= Missed deals | No-shows, stalled and closed-lost inside the revival window | with: Attio, HubSpot | tag: list 5
+
+- List 1, cold ICP: Full-TAM Map accounts that passed the written ICP. Apply core: enrichment for the decision maker by size band.
+- List 2, subscribers and lead-magnet downloads: two clicks in 30 days or a signup in the last 7 days, matched to a company by domain. Opens never make the list.
+- List 3, unbooked replies: the handoff from Reply Routing. Interested, question and cost replies that never became a booked time. The number found during routing travels with the reply.
+- List 4, website visitors: identified visitors, plus repeat visits to pricing or demo inside 14 days.
+- List 5, missed deals: no-shows, deals stalled 30 days, closed-lost inside the revival window (6 months by default).
+
+### 2. Pool into one queue and enrich the numbers
+Tools: Google Sheets, BlitzAPI, LeadMagic, Prospeo, MillionVerifier, BounceBan
+Flow:
+= One queue with a source tag | Dedupe by person, exclusions, then direct dials and mobiles through the waterfall | with: Google Sheets, BlitzAPI, LeadMagic, Prospeo, MillionVerifier, BounceBan | chips: source, time zone, number type, email status
+
+- Merge the five lists into one queue. Every row keeps its `source` tag and the date it qualified. Dedupe by person; on two lists, keep the warmer tag (list 3 beats list 1) and note both.
+- Apply core: exclusions. Also remove anyone on a do-not-call list or who asked not to be called.
+- Numbers go through a waterfall, each vendor seeing only what the one before it missed. BlitzAPI first for owner-operators. LeadMagic then Prospeo for business mobiles and direct dials. Normalise every number to one format with the country code and record its time zone.
+- Any email used alongside the call: apply core: verification. A number with no valid email is still called.
+
+### 3. Tier and set the cadence
+Tools: Claude, Attio, HubSpot (option)
+Flow:
+- Tier 1 | Replies, visitors, met in person, missed deals. Same day, then every 2 to 3 days for two weeks | with: Attio | tag: same day
+- Tier 2 | Subscribers and ICP fit with a signal. Weekly | with: Attio | tag: weekly
+- Tier 3 | Cold ICP in parallel-dial blocks | with: Attio | tag: blocks
+
+- Apply core: tiering, with the source doing most of the work. Tier 1 is lists 3, 4 and 5 plus anyone met in person: called the same day they land, then every 2 to 3 days for two weeks.
+- Tier 2 is list 2 plus any list 1 account with a dated signal: one attempt a week for four weeks.
+- Tier 3 is the rest of list 1: parallel blocks by time zone, two attempts per quarter, then email only.
+- Claude writes a one-line context note per Tier 1 row from the reply thread or visit history, so the caller knows the hook before the line connects.
+
+### 4. Lock the script
+Tools: Claude, Google Sheets
+Flow:
+= Approved script, memorized | Hook in twenty seconds tied to the source, one question, confirm the email, book live with two times | with: Claude, Google Sheets | chips: you downloaded X, you replied to Y, you were on our pricing page | tag: no ad-libs
+
+- One script per list, approved by the owner and memorized by the caller. No ad-libbed positioning. Sentences may move, claims may not.
+- The hook lands inside the first twenty seconds and names the source: &quot;you downloaded X&quot;, &quot;you replied to Y about Z&quot;, &quot;you were on our pricing page on Tuesday&quot;. Cold ICP opens with the segment&#x27;s pain, never a compliment.
+- Then one question, and the caller listens.
+- Close by confirming the email on file and booking live with two specific times inside 2 business days. Never &quot;I&#x27;ll send a link&quot;. The invite goes out on the line.
+- A voicemail script under 15 seconds: name, company, the source hook, a call-back number. No pitch.
+
+### 5. Run the dialer in parallel
+Tools: ReadyMode, Nooks (option), Salesfinity (option), Dialer (option), Phone
+Flow:
+= 3 to 5 lines in parallel | 500 to 2K dials a day per caller depending on list quality, blocks by time zone | with: ReadyMode, Nooks, Salesfinity | chips: local presence, voicemail auto-skip, calling hours, consent | tag: parallel dial
+
+- Load the queue with the source tag and context note. Dial 3 to 5 lines in parallel, voicemail auto-skip on, local presence on where it is lawful.
+- Volume follows list quality: Tier 1 on 2 lines, 100 to 300 dials a day; Tier 3 cold blocks at 1K to 2K dials a day per caller.
+- A 90-minute block per time zone, late morning and mid afternoon local time, inside the calling hours and consent rules of the recipient&#x27;s country and state. A small team runs the same blocks from a plain dialer or the phone.
+
+### 6. Log and route every call
+Tools: Attio, HubSpot (option), Calendly, Slack, EmailBison
+Flow:
+- Every call to the CRM | Recording, disposition, source, duration, next step date | with: Attio, HubSpot | chips: booked, callback, no answer, wrong number, not interested
+- Booked meetings | Into the pre-call reminder cadence from Reply Routing | with: Calendly, EmailBison | tag: show rate
+= Callbacks and wrong numbers | Callbacks dated as tasks, wrong numbers flagged back to enrichment | with: Attio, Slack
+
+- Apply core: CRM and alerts. Every call writes the recording link, disposition, source tag, duration and next step date. A booked call opens a deal; no-shows stay deals in a lost stage.
+- Booked meetings enter the pre-call reminder cadence from Reply Routing: confirmation now, reminders at 24 hours, 4 hours, 1 hour and 10 minutes. Nothing booked past 2 days.
+- A callback is a dated task at the time the prospect gave, never a note. A wrong number goes back to step 2 for a second pass; still none, the row stays on the list with a flag.
+- &quot;Do not call&quot; removes the number from the dialer and the CRM the same day.
+
+### 7. Read the week by list
+Tools: Google Sheets, Claude, Slack
+Flow:
+= Weekly read by list and by hour | Dials, connects, conversations, meetings, show rate | with: Google Sheets, Claude, Slack | chips: connect rate, conversation rate, meetings per 100 dials | tag: move dial time
+
+- Weekly, per list: dials, connects, conversations over 2 minutes, meetings booked, meetings held, show rate. Connect rate by list and by hour in the prospect&#x27;s zone.
+- Move dial time toward the lists that convert. If list 3 books every 15 connects and list 1 every 80, list 3 is called first each morning.
+- Two recordings per caller per week are checked against the script; drift is fixed before the next block.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- Calling hours, consent and do-not-call rules of the recipient&#x27;s country and state come first.
+- The script is the script. A caller who cannot answer a question says so and books the call.
+- Never &quot;I&#x27;ll send a link&quot;. Two times, booked live, invite sent before the call ends.
+- Opens are not a signal. List 2 is clicks and signups only.
+- A number found through Reply Routing is for the warm call about that reply. It never moves to a cold block.
+
+## Example run
+
+User: &quot;/pipeline-cold-calling-five-lists for our payroll offer to 20 to 200 person companies, one caller, Eastern hours, we have the newsletter and visitor identification&quot;
+
+1. Confirmed the CRM, newsletter tool, visitor tool, reply routing and dialer. Loaded the ICP and offer.
+2. Week one: 1,840 cold ICP, 212 subscribers, 38 unbooked replies, 61 visitors, 27 missed deals. After dedupe and exclusions 2,104 rows, 126 in Tier 1.
+3. Numbers found for 1,537 rows (73 percent), 1,120 of them mobiles. 88 wrong numbers flagged back after the first blocks.
+4. Five scripts approved, caller drilled for two days, voicemail under 15 seconds.
+5. 4,210 dials across four blocks a day. 389 connects, 141 conversations over 2 minutes, 23 meetings booked on the call, 19 held.
+6. By list: replies 9 meetings from 41 connects, missed deals 5 from 29, visitors 4 from 38, subscribers 3 from 67, cold 2 from 214. Cold blocks moved to the last hour; Tier 1 dialed first each morning.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Cold Calling on Five Lists end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/cold-calling-five-lists'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../tam-rotation/index.html'><span class='eyebrow'>Previous</span><b>TAM Rotation</b></a>
+<a href='../reply-routing/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Reply Routing</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

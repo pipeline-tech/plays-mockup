@@ -1,0 +1,372 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Newsletter Readers | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-first-party'>First-party signals</a><span>/</span><span>Newsletter Readers</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 29 · First-party signals</div>
+<h1>Newsletter Readers</h1>
+<div class='meta'><div><b>Trigger</b> Repeat clicks, a reply or a new signup; opens never count</div><div><b>Outcome</b> Readers become pipeline without leaving the list</div><div><b>Channels</b> email, linkedin</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-newsletter-readers' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-newsletter-readers'>Install the Pipeline.tech &quot;Newsletter Readers&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/newsletter-readers/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-newsletter-readers/SKILL.md, then run /pipeline-newsletter-readers.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-newsletter-readers.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/newsletter-readers.svg' alt='Newsletter Readers workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/newsletter-readers.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>A newsletter list is the warmest list a company owns and usually the least worked, because everyone is afraid of burning it. The readers who click twice, reply or just arrived are already a pipeline source; the question is how to reach them without turning the list into a cold campaign. Segment by real company size, give each segment its own offer, and let the author start the conversation instead of a cold inbox.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The ICP in one paragraph: industries, headcount band, geography, the problem you solve, who owns it.</li>
+<li>The newsletter platform, the author whose name is on the issues, and the author's own mailbox and LinkedIn profile.</li>
+<li>Stack answers from core section 1, plus the size bands if they exist (default: under 11, 11 to 50, 51 and up).</li>
+<li>One offer per size band in one sentence each, and the lead magnets currently live.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Segment by real company size</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Beehiiv</span><span class="chip">n8n</span><span class="chip">Ocean.io</span><span class="chip">Apollo</span><span class="chip">AI Ark (option)</span></div>
+<ul>
+<li>Export every subscriber and resolve each work-email domain to an employee count with Ocean.io or Apollo, AI Ark when the list is large. Self-reported headcount is unreliable, so the domain is the source of truth.</li>
+<li>Personal addresses are allowed for a plain signup and default to the smallest band. Unresolved work domains default there too, flagged for a retry.</li>
+<li>Write one size field on every subscriber and build three dynamic segments on it: under 11, 11 to 50, 51 and up. Add a fourth above 500 only once the third band is large enough to split.</li>
+<li>Run the sync as a scheduled script or an n8n flow every 15 minutes, so a new signup is classified within the hour and lands in the right welcome flow.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>One welcome flow and one offer per segment</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Beehiiv</span><span class="chip">Claude</span></div>
+<ul>
+<li>Write a distinct welcome flow per band with Claude. The smallest band hears the self-serve or community offer, since a done-for-you service will not fit. The middle band hears the core service and is asked for a call. The largest band hears how the offer plugs into an existing sales team, framed as output per rep.</li>
+<li>Four emails in the first 24 hours, then a daily email for 30 days, each segment on its own track.</li>
+<li>Only new signups are enrolled. Existing subscribers are classified for targeting but never dropped into a welcome flow they did not sign up for.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Pull the engaged readers weekly</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Beehiiv</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Every week, pull three groups: readers who clicked two or more times in 30 days with the topics clicked, readers who replied to an issue, and readers who signed up in the last 30 days with the lead magnet or source they came from.</li>
+<li>Opens never count. Open tracking is noise from mail clients and privacy proxies; a click is a choice.</li>
+<li>One row per reader in a working sheet with segment, group, topics and dates.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Match each reader to a person and a company</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">LinkedIn</span><span class="chip">Ocean.io</span><span class="chip">Apollo</span><span class="chip">Claude</span></div>
+<ul>
+<li>Work emails already carry a domain. Personal addresses go through the waterfall to find the LinkedIn profile and current employer. A personal address with no company match stays a reader and leaves this list.</li>
+<li>Enrich the company: headcount, industry, location, and a yes or no ICP verdict from a cheap model reading the website, with one reason. Record the title.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>CRM check</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span></div>
+<ul>
+<li>Match every reader against the CRM. Customers and open deals go to their owner with the clicked topics as a note; a customer reading the pricing page is an expansion conversation, not a cold one.</li>
+<li>Apply core: exclusions. Anyone in an active sequence or recently not interested stays a reader only.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Score fit and interest</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>Score ICP fit and interest with Claude. Interest is click depth, with pricing, services and case-study clicks at the top and educational clicks below. A reply sits above everything. A new signup inherits the lead magnet as its topic.</li>
+<li>Any work address resolved in step 4 goes through core: verification before it is used.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Tier and route the outreach</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Slack</span><span class="chip">LinkedIn</span><span class="chip">Gmail</span><span class="chip">HeyReach</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">Attio</span></div>
+<ul>
+<li>Tier 1: ICP fit plus a reply or buying-topic clicks. Slack alert with the topics and a one-line opener. The author sends a personal note on LinkedIn or from their own mailbox: thanks for reading, the topic they clicked keeps coming up with teams like theirs, how are they handling it. Never from the newsletter sender address.</li>
+<li>Tier 2: ICP fit with educational clicks or a lead-magnet signup. HeyReach connection and a two-step email from inboxes separate from the newsletter, on the topics they read. Apply core: copy and send rules.</li>
+<li>Tier 3: acceptable fit. No outreach; the daily issues continue.</li>
+<li>Every reader stays subscribed whatever the tier. Write every contacted person to the CRM with play name, segment, tier, topics and date.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Report weekly by segment and topic</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Beehiiv</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>Weekly: segment sizes, readers pulled, click-to-tier rates, Tier 1 notes sent, replies, meetings, pipeline, split by segment and topic. The topic column tells the author which subjects produce buyers.</li>
+<li>Send the read to whoever writes the issues so next week's content follows the topics that convert.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>Opens never count. Clicks, replies and signups do.</li>
+<li>Size comes from the domain, never from a self-reported field. A form headcount is a hint at best.</li>
+<li>No reader is ever unsubscribed, moved or removed from the daily issues because they received outreach. The list is the asset; the outreach is a layer on top.</li>
+<li>The first touch comes from the author or a human, never from the newsletter sender address.</li>
+<li>Existing subscribers never get a welcome flow. Classification applies to everyone; enrollment applies to new signups only.</li>
+<li>One person is contacted at most once per 60 days across all first-party plays. A reader who also hit the website is one signal, not two emails.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-newsletter-readers for our outbound agency, B2B SaaS and agencies 11 to 500 people in the US, a 4,200-subscriber daily newsletter written by the founder"</p>
+<ol>
+<li>Asked for the author's mailbox and profile, the three offers and the live lead magnets; confirmed the stack.</li>
+<li>4,200 subscribers: 2,960 work emails resolved to 1,870 domains, 1,240 personal addresses defaulted to the smallest band. Segments: 1,980 under 11, 1,410 at 11 to 50, 810 at 51 and up.</li>
+<li>Three welcome flows approved, 34 emails each, enrollment on for new signups only. 61 new signups in week one, all classified within the hour.</li>
+<li>Weekly pull: 312 readers clicked twice or more, 19 replied, 118 signed up in 30 days; 449 rows after dedupe.</li>
+<li>214 personal addresses matched to a profile and a work domain, 98 left as readers. 196 of 351 companies ICP fit.</li>
+<li>23 customers and 9 open deals routed to their owners with notes; 14 removed as in sequence or not interested.</li>
+<li>150 scored: 31 Tier 1 (12 replies, 19 pricing or case-study clickers), 72 Tier 2, 47 Tier 3. 106 addresses verified, 4 catch-all in their own campaign.</li>
+<li>31 founder notes sent, 9 replies, 5 calls booked in week one. 72 Tier 2 connections and a two-step email loaded from separate inboxes. Top converting topics: pricing, inbox infrastructure, list building.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/newsletter-readers/SKILL.md</b><span>The skill file behind this page, 134 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-newsletter-readers'>Copy skill file</button></div>
+<pre>---
+name: pipeline-newsletter-readers
+description: Pipeline.tech play. Turn a newsletter list into pipeline without burning it. Resolves every work-email domain to a real employee count, writes a size field on every subscriber, builds three dynamic segments with their own welcome flow and offer, then pulls the readers who clicked twice, replied or just signed up each week, matches them to a person and a company, scores fit and click depth, and has the author start the conversation for Tier 1 while Tier 2 gets a connection and a two-step email from separate inboxes. USE WHEN user says &quot;/pipeline-newsletter-readers&quot; OR &quot;newsletter readers play&quot; OR &quot;work the newsletter list&quot; OR &quot;segment the newsletter by company size&quot; OR &quot;newsletter clickers outreach&quot; OR &quot;turn subscribers into pipeline&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/newsletter-readers)
+version: 0.1.0</pre><div class='more'>… 129 more lines</div>
+<pre id='raw-newsletter-readers' class='hidden'>---
+name: pipeline-newsletter-readers
+description: Pipeline.tech play. Turn a newsletter list into pipeline without burning it. Resolves every work-email domain to a real employee count, writes a size field on every subscriber, builds three dynamic segments with their own welcome flow and offer, then pulls the readers who clicked twice, replied or just signed up each week, matches them to a person and a company, scores fit and click depth, and has the author start the conversation for Tier 1 while Tier 2 gets a connection and a two-step email from separate inboxes. USE WHEN user says &quot;/pipeline-newsletter-readers&quot; OR &quot;newsletter readers play&quot; OR &quot;work the newsletter list&quot; OR &quot;segment the newsletter by company size&quot; OR &quot;newsletter clickers outreach&quot; OR &quot;turn subscribers into pipeline&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/newsletter-readers)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: Repeat clicks, a reply or a new signup; opens never count
+outcome: Readers become pipeline without leaving the list
+category: first-party
+channels: email, linkedin
+tools: Beehiiv, n8n, Claude, Ocean.io, Apollo, AI Ark, LeadMagic, Prospeo, MillionVerifier, BounceBan, Attio, HubSpot, Slack, LinkedIn, Gmail, HeyReach, EmailBison, Instantly, Google Sheets
+---
+
+# Newsletter Readers
+
+A newsletter list is the warmest list a company owns and usually the least worked, because everyone is afraid of burning it. The readers who click twice, reply or just arrived are already a pipeline source; the question is how to reach them without turning the list into a cold campaign. Segment by real company size, give each segment its own offer, and let the author start the conversation instead of a cold inbox.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The ICP in one paragraph: industries, headcount band, geography, the problem you solve, who owns it.
+2. The newsletter platform, the author whose name is on the issues, and the author&#x27;s own mailbox and LinkedIn profile.
+3. Stack answers from core section 1, plus the size bands if they exist (default: under 11, 11 to 50, 51 and up).
+4. One offer per size band in one sentence each, and the lead magnets currently live.
+
+## Steps
+
+### 1. Segment by real company size
+Tools: Beehiiv, n8n, Ocean.io, Apollo, AI Ark (option)
+Flow:
+- Resolve every work domain | Each work-email domain becomes an employee count; personal addresses default to the smallest band | with: Ocean.io, Apollo, AI Ark | chips: domain, employee count, personal email
+- Write the size field | One size value on every subscriber record, with the enrichment date | with: n8n, Beehiiv | chips: under 11, 11 to 50, 51 and up, unresolved
+= Dynamic segments on a schedule | Segments built on the size field; the sync runs on a timer so a new signup is classified within the hour | with: n8n, Beehiiv | tag: hourly
+
+- Export every subscriber and resolve each work-email domain to an employee count with Ocean.io or Apollo, AI Ark when the list is large. Self-reported headcount is unreliable, so the domain is the source of truth.
+- Personal addresses are allowed for a plain signup and default to the smallest band. Unresolved work domains default there too, flagged for a retry.
+- Write one size field on every subscriber and build three dynamic segments on it: under 11, 11 to 50, 51 and up. Add a fourth above 500 only once the third band is large enough to split.
+- Run the sync as a scheduled script or an n8n flow every 15 minutes, so a new signup is classified within the hour and lands in the right welcome flow.
+
+### 2. One welcome flow and one offer per segment
+Tools: Beehiiv, Claude
+Flow:
+- Smallest band | Self-serve or community offer; free resources and the entry product | with: Claude | chips: self-serve, community, free resources
+- Middle band | The core service and a call; insight posts and in-depth breakdowns | with: Claude | chips: core service, book a call
+- Largest band | The sales-team integration story: more pipeline per rep, not outsourced email | with: Claude | chips: sales-team integration, per-rep output
+= Four then daily | Four emails in the first 24 hours, then a daily sequence for 30 days per segment; new signups only | with: Beehiiv | tag: new signups only
+
+- Write a distinct welcome flow per band with Claude. The smallest band hears the self-serve or community offer, since a done-for-you service will not fit. The middle band hears the core service and is asked for a call. The largest band hears how the offer plugs into an existing sales team, framed as output per rep.
+- Four emails in the first 24 hours, then a daily email for 30 days, each segment on its own track.
+- Only new signups are enrolled. Existing subscribers are classified for targeting but never dropped into a welcome flow they did not sign up for.
+
+### 3. Pull the engaged readers weekly
+Tools: Beehiiv, Google Sheets
+Flow:
+- Repeat clickers | Two or more clicks in 30 days, with the topics clicked | with: Beehiiv | chips: clicks, topics, last click date
+- Repliers | Anyone who replied to an issue, with the reply text | with: Beehiiv | chips: reply, issue
+- New signups | Signed up in the last 30 days, with the lead magnet or source they came from | with: Beehiiv | chips: signup date, lead magnet, source
+
+- Every week, pull three groups: readers who clicked two or more times in 30 days with the topics clicked, readers who replied to an issue, and readers who signed up in the last 30 days with the lead magnet or source they came from.
+- Opens never count. Open tracking is noise from mail clients and privacy proxies; a click is a choice.
+- One row per reader in a working sheet with segment, group, topics and dates.
+
+### 4. Match each reader to a person and a company
+Tools: LeadMagic, Prospeo, LinkedIn, Ocean.io, Apollo, Claude
+Flow:
+- Personal email to person | Personal addresses resolved to a LinkedIn profile and a work domain through the waterfall | with: LeadMagic, Prospeo, LinkedIn | tag: core: enrichment
+= Company and ICP check | Headcount, industry and location, then a yes or no from the company website with one reason | with: Ocean.io, Apollo, Claude | chips: company, title, ICP yes or no, reason
+
+- Work emails already carry a domain. Personal addresses go through the waterfall to find the LinkedIn profile and current employer. A personal address with no company match stays a reader and leaves this list.
+- Enrich the company: headcount, industry, location, and a yes or no ICP verdict from a cheap model reading the website, with one reason. Record the title.
+
+### 5. CRM check
+Tools: Attio, HubSpot (option)
+Flow:
+= Customers and open deals to their owner | Matched against the CRM; existing relationships leave the list with the clicks as a note on the record | with: Attio, HubSpot | tag: core: exclusions
+
+- Match every reader against the CRM. Customers and open deals go to their owner with the clicked topics as a note; a customer reading the pricing page is an expansion conversation, not a cold one.
+- Apply core: exclusions. Anyone in an active sequence or recently not interested stays a reader only.
+
+### 6. Score fit and interest
+Tools: Claude, MillionVerifier, BounceBan
+Flow:
+- Fit plus click depth | ICP fit from step 4 combined with how deep the clicks go; pricing, services and case-study clicks rank highest | with: Claude | chips: ICP fit, click depth, pricing, services, case study
+- Replies and magnets | A reply outranks every click; a lead-magnet signup carries the magnet as its topic | with: Claude | chips: reply, lead magnet
+= Verify resolved addresses | Any work address found in step 4 passes two verifiers before it is used | with: MillionVerifier, BounceBan | tag: core: verification
+
+- Score ICP fit and interest with Claude. Interest is click depth, with pricing, services and case-study clicks at the top and educational clicks below. A reply sits above everything. A new signup inherits the lead magnet as its topic.
+- Any work address resolved in step 4 goes through core: verification before it is used.
+
+### 7. Tier and route the outreach
+Tools: Slack, LinkedIn, Gmail, HeyReach, EmailBison, Instantly (option), Attio
+Flow:
+- Tier 1 | Slack alert, then a personal note from the author on LinkedIn or from the author&#x27;s own mailbox, on the topic they clicked | with: Slack, LinkedIn, Gmail | chips: name, company, segment, topic, click count | tag: author first
+- Tier 2 | HeyReach connection plus a two-step email from separate inboxes on the topics they read | with: HeyReach, EmailBison, Instantly | tag: at volume
+- Tier 3 | Stays in the daily issues; written to the CRM with the score | with: Attio | chips: newsletter reader, tier, topics
+
+- Tier 1: ICP fit plus a reply or buying-topic clicks. Slack alert with the topics and a one-line opener. The author sends a personal note on LinkedIn or from their own mailbox: thanks for reading, the topic they clicked keeps coming up with teams like theirs, how are they handling it. Never from the newsletter sender address.
+- Tier 2: ICP fit with educational clicks or a lead-magnet signup. HeyReach connection and a two-step email from inboxes separate from the newsletter, on the topics they read. Apply core: copy and send rules.
+- Tier 3: acceptable fit. No outreach; the daily issues continue.
+- Every reader stays subscribed whatever the tier. Write every contacted person to the CRM with play name, segment, tier, topics and date.
+
+### 8. Report weekly by segment and topic
+Tools: Beehiiv, Attio, Slack
+Flow:
+= Weekly read by segment and topic | Segment sizes, click-to-tier rates, replies, meetings, and which topics produce buyers, sent to whoever writes the issues | with: Beehiiv, Attio, Slack
+
+- Weekly: segment sizes, readers pulled, click-to-tier rates, Tier 1 notes sent, replies, meetings, pipeline, split by segment and topic. The topic column tells the author which subjects produce buyers.
+- Send the read to whoever writes the issues so next week&#x27;s content follows the topics that convert.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- Opens never count. Clicks, replies and signups do.
+- Size comes from the domain, never from a self-reported field. A form headcount is a hint at best.
+- No reader is ever unsubscribed, moved or removed from the daily issues because they received outreach. The list is the asset; the outreach is a layer on top.
+- The first touch comes from the author or a human, never from the newsletter sender address.
+- Existing subscribers never get a welcome flow. Classification applies to everyone; enrollment applies to new signups only.
+- One person is contacted at most once per 60 days across all first-party plays. A reader who also hit the website is one signal, not two emails.
+
+## Example run
+
+User: &quot;/pipeline-newsletter-readers for our outbound agency, B2B SaaS and agencies 11 to 500 people in the US, a 4,200-subscriber daily newsletter written by the founder&quot;
+
+1. Asked for the author&#x27;s mailbox and profile, the three offers and the live lead magnets; confirmed the stack.
+2. 4,200 subscribers: 2,960 work emails resolved to 1,870 domains, 1,240 personal addresses defaulted to the smallest band. Segments: 1,980 under 11, 1,410 at 11 to 50, 810 at 51 and up.
+3. Three welcome flows approved, 34 emails each, enrollment on for new signups only. 61 new signups in week one, all classified within the hour.
+4. Weekly pull: 312 readers clicked twice or more, 19 replied, 118 signed up in 30 days; 449 rows after dedupe.
+5. 214 personal addresses matched to a profile and a work domain, 98 left as readers. 196 of 351 companies ICP fit.
+6. 23 customers and 9 open deals routed to their owners with notes; 14 removed as in sequence or not interested.
+7. 150 scored: 31 Tier 1 (12 replies, 19 pricing or case-study clickers), 72 Tier 2, 47 Tier 3. 106 addresses verified, 4 catch-all in their own campaign.
+8. 31 founder notes sent, 9 replies, 5 calls booked in week one. 72 Tier 2 connections and a two-step email loaded from separate inboxes. Top converting topics: pricing, inbox infrastructure, list building.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Newsletter Readers end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/newsletter-readers'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../website-visitors/index.html'><span class='eyebrow'>Previous</span><b>Website Visitors</b></a>
+<a href='../founder-connections/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Founder Connections</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

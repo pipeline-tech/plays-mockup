@@ -1,0 +1,379 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Local TAM from Google Maps | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-foundation'>Foundation</a><span>/</span><span>Local TAM from Google Maps</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 05 · Foundation</div>
+<h1>Local TAM from Google Maps</h1>
+<div class='meta'><div><b>Trigger</b> Exact Google Maps categories by city</div><div><b>Outcome</b> A local market at cents per lead, owners not info@</div><div><b>Channels</b> email, call</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-local-tam-google-maps' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-local-tam-google-maps'>Install the Pipeline.tech &quot;Local TAM from Google Maps&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/local-tam-google-maps/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-local-tam-google-maps/SKILL.md, then run /pipeline-local-tam-google-maps.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-local-tam-google-maps.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/local-tam-google-maps.svg' alt='Local TAM from Google Maps workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/local-tam-google-maps.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>Coffee shops, plumbers and roofers are not in Apollo or ZoomInfo, and the owner is the buyer. Google Maps lists every one of them with a phone, a website and an exact category. Query the exact category city by city, count before you pay, then spend the money on finding the owner. Pipeline.tech runs this at about 0.03 USD per lead; the same lead costs about 1.22 USD in a no-code enrichment tool.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The offer in one sentence, one proof point, and the free asset you can make for one business (a branded mockup, a short audit, a list of nearby buyers). The asset is the CTA.</li>
+<li>The verticals in plain words ("coffee shops", "plumbers") and the geography.</li>
+<li>Which categories are seasonal. Ice cream has a window; roofers do not.</li>
+<li>Stack answers from core section 1. Default scraper is Serper's Maps endpoint; Outscraper or Apify if the user has one.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Pick exact categories per vertical</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Google Maps</span><span class="chip">Claude</span></div>
+<ul>
+<li>Translate each vertical into the exact category strings Maps uses. "Coffee shops" becomes Coffee shop, Coffee roasters, Espresso bar, Cafe. Never query a generic parent such as Restaurant or Contractor: a promotional products client saw coffee shops reply at about 3x the rate of generic restaurants on the same offer.</li>
+<li>Write the anti-ICP list before scraping: chains and franchises, fine dining, hotel restaurants, hospital, school and corporate cafeterias, anything institutional. These buy through procurement.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Build the grid and size the market</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Serper</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Build a query file with one <code>category|city, ST</code> per line: the top 20 to 50 cities by population plus the suburbs of each major metro. Skip small towns.</li>
+<li>Run one page per query and record the result count. Sum by category and by city. That is the market size, and it costs cents. Prune categories under roughly 10 results per city. Show the counts to the user before paying for enrichment.</li>
+<li>Expect about 15 unique businesses per query. An internal run across Texas trades turned 205 queries into about 3,000 businesses.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Scrape and dedupe</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Serper</span><span class="chip">Outscraper (option)</span><span class="chip">Apify (option)</span></div>
+<ul>
+<li>Serper's Maps endpoint is <code>POST https://google.serper.dev/maps</code> with body <code>{"q": "&lt;category&gt; &lt;city, ST&gt;", "num": 100}</code>.</li>
+<li>Pull every query. Keep name, category, street address, phone, website domain, review count, place id.</li>
+<li>Apply core: lists, with one local change. Dedupe by domain first, then by business name plus street address, since one trade name repeats across towns.</li>
+<li>Write the query that found each row in a <code>source</code> column. Keep the raw pull.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Qualify before you enrich</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Firecrawl</span></div>
+<ul>
+<li>Drop the anti-ICP categories. Drop chains: any name in more than three cities, any domain with a store locator, any site listing more than five locations.</li>
+<li>Keep 5 to 50 employees only. 51 to 200 is procurement and owner copy stops working, 200 plus is corporate purchasing. Estimate headcount from the website, review volume and location count.</li>
+<li>Apply core: exclusions.</li>
+<li>Rows with no website stay flagged <code>no-site</code> for the call lane.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Resolve the owner name</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">BlitzAPI</span><span class="chip">Serper</span><span class="chip">Claude</span><span class="chip">LinkedIn</span></div>
+<ul>
+<li>Run a five-layer waterfall and stop at the first named person: LinkedIn company page owner or founder; the website's about or team page read by an LLM; a Google search for <code>"&lt;business name&gt;" owner</code>; the Facebook business page; the state business registry. Each layer only sees the rows the one before it missed.</li>
+<li>Keep a confidence score and the source layer on every row; flag registry hits, they are weaker.</li>
+<li>Expect about 80% of businesses to return an owner name. The rest feed the public-inbox and call lanes.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Find the owner email</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">BlitzAPI</span><span class="chip">Prospeo</span><span class="chip">IcyPeas</span><span class="chip">Firecrawl</span></div>
+<ul>
+<li>Apply core: enrichment. For owner-operators run BlitzAPI first (strongest on small-business addresses), then Prospeo, then IcyPeas.</li>
+<li>Rows with no owner email get a public inbox scraped from the website (info@, contact@, hello@) in a <code>public_email</code> column flagged <code>lane: public</code>. Never pattern-guess a role address; only use what the site publishes.</li>
+<li>Expect about 85% of the list to have some email, roughly a third of it an owner address. Report the split; the two lanes convert differently.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Verify and segment</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Apply core: verification. Public inboxes go through both verifiers too.</li>
+<li>Segment by category, not by city. One campaign and one copy set per category.</li>
+<li>Add merge fields per segment: <code><span class=\"var\">{TRADE_NOUN}</span></code> ("plumber"), <code><span class=\"var\">{TRADE_PLURAL}</span></code> ("plumbing companies"), <code><span class=\"var\">{TRADE_WORK}</span></code> ("plumbing"), plus <code><span class=\"var\">{CATEGORY}</span></code> and <code><span class=\"var\">{CITY}</span></code>. Fallbacks: first name "there" when no owner was found, last name "-" if the sender requires one.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Write and launch, two lanes</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">Dialer</span></div>
+<ul>
+<li>Apply core: copy and send rules.</li>
+<li>Angle: open on something true of the category's daily work, not of the business ("property managers in <span class=\"var\">{CITY}</span> keep looking for a reliable <span class=\"var\">{TRADE_NOUN}</span>"). Email 1 offers the free made-for-them asset, never a call. Email 2 is the threaded "are you the right person for this" bump.</li>
+<li>Lane one: owner emails, main inbox set. Lane two: public inboxes, its own campaign and inbox set, same copy with the "there" fallback. Never mix them; their numbers must read apart. The <code>no-site</code> and no-email rows go to a call list.</li>
+<li>Respect the window: ice cream and food trucks in February to April, breweries in March to April and August, bakeries in September to October and January, catering in January and September.</li>
+<li>Draft 3 angle variants per category and show them for approval before upload.</li>
+</ul>
+<h4 class="step"><span class="num">9</span>Report</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>Weekly, per category and per lane: scraped, qualified, owner found, owner email, public inbox, sent, reply rate, interested, meetings, cost per lead. Retire a category under half the best one's reply rate after 1,000 sends; scale the best into the next geography.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>The public-inbox lane is a real conflict in our data. One source saw 2 to 4% reply and 10 to 15% positive on info@ style addresses. Another offer saw role emails fail to convert at all. Run it as its own lane, read it on its own, and let the user's numbers settle it.</li>
+<li>Never query a generic category to "cover more". It costs the same to scrape and about 3x more per reply.</li>
+<li>Never upload a registry-layer owner name without the flag; a registered agent is not the owner.</li>
+<li>One business, one sequence. If both the owner and the public inbox resolve, the owner gets the email and the public inbox waits for a later rotation.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-local-tam-google-maps for our commercial-client outreach offer, trades in Texas, free asset is a list of 20 property managers near them"</p>
+<ol>
+<li>Confirmed the offer line, chose Plumber, HVAC contractor, Electrician, Roofing contractor and General contractor, 41 cities and suburbs, 205 queries.</li>
+<li>Sized the grid at one page per query, about 3,100 results, two small cities pruned.</li>
+<li>Scraped the full grid: 3,006 unique businesses after dedupe, 212 chain locations removed, 2,640 kept inside 5 to 50 employees.</li>
+<li>Owner name found for about 80%. Owner email verified for about a third, public inbox for most of the rest, 85% with some address; 310 no-site rows to the call list.</li>
+<li>Five campaigns per lane ("TX Plumbers owners", "TX Plumbers public"), 3 angles approved, scheduled for Monday, about 0.03 USD per lead all in.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/local-tam-google-maps/SKILL.md</b><span>The skill file behind this page, 136 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-local-tam-google-maps'>Copy skill file</button></div>
+<pre>---
+name: pipeline-local-tam-google-maps
+description: Pipeline.tech play. Build a local market from Google Maps at cents per lead and reach the owner, not info@. Picks exact Maps categories per vertical, builds a category by city query grid, sizes the market from result counts before paying, scrapes and dedupes, drops chains and anti-ICP categories, resolves the owner name and email through waterfalls, then launches one campaign per category with public inboxes as a separate lane. USE WHEN user says &quot;/pipeline-local-tam-google-maps&quot; OR &quot;local TAM play&quot; OR &quot;scrape Google Maps for leads&quot; OR &quot;local business list&quot; OR &quot;owner-operator outreach&quot; OR &quot;Maps categories by city&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/local-tam-google-maps)
+version: 0.1.0</pre><div class='more'>… 131 more lines</div>
+<pre id='raw-local-tam-google-maps' class='hidden'>---
+name: pipeline-local-tam-google-maps
+description: Pipeline.tech play. Build a local market from Google Maps at cents per lead and reach the owner, not info@. Picks exact Maps categories per vertical, builds a category by city query grid, sizes the market from result counts before paying, scrapes and dedupes, drops chains and anti-ICP categories, resolves the owner name and email through waterfalls, then launches one campaign per category with public inboxes as a separate lane. USE WHEN user says &quot;/pipeline-local-tam-google-maps&quot; OR &quot;local TAM play&quot; OR &quot;scrape Google Maps for leads&quot; OR &quot;local business list&quot; OR &quot;owner-operator outreach&quot; OR &quot;Maps categories by city&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/local-tam-google-maps)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: Exact Google Maps categories by city
+outcome: A local market at cents per lead, owners not info@
+category: foundation
+channels: email, call
+tools: Serper, Outscraper (option), Apify (option), Claude, BlitzAPI, Prospeo, IcyPeas, MillionVerifier, BounceBan, EmailBison, Attio
+---
+
+# Local TAM from Google Maps
+
+Coffee shops, plumbers and roofers are not in Apollo or ZoomInfo, and the owner is the buyer. Google Maps lists every one of them with a phone, a website and an exact category. Query the exact category city by city, count before you pay, then spend the money on finding the owner. Pipeline.tech runs this at about 0.03 USD per lead; the same lead costs about 1.22 USD in a no-code enrichment tool.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The offer in one sentence, one proof point, and the free asset you can make for one business (a branded mockup, a short audit, a list of nearby buyers). The asset is the CTA.
+2. The verticals in plain words (&quot;coffee shops&quot;, &quot;plumbers&quot;) and the geography.
+3. Which categories are seasonal. Ice cream has a window; roofers do not.
+4. Stack answers from core section 1. Default scraper is Serper&#x27;s Maps endpoint; Outscraper or Apify if the user has one.
+
+## Steps
+
+### 1. Pick exact categories per vertical
+Tools: Google Maps, Claude
+Flow:
+- Exact category strings | Coffee shop, Coffee roasters, Espresso bar, Cafe; never Restaurant or Contractor | with: Google Maps | tag: 3x the replies
+- Anti-ICP list | Chains, franchises, fine dining, hotel, hospital, school and corporate cafeterias | with: Claude | tag: procurement buys
+
+- Translate each vertical into the exact category strings Maps uses. &quot;Coffee shops&quot; becomes Coffee shop, Coffee roasters, Espresso bar, Cafe. Never query a generic parent such as Restaurant or Contractor: a promotional products client saw coffee shops reply at about 3x the rate of generic restaurants on the same offer.
+- Write the anti-ICP list before scraping: chains and franchises, fine dining, hotel restaurants, hospital, school and corporate cafeterias, anything institutional. These buy through procurement.
+
+### 2. Build the grid and size the market
+Tools: Serper, Google Sheets
+Flow:
+= One category-by-city line per query, one page each, counts summed | Top 20 to 50 cities plus metro suburbs; prune under 10 results per city; show counts before paying | with: Serper, Google Sheets | chips: about 15 businesses per query, 205 queries to about 3K
+
+- Build a query file with one `category|city, ST` per line: the top 20 to 50 cities by population plus the suburbs of each major metro. Skip small towns.
+- Run one page per query and record the result count. Sum by category and by city. That is the market size, and it costs cents. Prune categories under roughly 10 results per city. Show the counts to the user before paying for enrichment.
+- Expect about 15 unique businesses per query. An internal run across Texas trades turned 205 queries into about 3,000 businesses.
+
+### 3. Scrape and dedupe
+Tools: Serper, Outscraper (option), Apify (option)
+Flow:
+= Every query pulled, deduped by domain then name plus street | with: Serper, Outscraper, Apify | chips: name, category, address, phone, domain, reviews, place id, source
+
+- Serper&#x27;s Maps endpoint is `POST https://google.serper.dev/maps` with body `{&quot;q&quot;: &quot;&lt;category&gt; &lt;city, ST&gt;&quot;, &quot;num&quot;: 100}`.
+- Pull every query. Keep name, category, street address, phone, website domain, review count, place id.
+- Apply core: lists, with one local change. Dedupe by domain first, then by business name plus street address, since one trade name repeats across towns.
+- Write the query that found each row in a `source` column. Keep the raw pull.
+
+### 4. Qualify before you enrich
+Tools: Claude, Firecrawl
+Flow:
+= Drop chains and anti-ICP, keep 5 to 50 employees | 51 to 200 is procurement, 200 plus is corporate purchasing | with: Claude, Firecrawl | chips: store locator, name in 3+ cities, 5+ locations, no-site flag
+
+- Drop the anti-ICP categories. Drop chains: any name in more than three cities, any domain with a store locator, any site listing more than five locations.
+- Keep 5 to 50 employees only. 51 to 200 is procurement and owner copy stops working, 200 plus is corporate purchasing. Estimate headcount from the website, review volume and location count.
+- Apply core: exclusions.
+- Rows with no website stay flagged `no-site` for the call lane.
+
+### 5. Resolve the owner name
+Tools: BlitzAPI, Serper, Claude, LinkedIn
+Flow:
+- LinkedIn page | with: LinkedIn | tag: layer 1
+- Website read | with: Claude, Firecrawl | tag: layer 2
+- Google owner search | with: Serper | tag: layer 3
+= Facebook, then state registry | Each layer only sees what the one before missed; registry hits flagged as weak | with: BlitzAPI | chips: owner name, confidence, source layer | tag: about 80% hit
+
+- Run a five-layer waterfall and stop at the first named person: LinkedIn company page owner or founder; the website&#x27;s about or team page read by an LLM; a Google search for `&quot;&lt;business name&gt;&quot; owner`; the Facebook business page; the state business registry. Each layer only sees the rows the one before it missed.
+- Keep a confidence score and the source layer on every row; flag registry hits, they are weaker.
+- Expect about 80% of businesses to return an owner name. The rest feed the public-inbox and call lanes.
+
+### 6. Find the owner email
+Tools: BlitzAPI, Prospeo, IcyPeas, Firecrawl
+Flow:
+- Owner email waterfall | Small-business addresses first | with: BlitzAPI, Prospeo, IcyPeas | tag: core: enrichment
+- Public inbox fallback | info@, contact@, hello@ scraped from the site, never guessed, flagged as its own lane | with: Firecrawl | tag: lane: public
+
+- Apply core: enrichment. For owner-operators run BlitzAPI first (strongest on small-business addresses), then Prospeo, then IcyPeas.
+- Rows with no owner email get a public inbox scraped from the website (info@, contact@, hello@) in a `public_email` column flagged `lane: public`. Never pattern-guess a role address; only use what the site publishes.
+- Expect about 85% of the list to have some email, roughly a third of it an owner address. Report the split; the two lanes convert differently.
+
+### 7. Verify and segment
+Tools: MillionVerifier, BounceBan, Google Sheets
+Flow:
+= Two passes, then one campaign per category | Segment by category, not city | with: MillionVerifier, BounceBan, Google Sheets | chips: {TRADE_NOUN}, {TRADE_PLURAL}, {TRADE_WORK}, {CATEGORY}, {CITY}
+
+- Apply core: verification. Public inboxes go through both verifiers too.
+- Segment by category, not by city. One campaign and one copy set per category.
+- Add merge fields per segment: `{TRADE_NOUN}` (&quot;plumber&quot;), `{TRADE_PLURAL}` (&quot;plumbing companies&quot;), `{TRADE_WORK}` (&quot;plumbing&quot;), plus `{CATEGORY}` and `{CITY}`. Fallbacks: first name &quot;there&quot; when no owner was found, last name &quot;-&quot; if the sender requires one.
+
+### 8. Write and launch, two lanes
+Tools: EmailBison, Instantly (option), Dialer
+Flow:
+- Owner lane | Main inbox set; opens on the category&#x27;s daily work, offers the made-for-them asset | with: EmailBison, Instantly | tag: send
+- Public inbox lane | Own campaign and inboxes, same copy with the there fallback | with: EmailBison | tag: read apart
+- Call list | no-site and no-email rows | with: Dialer
+
+- Apply core: copy and send rules.
+- Angle: open on something true of the category&#x27;s daily work, not of the business (&quot;property managers in {CITY} keep looking for a reliable {TRADE_NOUN}&quot;). Email 1 offers the free made-for-them asset, never a call. Email 2 is the threaded &quot;are you the right person for this&quot; bump.
+- Lane one: owner emails, main inbox set. Lane two: public inboxes, its own campaign and inbox set, same copy with the &quot;there&quot; fallback. Never mix them; their numbers must read apart. The `no-site` and no-email rows go to a call list.
+- Respect the window: ice cream and food trucks in February to April, breweries in March to April and August, bakeries in September to October and January, catering in January and September.
+- Draft 3 angle variants per category and show them for approval before upload.
+
+### 9. Report
+Tools: EmailBison, Attio, Slack
+Flow:
+= Per category and per lane, weekly | Retire a category under half the best one&#x27;s reply rate after 1,000 sends; scale the best into the next geography | with: EmailBison, Attio, Slack | chips: cost per lead
+
+- Weekly, per category and per lane: scraped, qualified, owner found, owner email, public inbox, sent, reply rate, interested, meetings, cost per lead. Retire a category under half the best one&#x27;s reply rate after 1,000 sends; scale the best into the next geography.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- The public-inbox lane is a real conflict in our data. One source saw 2 to 4% reply and 10 to 15% positive on info@ style addresses. Another offer saw role emails fail to convert at all. Run it as its own lane, read it on its own, and let the user&#x27;s numbers settle it.
+- Never query a generic category to &quot;cover more&quot;. It costs the same to scrape and about 3x more per reply.
+- Never upload a registry-layer owner name without the flag; a registered agent is not the owner.
+- One business, one sequence. If both the owner and the public inbox resolve, the owner gets the email and the public inbox waits for a later rotation.
+
+## Example run
+
+User: &quot;/pipeline-local-tam-google-maps for our commercial-client outreach offer, trades in Texas, free asset is a list of 20 property managers near them&quot;
+
+1. Confirmed the offer line, chose Plumber, HVAC contractor, Electrician, Roofing contractor and General contractor, 41 cities and suburbs, 205 queries.
+2. Sized the grid at one page per query, about 3,100 results, two small cities pruned.
+3. Scraped the full grid: 3,006 unique businesses after dedupe, 212 chain locations removed, 2,640 kept inside 5 to 50 employees.
+4. Owner name found for about 80%. Owner email verified for about a third, public inbox for most of the rest, 85% with some address; 310 no-site rows to the call list.
+5. Five campaigns per lane (&quot;TX Plumbers owners&quot;, &quot;TX Plumbers public&quot;), 3 angles approved, scheduled for Monday, about 0.03 USD per lead all in.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Local TAM from Google Maps end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/local-tam-google-maps'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../pain-qualified-segments/index.html'><span class='eyebrow'>Previous</span><b>Pain-Qualified Segments</b></a>
+<a href='../org-chart-qualifier/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Org-Chart Qualifier</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

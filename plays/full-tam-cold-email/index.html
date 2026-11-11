@@ -1,0 +1,361 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Full-TAM Cold Email | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><span>/</span><span>Full-TAM Cold Email</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 08 · Send, reply and conversion</div>
+<h1>Full-TAM Cold Email</h1>
+<div class='meta'><div><b>Trigger</b> A qualified TAM and one offer per segment</div><div><b>Outcome</b> Qualified replies in your CRM every week</div><div><b>Channels</b> email</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-full-tam-cold-email' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-full-tam-cold-email'>Install the Pipeline.tech &quot;Full-TAM Cold Email&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/full-tam-cold-email/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-full-tam-cold-email/SKILL.md, then run /pipeline-full-tam-cold-email.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-full-tam-cold-email.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/full-tam-cold-email.svg' alt='Full-TAM Cold Email workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/full-tam-cold-email.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>One broad campaign to a whole market tells you nothing when it underperforms, because every variable moved at once. Split the same list into cells where industry, persona and receiving mail provider are each held constant, and every campaign becomes its own read. Cut the cells that fail, move volume into the ones that work, and the TAM becomes a weekly stream of qualified replies.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The qualified TAM: output of <code>pipeline-icp-from-won-deals</code> or <code>pipeline-full-tam-map</code>, or a CSV with email, first name, company domain, industry and job title.</li>
+<li>The ICP in one paragraph, naming up to three industries and three buyer personas.</li>
+<li>One offer per segment: the thing you will send or make for them, plus one proof point. One offer for everything means fewer cells.</li>
+<li>Stack answers from core section 1.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Qualify and clean the list</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Attio</span><span class="chip">EmailBison</span></div>
+<ul>
+<li>Apply core: lists.</li>
+<li>Apply core: exclusions. Also strip anyone your sender has ever emailed unless the brief allows retargets. This play is net-new by default.</li>
+<li>Cap each company at 10 contacts per wave, most senior first; park the rest.</li>
+<li>Clean merge fields now: title-case names, strip legal suffixes and taglines from company names. Copy assumes clean fields.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Split into the 27-cell matrix</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailGuard</span><span class="chip">MX lookup (option)</span></div>
+<ul>
+<li>Tag every row with its receiving provider. Google MX goes to Google, Microsoft 365 to Microsoft, everything else (Proofpoint, Mimecast, custom, unknown) to Other.</li>
+<li>Build the matrix: up to 3 industries x 3 personas x 3 providers. One segment per campaign, never mixed. Name campaigns <code>{Industry} | {Persona} | {Provider}</code>.</li>
+<li>Cell size 50 to 500. Merge a cell under 50 into its neighbour on industry or persona, never on provider. Split a cell over 500 into waves.</li>
+<li>The provider split uses identical copy across its three cells. It exists so you can reallocate volume mid-flight.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Enrich and verify</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>Apply core: enrichment, for rows that passed step 1 only.</li>
+<li>Apply core: verification. Catch-all rows get their own campaign per cell, suffixed <code>| Catch-all</code>.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Write one offer per segment</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span></div>
+<ul>
+<li>Apply core: copy and send rules.</li>
+<li>Per industry x persona pair (up to 9), draft three angle variants for email 1. Angles differ in opener, proof and ask, not in synonyms, and share one variable set.</li>
+<li>Three lines per email: their situation, value with a proof number, one ask. Open like a technician asking a diagnostic question only someone in their seat would recognise, not with a stat or a promise.</li>
+<li>The ask on email 1 is a value CTA: permission to send something made for them (a list, a mockup, a short video). Never a call. Any later booking link is a "strategy session", never an "audit".</li>
+<li>Email 2 is one deliberately simple threaded nudge after 3 days. Its only job is a second look; "are you the right person for this" is fine. Reuse no distinctive keyword from email 1.</li>
+<li>Get approval on the plain-text angles before anything is spintaxed.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Spintax and QA</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">QA checklist</span></div>
+<ul>
+<li>Spintax the approved source only. Same angle count in and out; reword, never extend. Render neighbouring spintax blocks together and fix any combination that reads broken.</li>
+<li>Subject block per fresh send follows core: copy and send rules.</li>
+<li>Banned on every spintax path: free, guaranteed, profits, offer, quote, earn, #1. Use "on us" or "put in writing" instead.</li>
+<li>QA gate before upload: plain text on, open tracking off, 2 steps, body 25 to 55 words excluding sign-off, no greeting prefix, no em dashes, variables populated on every lead, inboxes connected with warmup score 90 or higher. Zero blockers or no launch.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Upload and launch</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">Attio</span></div>
+<ul>
+<li>Create the segment variables first, then upload leads with per-segment values (<code><span class=\"var\">{SEGMENT_SITUATION}</span></code>, <code><span class=\"var\">{SEGMENT_HOOK}</span></code>). In the EmailBison API, custom variables are posted as <code>{"name": "X", "value": "Y"}</code> and the first step waits 1 day minimum.</li>
+<li>One campaign per cell, same copy across the three provider cells, its own inbox set. Attach senders (paginate the list), apply the schedule, add the two-step sequence, activate.</li>
+<li>Apply core: CRM and alerts, with the cell name on every contact.</li>
+<li>Preview three rendered emails per cell with real lead data first.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Read results weekly and move volume</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>Per cell, log sent, bounce, reply rate, interested, meetings, and emails per interested lead (E2L). Under 1:300 excellent, about 1:500 workable, over 1:1,000 weak. Optimise E2L, not reply volume.</li>
+<li>Diagnostic chain, in order: bounce above 3% indicts verification (pause, re-verify). Low reply rate indicts the list. Low interested rate with normal replies indicts segment and offer. Interested leads that never become meetings indict the handover.</li>
+<li>Compare providers. Microsoft often produces near-zero qualified interest. Move its daily volume to the Google and Other cells rather than rewriting.</li>
+<li>Phase 1 settles the offer across the three angles. Phase 2 holds the winner and tests wording. Phase 3 scales. Success is 2% positive reply or 20% of replies positive. A variant that lifts replies but lowers meetings loses.</li>
+<li>One or two cells usually carry the run. Scale those, pause the rest, refill with the parked contacts from step 1.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>Never mix two industries, two personas or two providers in one campaign, even to hit a minimum size.</li>
+<li>No third step. A new angle launches as a new campaign to the untouched part of the cell.</li>
+<li>Never ask for a call in email 1.</li>
+<li>A reply is not a result. Read interested rate and meetings before naming a winner.</li>
+<li>No retargets inside 30 days, and strip replied, bounced and blacklisted rows before every new wave.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-full-tam-cold-email with the TAM CSV from last week, we sell outsourced bookkeeping to clinics, construction firms and agencies"</p>
+<ol>
+<li>Loaded 6,340 companies, 5,120 after the ICP check and exclusions, 7,480 contacts after the 10-per-firm cap.</li>
+<li>Tagged 3,910 Google, 2,260 Microsoft, 1,310 Other. 27 cells, 4 under 50 merged into neighbouring personas, leaving 23 campaigns plus 5 catch-all campaigns.</li>
+<li>5,860 verified valid, 410 catch-all kept.</li>
+<li>Nine offers approved, 27 angles and 9 nudges spintaxed, 11 broken combinations fixed, QA gate clean on all 28 campaigns.</li>
+<li>Launched Monday on 36 inboxes. Week 3: 9,800 sent, 0.9% bounce, 1.8% reply, 22 interested, E2L 1:445. Google 1:290, Microsoft 1:1,630. Microsoft volume moved to Google and Other; clinics x practice manager carried 11 of 22 interested and moved to Phase 2.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/full-tam-cold-email/SKILL.md</b><span>The skill file behind this page, 124 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-full-tam-cold-email'>Copy skill file</button></div>
+<pre>---
+name: pipeline-full-tam-cold-email
+description: Pipeline.tech play. Run cold email across a whole qualified TAM as parallel segment campaigns. Splits the list into up to 27 cells (industry x persona x email provider), writes one offer per segment with three angle variants and a threaded nudge, applies spintax and pre-launch QA, launches, then reads results weekly with the diagnostic chain and emails-per-lead thresholds. USE WHEN user says &quot;/pipeline-full-tam-cold-email&quot; OR &quot;full TAM cold email&quot; OR &quot;27-cell campaign&quot; OR &quot;split campaigns by email provider&quot; OR &quot;segment and launch this list&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/full-tam-cold-email)
+version: 0.1.0</pre><div class='more'>… 119 more lines</div>
+<pre id='raw-full-tam-cold-email' class='hidden'>---
+name: pipeline-full-tam-cold-email
+description: Pipeline.tech play. Run cold email across a whole qualified TAM as parallel segment campaigns. Splits the list into up to 27 cells (industry x persona x email provider), writes one offer per segment with three angle variants and a threaded nudge, applies spintax and pre-launch QA, launches, then reads results weekly with the diagnostic chain and emails-per-lead thresholds. USE WHEN user says &quot;/pipeline-full-tam-cold-email&quot; OR &quot;full TAM cold email&quot; OR &quot;27-cell campaign&quot; OR &quot;split campaigns by email provider&quot; OR &quot;segment and launch this list&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/full-tam-cold-email)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: A qualified TAM and one offer per segment
+outcome: Qualified replies in your CRM every week
+category: send-reply
+channels: email
+tools: Claude, EmailGuard, LeadMagic, Prospeo, MillionVerifier, BounceBan, EmailBison, Instantly (option), Attio, Slack
+---
+
+# Full-TAM Cold Email
+
+One broad campaign to a whole market tells you nothing when it underperforms, because every variable moved at once. Split the same list into cells where industry, persona and receiving mail provider are each held constant, and every campaign becomes its own read. Cut the cells that fail, move volume into the ones that work, and the TAM becomes a weekly stream of qualified replies.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The qualified TAM: output of `pipeline-icp-from-won-deals` or `pipeline-full-tam-map`, or a CSV with email, first name, company domain, industry and job title.
+2. The ICP in one paragraph, naming up to three industries and three buyer personas.
+3. One offer per segment: the thing you will send or make for them, plus one proof point. One offer for everything means fewer cells.
+4. Stack answers from core section 1.
+
+## Steps
+
+### 1. Qualify and clean the list
+Tools: Claude, Attio, EmailBison
+Flow:
+- ICP check and exclusions | Website-read fit check; customers, open deals and anyone the sender has ever emailed come off | with: Claude, Attio, EmailBison | chips: net-new only, 10 contacts per firm
+- Clean merge fields | Title-case names, legal suffixes and taglines stripped before copy assumes them | chips: first name, company, title
+
+- Apply core: lists.
+- Apply core: exclusions. Also strip anyone your sender has ever emailed unless the brief allows retargets. This play is net-new by default.
+- Cap each company at 10 contacts per wave, most senior first; park the rest.
+- Clean merge fields now: title-case names, strip legal suffixes and taglines from company names. Copy assumes clean fields.
+
+### 2. Split into the 27-cell matrix
+Tools: EmailGuard, MX lookup (option)
+Flow:
+- Tag the receiving provider | The MX record decides Google, Microsoft or Other | with: EmailGuard, MX lookup
+= Up to 3 industries x 3 personas x 3 providers | One segment per campaign, never mixed; cells of 50 to 500, merged on industry or persona, never on provider | chips: Industry | Persona | Provider, identical copy across providers
+
+- Tag every row with its receiving provider. Google MX goes to Google, Microsoft 365 to Microsoft, everything else (Proofpoint, Mimecast, custom, unknown) to Other.
+- Build the matrix: up to 3 industries x 3 personas x 3 providers. One segment per campaign, never mixed. Name campaigns `{Industry} | {Persona} | {Provider}`.
+- Cell size 50 to 500. Merge a cell under 50 into its neighbour on industry or persona, never on provider. Split a cell over 500 into waves.
+- The provider split uses identical copy across its three cells. It exists so you can reallocate volume mid-flight.
+
+### 3. Enrich and verify
+Tools: LeadMagic, Prospeo, MillionVerifier, BounceBan
+Flow:
+- Email waterfall | Only for rows that passed step 1 | with: LeadMagic, Prospeo | tag: core: enrichment
+- Two passes | Catch-all rows get their own campaign per cell | with: MillionVerifier, BounceBan | tag: core: verification
+
+- Apply core: enrichment, for rows that passed step 1 only.
+- Apply core: verification. Catch-all rows get their own campaign per cell, suffixed `| Catch-all`.
+
+### 4. Write one offer per segment
+Tools: Claude
+Flow:
+= Three angles per industry x persona pair | Their situation, value with a proof number, one value ask; never a call on email 1; email 2 is one simple threaded nudge | with: Claude | chips: email 1 x3, threaded nudge, one variable set, strategy session not audit
+
+- Apply core: copy and send rules.
+- Per industry x persona pair (up to 9), draft three angle variants for email 1. Angles differ in opener, proof and ask, not in synonyms, and share one variable set.
+- Three lines per email: their situation, value with a proof number, one ask. Open like a technician asking a diagnostic question only someone in their seat would recognise, not with a stat or a promise.
+- The ask on email 1 is a value CTA: permission to send something made for them (a list, a mockup, a short video). Never a call. Any later booking link is a &quot;strategy session&quot;, never an &quot;audit&quot;.
+- Email 2 is one deliberately simple threaded nudge after 3 days. Its only job is a second look; &quot;are you the right person for this&quot; is fine. Reuse no distinctive keyword from email 1.
+- Get approval on the plain-text angles before anything is spintaxed.
+
+### 5. Spintax and QA
+Tools: Claude, QA checklist
+Flow:
+- Spintax the approved source | 20 or more subject options, banned words out, neighbouring blocks rendered and fixed | with: Claude | chips: free, guaranteed, offer, quote, earn
+- QA gate | Plain text on, open tracking off, 2 steps, 25 to 55 words, variables populated, warmup score 90 or higher | with: QA checklist | tag: zero blockers
+
+- Spintax the approved source only. Same angle count in and out; reword, never extend. Render neighbouring spintax blocks together and fix any combination that reads broken.
+- Subject block per fresh send follows core: copy and send rules.
+- Banned on every spintax path: free, guaranteed, profits, offer, quote, earn, #1. Use &quot;on us&quot; or &quot;put in writing&quot; instead.
+- QA gate before upload: plain text on, open tracking off, 2 steps, body 25 to 55 words excluding sign-off, no greeting prefix, no em dashes, variables populated on every lead, inboxes connected with warmup score 90 or higher. Zero blockers or no launch.
+
+### 6. Upload and launch
+Tools: EmailBison, Instantly (option), Attio
+Flow:
+= One campaign per cell, its own inbox set | Segment variables first, then leads with per-segment values, then the two-step sequence, then activate | with: EmailBison, Instantly, Attio | chips: {SEGMENT_SITUATION}, {SEGMENT_HOOK}, 3 previews per cell | tag: send
+
+- Create the segment variables first, then upload leads with per-segment values (`{SEGMENT_SITUATION}`, `{SEGMENT_HOOK}`). In the EmailBison API, custom variables are posted as `{&quot;name&quot;: &quot;X&quot;, &quot;value&quot;: &quot;Y&quot;}` and the first step waits 1 day minimum.
+- One campaign per cell, same copy across the three provider cells, its own inbox set. Attach senders (paginate the list), apply the schedule, add the two-step sequence, activate.
+- Apply core: CRM and alerts, with the cell name on every contact.
+- Preview three rendered emails per cell with real lead data first.
+
+### 7. Read results weekly and move volume
+Tools: EmailBison, Attio, Slack
+Flow:
+- Diagnostic chain | Bounce above 3% indicts verification, low replies the list, low interested the offer, no meetings the handover | with: EmailBison, Attio | chips: E2L under 1:300, about 1:500, over 1:1,000
+- Move volume | Microsoft cells usually underperform; shift daily volume to Google and Other, scale the one or two cells that carry the run | with: Slack | tag: phase 1 to 3
+
+- Per cell, log sent, bounce, reply rate, interested, meetings, and emails per interested lead (E2L). Under 1:300 excellent, about 1:500 workable, over 1:1,000 weak. Optimise E2L, not reply volume.
+- Diagnostic chain, in order: bounce above 3% indicts verification (pause, re-verify). Low reply rate indicts the list. Low interested rate with normal replies indicts segment and offer. Interested leads that never become meetings indict the handover.
+- Compare providers. Microsoft often produces near-zero qualified interest. Move its daily volume to the Google and Other cells rather than rewriting.
+- Phase 1 settles the offer across the three angles. Phase 2 holds the winner and tests wording. Phase 3 scales. Success is 2% positive reply or 20% of replies positive. A variant that lifts replies but lowers meetings loses.
+- One or two cells usually carry the run. Scale those, pause the rest, refill with the parked contacts from step 1.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- Never mix two industries, two personas or two providers in one campaign, even to hit a minimum size.
+- No third step. A new angle launches as a new campaign to the untouched part of the cell.
+- Never ask for a call in email 1.
+- A reply is not a result. Read interested rate and meetings before naming a winner.
+- No retargets inside 30 days, and strip replied, bounced and blacklisted rows before every new wave.
+
+## Example run
+
+User: &quot;/pipeline-full-tam-cold-email with the TAM CSV from last week, we sell outsourced bookkeeping to clinics, construction firms and agencies&quot;
+
+1. Loaded 6,340 companies, 5,120 after the ICP check and exclusions, 7,480 contacts after the 10-per-firm cap.
+2. Tagged 3,910 Google, 2,260 Microsoft, 1,310 Other. 27 cells, 4 under 50 merged into neighbouring personas, leaving 23 campaigns plus 5 catch-all campaigns.
+3. 5,860 verified valid, 410 catch-all kept.
+4. Nine offers approved, 27 angles and 9 nudges spintaxed, 11 broken combinations fixed, QA gate clean on all 28 campaigns.
+5. Launched Monday on 36 inboxes. Week 3: 9,800 sent, 0.9% bounce, 1.8% reply, 22 interested, E2L 1:445. Google 1:290, Microsoft 1:1,630. Microsoft volume moved to Google and Other; clinics x practice manager carried 11 of 22 interested and moved to Phase 2.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Full-TAM Cold Email end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/full-tam-cold-email'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../ad-spend-qualifier/index.html'><span class='eyebrow'>Previous</span><b>Ad-Spend Qualifier</b></a>
+<a href='../tam-rotation/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>TAM Rotation</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

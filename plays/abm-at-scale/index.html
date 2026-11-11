@@ -1,0 +1,368 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>ABM at Scale | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><span>/</span><span>ABM at Scale</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 12 · Send, reply and conversion</div>
+<h1>ABM at Scale</h1>
+<div class='meta'><div><b>Trigger</b> A funded or tiered account list (lookalike pull, database export, or the user&#x27;s own targets)</div><div><b>Outcome</b> One custom asset per contact, at hundreds of accounts</div><div><b>Channels</b> email, linkedin</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-abm-at-scale' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-abm-at-scale'>Install the Pipeline.tech &quot;ABM at Scale&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/abm-at-scale/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-abm-at-scale/SKILL.md, then run /pipeline-abm-at-scale.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-abm-at-scale.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/abm-at-scale.svg' alt='ABM at Scale workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/abm-at-scale.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>ABM used to stop at 20 accounts because research, deliverables and contact maps were done by hand. This play runs the same steps over a few hundred accounts: classify, enrich, bucket by hiring signal, map 3 to 5 people, write a short strategy doc for each one. Every contact gets their own asset, because three people in a 30-person company compare what they received. One run took 413 raw accounts to about 900 unique deliverables.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The account list, or pull criteria to build one. Default pull: Series C to F, 11 to 50 employees, US.</li>
+<li>The ICP in one paragraph and the problem you solve.</li>
+<li>The offer in one sentence and one proof point. Both go into the doc and the copy.</li>
+<li>Strategy doc only (default) or doc plus a video brief the user records from.</li>
+<li>Stack answers from core section 1.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Build the account list</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Ocean.io</span><span class="chip">Apollo (option)</span><span class="chip">CSV (option)</span></div>
+<ul>
+<li>Pull funded companies in the user's band, or load the user's list. A funded pull is noisy.</li>
+<li>Apply core: lists.</li>
+<li>Apply core: exclusions. Dedupe against the CRM now so warm accounts are never double-touched.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Classify B2B fit as KEEP / DROP / REVIEW</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Firecrawl</span><span class="chip">Claude</span></div>
+<ul>
+<li>Scrape homepage and about page. Give the model the ICP paragraph and the page text, and ask for one of three verdicts with a one-line reason.</li>
+<li>Three verdicts, not two. A hard yes/no filter throws out borderline accounts that turn out to be in market, which is lost TAM. REVIEW rows get a 30-second human look.</li>
+<li>Read DROP reasons in bulk. One reason repeating means the ICP definition is wrong, not the list.</li>
+<li>Only KEEP and approved REVIEW rows continue. A few hundred accounts classified this way costs under a dollar.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Enrich each account</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Firecrawl</span><span class="chip">Exa</span><span class="chip">Serper</span></div>
+<ul>
+<li>Pull homepage, about, services and one or two case study pages. From that text write five columns: product or service, business model, top 3 ICP segments as size plus geography plus industry, GTM motion, whether case studies exist.</li>
+<li>Map the sales team with one Exa search filtered to LinkedIn profiles and count titles into AE, SDR or BDR, manager, director, VP, C-suite. A BDR with no visible cold email is intent in itself.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Score six signals and assign one hiring bucket</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Serper</span><span class="chip">Exa</span><span class="chip">Careers pages</span></div>
+<ul>
+<li>Score six weighted signals per account: funded in the last 12 months (15), new product or market expansion (10), sales-team gripes on review sites about leads or quotas (25), new growth-stage investor (10), hiring a salesperson in the last 15 days (25), salesperson hired in the last 90 days (15). Store hit, summary and URL for each.</li>
+<li>The score is directional. Review sites and job boards gate access, so those signals under-fire. A low score means no confirmed signal, not no signal.</li>
+<li>Put every account in exactly one bucket: currently hiring, recent hire under 90 days, or no signal. If both hiring signals fire, the account goes to currently hiring. No fourth bucket; every extra bucket is another variant of every asset.</li>
+<li>Apply core: tiering. Two dated signals inside a quarter make the account Tier 1 and add the call layer.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Map and tier contacts</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Exa</span><span class="chip">Prospeo</span><span class="chip">LeadMagic</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>Find 3 to 5 people per account. Primary titles CRO and VP Sales; fallback founder plus head of sales when the company is too small for either.</li>
+<li>Tier each person: decision maker (owns the budget), champion (runs the team or feels the pain daily), gatekeeper (chief of staff, executive assistant, ops lead). A gatekeeper gets an asset too, written for someone who forwards rather than buys.</li>
+<li>Apply core: enrichment. Apply core: verification.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Write one asset per contact</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Google Docs</span><span class="chip">Claude</span><span class="chip">Tella (optional)</span></div>
+<ul>
+<li>One short strategy doc per person, five pages at most: why now (from the bucket and signals), a segmentation matrix of their top 3 ICPs with a persona and buying trigger each, an infrastructure sketch sized to their sales headcount, a starter list of 30 target accounts in their best segment, three cold email variants, a closing CTA.</li>
+<li>Write for the tier. The decision maker's version leads with pipeline math against headcount; the champion's with the list and copy; the gatekeeper's is a one-page summary built to be forwarded.</li>
+<li>Never reuse a doc across contacts at the same account. Vary the opening, examples and account list, not just the name.</li>
+<li>Optional: a 60 to 90 second video brief per contact (what we saw, what we built, where it is) for the user to record.</li>
+<li>Label the CTA a strategy session or growth roadmap session, never an audit or consulting call.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Send on email and LinkedIn</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">HeyReach</span></div>
+<ul>
+<li>Apply core: copy and send rules.</li>
+<li>Three copy variants, one per bucket. Currently hiring: the doc is the pipeline the new rep inherits. Recent hire: the doc shortens the ramp. No signal: lead with the gap the enrichment found (a BDR with no cold email, no case studies, one ICP served when three are visible).</li>
+<li>Email 1 names the gap and says a doc exists; email 2 is the threaded nudge with the link. LinkedIn in parallel: connect on day 1, send the doc on acceptance.</li>
+<li>Companies past Series B already run outbound. Write to lower their cost per meeting, not to start outbound.</li>
+<li>Stop every contact at an account the moment one replies; hand the thread to the owner.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Log and read by bucket</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span></div>
+<ul>
+<li>Apply core: CRM and alerts. Write play name, bucket, contact tier, asset URL and date on each person.</li>
+<li>Weekly: accounts kept, assets produced, sent, reply and interested rate by bucket and contact tier. If no-signal matches hiring on replies, the signal scan is under-firing and needs new sources, not new copy.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>Never mention review-site gripes or a named new hire in copy. Those signals pick the bucket, never the message.</li>
+<li>One contact, one asset. If a doc cannot be made unique, drop the contact, not the uniqueness.</li>
+<li>The doc is the CTA, not a gate. Send it in full, ask for nothing first.</li>
+<li>Do not run this play on an account in another play's sequence this month.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-abm-at-scale on this Ocean.io export, we sell outsourced outbound to small B2B software companies"</p>
+<ol>
+<li>Confirmed offer line, proof point, doc-only assets, EmailBison plus HeyReach plus Attio.</li>
+<li>Loaded 413 accounts, 9 removed as customers or open deals. Fit check: 287 KEEP, 71 DROP, 46 REVIEW; 19 REVIEW rows approved by hand.</li>
+<li>306 accounts enriched; 41 flagged as BDR with no cold email.</li>
+<li>Buckets: 81 currently hiring, 118 recent hire, 107 no signal. 22 accounts Tier 1 on two dated signals.</li>
+<li>912 contacts found, 847 verified across two passes, 38 catch-all in their own campaign.</li>
+<li>885 strategy docs written and linked on the CRM. Three bucket variants approved, campaigns scheduled for Monday.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/abm-at-scale/SKILL.md</b><span>The skill file behind this page, 127 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-abm-at-scale'>Copy skill file</button></div>
+<pre>---
+name: pipeline-abm-at-scale
+description: Pipeline.tech play. One custom asset per contact, at hundreds of accounts. Starts from a funded or tiered account list, classifies B2B fit as KEEP / DROP / REVIEW, enriches product, ICPs, GTM motion and sales headcount, buckets each account by hiring signal, maps 3 to 5 tiered contacts, writes a short strategy doc per contact and sends it as the CTA over email plus LinkedIn. USE WHEN user says &quot;/pipeline-abm-at-scale&quot; OR &quot;ABM at scale&quot; OR &quot;Dream 100 play&quot; OR &quot;custom asset per contact&quot; OR &quot;run ABM on this account list&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/abm-at-scale)
+version: 0.1.0</pre><div class='more'>… 122 more lines</div>
+<pre id='raw-abm-at-scale' class='hidden'>---
+name: pipeline-abm-at-scale
+description: Pipeline.tech play. One custom asset per contact, at hundreds of accounts. Starts from a funded or tiered account list, classifies B2B fit as KEEP / DROP / REVIEW, enriches product, ICPs, GTM motion and sales headcount, buckets each account by hiring signal, maps 3 to 5 tiered contacts, writes a short strategy doc per contact and sends it as the CTA over email plus LinkedIn. USE WHEN user says &quot;/pipeline-abm-at-scale&quot; OR &quot;ABM at scale&quot; OR &quot;Dream 100 play&quot; OR &quot;custom asset per contact&quot; OR &quot;run ABM on this account list&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/abm-at-scale)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: A funded or tiered account list (lookalike pull, database export, or the user&#x27;s own targets)
+outcome: One custom asset per contact, at hundreds of accounts
+category: send-reply
+channels: email, linkedin
+tools: Ocean.io, Apollo (option), Firecrawl, Exa, Serper, Claude, Prospeo, LeadMagic, MillionVerifier, BounceBan, Google Docs, EmailBison, HeyReach, Attio
+---
+
+# ABM at Scale
+
+ABM used to stop at 20 accounts because research, deliverables and contact maps were done by hand. This play runs the same steps over a few hundred accounts: classify, enrich, bucket by hiring signal, map 3 to 5 people, write a short strategy doc for each one. Every contact gets their own asset, because three people in a 30-person company compare what they received. One run took 413 raw accounts to about 900 unique deliverables.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The account list, or pull criteria to build one. Default pull: Series C to F, 11 to 50 employees, US.
+2. The ICP in one paragraph and the problem you solve.
+3. The offer in one sentence and one proof point. Both go into the doc and the copy.
+4. Strategy doc only (default) or doc plus a video brief the user records from.
+5. Stack answers from core section 1.
+
+## Steps
+
+### 1. Build the account list
+Tools: Ocean.io, Apollo (option), CSV (option)
+Flow:
+= A funded pull or your own list, deduped against the CRM | with: Ocean.io, Apollo, CSV | chips: Series C to F, 11 to 50 people, US
+
+- Pull funded companies in the user&#x27;s band, or load the user&#x27;s list. A funded pull is noisy.
+- Apply core: lists.
+- Apply core: exclusions. Dedupe against the CRM now so warm accounts are never double-touched.
+
+### 2. Classify B2B fit as KEEP / DROP / REVIEW
+Tools: Firecrawl, Claude
+Flow:
+- KEEP | Continues | with: Claude | tag: verdict
+- REVIEW | A 30-second human look | with: Claude | tag: verdict
+- DROP | Reasons read in bulk; one reason repeating means the ICP is wrong | with: Firecrawl | tag: verdict
+
+- Scrape homepage and about page. Give the model the ICP paragraph and the page text, and ask for one of three verdicts with a one-line reason.
+- Three verdicts, not two. A hard yes/no filter throws out borderline accounts that turn out to be in market, which is lost TAM. REVIEW rows get a 30-second human look.
+- Read DROP reasons in bulk. One reason repeating means the ICP definition is wrong, not the list.
+- Only KEEP and approved REVIEW rows continue. A few hundred accounts classified this way costs under a dollar.
+
+### 3. Enrich each account
+Tools: Firecrawl, Exa, Serper
+Flow:
+= Five columns from the website and news | with: Firecrawl, Exa, Serper | chips: product, business model, top 3 ICPs, GTM motion, sales headcount, BDR with no cold email
+
+- Pull homepage, about, services and one or two case study pages. From that text write five columns: product or service, business model, top 3 ICP segments as size plus geography plus industry, GTM motion, whether case studies exist.
+- Map the sales team with one Exa search filtered to LinkedIn profiles and count titles into AE, SDR or BDR, manager, director, VP, C-suite. A BDR with no visible cold email is intent in itself.
+
+### 4. Score six signals and assign one hiring bucket
+Tools: Serper, Exa, Careers pages
+Flow:
+= Six weighted signals, one bucket per account | Tie goes to currently hiring; no fourth bucket | with: Serper, Exa, Careers pages | chips: currently hiring, recent hire under 90 days, no signal | tag: core: tiering
+
+- Score six weighted signals per account: funded in the last 12 months (15), new product or market expansion (10), sales-team gripes on review sites about leads or quotas (25), new growth-stage investor (10), hiring a salesperson in the last 15 days (25), salesperson hired in the last 90 days (15). Store hit, summary and URL for each.
+- The score is directional. Review sites and job boards gate access, so those signals under-fire. A low score means no confirmed signal, not no signal.
+- Put every account in exactly one bucket: currently hiring, recent hire under 90 days, or no signal. If both hiring signals fire, the account goes to currently hiring. No fourth bucket; every extra bucket is another variant of every asset.
+- Apply core: tiering. Two dated signals inside a quarter make the account Tier 1 and add the call layer.
+
+### 5. Map and tier contacts
+Tools: Exa, Prospeo, LeadMagic, MillionVerifier, BounceBan
+Flow:
+= 3 to 5 people per account, tiered | with: Exa, Prospeo, LeadMagic, MillionVerifier, BounceBan | chips: decision maker, champion, gatekeeper
+
+- Find 3 to 5 people per account. Primary titles CRO and VP Sales; fallback founder plus head of sales when the company is too small for either.
+- Tier each person: decision maker (owns the budget), champion (runs the team or feels the pain daily), gatekeeper (chief of staff, executive assistant, ops lead). A gatekeeper gets an asset too, written for someone who forwards rather than buys.
+- Apply core: enrichment. Apply core: verification.
+
+### 6. Write one asset per contact
+Tools: Google Docs, Claude, Tella (optional)
+Flow:
+= One strategy doc per contact, five pages at most | Written for the tier; never reused across contacts at one account | with: Google Docs, Claude, Tella | chips: why now, segmentation matrix, infrastructure sketch, 30 accounts, 3 emails, CTA
+
+- One short strategy doc per person, five pages at most: why now (from the bucket and signals), a segmentation matrix of their top 3 ICPs with a persona and buying trigger each, an infrastructure sketch sized to their sales headcount, a starter list of 30 target accounts in their best segment, three cold email variants, a closing CTA.
+- Write for the tier. The decision maker&#x27;s version leads with pipeline math against headcount; the champion&#x27;s with the list and copy; the gatekeeper&#x27;s is a one-page summary built to be forwarded.
+- Never reuse a doc across contacts at the same account. Vary the opening, examples and account list, not just the name.
+- Optional: a 60 to 90 second video brief per contact (what we saw, what we built, where it is) for the user to record.
+- Label the CTA a strategy session or growth roadmap session, never an audit or consulting call.
+
+### 7. Send on email and LinkedIn
+Tools: EmailBison, Instantly (option), HeyReach
+Flow:
+= Three copy variants, one per bucket | Email 1 names the gap, email 2 carries the doc; LinkedIn connects day 1 and sends the doc on accept | with: EmailBison, Instantly, HeyReach | tag: send
+
+- Apply core: copy and send rules.
+- Three copy variants, one per bucket. Currently hiring: the doc is the pipeline the new rep inherits. Recent hire: the doc shortens the ramp. No signal: lead with the gap the enrichment found (a BDR with no cold email, no case studies, one ICP served when three are visible).
+- Email 1 names the gap and says a doc exists; email 2 is the threaded nudge with the link. LinkedIn in parallel: connect on day 1, send the doc on acceptance.
+- Companies past Series B already run outbound. Write to lower their cost per meeting, not to start outbound.
+- Stop every contact at an account the moment one replies; hand the thread to the owner.
+
+### 8. Log and read by bucket
+Tools: Attio
+Flow:
+= Read by bucket and contact tier | with: Attio | chips: play, bucket, tier, asset URL, date
+
+- Apply core: CRM and alerts. Write play name, bucket, contact tier, asset URL and date on each person.
+- Weekly: accounts kept, assets produced, sent, reply and interested rate by bucket and contact tier. If no-signal matches hiring on replies, the signal scan is under-firing and needs new sources, not new copy.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- Never mention review-site gripes or a named new hire in copy. Those signals pick the bucket, never the message.
+- One contact, one asset. If a doc cannot be made unique, drop the contact, not the uniqueness.
+- The doc is the CTA, not a gate. Send it in full, ask for nothing first.
+- Do not run this play on an account in another play&#x27;s sequence this month.
+
+## Example run
+
+User: &quot;/pipeline-abm-at-scale on this Ocean.io export, we sell outsourced outbound to small B2B software companies&quot;
+
+1. Confirmed offer line, proof point, doc-only assets, EmailBison plus HeyReach plus Attio.
+2. Loaded 413 accounts, 9 removed as customers or open deals. Fit check: 287 KEEP, 71 DROP, 46 REVIEW; 19 REVIEW rows approved by hand.
+3. 306 accounts enriched; 41 flagged as BDR with no cold email.
+4. Buckets: 81 currently hiring, 118 recent hire, 107 no signal. 22 accounts Tier 1 on two dated signals.
+5. 912 contacts found, 847 verified across two passes, 38 catch-all in their own campaign.
+6. 885 strategy docs written and linked on the CRM. Three bucket variants approved, campaigns scheduled for Monday.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs ABM at Scale end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/abm-at-scale'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../reply-routing/index.html'><span class='eyebrow'>Previous</span><b>Reply Routing</b></a>
+<a href='../film-it-for-you/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Film-It-For-You</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

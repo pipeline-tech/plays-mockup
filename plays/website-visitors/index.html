@@ -1,0 +1,371 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Website Visitors | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-first-party'>First-party signals</a><span>/</span><span>Website Visitors</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 28 · First-party signals</div>
+<h1>Website Visitors</h1>
+<div class='meta'><div><b>Trigger</b> An identified visit weighted by depth, or an opt-in</div><div><b>Outcome</b> Best-fit visitors reach a rep in minutes</div><div><b>Channels</b> email, linkedin, call</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-website-visitors' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-website-visitors'>Install the Pipeline.tech &quot;Website Visitors&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/website-visitors/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-website-visitors/SKILL.md, then run /pipeline-website-visitors.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-website-visitors.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/website-visitors.svg' alt='Website Visitors workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/website-visitors.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>The best-fit people already on your site should hear from a human while the visit is still fresh, and most teams let them leave with nothing but a cookie. Page views are a poor ranking signal, so this play ranks visitors on who they are: how big their own market is, how strong their offer is, how credible their website looks. An opt-in with a work email is worth more than any anonymous visit, so the loop is built on opt-ins first with identification as the second feed.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of core.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1 and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The ICP in one paragraph: industries, headcount band, geography, the problem you solve, who owns it.</li>
+<li>The site map with intent weights: pages that mean buying (pricing, services, case studies, plays) and pages that mean reading (blog).</li>
+<li>Stack answers from core section 1, plus the newsletter tool, the form tool and any visitor identification tool.</li>
+<li>The lead magnets on offer and the unique offers a Tier 1 can receive: a lead list, a play sample, a teardown.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Instrument the site</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">n8n</span><span class="chip">Claude (option)</span><span class="chip">RB2B (option)</span><span class="chip">Warmly (option)</span></div>
+<ul>
+<li>Put a UTM on every page and every CTA, so a visit and a booking both carry the page that produced them.</li>
+<li>Weight pages by intent with the user: pricing, services, case studies and plays high, blog low. Store the weights in the config.</li>
+<li>Point every opt-in form at the orchestration (n8n or Claude Code), not straight at the newsletter tool. A plain signup may use a personal email; claiming a lead magnet requires a work email.</li>
+<li>Visitor identification (RB2B or Warmly) is the option, not the spine. Run it only where lawful.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Capture two feeds into one record</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">n8n</span><span class="chip">Beehiiv</span><span class="chip">Google Sheets</span><span class="chip">RB2B (option)</span><span class="chip">Warmly (option)</span></div>
+<ul>
+<li>Feed one is opt-ins, each carrying the form, the page and the UTM. Feed two is identified visits with company, person where available, pages, frequency and recency.</li>
+<li>Merge both into one record per person per week, by email first and then by domain. When a company shows up in both feeds, the opt-in counts and the visit becomes context.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Enrich the company and the person</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Ocean.io</span><span class="chip">Apollo</span><span class="chip">AI Ark (option)</span><span class="chip">Firecrawl</span><span class="chip">Claude</span></div>
+<ul>
+<li>Enrich the company from the email domain: real employee count, industry, location. Self-reported headcount is unreliable and never overrides the domain lookup.</li>
+<li>Scrape the website with Firecrawl and have Claude score three fields, each 1 to 5 with one reason: TAM size (how many companies they could sell to), offer strength (clear what they sell, to whom, why it wins) and website credibility (proof, named customers, a real team).</li>
+<li>Store the scores and reasons on the record; they drive step 5 and the opener in step 7.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>CRM check and exclusions</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span><span class="chip">Claude</span></div>
+<ul>
+<li>Look up every record in the CRM by email, then by domain. A customer or an open deal gets a visit note on the existing record and a message to the owner, nothing more.</li>
+<li>Apply core: exclusions. Also drop competitors, agencies, students and job seekers.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Score and tier</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Attio</span></div>
+<ul>
+<li>Tier 1: ICP fit, a strong three-field score (12 of 15 or higher, no field under 3) and either an opt-in or two high-intent visits inside 7 days. Tier 2: ICP fit plus an opt-in. Tier 3: ICP fit plus a visit only, which goes to the newsletter and nothing else.</li>
+<li>A company-level identification with no named person is parked until step 6 finds the buyer, and gets outreach only when the pages were high intent.</li>
+<li>Write tier, feed, pages, the three scores and the source page to the CRM record. Apply core: tiering for anything not covered here.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Enrich and verify the buyer</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Apollo</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>When the visitor is unknown or sits below the seat, find the buyer by company size. Apply core: enrichment.</li>
+<li>An opt-in email is still verified before anything sends. Apply core: verification.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Alert and run outreach by tier</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Slack</span><span class="chip">LinkedIn</span><span class="chip">HeyReach</span><span class="chip">Phone</span><span class="chip">Claude</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">Beehiiv</span><span class="chip">Attio</span></div>
+<ul>
+<li>Tier 1 runs within minutes. Slack alert with the pages viewed, the three scores with reasons, a one-line opener and the direct dial if found. The owner sends a LinkedIn connection the same day and an email with a unique offer tied to what they looked at: a lead list for their ICP, a sample of the play they read, or a teardown of their site. Add them to a Tier 1 segment in the CRM, push that segment to a LinkedIn ad retargeting audience as the option, and send one personalized email a month until they book or are disqualified.</li>
+<li>Tier 2 gets the welcome flow for their segment plus a two-step email from the owner's own inbox, written to what they claimed. Apply core: copy and send rules. Tier 3 gets the newsletter only.</li>
+<li>Copy names the page or the magnet the way a colleague would, never the visit. Draft the Tier 1 offer email and the Tier 2 pair with Claude; show them to the user before anything sends.</li>
+<li>Stop on a reply, a booking, an open deal or a disqualification.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Report</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">Slack</span><span class="chip">Google Sheets (option)</span></div>
+<ul>
+<li>Weekly: identified visits, opt-ins, tier counts, median minutes to first touch for Tier 1, meetings by source page and by lead magnet.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>Never say you saw them on the site. Name the page, the play or the magnet the way a peer would.</li>
+<li>An opt-in always outranks a visit. Someone who gave a work email on purpose sits above anyone a tool guessed.</li>
+<li>Never gate content to force an opt-in. Forced opt-ins produce dead subscribers; the pages stay open and the magnets earn the email.</li>
+<li>Identification only where lawful, company-level where person-level is not permitted, neither where company-level is not.</li>
+<li>Only Tier 1 is urgent. Nothing else needs same-day action, and Tier 3 never gets outreach at all.</li>
+<li>One person at most once per 60 days across first-party plays. A visitor who is also a newsletter reader is one person, not two.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-website-visitors for our outbound agency, B2B companies 11 to 500 people, pricing and plays pages weighted high, three lead magnets live, RB2B installed for US traffic"</p>
+<ol>
+<li>Confirmed UTMs on 41 pages and 63 CTAs, intent weights in the config, forms posting to n8n, RB2B on for US traffic.</li>
+<li>Week one: 1,840 identified visits across 612 companies and 214 opt-ins (131 magnet claims, 71 work-email signups, 12 booking partials). Merged to 703 records.</li>
+<li>703 companies enriched from the domain; 388 websites scraped and scored, 97 at 12 of 15 or higher.</li>
+<li>19 customers and open deals routed to owners as visit notes; 84 removed as competitors, agencies, students, job seekers or personal-only emails.</li>
+<li>31 Tier 1 (22 opt-ins, 9 with two high-intent visits in 7 days), 118 Tier 2, 319 Tier 3 to the newsletter, 132 company-only parked.</li>
+<li>26 buyers found at company-only accounts with high-intent pages; 157 addresses verified valid, 9 catch-all in their own campaign.</li>
+<li>31 Slack alerts, median 6 minutes to first touch, 31 connections and offer emails, 4 calls the same day. 118 Tier 2 in the welcome flow plus the two-step email.</li>
+<li>Week one read: 7 meetings, 5 from the pricing page, 2 from the lead list magnet.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/website-visitors/SKILL.md</b><span>The skill file behind this page, 134 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-website-visitors'>Copy skill file</button></div>
+<pre>---
+name: pipeline-website-visitors
+description: Pipeline.tech play. Reach the best-fit people already on your site while the visit is fresh, ranked on who they are rather than on page views. Instruments the site with UTMs, intent-weighted pages and opt-in forms posting to the orchestration, adds visitor identification where lawful, merges opt-ins and identified visits into one record per person per week, enriches from the email domain, scores TAM size, offer strength and website credibility from a scrape of their website, checks the CRM, tiers with an opt-in outranking any visit, then runs a Tier 1 loop within minutes and a two-step email for Tier 2. USE WHEN user says &quot;/pipeline-website-visitors&quot; OR &quot;website visitors play&quot; OR &quot;website visitor outreach&quot; OR &quot;de-anonymize site visitors&quot; OR &quot;inbound opt-in loop&quot; OR &quot;reach people on our site&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/website-visitors)
+version: 0.1.0</pre><div class='more'>… 129 more lines</div>
+<pre id='raw-website-visitors' class='hidden'>---
+name: pipeline-website-visitors
+description: Pipeline.tech play. Reach the best-fit people already on your site while the visit is fresh, ranked on who they are rather than on page views. Instruments the site with UTMs, intent-weighted pages and opt-in forms posting to the orchestration, adds visitor identification where lawful, merges opt-ins and identified visits into one record per person per week, enriches from the email domain, scores TAM size, offer strength and website credibility from a scrape of their website, checks the CRM, tiers with an opt-in outranking any visit, then runs a Tier 1 loop within minutes and a two-step email for Tier 2. USE WHEN user says &quot;/pipeline-website-visitors&quot; OR &quot;website visitors play&quot; OR &quot;website visitor outreach&quot; OR &quot;de-anonymize site visitors&quot; OR &quot;inbound opt-in loop&quot; OR &quot;reach people on our site&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/website-visitors)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: An identified visit weighted by depth, or an opt-in
+outcome: Best-fit visitors reach a rep in minutes
+category: first-party
+channels: email, linkedin, call
+tools: RB2B, Warmly, n8n, Claude, Firecrawl, Ocean.io, Apollo, AI Ark, Attio, HubSpot, LeadMagic, Prospeo, MillionVerifier, BounceBan, Slack, LinkedIn, HeyReach, Phone, EmailBison, Instantly, Beehiiv, Google Sheets
+---
+
+# Website Visitors
+
+The best-fit people already on your site should hear from a human while the visit is still fresh, and most teams let them leave with nothing but a cookie. Page views are a poor ranking signal, so this play ranks visitors on who they are: how big their own market is, how strong their offer is, how credible their website looks. An opt-in with a work email is worth more than any anonymous visit, so the loop is built on opt-ins first with identification as the second feed.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of core.
+
+## Inputs
+
+Ask for these before step 1 and save them to `./pipeline-plays.config.json`:
+
+1. The ICP in one paragraph: industries, headcount band, geography, the problem you solve, who owns it.
+2. The site map with intent weights: pages that mean buying (pricing, services, case studies, plays) and pages that mean reading (blog).
+3. Stack answers from core section 1, plus the newsletter tool, the form tool and any visitor identification tool.
+4. The lead magnets on offer and the unique offers a Tier 1 can receive: a lead list, a play sample, a teardown.
+
+## Steps
+
+### 1. Instrument the site
+Tools: n8n, Claude (option), RB2B (option), Warmly (option)
+Flow:
+- UTM on every page and CTA | Every link and booking button carries its source so a visit and a booking arrive with the page that produced them | chips: source, medium, campaign, page
+- Pages weighted by intent | Pricing, services, case studies and plays score high and blog posts score low | with: Claude | chips: pricing, services, case studies, plays, blog
+= Forms and identification | Opt-in forms post to the orchestration with the work email; visitor identification runs only where it is lawful in the visitor&#x27;s region | with: n8n, RB2B, Warmly | tag: option
+
+- Put a UTM on every page and every CTA, so a visit and a booking both carry the page that produced them.
+- Weight pages by intent with the user: pricing, services, case studies and plays high, blog low. Store the weights in the config.
+- Point every opt-in form at the orchestration (n8n or Claude Code), not straight at the newsletter tool. A plain signup may use a personal email; claiming a lead magnet requires a work email.
+- Visitor identification (RB2B or Warmly) is the option, not the spine. Run it only where lawful.
+
+### 2. Capture two feeds into one record
+Tools: n8n, Beehiiv, Google Sheets, RB2B (option), Warmly (option)
+Flow:
+- Opt-ins | Lead magnet claims, newsletter signups with a work email and booking-form partials, each with the page and the UTM | with: n8n, Beehiiv | chips: magnet claim, newsletter signup, booking partial | tag: outranks a visit
+- Identified visits | Company, person where available, pages viewed, frequency and recency | with: RB2B, Warmly | chips: company, person, pages, frequency, recency
+= One record per person per week | Both feeds merge by email and then by domain; an opt-in outranks a visit from the same company | with: n8n, Google Sheets | chips: person, company, best event, pages, 7 days
+
+- Feed one is opt-ins, each carrying the form, the page and the UTM. Feed two is identified visits with company, person where available, pages, frequency and recency.
+- Merge both into one record per person per week, by email first and then by domain. When a company shows up in both feeds, the opt-in counts and the visit becomes context.
+
+### 3. Enrich the company and the person
+Tools: Ocean.io, Apollo, AI Ark (option), Firecrawl, Claude
+Flow:
+- Real company data | Employee count, industry and location from the email domain, never from a self-reported headcount field | with: Ocean.io, Apollo, AI Ark | chips: employee count, industry, location
+- Scrape their website | Home, product, pricing and customer pages pulled as text for the model to read | with: Firecrawl | chips: home, product, pricing, customers
+= Three-field score | TAM size, offer strength and website credibility, each 1 to 5 with one reason | with: Claude | chips: TAM size, offer strength, website credibility
+
+- Enrich the company from the email domain: real employee count, industry, location. Self-reported headcount is unreliable and never overrides the domain lookup.
+- Scrape the website with Firecrawl and have Claude score three fields, each 1 to 5 with one reason: TAM size (how many companies they could sell to), offer strength (clear what they sell, to whom, why it wins) and website credibility (proof, named customers, a real team).
+- Store the scores and reasons on the record; they drive step 5 and the opener in step 7.
+
+### 4. CRM check and exclusions
+Tools: Attio, HubSpot (option), Claude
+Flow:
+- Known relationships | Customers and open deals go to their owner as a visit note and never into a sequence | with: Attio, HubSpot | chips: customer, open deal, owner, visit note
+= Drop what never qualifies | Competitors, agencies, students and job seekers, plus everything on the core exclusion list | with: Claude | tag: core: exclusions
+
+- Look up every record in the CRM by email, then by domain. A customer or an open deal gets a visit note on the existing record and a message to the owner, nothing more.
+- Apply core: exclusions. Also drop competitors, agencies, students and job seekers.
+
+### 5. Score and tier
+Tools: Claude, Attio
+Flow:
+- Tier 1 | ICP fit plus a strong three-field score plus an opt-in or two high-intent visits in 7 days | with: Claude | chips: fit, 12 of 15 or more, opt-in or 2 visits | tag: urgent
+- Tier 2 | ICP fit plus an opt-in | chips: fit, opt-in
+- Tier 3 | ICP fit plus a visit only; newsletter and nothing else | chips: fit, visit only, newsletter
+= Company only | An identification with no named person waits until the buyer is found and gets outreach only when the pages were high intent | with: Attio | chips: no person, buyer found, high intent
+
+- Tier 1: ICP fit, a strong three-field score (12 of 15 or higher, no field under 3) and either an opt-in or two high-intent visits inside 7 days. Tier 2: ICP fit plus an opt-in. Tier 3: ICP fit plus a visit only, which goes to the newsletter and nothing else.
+- A company-level identification with no named person is parked until step 6 finds the buyer, and gets outreach only when the pages were high intent.
+- Write tier, feed, pages, the three scores and the source page to the CRM record. Apply core: tiering for anything not covered here.
+
+### 6. Enrich and verify the buyer
+Tools: Apollo, LeadMagic, Prospeo, MillionVerifier, BounceBan
+Flow:
+- Find the buyer at the account | When the visitor is unknown or sits below the seat, pick the decision maker by company size | with: Apollo | tag: core: enrichment
+- Email waterfall and two-pass verification | Each vendor sees only what the one before it missed; valid to the main campaign, catch-all to its own | with: LeadMagic, Prospeo, MillionVerifier, BounceBan | tag: core: verification
+
+- When the visitor is unknown or sits below the seat, find the buyer by company size. Apply core: enrichment.
+- An opt-in email is still verified before anything sends. Apply core: verification.
+
+### 7. Alert and run outreach by tier
+Tools: Slack, LinkedIn, HeyReach, Phone, Claude, EmailBison, Instantly (option), Beehiiv, Attio
+Flow:
+- Tier 1 within minutes | Slack alert with the pages and the three scores, a LinkedIn connection the same day, an email with a unique offer tied to what they read | with: Slack, LinkedIn, HeyReach, Phone, Claude | chips: pages, 3 scores, lead list, play sample, teardown | tag: within minutes
+- Tier 1 segment | A Tier 1 segment in the CRM, a LinkedIn ad retargeting audience as the option, one personalized email a month until they book or are disqualified | with: Attio, LinkedIn, EmailBison, Instantly | chips: T1 segment, retargeting, monthly email
+= Tier 2 and 3 | Tier 2 gets the welcome flow for their segment and a two-step email from the owner&#x27;s own inbox; Tier 3 gets the newsletter only | with: Beehiiv, EmailBison, Instantly | chips: welcome flow, 2-step email, newsletter
+
+- Tier 1 runs within minutes. Slack alert with the pages viewed, the three scores with reasons, a one-line opener and the direct dial if found. The owner sends a LinkedIn connection the same day and an email with a unique offer tied to what they looked at: a lead list for their ICP, a sample of the play they read, or a teardown of their site. Add them to a Tier 1 segment in the CRM, push that segment to a LinkedIn ad retargeting audience as the option, and send one personalized email a month until they book or are disqualified.
+- Tier 2 gets the welcome flow for their segment plus a two-step email from the owner&#x27;s own inbox, written to what they claimed. Apply core: copy and send rules. Tier 3 gets the newsletter only.
+- Copy names the page or the magnet the way a colleague would, never the visit. Draft the Tier 1 offer email and the Tier 2 pair with Claude; show them to the user before anything sends.
+- Stop on a reply, a booking, an open deal or a disqualification.
+
+### 8. Report
+Tools: Attio, Slack, Google Sheets (option)
+Flow:
+= Weekly read by source | Identified visits, opt-ins, tier counts, speed to first touch for Tier 1, meetings by source page and by lead magnet | with: Attio, Slack, Google Sheets
+
+- Weekly: identified visits, opt-ins, tier counts, median minutes to first touch for Tier 1, meetings by source page and by lead magnet.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- Never say you saw them on the site. Name the page, the play or the magnet the way a peer would.
+- An opt-in always outranks a visit. Someone who gave a work email on purpose sits above anyone a tool guessed.
+- Never gate content to force an opt-in. Forced opt-ins produce dead subscribers; the pages stay open and the magnets earn the email.
+- Identification only where lawful, company-level where person-level is not permitted, neither where company-level is not.
+- Only Tier 1 is urgent. Nothing else needs same-day action, and Tier 3 never gets outreach at all.
+- One person at most once per 60 days across first-party plays. A visitor who is also a newsletter reader is one person, not two.
+
+## Example run
+
+User: &quot;/pipeline-website-visitors for our outbound agency, B2B companies 11 to 500 people, pricing and plays pages weighted high, three lead magnets live, RB2B installed for US traffic&quot;
+
+1. Confirmed UTMs on 41 pages and 63 CTAs, intent weights in the config, forms posting to n8n, RB2B on for US traffic.
+2. Week one: 1,840 identified visits across 612 companies and 214 opt-ins (131 magnet claims, 71 work-email signups, 12 booking partials). Merged to 703 records.
+3. 703 companies enriched from the domain; 388 websites scraped and scored, 97 at 12 of 15 or higher.
+4. 19 customers and open deals routed to owners as visit notes; 84 removed as competitors, agencies, students, job seekers or personal-only emails.
+5. 31 Tier 1 (22 opt-ins, 9 with two high-intent visits in 7 days), 118 Tier 2, 319 Tier 3 to the newsletter, 132 company-only parked.
+6. 26 buyers found at company-only accounts with high-intent pages; 157 addresses verified valid, 9 catch-all in their own campaign.
+7. 31 Slack alerts, median 6 minutes to first touch, 31 connections and offer emails, 4 calls the same day. 118 Tier 2 in the welcome flow plus the two-step email.
+8. Week one read: 7 meetings, 5 from the pricing page, 2 from the lead list magnet.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Website Visitors end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/website-visitors'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../competitor-page-followers/index.html'><span class='eyebrow'>Previous</span><b>Competitor Page Followers</b></a>
+<a href='../newsletter-readers/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Newsletter Readers</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

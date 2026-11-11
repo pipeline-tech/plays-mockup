@@ -1,0 +1,384 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Competitor Post Engagers | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-social'>Social signals</a><span>/</span><span>Competitor Post Engagers</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 24 · Social signals</div>
+<h1>Competitor Post Engagers</h1>
+<div class='meta'><div><b>Trigger</b> A reaction or comment on a competitor voice&#x27;s post in the last 24 hours</div><div><b>Outcome</b> A switch conversation on the post topic</div><div><b>Channels</b> linkedin, email</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-competitor-post-engagers' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-competitor-post-engagers'>Install the Pipeline.tech &quot;Competitor Post Engagers&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/competitor-post-engagers/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-competitor-post-engagers/SKILL.md, then run /pipeline-competitor-post-engagers.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-competitor-post-engagers.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/competitor-post-engagers.svg' alt='Competitor Post Engagers workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/competitor-post-engagers.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>A competitor's posts pull in the people thinking about this exact problem today. By commenting or reacting they told you which part of it they care about, so the opener starts there and never mentions the act of watching. Pipeline.tech's book, The Outbound Playbook, lists LinkedIn engagement as the intent signal with the highest reply rates of any signal tool, because engaging with a post is a stated interest in the topic.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The ICP in one paragraph: industries, headcount band, geography, the problem you solve.</li>
+<li>The 3 to 6 competitors buyers name on sales calls.</li>
+<li>The seat that buys: exact titles and functions, with the seniority floor.</li>
+<li>Stack answers from core section 1, plus the real LinkedIn profile the DMs go out from.</li>
+<li>The switch offer in one sentence, one proof point, and which customers may be named in writing.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Pick the competitor voices</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">LinkedIn</span><span class="chip">Google Sheets</span><span class="chip">Claude</span></div>
+<ul>
+<li>Start with the 3 to 6 competitors buyers name on sales calls; more dilutes the capture and the report.</li>
+<li>For each, list the company page plus the people who post for it: founders, execs with an audience, creators on partner content. The last 30 days of posts show who actually posts.</li>
+<li>Store 10 to 30 profile URLs in a sheet with competitor name, voice type and date added. Review monthly: drop quiet voices, add new ones.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Capture posts and engagers daily</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Trigify</span><span class="chip">Apify (option)</span><span class="chip">Teamfluence (option)</span><span class="chip">Claude</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Run the capture daily. Trigify first: it watches the profiles and returns posts and engagers with the engagement type. Apify or Teamfluence when the user already runs one.</li>
+<li>Store post URL, text, date, voice, engager LinkedIn URL, reaction or comment, comment text. Comments weigh more: a comment is a sentence about the topic, a reaction is a nod.</li>
+<li>Dedupe by post id and person. Three reactions on one competitor's posts is one row with three engagements, not three leads.</li>
+<li>A model tags each post with one topic class: launch, how-to, pricing, opinion, hiring, other. Hiring and other never drive copy.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Qualify in three gates</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Ocean.io</span><span class="chip">Apollo</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span></div>
+<ul>
+<li>Company first. Remove anyone employed by a competitor, a partner or agency of one, or a recruiter. Then headcount, industry and location with Ocean.io or Apollo, and a yes or no ICP verdict from the website.</li>
+<li>Persona second. Keep the titles from input 3. People below the seat at an ICP account stay flagged as the path to the buyer in step 4. Students and vendors are out.</li>
+<li>CRM third. Apply core: exclusions. Log what each gate removed and why.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Enrich and verify</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">Apollo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>The LinkedIn URL is the key. Apply core: enrichment with the profile URL as the lookup, never name plus company; engager headlines are often stale.</li>
+<li>When the engager is below the buying seat at an ICP account, find the buyer at the same account per core section 4 and attach them to the row. The engagement belongs to the account.</li>
+<li>Apply core: verification.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Tier and store</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span></div>
+<ul>
+<li>Tier 1: a commenter with a buying title at an ICP account. Tier 2: a reactor in the buying seat at an ICP account, or a commenter below the seat with the buyer found. Tier 3: acceptable fit.</li>
+<li>Apply core: tiering. Two engagements on the same competitor inside 30 days, or an engagement plus another dated signal, moves the row up one tier.</li>
+<li>Write post URL, topic class, competitor, engagement type and date to the CRM record with the tier.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Write the switch pitch on the post topic</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span></div>
+<ul>
+<li>Apply core: copy and send rules.</li>
+<li>Open on the topic, never on the competitor's post or the engagement. Name it the way a peer in that seat would.</li>
+<li>Launch post: how your approach compares on the thing they launched, one specific difference. How-to post: the same job done simpler. Pricing post: the cost of staying another year. Opinion post: agree with the point and extend it into what you do differently.</li>
+<li>Tier 1 requires a switch offer in the first message: migration done for them, a parallel run, or a buyout of the remaining term. Features alone do not move anyone off a vendor they already pay.</li>
+<li>Draft one email variant per topic class plus a threaded nudge for email 2, and one DM under 300 characters per topic. Show the user before upload. Variables: <code><span class=\"var\">{TOPIC}</span></code>, <code><span class=\"var\">{COMPANY}</span></code>, <code><span class=\"var\">{TITLE}</span></code>.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Multi-thread and launch</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">HeyReach</span><span class="chip">LinkedIn</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">Slack</span><span class="chip">Attio</span></div>
+<ul>
+<li>Day 0: a connection request with a short note and, on accept, a DM on the topic, from a real person's profile through HeyReach. Inside 48 hours of the engagement or skip the DM.</li>
+<li>Day 3: a two-step email to the engager plus one or two colleagues in the buying seat, from this play's own inbox set, email 1 inside 7 days of the engagement.</li>
+<li>Slack on every reply with the post URL, topic class and competitor. Stop on a reply, a booking or an open deal.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Report</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>Weekly: engagers captured, qualified rate, connection accept rate, replies, meetings, split by competitor voice and topic class, against the cold baseline.</li>
+<li>After a month, cut voices whose engagers rarely pass the gates and lean the copy toward the topics that book.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>Never say you saw them engage. No "saw your comment", no "noticed you liked".</li>
+<li>Skip posts about layoffs, personal news or grief, and every engager on them.</li>
+<li>Competitor staff are never contacted, nor their partners or agencies.</li>
+<li>One person at most once per 60 days across all social plays.</li>
+<li>Scope: this play is engagers on posts by competitor voices (their company page, founders, execs, creators who post for them). Engagers on your own, your team's or chosen creators' posts belong to Content Engagement; posts about your brand, competitors or the category pain written by third parties belong to Brand and Keyword Mentions.</li>
+<li>DM window 48 hours, email window 7 days. An older engagement is stored for stacking, never named in copy.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-competitor-post-engagers for our sales engagement platform, B2B SaaS 50 to 500 people in North America, buyers VP Sales and Head of RevOps, competitors the four we lose to most"</p>
+<ol>
+<li>Asked for the four competitors and the switch offer (migration in 10 business days plus a parallel run); confirmed Trigify, Attio, EmailBison, HeyReach and Slack.</li>
+<li>Watch list: 4 company pages plus 17 people, 21 voices.</li>
+<li>Week one: 46 posts, 2,140 engagements (1,880 reactions, 260 comments), 1,712 people; 9 launch, 14 how-to, 3 pricing, 12 opinion, 5 hiring, 3 other.</li>
+<li>Gates: 214 removed as competitor staff, partners or recruiters; 611 at ICP-fit companies; 188 in the buying seat plus 97 below it; 23 out at the CRM gate; 262 through.</li>
+<li>231 emails found by LinkedIn URL, 84 buyers attached to below-seat engagers; 289 valid, 14 catch-all in their own campaign.</li>
+<li>31 Tier 1, 143 Tier 2, 88 Tier 3.</li>
+<li>174 connection requests inside 48 hours, 71 accepted, 64 DMs. 303 addresses loaded into "Competitor Engagers, November", four topic variants approved.</li>
+<li>First weekly read: 19 replies, 7 interested, 4 meetings, 3 from how-to and pricing posts by one competitor's founder.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/competitor-post-engagers/SKILL.md</b><span>The skill file behind this page, 141 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-competitor-post-engagers'>Copy skill file</button></div>
+<pre>---
+name: pipeline-competitor-post-engagers
+description: Pipeline.tech play. Reach the people who reacted to or commented on a competitor voice&#x27;s LinkedIn post in the last 24 hours, while the problem is on their mind and the comment says which part of it they care about. Watches 3 to 6 competitors&#x27; company pages plus the founders, execs and creators who post for them, captures posts and engagers daily, tags each post with a topic class, qualifies in three gates, enriches through core with the LinkedIn URL as the key, tiers commenters above reactors, then pitches the switch on the post topic with a LinkedIn DM inside 48 hours and a two-step email to the engager and the buying seat. USE WHEN user says &quot;/pipeline-competitor-post-engagers&quot; OR &quot;competitor post engagers&quot; OR &quot;competitor engagers play&quot; OR &quot;people engaging with competitor posts&quot; OR &quot;scrape competitor post likes&quot; OR &quot;switch outreach from competitor posts&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/competitor-post-engagers)
+version: 0.1.0</pre><div class='more'>… 136 more lines</div>
+<pre id='raw-competitor-post-engagers' class='hidden'>---
+name: pipeline-competitor-post-engagers
+description: Pipeline.tech play. Reach the people who reacted to or commented on a competitor voice&#x27;s LinkedIn post in the last 24 hours, while the problem is on their mind and the comment says which part of it they care about. Watches 3 to 6 competitors&#x27; company pages plus the founders, execs and creators who post for them, captures posts and engagers daily, tags each post with a topic class, qualifies in three gates, enriches through core with the LinkedIn URL as the key, tiers commenters above reactors, then pitches the switch on the post topic with a LinkedIn DM inside 48 hours and a two-step email to the engager and the buying seat. USE WHEN user says &quot;/pipeline-competitor-post-engagers&quot; OR &quot;competitor post engagers&quot; OR &quot;competitor engagers play&quot; OR &quot;people engaging with competitor posts&quot; OR &quot;scrape competitor post likes&quot; OR &quot;switch outreach from competitor posts&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/competitor-post-engagers)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: A reaction or comment on a competitor voice&#x27;s post in the last 24 hours
+outcome: A switch conversation on the post topic
+category: social
+channels: linkedin, email
+tools: LinkedIn, Trigify, Apify, Teamfluence, Claude, Google Sheets, Ocean.io, Apollo, Attio, HubSpot, LeadMagic, Prospeo, MillionVerifier, BounceBan, Slack, HeyReach, EmailBison, Instantly
+---
+
+# Competitor Post Engagers
+
+A competitor&#x27;s posts pull in the people thinking about this exact problem today. By commenting or reacting they told you which part of it they care about, so the opener starts there and never mentions the act of watching. Pipeline.tech&#x27;s book, The Outbound Playbook, lists LinkedIn engagement as the intent signal with the highest reply rates of any signal tool, because engaging with a post is a stated interest in the topic.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The ICP in one paragraph: industries, headcount band, geography, the problem you solve.
+2. The 3 to 6 competitors buyers name on sales calls.
+3. The seat that buys: exact titles and functions, with the seniority floor.
+4. Stack answers from core section 1, plus the real LinkedIn profile the DMs go out from.
+5. The switch offer in one sentence, one proof point, and which customers may be named in writing.
+
+## Steps
+
+### 1. Pick the competitor voices
+Tools: LinkedIn, Google Sheets, Claude
+Flow:
+- Competitor set | 3 to 6 competitors whose buyers match the ICP, the ones named on sales calls first | with: Claude | chips: named on calls, same buyer, same price band
+- Voices per competitor | The company page plus the founders, execs and creators who post for it, found from the people tab and the last 30 days of posts | with: LinkedIn | chips: company page, founders, execs, creators
+= Watch list | 10 to 30 profile URLs in a sheet with competitor name, voice type and date added, reviewed monthly | with: Google Sheets | chips: profile URL, competitor, voice type, added, reviewed
+
+- Start with the 3 to 6 competitors buyers name on sales calls; more dilutes the capture and the report.
+- For each, list the company page plus the people who post for it: founders, execs with an audience, creators on partner content. The last 30 days of posts show who actually posts.
+- Store 10 to 30 profile URLs in a sheet with competitor name, voice type and date added. Review monthly: drop quiet voices, add new ones.
+
+### 2. Capture posts and engagers daily
+Tools: Trigify, Apify (option), Teamfluence (option), Claude, Google Sheets
+Flow:
+- New posts on the watch list | Every post from the last 24 hours with URL, text, date and the voice it came from | with: Trigify, Apify, Teamfluence | chips: post URL, text, date, voice
+- Engagers per post | Every reaction and comment with the engager&#x27;s LinkedIn URL, engagement type and comment text; comments weighted above reactions | with: Trigify, Apify, Teamfluence | chips: engager URL, reaction or comment, comment text
+= Dedupe and tag | One row per post and person; a model tags each post with one topic class | with: Claude, Google Sheets | chips: launch, how-to, pricing, opinion, hiring, other
+
+- Run the capture daily. Trigify first: it watches the profiles and returns posts and engagers with the engagement type. Apify or Teamfluence when the user already runs one.
+- Store post URL, text, date, voice, engager LinkedIn URL, reaction or comment, comment text. Comments weigh more: a comment is a sentence about the topic, a reaction is a nod.
+- Dedupe by post id and person. Three reactions on one competitor&#x27;s posts is one row with three engagements, not three leads.
+- A model tags each post with one topic class: launch, how-to, pricing, opinion, hiring, other. Hiring and other never drive copy.
+
+### 3. Qualify in three gates
+Tools: Claude, Ocean.io, Apollo, Attio, HubSpot (option)
+Flow:
+- Company gate | Competitor staff, partners, agencies and recruiters removed, then headcount, industry and location, and a yes or no ICP verdict from the website | with: Ocean.io, Apollo, Claude | chips: not competitor staff, headcount, industry, ICP verdict
+- Persona gate | The titles that buy, not everyone who reacts; below the seat at an ICP account is kept as a path to the buyer | with: Claude | chips: buying title, below seat, out
+- CRM gate | Not a customer, not an open deal, not in any sequence in 90 days | with: Attio, HubSpot | tag: core: exclusions
+
+- Company first. Remove anyone employed by a competitor, a partner or agency of one, or a recruiter. Then headcount, industry and location with Ocean.io or Apollo, and a yes or no ICP verdict from the website.
+- Persona second. Keep the titles from input 3. People below the seat at an ICP account stay flagged as the path to the buyer in step 4. Students and vendors are out.
+- CRM third. Apply core: exclusions. Log what each gate removed and why.
+
+### 4. Enrich and verify
+Tools: LeadMagic, Prospeo, Apollo, MillionVerifier, BounceBan
+Flow:
+- Person by LinkedIn URL | Current title, company and work email, waterfall keyed on the profile URL | with: LeadMagic, Prospeo | tag: core: enrichment
+- Buyer at the same account | When the engager sits below the buying seat, find the person in the seat at the same company | with: Apollo | chips: buying seat, same account
+= Two-pass verification | Valid to the main campaign, catch-all to its own campaign | with: MillionVerifier, BounceBan | tag: core: verification
+
+- The LinkedIn URL is the key. Apply core: enrichment with the profile URL as the lookup, never name plus company; engager headlines are often stale.
+- When the engager is below the buying seat at an ICP account, find the buyer at the same account per core section 4 and attach them to the row. The engagement belongs to the account.
+- Apply core: verification.
+
+### 5. Tier and store
+Tools: Claude, Attio, HubSpot (option)
+Flow:
+- Tier 1 | A commenter who holds a buying title at an ICP account | chips: comment, buying title, ICP | tag: high touch
+- Tier 2 | A reactor in the buying seat at an ICP account, or a commenter below the seat with the buyer attached | chips: reaction, ICP, buyer attached
+- Tier 3 | Acceptable fit, any engagement type | chips: acceptable fit | tag: email only
+= Stack and store | Stack with other signals per core tiering; post URL, topic class, competitor and engagement type written to the CRM record | with: Claude, Attio, HubSpot | chips: post URL, topic class, competitor, engagement type
+
+- Tier 1: a commenter with a buying title at an ICP account. Tier 2: a reactor in the buying seat at an ICP account, or a commenter below the seat with the buyer found. Tier 3: acceptable fit.
+- Apply core: tiering. Two engagements on the same competitor inside 30 days, or an engagement plus another dated signal, moves the row up one tier.
+- Write post URL, topic class, competitor, engagement type and date to the CRM record with the tier.
+
+### 6. Write the switch pitch on the post topic
+Tools: Claude
+Flow:
+- Topic to angle | Launch: how your approach compares on the thing they launched. How-to: the same job done simpler. Pricing: the cost of staying. Opinion: agree and extend | with: Claude | chips: launch, how-to, pricing, opinion
+= Switch offer | A concrete reason to leave, required for Tier 1: migration done for them, a parallel run beside the incumbent, a buyout of the remaining term | with: Claude | chips: migration, parallel run, buyout, {TOPIC}, {COMPANY}
+
+- Apply core: copy and send rules.
+- Open on the topic, never on the competitor&#x27;s post or the engagement. Name it the way a peer in that seat would.
+- Launch post: how your approach compares on the thing they launched, one specific difference. How-to post: the same job done simpler. Pricing post: the cost of staying another year. Opinion post: agree with the point and extend it into what you do differently.
+- Tier 1 requires a switch offer in the first message: migration done for them, a parallel run, or a buyout of the remaining term. Features alone do not move anyone off a vendor they already pay.
+- Draft one email variant per topic class plus a threaded nudge for email 2, and one DM under 300 characters per topic. Show the user before upload. Variables: `{TOPIC}`, `{COMPANY}`, `{TITLE}`.
+
+### 7. Multi-thread and launch
+Tools: HeyReach, LinkedIn, EmailBison, Instantly (option), Slack, Attio
+Flow:
+- Day 0 | Connection request and DM to the engager from a real profile, inside 48 hours of the engagement or not at all | with: HeyReach, LinkedIn | chips: connection, DM, under 48 hours
+- Day 3 | Two-step email to the engager and one or two colleagues in the buying seat, inside 7 days of the engagement | with: EmailBison, Instantly | chips: engager, 1 to 2 colleagues, under 7 days | tag: send
+= Reply routing | Slack alert on reply with the post URL, topic class and competitor; stop on a reply, a booking or an open deal | with: Slack, Attio | chips: post URL, topic, competitor
+
+- Day 0: a connection request with a short note and, on accept, a DM on the topic, from a real person&#x27;s profile through HeyReach. Inside 48 hours of the engagement or skip the DM.
+- Day 3: a two-step email to the engager plus one or two colleagues in the buying seat, from this play&#x27;s own inbox set, email 1 inside 7 days of the engagement.
+- Slack on every reply with the post URL, topic class and competitor. Stop on a reply, a booking or an open deal.
+
+### 8. Report
+Tools: Attio, Slack
+Flow:
+= Weekly by competitor voice and topic class | Engagers captured, qualified rate, connection accept rate, replies, meetings | with: Attio, Slack | chips: by voice, by topic
+
+- Weekly: engagers captured, qualified rate, connection accept rate, replies, meetings, split by competitor voice and topic class, against the cold baseline.
+- After a month, cut voices whose engagers rarely pass the gates and lean the copy toward the topics that book.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- Never say you saw them engage. No &quot;saw your comment&quot;, no &quot;noticed you liked&quot;.
+- Skip posts about layoffs, personal news or grief, and every engager on them.
+- Competitor staff are never contacted, nor their partners or agencies.
+- One person at most once per 60 days across all social plays.
+- Scope: this play is engagers on posts by competitor voices (their company page, founders, execs, creators who post for them). Engagers on your own, your team&#x27;s or chosen creators&#x27; posts belong to Content Engagement; posts about your brand, competitors or the category pain written by third parties belong to Brand and Keyword Mentions.
+- DM window 48 hours, email window 7 days. An older engagement is stored for stacking, never named in copy.
+
+## Example run
+
+User: &quot;/pipeline-competitor-post-engagers for our sales engagement platform, B2B SaaS 50 to 500 people in North America, buyers VP Sales and Head of RevOps, competitors the four we lose to most&quot;
+
+1. Asked for the four competitors and the switch offer (migration in 10 business days plus a parallel run); confirmed Trigify, Attio, EmailBison, HeyReach and Slack.
+2. Watch list: 4 company pages plus 17 people, 21 voices.
+3. Week one: 46 posts, 2,140 engagements (1,880 reactions, 260 comments), 1,712 people; 9 launch, 14 how-to, 3 pricing, 12 opinion, 5 hiring, 3 other.
+4. Gates: 214 removed as competitor staff, partners or recruiters; 611 at ICP-fit companies; 188 in the buying seat plus 97 below it; 23 out at the CRM gate; 262 through.
+5. 231 emails found by LinkedIn URL, 84 buyers attached to below-seat engagers; 289 valid, 14 catch-all in their own campaign.
+6. 31 Tier 1, 143 Tier 2, 88 Tier 3.
+7. 174 connection requests inside 48 hours, 71 accepted, 64 DMs. 303 addresses loaded into &quot;Competitor Engagers, November&quot;, four topic variants approved.
+8. First weekly read: 19 replies, 7 interested, 4 meetings, 3 from how-to and pricing posts by one competitor&#x27;s founder.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Competitor Post Engagers end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/competitor-post-engagers'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../champion-moves/index.html'><span class='eyebrow'>Previous</span><b>Champion Moves</b></a>
+<a href='../content-engagement/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Content Engagement</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

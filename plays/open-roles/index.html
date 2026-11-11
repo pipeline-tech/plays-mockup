@@ -1,0 +1,370 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Open Roles | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-signal'>Third-party signals</a><span>/</span><span>Open Roles</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 17 · Third-party signals</div>
+<h1>Open Roles</h1>
+<div class='meta'><div><b>Trigger</b> A net-new job post for a role you replace or support</div><div><b>Outcome</b> A conversation with the manager the role reports to</div><div><b>Channels</b> email, linkedin, call</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-open-roles' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-open-roles'>Install the Pipeline.tech &quot;Open Roles&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/open-roles/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-open-roles/SKILL.md, then run /pipeline-open-roles.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-open-roles.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/open-roles.svg' alt='Open Roles workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/open-roles.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>A company hiring for work your product does or supports has said the need out loud, with a date on it. The job post names the problem, the team that owns it and roughly how much they plan to spend fixing it. Write to the manager the seat reports to while it is still empty.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The ICP in one paragraph: industries, headcount band, geography, the problem you solve, who owns it. If the user has an ICP file, read it.</li>
+<li>The roles that signal need, written as exact title phrases, not functions. See step 1.</li>
+<li>Stack answers from core section 1, plus whether the user wants a paid job feed or free sources only.</li>
+<li>The offer in one sentence, one proof point, and whether the offer replaces the role or helps while they hire. Both go into the copy.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Define the roles that signal need</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span></div>
+<ul>
+<li>With the user, list the exact titles that mean "they need what we sell". A specific phrase beats a generic one: "Founding SDR" beats "SDR", "Outbound Lead" beats "Sales". Add synonyms and seniority words for each.</li>
+<li>Mark each title as replace (your product does the job) or support (your product makes the hire productive). The copy angle differs.</li>
+<li>Three open reqs in the same function beat one. Set a minimum count per title where volume matters.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Pull new posts daily</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Greenhouse</span><span class="chip">Lever</span><span class="chip">Ashby</span><span class="chip">Serper</span><span class="chip">Careers pages</span><span class="chip">TheirStack (option)</span><span class="chip">PredictLeads (option)</span></div>
+<ul>
+<li>Resolve each target company's ATS. Greenhouse, Lever and Ashby serve a public JSON board per company, free and dated. Pull every board once a day.</li>
+<li>For companies with no public ATS, run a Serper search on the title phrases across job boards and careers pages. Add TheirStack or PredictLeads when the list is large enough that a feed is cheaper than scraping.</li>
+<li>Diff today's pull against yesterday's snapshot. Only net-new posts move forward. A post you have seen before is not a signal twice.</li>
+<li>Write one row per company per hiring event: company, domain, title, post date, req count, source URL. Keep the raw pull with a <code>source</code> column.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Read every post and check fit</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Ocean.io</span><span class="chip">Apollo</span></div>
+<ul>
+<li>Have a cheap model read the full post and answer three questions: does it describe work your product does or supports, is the poster the company or a recruiter, and is it older than 60 days. Drop recruiters and agencies. Flag anything over 60 days; it stays in the data but never counts as fresh.</li>
+<li>Enrich headcount, industry and location. Read the company website and give a yes or no ICP verdict with one reason. Drop the no's before any paid people lookup.</li>
+<li>Apply core: exclusions.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Put every account in one bucket</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Attio</span></div>
+<ul>
+<li>Every account on the list lands in exactly one bucket: currently hiring (a live post for a watched title), recent hire (someone started in the role in the last 90 days, visible on LinkedIn or the team page), or no signal.</li>
+<li>If an account qualifies for two, it is currently hiring. Never add a fourth bucket, and never leave an account unbucketed.</li>
+<li>Store the bucket on the CRM record with the post date and source URL so the weekly read in step 8 can split by it.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Find the hiring manager, enrich and verify</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">LinkedIn</span><span class="chip">Apollo</span><span class="chip">Ocean.io</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>The post usually says who the role reports to. Find that person, not the recruiter or the head of people. Under 50 people it is often the founder. Add one likely champion, a peer of the open seat or the manager's own boss.</li>
+<li>Apply core: enrichment.</li>
+<li>Apply core: verification.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Tier and alert</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Slack</span><span class="chip">Attio</span><span class="chip">Phone</span></div>
+<ul>
+<li>Tier 1: ICP fit plus either a senior title (head, director, VP, founding) or three or more open reqs in the function. Post a Slack card with company, title, req count, post date, the manager, their LinkedIn URL and a one-line opener. The owner calls within 48 hours with an offer that helps while they hire.</li>
+<li>Tier 2 and 3: go to the campaign in step 7. Tier 2 also gets a LinkedIn connection request.</li>
+<li>Write every account to the CRM with signal type <code>hiring</code>, title, post date, bucket and source URL.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Write and launch</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">HeyReach</span></div>
+<ul>
+<li>Apply core: copy and send rules.</li>
+<li>Angle: the post is the trigger, so quote three to six of its own words and name what the empty seat costs while it stays open (pipeline not built, calls not made, tickets not answered). One direct ask.</li>
+<li>Variant for a first SDR or BDR post: every rep takes 8 to 12 weeks to ramp. Offer to run outbound while theirs ramps, then hand the system over to the new hire. Sell the system, not seats.</li>
+<li>Draft three angle variants for email 1 and one threaded nudge for email 2. Show them to the user for approval before upload.</li>
+<li>Upload leads with <code><span class=\"var\">{ROLE}</span></code>, <code><span class=\"var\">{POST_PHRASE}</span></code>, <code><span class=\"var\">{REQ_COUNT}</span></code>, <code><span class=\"var\">{TEAM}</span></code>; create the campaign from its own inbox set; schedule to start the next business day. Send the LinkedIn connection on day 1 for Tier 2.</li>
+<li>Stop the sequence for any account that replies, books, shows as an open deal, or whose post comes down or whose hire is announced. Re-check post status daily from the same feed.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Report</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>Weekly: posts caught, net-new after the diff, ICP-fit rate, Tier 1 count, sent, reply rate, interested, meetings. Split every number by bucket so currently hiring and recent hire read on their own, and compare to the cold baseline.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>A post older than 60 days is never quoted and never counts as a signal. A recent hire older than 90 days moves to no signal.</li>
+<li>Never write to HR, talent or a recruiter. If the reporting line cannot be found, the account waits in the bucket until it can.</li>
+<li>Never tell a company to stop hiring. The offer helps while the seat is empty, or replaces the seat only when the offer genuinely does that job.</li>
+<li>One account, one sequence. Three open reqs earn a stronger tier, not three emails. Do not run this play and a cold play on the same domain in the same month.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-open-roles for our outbound agency, ICP is B2B SaaS 20 to 300 people in the US, watching Founding SDR, SDR, BDR and Head of Outbound"</p>
+<ol>
+<li>Asked for the offer line and proof, set the first-SDR variant, confirmed EmailBison plus HeyReach plus Attio plus Slack.</li>
+<li>Resolved 1,840 target companies to 612 Greenhouse, Lever and Ashby boards; Serper covered the rest. Day one snapshot 3,210 open posts, 94 net-new on day two across watched titles.</li>
+<li>61 posts confirmed as real need, 18 dropped as recruiters or agencies, 9 flagged over 60 days. 44 passed the ICP check, 5 removed as customers or in sequence.</li>
+<li>Buckets: 39 currently hiring, 14 recent hire from the wider list, rest no signal.</li>
+<li>39 managers plus 27 champions found, 58 verified valid, 4 catch-all in a separate campaign.</li>
+<li>7 Tier 1 Slack cards posted, 3 calls booked for the week. 51 contacts loaded into "Open Roles, week 46", approved copy, scheduled for Monday.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/open-roles/SKILL.md</b><span>The skill file behind this page, 132 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-open-roles'>Copy skill file</button></div>
+<pre>---
+name: pipeline-open-roles
+description: Pipeline.tech play. Reach the hiring manager behind a net-new job post for a role your product replaces or supports. Watches public ATS feeds and job boards daily, diffs against yesterday, reads every post with a cheap model, buckets each account by hiring state, finds the leader the role reports to, then launches a two-step email quoting the post plus a Slack card and a call for Tier 1. USE WHEN user says &quot;/pipeline-open-roles&quot; OR &quot;open roles play&quot; OR &quot;hiring signal outreach&quot; OR &quot;job post outreach&quot; OR &quot;reach companies hiring for a role we replace&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/open-roles)
+version: 0.1.0</pre><div class='more'>… 127 more lines</div>
+<pre id='raw-open-roles' class='hidden'>---
+name: pipeline-open-roles
+description: Pipeline.tech play. Reach the hiring manager behind a net-new job post for a role your product replaces or supports. Watches public ATS feeds and job boards daily, diffs against yesterday, reads every post with a cheap model, buckets each account by hiring state, finds the leader the role reports to, then launches a two-step email quoting the post plus a Slack card and a call for Tier 1. USE WHEN user says &quot;/pipeline-open-roles&quot; OR &quot;open roles play&quot; OR &quot;hiring signal outreach&quot; OR &quot;job post outreach&quot; OR &quot;reach companies hiring for a role we replace&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/open-roles)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: A net-new job post for a role you replace or support
+outcome: A conversation with the manager the role reports to
+category: signal
+channels: email, linkedin, call
+tools: Greenhouse, Lever, Ashby, Serper, Careers pages, TheirStack, PredictLeads, Claude, Ocean.io, Apollo, LinkedIn, LeadMagic, Prospeo, MillionVerifier, BounceBan, Slack, Attio, EmailBison, HeyReach, Phone
+---
+
+# Open Roles
+
+A company hiring for work your product does or supports has said the need out loud, with a date on it. The job post names the problem, the team that owns it and roughly how much they plan to spend fixing it. Write to the manager the seat reports to while it is still empty.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The ICP in one paragraph: industries, headcount band, geography, the problem you solve, who owns it. If the user has an ICP file, read it.
+2. The roles that signal need, written as exact title phrases, not functions. See step 1.
+3. Stack answers from core section 1, plus whether the user wants a paid job feed or free sources only.
+4. The offer in one sentence, one proof point, and whether the offer replaces the role or helps while they hire. Both go into the copy.
+
+## Steps
+
+### 1. Define the roles that signal need
+Tools: Claude
+Flow:
+- Title phrases | Specific titles beat functions: Founding SDR beats SDR, Head of Outbound beats Sales | with: Claude | chips: exact titles, synonyms, seniority words
+= Role list in writing | Each title mapped to replace or support, with the minimum req count that counts | chips: title, replace or support, min reqs
+
+- With the user, list the exact titles that mean &quot;they need what we sell&quot;. A specific phrase beats a generic one: &quot;Founding SDR&quot; beats &quot;SDR&quot;, &quot;Outbound Lead&quot; beats &quot;Sales&quot;. Add synonyms and seniority words for each.
+- Mark each title as replace (your product does the job) or support (your product makes the hire productive). The copy angle differs.
+- Three open reqs in the same function beat one. Set a minimum count per title where volume matters.
+
+### 2. Pull new posts daily
+Tools: Greenhouse, Lever, Ashby, Serper, Careers pages, TheirStack (option), PredictLeads (option)
+Flow:
+- Public ATS feeds | Greenhouse, Lever and Ashby expose JSON job boards per company, free and dated, for the whole target list | with: Greenhouse, Lever, Ashby | chips: title, location, post date, board URL | tag: free source
+- Boards and careers pages | Search for the title phrases on job boards and careers pages, for companies without a public ATS | with: Serper, Careers pages | tag: fill the gaps
+- Paid feeds | A single aggregated feed with post dates and counts when the target list is large | with: TheirStack, PredictLeads | tag: option
+= Diff against yesterday | Only posts absent from the last snapshot count; one row per company per hiring event | chips: company, domain, title, post date, req count, source URL
+
+- Resolve each target company&#x27;s ATS. Greenhouse, Lever and Ashby serve a public JSON board per company, free and dated. Pull every board once a day.
+- For companies with no public ATS, run a Serper search on the title phrases across job boards and careers pages. Add TheirStack or PredictLeads when the list is large enough that a feed is cheaper than scraping.
+- Diff today&#x27;s pull against yesterday&#x27;s snapshot. Only net-new posts move forward. A post you have seen before is not a signal twice.
+- Write one row per company per hiring event: company, domain, title, post date, req count, source URL. Keep the raw pull with a `source` column.
+
+### 3. Read every post and check fit
+Tools: Claude, Ocean.io, Apollo
+Flow:
+- Post read | A cheap model confirms the need from the post text, drops recruiters and agencies, flags anything older than 60 days | with: Claude | chips: need confirmed, replace or support, age flag
+- ICP check | Headcount, industry and location added, then a yes or no verdict from the company website | with: Ocean.io, Apollo, Claude | tag: core: exclusions
+
+- Have a cheap model read the full post and answer three questions: does it describe work your product does or supports, is the poster the company or a recruiter, and is it older than 60 days. Drop recruiters and agencies. Flag anything over 60 days; it stays in the data but never counts as fresh.
+- Enrich headcount, industry and location. Read the company website and give a yes or no ICP verdict with one reason. Drop the no&#x27;s before any paid people lookup.
+- Apply core: exclusions.
+
+### 4. Put every account in one bucket
+Tools: Claude, Attio
+Flow:
+= Three buckets | Currently hiring, recent hire under 90 days, or no signal; a tie goes to currently hiring and there is no fourth bucket | with: Claude, Attio | chips: currently hiring, recent hire, no signal
+
+- Every account on the list lands in exactly one bucket: currently hiring (a live post for a watched title), recent hire (someone started in the role in the last 90 days, visible on LinkedIn or the team page), or no signal.
+- If an account qualifies for two, it is currently hiring. Never add a fourth bucket, and never leave an account unbucketed.
+- Store the bucket on the CRM record with the post date and source URL so the weekly read in step 8 can split by it.
+
+### 5. Find the hiring manager, enrich and verify
+Tools: LinkedIn, Apollo, Ocean.io, LeadMagic, Prospeo, MillionVerifier, BounceBan
+Flow:
+- The leader the role reports to | Read the post for the reporting line, then confirm the person on LinkedIn; never HR or talent | with: LinkedIn, Apollo, Ocean.io | chips: manager, one champion, founder under 50 people
+- Email waterfall | Each vendor only sees the contacts the one before it missed | with: LeadMagic, Prospeo | tag: core: enrichment
+- Two-pass verification | Valid to the main campaign, catch-all to its own campaign | with: MillionVerifier, BounceBan | tag: core: verification
+
+- The post usually says who the role reports to. Find that person, not the recruiter or the head of people. Under 50 people it is often the founder. Add one likely champion, a peer of the open seat or the manager&#x27;s own boss.
+- Apply core: enrichment.
+- Apply core: verification.
+
+### 6. Tier and alert
+Tools: Slack, Attio, Phone
+Flow:
+- Tier 1 | ICP fit plus a senior title or three or more reqs: a Slack card, then a call with an offer that helps while they hire | with: Slack, Phone | chips: company, title, req count, post date, manager, suggested opener | tag: high touch
+- Tier 2 and 3 | Go to the campaign, written to the CRM with signal type hiring | with: Attio | chips: hiring, title, post date, source URL | tag: at volume
+
+- Tier 1: ICP fit plus either a senior title (head, director, VP, founding) or three or more open reqs in the function. Post a Slack card with company, title, req count, post date, the manager, their LinkedIn URL and a one-line opener. The owner calls within 48 hours with an offer that helps while they hire.
+- Tier 2 and 3: go to the campaign in step 7. Tier 2 also gets a LinkedIn connection request.
+- Write every account to the CRM with signal type `hiring`, title, post date, bucket and source URL.
+
+### 7. Write and launch
+Tools: Claude, EmailBison, Instantly (option), HeyReach
+Flow:
+- Quote the post | Open on the post&#x27;s own words and what the empty seat costs each month; one direct ask | with: Claude | chips: {ROLE}, {POST_PHRASE}, {REQ_COUNT}, {TEAM}
+- First SDR variant | Every rep takes 8 to 12 weeks to ramp: run outbound while yours ramps, then hand the system off | with: Claude | tag: variant
+= Launch from its own inbox set | Email plus LinkedIn connection; stops when the post comes down or a hire is announced | with: EmailBison, Instantly, HeyReach | tag: send
+
+- Apply core: copy and send rules.
+- Angle: the post is the trigger, so quote three to six of its own words and name what the empty seat costs while it stays open (pipeline not built, calls not made, tickets not answered). One direct ask.
+- Variant for a first SDR or BDR post: every rep takes 8 to 12 weeks to ramp. Offer to run outbound while theirs ramps, then hand the system over to the new hire. Sell the system, not seats.
+- Draft three angle variants for email 1 and one threaded nudge for email 2. Show them to the user for approval before upload.
+- Upload leads with `{ROLE}`, `{POST_PHRASE}`, `{REQ_COUNT}`, `{TEAM}`; create the campaign from its own inbox set; schedule to start the next business day. Send the LinkedIn connection on day 1 for Tier 2.
+- Stop the sequence for any account that replies, books, shows as an open deal, or whose post comes down or whose hire is announced. Re-check post status daily from the same feed.
+
+### 8. Report
+Tools: Attio, Slack
+Flow:
+= Weekly read by bucket | Posts caught, net-new rate, ICP-fit rate, Tier 1 count, sent, reply rate, interested, meetings, split by hiring bucket | with: Attio, Slack
+
+- Weekly: posts caught, net-new after the diff, ICP-fit rate, Tier 1 count, sent, reply rate, interested, meetings. Split every number by bucket so currently hiring and recent hire read on their own, and compare to the cold baseline.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- A post older than 60 days is never quoted and never counts as a signal. A recent hire older than 90 days moves to no signal.
+- Never write to HR, talent or a recruiter. If the reporting line cannot be found, the account waits in the bucket until it can.
+- Never tell a company to stop hiring. The offer helps while the seat is empty, or replaces the seat only when the offer genuinely does that job.
+- One account, one sequence. Three open reqs earn a stronger tier, not three emails. Do not run this play and a cold play on the same domain in the same month.
+
+## Example run
+
+User: &quot;/pipeline-open-roles for our outbound agency, ICP is B2B SaaS 20 to 300 people in the US, watching Founding SDR, SDR, BDR and Head of Outbound&quot;
+
+1. Asked for the offer line and proof, set the first-SDR variant, confirmed EmailBison plus HeyReach plus Attio plus Slack.
+2. Resolved 1,840 target companies to 612 Greenhouse, Lever and Ashby boards; Serper covered the rest. Day one snapshot 3,210 open posts, 94 net-new on day two across watched titles.
+3. 61 posts confirmed as real need, 18 dropped as recruiters or agencies, 9 flagged over 60 days. 44 passed the ICP check, 5 removed as customers or in sequence.
+4. Buckets: 39 currently hiring, 14 recent hire from the wider list, rest no signal.
+5. 39 managers plus 27 champions found, 58 verified valid, 4 catch-all in a separate campaign.
+6. 7 Tier 1 Slack cards posted, 3 calls booked for the week. 51 contacts loaded into &quot;Open Roles, week 46&quot;, approved copy, scheduled for Monday.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Open Roles end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/open-roles'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../new-leader-in-seat/index.html'><span class='eyebrow'>Previous</span><b>New Leader in Seat</b></a>
+<a href='../stack-switch/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Stack Switch</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

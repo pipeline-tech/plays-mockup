@@ -1,0 +1,376 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Pre-Show Warmup | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-signal'>Third-party signals</a><span>/</span><span>Pre-Show Warmup</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 21 · Third-party signals</div>
+<h1>Pre-Show Warmup</h1>
+<div class='meta'><div><b>Trigger</b> An exhibitor list two to four weeks out, an attendee list the day the event ends</div><div><b>Outcome</b> Booth traffic before the show, meetings after</div><div><b>Channels</b> email, linkedin, call</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-pre-show-warmup' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-pre-show-warmup'>Install the Pipeline.tech &quot;Pre-Show Warmup&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/pre-show-warmup/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-pre-show-warmup/SKILL.md, then run /pipeline-pre-show-warmup.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-pre-show-warmup.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/pre-show-warmup.svg' alt='Pre-Show Warmup workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/pre-show-warmup.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>Conference campaigns are among the best outbound campaigns you can run, because the ticket has already qualified the list and the calendar has fixed the timing. Before the show, the exhibitor list is public and every company on it has paid to be in one room on one date, so a meeting at the booth is an easy yes. After the show, the attendee list is warm for about a week, and the first useful email in that window wins.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The event: name, dates, city, site URL, and whether the user is exhibiting, speaking, attending, or selling the warmup to exhibitors.</li>
+<li>The ICP in one paragraph: industries, headcount band, geography, the problem you solve, who owns it. If the user has an ICP file, read it.</li>
+<li>Stack answers from core section 1, plus which attendee sources the user can reach: event app, badge scans, LinkedIn event page, Luma or Zoom export.</li>
+<li>The offer in one sentence and one proof point. If the warmup itself is the offer, the proof is a booth traffic number from a previous show.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Pick the timing and the audience</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span></div>
+<ul>
+<li>Confirm the window: exhibitors and sponsors two to four weeks out, attendees the day it ends. Most users run both.</li>
+<li>Decide what is being sold: the user's own offer with the show as the reason to meet, or the warmup itself sold to exhibitors by running their attendee list through this same pipeline.</li>
+<li>Each audience and timing gets its own campaign, inbox set and report line.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Pull the exhibitor list before the show</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Firecrawl</span><span class="chip">Serper</span><span class="chip">LinkedIn</span></div>
+<ul>
+<li>Crawl the exhibitor, sponsor and agenda pages with Firecrawl. Exhibitor pages carry name, booth and website; sponsor tier is a budget signal.</li>
+<li>Add speakers and session hosts: senior, certain to be there, and a session title is the easiest opener in outbound.</li>
+<li>Fill gaps with a Serper search or the event's LinkedIn page. Dedupe by domain, write a <code>source</code> column. Apply core: lists.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Pull the attendee list the day it ends</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Event app</span><span class="chip">LinkedIn</span><span class="chip">Luma</span><span class="chip">Zoom</span><span class="chip">CSV</span></div>
+<ul>
+<li>Pull the list the evening the event ends. Export the directory from the event app, add the badge scans, and have whoever worked the booth mark everyone they spoke to.</li>
+<li>Add LinkedIn event page attendees and any Luma or Zoom export from side events; Zoom shows who registered and who joined.</li>
+<li>Mark every row met in person, attended, or registered no-show; met in person wins any tie. This split drives tiering, copy and the report.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Score fit before spending a credit</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Ocean.io</span><span class="chip">Apollo</span><span class="chip">Attio</span></div>
+<ul>
+<li>Apply core: exclusions. Add one more: vendors selling to the same crowd are warmup prospects, never main-offer prospects.</li>
+<li>Enrich headcount, industry and location. A cheap model reads each website, gives a yes or no ICP verdict with one reason, and marks whether the person buys, uses or signs off.</li>
+<li>Drop the no's before any paid lookup. An attendee list looks warm, which is why it burns credits: a 4K badge list is often 600 real prospects.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Find the person, enrich and verify</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">LinkedIn</span><span class="chip">Apollo</span><span class="chip">Ocean.io</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>For exhibitors, find the booth owner: a director or head of field marketing, events or trade shows, or the GTM leader under 200 people. If the warmup is the offer, that person is the buyer; otherwise pick the decision maker by company size and keep them as champion.</li>
+<li>For attendees, the person on the list is the contact. Confirm title on LinkedIn; badge data is often a job behind.</li>
+<li>Apply core: enrichment.</li>
+<li>Apply core: verification.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Tier and alert</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Slack</span><span class="chip">Attio</span><span class="chip">LinkedIn</span><span class="chip">Phone</span></div>
+<ul>
+<li>Tier 1 is anyone met in person, plus every speaker and exhibitor that fits. Post a Slack card with name, company, where you met them or their session, LinkedIn URL and a one-line opener. The owner connects on LinkedIn and calls within two days.</li>
+<li>Tier 2 is attended, Tier 3 is registered no-show, both with ICP fit; both go to the two-step email in step 7 within two days.</li>
+<li>Write every account to the CRM with signal type <code>event</code>, event name, attendance state, tier and date. Attendance state stays on the record as a scoring input for later plays.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Write and launch</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">HeyReach</span></div>
+<ul>
+<li>Apply core: copy and send rules.</li>
+<li>Pre-show: you are both going to be there, so ask for 15 minutes at their booth or a coffee nearby, with a day and a time. For exhibitors buying the warmup, say plainly that you run their attendee list before the show.</li>
+<li>Post-show: open on the event and give one useful thing from it: a session takeaway, the recording, a short list of who was there in their segment. No-shows get the recording and a softer ask.</li>
+<li>Budget frame for manufacturers past a few million in revenue: flights, booth, hotel and a rep's week versus the same lead flow from a two-week campaign. Outbound sits next to the show, not instead of it.</li>
+<li>Draft three angle variants for email 1 and one threaded nudge for email 2 per audience; show the user before upload. Upload with <code><span class=\"var\">{EVENT}</span></code>, <code><span class=\"var\">{BOOTH}</span></code>, <code><span class=\"var\">{DAY}</span></code>, <code><span class=\"var\">{SESSION}</span></code>, <code><span class=\"var\">{TAKEAWAY}</span></code>.</li>
+<li>Pre-show sends stop the day the show opens; post-show sends stop a week after it ends. Stop any contact that replies, books or shows as an open deal.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Report</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>Weekly: pulled, ICP-fit rate, Tier 1 count, booth meetings, sent, reply rate, interested, meetings after. Split by audience (exhibitor, attendee, no-show) and timing (pre, post), and compare to the cold baseline.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>An attendee list is stale a week after the event ends. If it cannot be worked within two days, run it as a cold play with the event as a dated signal.</li>
+<li>Never open with "great to meet you", "hope you enjoyed the show" or a line about watching their booth. Every opener carries one useful thing from the event.</li>
+<li>Score fit before any paid lookup. A badge scan is attendance, not fit.</li>
+<li>Only work lists you collected yourself or the organizer gave you. A purchased attendee list is not this play.</li>
+<li>One person, one sequence. Someone who is both an exhibitor and an attendee is an exhibitor. Do not run this play and a cold play on the same domain in the same month.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-pre-show-warmup for our outbound agency, we are exhibiting at a 3-day building materials show in Dallas in three weeks, ICP is manufacturers 50 to 500 people in the US"</p>
+<ol>
+<li>Set both windows, confirmed EmailBison, HeyReach, Attio and Slack, captured offer and proof.</li>
+<li>Firecrawl pulled 412 exhibitors and 38 speakers; 388 companies after dedupe by domain.</li>
+<li>171 passed the ICP read, 9 removed as customers, open deals or same-crowd vendors.</li>
+<li>162 booth owners found, 118 with a GTM leader added as champion; 251 verified valid, 14 catch-all in their own campaign.</li>
+<li>67 Tier 1 Slack cards (38 speakers, 29 sponsor-tier exhibitors), 11 booth meetings booked. 184 contacts loaded into "Pre-show, Dallas", stopped the morning the show opened.</li>
+<li>Show closed: 2,940 attendees from the app, 212 badge scans, 61 met in person. 644 passed the ICP read. 61 Tier 1 cards, 583 loaded into "Post-show, Dallas" within two days. Week one: 14 meetings after the show against 11 at the booth.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/pre-show-warmup/SKILL.md</b><span>The skill file behind this page, 137 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-pre-show-warmup'>Copy skill file</button></div>
+<pre>---
+name: pipeline-pre-show-warmup
+description: Pipeline.tech play. Turn a trade show or conference into two campaigns. Two to four weeks out, pull the public exhibitor and sponsor list, qualify it against the ICP, find the person running the booth or the GTM leader, and run a warmup sequence that books 15 minutes at the booth. The day the show ends, pull the attendee list, split met in person, attended and no-show, score fit before spending a credit, and open on one useful thing from the event. USE WHEN user says &quot;/pipeline-pre-show-warmup&quot; OR &quot;pre-show warmup&quot; OR &quot;conference campaign&quot; OR &quot;trade show outreach&quot; OR &quot;exhibitor list outreach&quot; OR &quot;attendee list follow-up&quot; OR &quot;we are going to [event]&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/pre-show-warmup)
+version: 0.1.0</pre><div class='more'>… 132 more lines</div>
+<pre id='raw-pre-show-warmup' class='hidden'>---
+name: pipeline-pre-show-warmup
+description: Pipeline.tech play. Turn a trade show or conference into two campaigns. Two to four weeks out, pull the public exhibitor and sponsor list, qualify it against the ICP, find the person running the booth or the GTM leader, and run a warmup sequence that books 15 minutes at the booth. The day the show ends, pull the attendee list, split met in person, attended and no-show, score fit before spending a credit, and open on one useful thing from the event. USE WHEN user says &quot;/pipeline-pre-show-warmup&quot; OR &quot;pre-show warmup&quot; OR &quot;conference campaign&quot; OR &quot;trade show outreach&quot; OR &quot;exhibitor list outreach&quot; OR &quot;attendee list follow-up&quot; OR &quot;we are going to [event]&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/pre-show-warmup)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: An exhibitor list two to four weeks out, an attendee list the day the event ends
+outcome: Booth traffic before the show, meetings after
+category: signal
+channels: email, linkedin, call
+tools: Firecrawl, Serper, LinkedIn, Event app, Luma, Zoom, CSV, Claude, Ocean.io, Apollo, LeadMagic, Prospeo, MillionVerifier, BounceBan, Slack, Attio, EmailBison, Instantly, HeyReach, Phone
+---
+
+# Pre-Show Warmup
+
+Conference campaigns are among the best outbound campaigns you can run, because the ticket has already qualified the list and the calendar has fixed the timing. Before the show, the exhibitor list is public and every company on it has paid to be in one room on one date, so a meeting at the booth is an easy yes. After the show, the attendee list is warm for about a week, and the first useful email in that window wins.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The event: name, dates, city, site URL, and whether the user is exhibiting, speaking, attending, or selling the warmup to exhibitors.
+2. The ICP in one paragraph: industries, headcount band, geography, the problem you solve, who owns it. If the user has an ICP file, read it.
+3. Stack answers from core section 1, plus which attendee sources the user can reach: event app, badge scans, LinkedIn event page, Luma or Zoom export.
+4. The offer in one sentence and one proof point. If the warmup itself is the offer, the proof is a booth traffic number from a previous show.
+
+## Steps
+
+### 1. Pick the timing and the audience
+Tools: Claude
+Flow:
+- Before the show | Two to four weeks out: exhibitors and sponsors, meetings booked at the booth | with: Claude | chips: exhibitor, sponsor, pre
+- After the show | The day it ends, worked within two days, stale after a week: attendees, speakers, no-shows | with: Claude | chips: met in person, attended, no-show, post
+= One campaign per audience and timing | Exhibitor pre-show and attendee post-show never share an inbox set or a report line | chips: audience, timing, inbox set
+
+- Confirm the window: exhibitors and sponsors two to four weeks out, attendees the day it ends. Most users run both.
+- Decide what is being sold: the user&#x27;s own offer with the show as the reason to meet, or the warmup itself sold to exhibitors by running their attendee list through this same pipeline.
+- Each audience and timing gets its own campaign, inbox set and report line.
+
+### 2. Pull the exhibitor list before the show
+Tools: Firecrawl, Serper, LinkedIn
+Flow:
+- Exhibitor and sponsor pages | The event site lists every exhibitor with name, booth number and website, free and public | with: Firecrawl | chips: company, website, booth, sponsor tier | tag: free source
+- Speakers and hosts | The agenda names speakers and session hosts, who are senior and easy to open on | with: Firecrawl, Serper | chips: name, title, company, session
+= One row per company | Deduped by domain, with a source column and the event name and dates | chips: company, domain, booth, sponsor tier, source URL
+
+- Crawl the exhibitor, sponsor and agenda pages with Firecrawl. Exhibitor pages carry name, booth and website; sponsor tier is a budget signal.
+- Add speakers and session hosts: senior, certain to be there, and a session title is the easiest opener in outbound.
+- Fill gaps with a Serper search or the event&#x27;s LinkedIn page. Dedupe by domain, write a `source` column. Apply core: lists.
+
+### 3. Pull the attendee list the day it ends
+Tools: Event app, LinkedIn, Luma, Zoom, CSV
+Flow:
+- Event app and badge scans | Attendee directory export plus everyone the booth scanned, pulled the evening the show closes | with: Event app, CSV | chips: name, company, title, scanned, met in person
+- LinkedIn event page | Attendees who marked themselves going, plus the speakers from step 2 | with: LinkedIn | chips: attending, speaker
+- Registrant exports | Luma and Zoom give registrants and who actually joined, for side events and sessions | with: Luma, Zoom | chips: registered, attended, no-show
+= Three attendance states | Every row marked met in person, attended or registered no-show; met in person wins any tie | chips: met in person, attended, no-show
+
+- Pull the list the evening the event ends. Export the directory from the event app, add the badge scans, and have whoever worked the booth mark everyone they spoke to.
+- Add LinkedIn event page attendees and any Luma or Zoom export from side events; Zoom shows who registered and who joined.
+- Mark every row met in person, attended, or registered no-show; met in person wins any tie. This split drives tiering, copy and the report.
+
+### 4. Score fit before spending a credit
+Tools: Claude, Ocean.io, Apollo, Attio
+Flow:
+- Exclusions first | Customers, open deals, active sequences, competitors, and vendors selling to the same crowd | with: Attio | tag: core: exclusions
+- Fit and role | A cheap model reads each company site for an ICP verdict and marks whether the person buys, uses or signs off | with: Claude, Ocean.io, Apollo | chips: ICP yes or no, buy use or sign off, headcount
+
+- Apply core: exclusions. Add one more: vendors selling to the same crowd are warmup prospects, never main-offer prospects.
+- Enrich headcount, industry and location. A cheap model reads each website, gives a yes or no ICP verdict with one reason, and marks whether the person buys, uses or signs off.
+- Drop the no&#x27;s before any paid lookup. An attendee list looks warm, which is why it burns credits: a 4K badge list is often 600 real prospects.
+
+### 5. Find the person, enrich and verify
+Tools: LinkedIn, Apollo, Ocean.io, LeadMagic, Prospeo, MillionVerifier, BounceBan
+Flow:
+- Booth owner or GTM leader | For exhibitors, the field marketing or events lead who owns the booth, or the GTM leader; for attendees, the person who was there | with: LinkedIn, Apollo, Ocean.io | chips: field marketing, events, GTM leader, attendee
+- Email waterfall | Each vendor only sees the contacts the one before it missed | with: LeadMagic, Prospeo | tag: core: enrichment
+- Two-pass verification | Valid to the main campaign, catch-all to its own campaign | with: MillionVerifier, BounceBan | tag: core: verification
+
+- For exhibitors, find the booth owner: a director or head of field marketing, events or trade shows, or the GTM leader under 200 people. If the warmup is the offer, that person is the buyer; otherwise pick the decision maker by company size and keep them as champion.
+- For attendees, the person on the list is the contact. Confirm title on LinkedIn; badge data is often a job behind.
+- Apply core: enrichment.
+- Apply core: verification.
+
+### 6. Tier and alert
+Tools: Slack, Attio, LinkedIn, Phone
+Flow:
+- Tier 1 | Met in person, speakers, and exhibitors that fit: a Slack card, a LinkedIn connection and a call within two days | with: Slack, LinkedIn, Phone | chips: name, company, where you met, session, suggested opener | tag: high touch
+- Tier 2 and 3 | Attended and no-show with ICP fit, to the campaign, written to the CRM with attendance state | with: Attio | chips: event, attendance state, tier, date | tag: at volume
+
+- Tier 1 is anyone met in person, plus every speaker and exhibitor that fits. Post a Slack card with name, company, where you met them or their session, LinkedIn URL and a one-line opener. The owner connects on LinkedIn and calls within two days.
+- Tier 2 is attended, Tier 3 is registered no-show, both with ICP fit; both go to the two-step email in step 7 within two days.
+- Write every account to the CRM with signal type `event`, event name, attendance state, tier and date. Attendance state stays on the record as a scoring input for later plays.
+
+### 7. Write and launch
+Tools: Claude, EmailBison, Instantly (option), HeyReach
+Flow:
+- Pre-show | We will be at the show too: 15 minutes at the booth or coffee nearby, with a day and a time | with: Claude | chips: {EVENT}, {BOOTH}, {DAY}, {SESSION}
+- Post-show | Open on the event and give one useful thing from it: a takeaway, the recording, a short list | with: Claude | chips: {EVENT}, {SESSION}, {TAKEAWAY} | tag: no filler openers
+- Budget frame | For manufacturers past a few million in revenue: one rep&#x27;s trip versus the same lead flow from two weeks of email | with: Claude | tag: variant
+= Launch from its own inbox set | Email plus LinkedIn connection for Tier 2; pre-show stops the day the show opens, post-show stops a week after it ends | with: EmailBison, Instantly, HeyReach | tag: send
+
+- Apply core: copy and send rules.
+- Pre-show: you are both going to be there, so ask for 15 minutes at their booth or a coffee nearby, with a day and a time. For exhibitors buying the warmup, say plainly that you run their attendee list before the show.
+- Post-show: open on the event and give one useful thing from it: a session takeaway, the recording, a short list of who was there in their segment. No-shows get the recording and a softer ask.
+- Budget frame for manufacturers past a few million in revenue: flights, booth, hotel and a rep&#x27;s week versus the same lead flow from a two-week campaign. Outbound sits next to the show, not instead of it.
+- Draft three angle variants for email 1 and one threaded nudge for email 2 per audience; show the user before upload. Upload with `{EVENT}`, `{BOOTH}`, `{DAY}`, `{SESSION}`, `{TAKEAWAY}`.
+- Pre-show sends stop the day the show opens; post-show sends stop a week after it ends. Stop any contact that replies, books or shows as an open deal.
+
+### 8. Report
+Tools: Attio, Slack
+Flow:
+= Weekly read by audience and timing | Pulled, ICP-fit rate, Tier 1 count, sent, reply rate, interested, meetings, split by exhibitor, attendee, no-show and by pre, post | with: Attio, Slack
+
+- Weekly: pulled, ICP-fit rate, Tier 1 count, booth meetings, sent, reply rate, interested, meetings after. Split by audience (exhibitor, attendee, no-show) and timing (pre, post), and compare to the cold baseline.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- An attendee list is stale a week after the event ends. If it cannot be worked within two days, run it as a cold play with the event as a dated signal.
+- Never open with &quot;great to meet you&quot;, &quot;hope you enjoyed the show&quot; or a line about watching their booth. Every opener carries one useful thing from the event.
+- Score fit before any paid lookup. A badge scan is attendance, not fit.
+- Only work lists you collected yourself or the organizer gave you. A purchased attendee list is not this play.
+- One person, one sequence. Someone who is both an exhibitor and an attendee is an exhibitor. Do not run this play and a cold play on the same domain in the same month.
+
+## Example run
+
+User: &quot;/pipeline-pre-show-warmup for our outbound agency, we are exhibiting at a 3-day building materials show in Dallas in three weeks, ICP is manufacturers 50 to 500 people in the US&quot;
+
+1. Set both windows, confirmed EmailBison, HeyReach, Attio and Slack, captured offer and proof.
+2. Firecrawl pulled 412 exhibitors and 38 speakers; 388 companies after dedupe by domain.
+3. 171 passed the ICP read, 9 removed as customers, open deals or same-crowd vendors.
+4. 162 booth owners found, 118 with a GTM leader added as champion; 251 verified valid, 14 catch-all in their own campaign.
+5. 67 Tier 1 Slack cards (38 speakers, 29 sponsor-tier exhibitors), 11 booth meetings booked. 184 contacts loaded into &quot;Pre-show, Dallas&quot;, stopped the morning the show opened.
+6. Show closed: 2,940 attendees from the app, 212 badge scans, 61 met in person. 644 passed the ICP read. 61 Tier 1 cards, 583 loaded into &quot;Post-show, Dallas&quot; within two days. Week one: 14 meetings after the show against 11 at the booth.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Pre-Show Warmup end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/pre-show-warmup'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../public-record-flags/index.html'><span class='eyebrow'>Previous</span><b>Public Record Flags</b></a>
+<a href='../closed-lost-revival/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Closed-Lost Revival</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

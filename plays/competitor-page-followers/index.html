@@ -1,0 +1,378 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Competitor Page Followers | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-social'>Social signals</a><span>/</span><span>Competitor Page Followers</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 27 · Social signals</div>
+<h1>Competitor Page Followers</h1>
+<div class='meta'><div><b>Trigger</b> A new follower on a competitor&#x27;s LinkedIn company page since last week</div><div><b>Outcome</b> Warm pipeline from their audience</div><div><b>Channels</b> linkedin, email, call</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-competitor-page-followers' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-competitor-page-followers'>Install the Pipeline.tech &quot;Competitor Page Followers&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/competitor-page-followers/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-competitor-page-followers/SKILL.md, then run /pipeline-competitor-page-followers.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-competitor-page-followers.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/competitor-page-followers.svg' alt='Competitor Page Followers workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/competitor-page-followers.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>A new follow on a competitor's company page is a quiet hand-raise: the person wants to hear more from a vendor in your category and has not decided from whom. A weekly diff of the follower list catches them while they are still forming an opinion. On its own the follow is a weak signal, so this play stacks it with harder evidence before anyone picks up the phone.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The ICP in one paragraph: industries, headcount band, geography, the problem you solve.</li>
+<li>The 3 to 6 competitors buyers name on sales calls, with company page URLs and any separate product page URLs.</li>
+<li>The seat that buys: exact titles and functions, with the seniority floor.</li>
+<li>Stack answers from core section 1, the real LinkedIn profile connection requests go out from, and whether RB2B runs on the website.</li>
+<li>Two offers in one sentence each: the evaluation offer for accounts with no tool detected, the switch offer with one proof point for accounts on the competitor.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Pick the pages and take the baseline</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">LinkedIn</span><span class="chip">Apify</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Pick the 3 to 6 competitors buyers name on sales calls. Where a competitor runs a separate page per product, add it; product page followers are closer to a decision.</li>
+<li>Export the full follower list of every page once and store it with the page URL and the export date. Nothing in the baseline is contacted; it only gives next week's pull something to diff against. The LinkedIn URL is the row key from here on.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Pull weekly and diff</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Apify</span><span class="chip">Teamfluence (option)</span><span class="chip">Claude</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Pull every page weekly, same day, same actor, same settings. Apify first; Teamfluence when the user already runs it.</li>
+<li>Keep only URLs absent from last week's list, with the follow week and the page. The follow week is the signal date for core tiering, so it is never blank.</li>
+<li>Dedupe by LinkedIn URL. Two pages followed in one week is one row with both pages. Unfollows are not a signal; drop them.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Remove the noise</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Apollo</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span></div>
+<ul>
+<li>Most new followers of a company page are its staff, alumni, partners, job seekers and students. Remove them first, reading past positions as well as the headline.</li>
+<li>Then remove recruiters, vendors, and titles outside the buying functions from input 3. A non-buyer title at an ICP account stays only if step 4 can attach the buyer.</li>
+<li>Apply core: exclusions. Log counts per bucket for step 8.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Qualify company and persona</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Ocean.io</span><span class="chip">Apollo</span><span class="chip">Claude</span></div>
+<ul>
+<li>Company first. Firmographics from Ocean.io or Apollo, then a model reads the website and returns a yes or no ICP verdict with one reason. A no stops here, before any paid lookup.</li>
+<li>Persona second. A buying title at an ICP account is the lead. Below the seat, find the buyer at the same account per core section 4 and attach them; the follower stays as context, never as the recipient.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Stack the signals</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">BuiltWith</span><span class="chip">TheirStack</span><span class="chip">Apify</span><span class="chip">RB2B (option)</span><span class="chip">Claude</span></div>
+<ul>
+<li>Technographics set the angle. Competitor detected by BuiltWith or TheirStack means a switch angle; no detectable tool in the category means an evaluation angle.</li>
+<li>Add every other dated signal: engagement on competitor posts, open roles in the buying function, a funding round, website visits where the user runs RB2B.</li>
+<li>Apply core: tiering. Two dated signals in a quarter earn a call; the follow is one, a call needs one more.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Enrich and verify</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>Apply core: enrichment with the LinkedIn URL as the lookup, never name plus company; follower headlines lag job changes. Enrich the buyer attached in step 4 the same way.</li>
+<li>Apply core: verification.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Tier and route</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Slack</span><span class="chip">HeyReach</span><span class="chip">LinkedIn</span><span class="chip">Phone</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span></div>
+<ul>
+<li>Tier 1: buying title at an ICP account, follow plus one more dated signal. Slack alert to the owner, a connection request with a short note from a real profile, a call in week two if unanswered.</li>
+<li>Tier 2: buying title at an ICP account, follow alone. Connection request plus a two-step email on the angle from step 5. No call.</li>
+<li>Tier 3: acceptable fit. An always-on two-email campaign per angle.</li>
+<li>Apply core: copy and send rules. Open on the evaluation or the switch in the words buyers use on calls. Never mention the follow. Variables: <code><span class=\"var\">{COMPANY}</span></code>, <code><span class=\"var\">{TITLE}</span></code>, <code><span class=\"var\">{ANGLE}</span></code>.</li>
+<li>Write competitor page, follow week, angle, tier and ICP reason to the CRM record. Stop on a reply, a booking or an open deal.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Report</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>Weekly, per page: new followers, kept after step 3, ICP rate, tier counts, replies, meetings.</li>
+<li>After a month the table shows which pages feed real pipeline and which only feed staff and students. Swap the second kind for a product page or another competitor.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>A follow is never the only reason for a call. A call needs the follow plus one more dated signal inside the quarter.</li>
+<li>Never mention the follow. No "saw you started following", no "noticed you follow".</li>
+<li>Competitor staff and alumni are never contacted, nor the competitor's partners or agencies. Check past positions too.</li>
+<li>One person at most once per 60 days across all social plays.</li>
+<li>A person who also reacted to or commented on a competitor post belongs to Competitor Post Engagers. The stronger signal wins; the follow is stored for stacking.</li>
+<li>Scope: this play is new follows of competitor company and product pages. Reactions and comments on competitor voices' posts belong to Competitor Post Engagers; engagers on your own, your team's or chosen creators' posts belong to Content Engagement; third-party posts about your brand, competitors or the category belong to Brand and Keyword Mentions.</li>
+<li>A follow older than 90 days is kept for stacking and never drives copy or a tier.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-competitor-page-followers for our contract management platform, mid-market legal and procurement teams in the US and UK, buyers General Counsel and Head of Procurement, competitors the three we see in every deal"</p>
+<ol>
+<li>Asked for the three competitors and both offers (evaluation: a side-by-side on their own contracts; switch: migration of the existing repository done for them). Confirmed Apify, Attio, EmailBison, HeyReach, Slack and RB2B.</li>
+<li>Page set: 3 company pages plus 1 product page. Baseline: 41,300 followers, stored with the date.</li>
+<li>Week two pull: 612 new follows, 598 after dedupe, 9 following two pages.</li>
+<li>Noise removal: 187 staff, alumni, partners and agencies; 94 recruiters, students and job seekers; 71 non-buyer titles; 12 out at the CRM gate. 234 through.</li>
+<li>141 at ICP accounts: 58 in the buying seat, 47 below it with the buyer attached; 36 acceptable fit.</li>
+<li>Signals: 39 accounts on a competitor, 102 with no tool; 23 people with a second dated signal (14 post engagements, 6 open roles, 3 RB2B visits).</li>
+<li>128 emails found by LinkedIn URL, 121 valid, 7 catch-all in their own campaign.</li>
+<li>21 Tier 1, 84 Tier 2, 36 Tier 3. 105 connection requests, 44 accepted; 21 Slack alerts, 9 calls in week two. 121 addresses across the evaluation and switch campaigns.</li>
+<li>First weekly read: 11 replies, 5 interested, 3 meetings, 2 from the product page, which had the highest ICP rate. One company page fed 70 percent staff and students and goes under review.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/competitor-page-followers/SKILL.md</b><span>The skill file behind this page, 137 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-competitor-page-followers'>Copy skill file</button></div>
+<pre>---
+name: pipeline-competitor-page-followers
+description: Pipeline.tech play. Reach the people who started following a competitor&#x27;s LinkedIn company page since last week, while they are still forming an opinion about vendors in your category. Takes a baseline export of 3 to 6 competitor pages, diffs the follower list weekly, strips competitor staff, alumni, partners, recruiters and students, qualifies company and persona, stacks the follow with technographics, post engagement, hiring, funding and website visits, enriches through core with the LinkedIn URL as the key, then routes by tier on an evaluation or switch angle. A follow alone never earns a call. USE WHEN user says &quot;/pipeline-competitor-page-followers&quot; OR &quot;competitor page followers&quot; OR &quot;competitor followers play&quot; OR &quot;new followers on competitor pages&quot; OR &quot;scrape competitor company page followers&quot; OR &quot;outreach to a competitor&#x27;s LinkedIn audience&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/competitor-page-followers)
+version: 0.1.0</pre><div class='more'>… 132 more lines</div>
+<pre id='raw-competitor-page-followers' class='hidden'>---
+name: pipeline-competitor-page-followers
+description: Pipeline.tech play. Reach the people who started following a competitor&#x27;s LinkedIn company page since last week, while they are still forming an opinion about vendors in your category. Takes a baseline export of 3 to 6 competitor pages, diffs the follower list weekly, strips competitor staff, alumni, partners, recruiters and students, qualifies company and persona, stacks the follow with technographics, post engagement, hiring, funding and website visits, enriches through core with the LinkedIn URL as the key, then routes by tier on an evaluation or switch angle. A follow alone never earns a call. USE WHEN user says &quot;/pipeline-competitor-page-followers&quot; OR &quot;competitor page followers&quot; OR &quot;competitor followers play&quot; OR &quot;new followers on competitor pages&quot; OR &quot;scrape competitor company page followers&quot; OR &quot;outreach to a competitor&#x27;s LinkedIn audience&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/competitor-page-followers)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: A new follower on a competitor&#x27;s LinkedIn company page since last week
+outcome: Warm pipeline from their audience
+category: social
+channels: linkedin, email, call
+tools: LinkedIn, Apify, Teamfluence, Claude, Google Sheets, Ocean.io, Apollo, BuiltWith, TheirStack, RB2B, Attio, HubSpot, LeadMagic, Prospeo, MillionVerifier, BounceBan, Slack, HeyReach, Phone, EmailBison, Instantly
+---
+
+# Competitor Page Followers
+
+A new follow on a competitor&#x27;s company page is a quiet hand-raise: the person wants to hear more from a vendor in your category and has not decided from whom. A weekly diff of the follower list catches them while they are still forming an opinion. On its own the follow is a weak signal, so this play stacks it with harder evidence before anyone picks up the phone.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The ICP in one paragraph: industries, headcount band, geography, the problem you solve.
+2. The 3 to 6 competitors buyers name on sales calls, with company page URLs and any separate product page URLs.
+3. The seat that buys: exact titles and functions, with the seniority floor.
+4. Stack answers from core section 1, the real LinkedIn profile connection requests go out from, and whether RB2B runs on the website.
+5. Two offers in one sentence each: the evaluation offer for accounts with no tool detected, the switch offer with one proof point for accounts on the competitor.
+
+## Steps
+
+### 1. Pick the pages and take the baseline
+Tools: LinkedIn, Apify, Google Sheets
+Flow:
+- Page set | 3 to 6 competitor company pages, plus separate product pages where the competitor runs them | with: LinkedIn | chips: company page, product page, named on calls
+= Baseline export | The full follower list of every page pulled once and stored with the export date, so week one has something to diff against | with: Apify, Google Sheets | chips: full list, export date, per page
+
+- Pick the 3 to 6 competitors buyers name on sales calls. Where a competitor runs a separate page per product, add it; product page followers are closer to a decision.
+- Export the full follower list of every page once and store it with the page URL and the export date. Nothing in the baseline is contacted; it only gives next week&#x27;s pull something to diff against. The LinkedIn URL is the row key from here on.
+
+### 2. Pull weekly and diff
+Tools: Apify, Teamfluence (option), Claude, Google Sheets
+Flow:
+- Weekly follower pull | Every page&#x27;s follower list pulled on the same weekday, same actor, same settings | with: Apify, Teamfluence | chips: same weekday, per page
+- Diff against last week | Rows not present in last week&#x27;s list, written with the follow week and the page they followed | with: Claude, Google Sheets | chips: new follows, follow week, page
+= Dedupe by LinkedIn URL | One row per person; following two pages in the same week is one row with two pages | with: Google Sheets | chips: LinkedIn URL, pages followed
+
+- Pull every page weekly, same day, same actor, same settings. Apify first; Teamfluence when the user already runs it.
+- Keep only URLs absent from last week&#x27;s list, with the follow week and the page. The follow week is the signal date for core tiering, so it is never blank.
+- Dedupe by LinkedIn URL. Two pages followed in one week is one row with both pages. Unfollows are not a signal; drop them.
+
+### 3. Remove the noise
+Tools: Claude, Apollo, Attio, HubSpot (option)
+Flow:
+- Competitor staff and alumni | Anyone who works or has worked at the competitor, its partners or agencies, from the current and past positions on the profile | with: Claude, Apollo | chips: current staff, former staff, partners, agencies
+- Recruiters, students, vendors | Titles and headlines that never buy, plus students and job seekers | with: Claude | chips: recruiter, student, vendor, job seeker
+= CRM gate | Not a customer, not an open deal, not in any sequence in 90 days | with: Attio, HubSpot | tag: core: exclusions
+
+- Most new followers of a company page are its staff, alumni, partners, job seekers and students. Remove them first, reading past positions as well as the headline.
+- Then remove recruiters, vendors, and titles outside the buying functions from input 3. A non-buyer title at an ICP account stays only if step 4 can attach the buyer.
+- Apply core: exclusions. Log counts per bucket for step 8.
+
+### 4. Qualify company and persona
+Tools: Ocean.io, Apollo, Claude
+Flow:
+- Company check | Headcount, industry and location, then a yes or no ICP verdict with one reason from the company&#x27;s own website | with: Ocean.io, Apollo, Claude | chips: headcount, industry, ICP yes or no, one reason
+= Persona check | A buying title stays as the lead; below the seat at an ICP account, the buyer is found and the follower becomes the context | with: Apollo, Claude | chips: buying title, below seat, buyer attached
+
+- Company first. Firmographics from Ocean.io or Apollo, then a model reads the website and returns a yes or no ICP verdict with one reason. A no stops here, before any paid lookup.
+- Persona second. A buying title at an ICP account is the lead. Below the seat, find the buyer at the same account per core section 4 and attach them; the follower stays as context, never as the recipient.
+
+### 5. Stack the signals
+Tools: BuiltWith, TheirStack, Apify, RB2B (option), Claude
+Flow:
+- Technographics | Competitor detected on the account means a switch angle; no detectable tool means an evaluation angle | with: BuiltWith, TheirStack | chips: competitor detected, no tool, switch, evaluation
+- Other dated signals | Engagement on competitor posts, open roles in the buying function, a funding round, website visits where RB2B runs | with: Apify, RB2B, Claude | chips: post engagement, hiring, funding, site visit
+= Signal count | Follow plus one more dated signal inside a quarter earns a call; the follow alone never does | with: Claude | tag: core: tiering
+
+- Technographics set the angle. Competitor detected by BuiltWith or TheirStack means a switch angle; no detectable tool in the category means an evaluation angle.
+- Add every other dated signal: engagement on competitor posts, open roles in the buying function, a funding round, website visits where the user runs RB2B.
+- Apply core: tiering. Two dated signals in a quarter earn a call; the follow is one, a call needs one more.
+
+### 6. Enrich and verify
+Tools: LeadMagic, Prospeo, MillionVerifier, BounceBan
+Flow:
+- Person by LinkedIn URL | Current title, company and work email, waterfall keyed on the profile URL | with: LeadMagic, Prospeo | tag: core: enrichment
+= Two-pass verification | Valid to the main campaign, catch-all to its own campaign | with: MillionVerifier, BounceBan | tag: core: verification
+
+- Apply core: enrichment with the LinkedIn URL as the lookup, never name plus company; follower headlines lag job changes. Enrich the buyer attached in step 4 the same way.
+- Apply core: verification.
+
+### 7. Tier and route
+Tools: Claude, Slack, HeyReach, LinkedIn, Phone, EmailBison, Instantly (option), Attio, HubSpot (option)
+Flow:
+- Tier 1 | Buying title at an ICP account, follow plus one more dated signal; Slack alert, connection with a short note, call in week two | with: Slack, HeyReach, Phone | chips: 2 signals, alert, connection, call week 2 | tag: high touch
+- Tier 2 | Buying title at an ICP account, follow alone; connection plus a two-step email on the evaluation or switch angle | with: HeyReach, EmailBison, Instantly | chips: 1 signal, connection, 2 emails | tag: send
+- Tier 3 | Acceptable fit; always-on two-email campaign on the same angle | with: EmailBison, Instantly | chips: acceptable fit | tag: email only
+= Store on the record | Competitor page, follow week, angle and tier written to the CRM | with: Attio, HubSpot | chips: page, follow week, angle, tier
+
+- Tier 1: buying title at an ICP account, follow plus one more dated signal. Slack alert to the owner, a connection request with a short note from a real profile, a call in week two if unanswered.
+- Tier 2: buying title at an ICP account, follow alone. Connection request plus a two-step email on the angle from step 5. No call.
+- Tier 3: acceptable fit. An always-on two-email campaign per angle.
+- Apply core: copy and send rules. Open on the evaluation or the switch in the words buyers use on calls. Never mention the follow. Variables: `{COMPANY}`, `{TITLE}`, `{ANGLE}`.
+- Write competitor page, follow week, angle, tier and ICP reason to the CRM record. Stop on a reply, a booking or an open deal.
+
+### 8. Report
+Tools: Attio, Slack
+Flow:
+= Weekly by competitor page | New followers, kept after noise removal, ICP rate, tier counts, replies, meetings; which pages feed pipeline and which feed staff and students | with: Attio, Slack | chips: by page, ICP rate, tier counts, meetings
+
+- Weekly, per page: new followers, kept after step 3, ICP rate, tier counts, replies, meetings.
+- After a month the table shows which pages feed real pipeline and which only feed staff and students. Swap the second kind for a product page or another competitor.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- A follow is never the only reason for a call. A call needs the follow plus one more dated signal inside the quarter.
+- Never mention the follow. No &quot;saw you started following&quot;, no &quot;noticed you follow&quot;.
+- Competitor staff and alumni are never contacted, nor the competitor&#x27;s partners or agencies. Check past positions too.
+- One person at most once per 60 days across all social plays.
+- A person who also reacted to or commented on a competitor post belongs to Competitor Post Engagers. The stronger signal wins; the follow is stored for stacking.
+- Scope: this play is new follows of competitor company and product pages. Reactions and comments on competitor voices&#x27; posts belong to Competitor Post Engagers; engagers on your own, your team&#x27;s or chosen creators&#x27; posts belong to Content Engagement; third-party posts about your brand, competitors or the category belong to Brand and Keyword Mentions.
+- A follow older than 90 days is kept for stacking and never drives copy or a tier.
+
+## Example run
+
+User: &quot;/pipeline-competitor-page-followers for our contract management platform, mid-market legal and procurement teams in the US and UK, buyers General Counsel and Head of Procurement, competitors the three we see in every deal&quot;
+
+1. Asked for the three competitors and both offers (evaluation: a side-by-side on their own contracts; switch: migration of the existing repository done for them). Confirmed Apify, Attio, EmailBison, HeyReach, Slack and RB2B.
+2. Page set: 3 company pages plus 1 product page. Baseline: 41,300 followers, stored with the date.
+3. Week two pull: 612 new follows, 598 after dedupe, 9 following two pages.
+4. Noise removal: 187 staff, alumni, partners and agencies; 94 recruiters, students and job seekers; 71 non-buyer titles; 12 out at the CRM gate. 234 through.
+5. 141 at ICP accounts: 58 in the buying seat, 47 below it with the buyer attached; 36 acceptable fit.
+6. Signals: 39 accounts on a competitor, 102 with no tool; 23 people with a second dated signal (14 post engagements, 6 open roles, 3 RB2B visits).
+7. 128 emails found by LinkedIn URL, 121 valid, 7 catch-all in their own campaign.
+8. 21 Tier 1, 84 Tier 2, 36 Tier 3. 105 connection requests, 44 accepted; 21 Slack alerts, 9 calls in week two. 121 addresses across the evaluation and switch campaigns.
+9. First weekly read: 11 replies, 5 interested, 3 meetings, 2 from the product page, which had the highest ICP rate. One company page fed 70 percent staff and students and goes under review.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Competitor Page Followers end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/competitor-page-followers'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../brand-keyword-mentions/index.html'><span class='eyebrow'>Previous</span><b>Brand and Keyword Mentions</b></a>
+<a href='../website-visitors/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Website Visitors</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

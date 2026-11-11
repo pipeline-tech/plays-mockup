@@ -1,0 +1,365 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Closed-Lost Revival | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-signal'>Third-party signals</a><span>/</span><span>Closed-Lost Revival</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 22 · Third-party signals</div>
+<h1>Closed-Lost Revival</h1>
+<div class='meta'><div><b>Trigger</b> A loss-reason window plus a detected change, or a neutral reply that never converted</div><div><b>Outcome</b> A deal reopened on what changed</div><div><b>Channels</b> email, linkedin, call</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-closed-lost-revival' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-closed-lost-revival'>Install the Pipeline.tech &quot;Closed-Lost Revival&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/closed-lost-revival/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-closed-lost-revival/SKILL.md, then run /pipeline-closed-lost-revival.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-closed-lost-revival.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/closed-lost-revival.svg' alt='Closed-Lost Revival workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/closed-lost-revival.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>These accounts already know you, they sat through a call or at least replied, and the CRM holds the reason they said no. That makes them the cheapest pipeline you will ever build, and the easiest to burn with a "just checking in" that proves nothing moved. The opener is never a check-in; it names what changed since the last conversation and ties it to the reason the deal stopped.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1 and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The ICP in one paragraph, and the offer in one sentence with one proof point.</li>
+<li>Stack answers from core section 1, plus where closed-lost deals, call recordings and reply buckets live.</li>
+<li>The loss-reason field and its values, and how far back to pull (default 24 months).</li>
+<li>The switch offer for competitor losses: the concrete reason to leave an incumbent, in one line.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Pull both feeds</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">Google Sheets (option)</span></div>
+<ul>
+<li>Export every deal closed-lost, stalled past 60 days, no-show without a rebook, or churned, with loss reason, close date, champion, blocker and owner.</li>
+<li>Pull the reply buckets from Reply Routing: not-now with the date given, and every neutral or interested reply that never became a booking. That second group is the cheapest revival list there is; they already answered once.</li>
+<li>Remove customers and open deals, then apply core: exclusions. Merge on domain with a <code>feed</code> column (crm, reply, both).</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Name the real blocker</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Fireflies</span><span class="chip">Gong (option)</span><span class="chip">Claude</span></div>
+<ul>
+<li>Rep-entered loss reasons are often polite fiction: "timing" covers a lost champion, "budget" covers a cheaper competitor.</li>
+<li>Where call notes or transcripts exist, a model reads the calls themselves and writes one line per account: the actual objection, who raised it, and the quote that proves it. One blocker per account: timing, budget cycle, competitor, missing feature, champion left, no decision maker.</li>
+<li>For reply-feed rows with no call, the reply text is the evidence. "Not now, back in Q2" is timing with a date; a neutral "send me more info" that went nowhere is no decision maker.</li>
+<li>Write the blocker, the evidence line and the source to the CRM. Nothing in this step is sent to anyone.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Set the window per blocker</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span></div>
+<ul>
+<li>Timing: the start of the next quarter. Budget cycle: 60 days before the next fiscal year, before the plan locks. Competitor: 60 to 90 days before their renewal, usually the anniversary of the loss.</li>
+<li>Missing feature: the day it ships. Champion left: when a replacement is hired, which step 4 detects. Not-now reply: the date they gave, else 90 days from the reply.</li>
+<li>Write the revival date and the blocker to the CRM. No date is a mistake, not a free pass to email.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Check what changed when the window opens</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Serper</span><span class="chip">Apollo</span><span class="chip">Ocean.io</span><span class="chip">LinkedIn</span><span class="chip">BuiltWith</span><span class="chip">Claude</span></div>
+<ul>
+<li>On the revival date, run a job-change check on the champion and the blocker, a news search, a hiring check on the function, and a stack check on the domain. For missing-feature rows, confirm the feature shipped first.</li>
+<li>The change has to answer the blocker. Funding answers budget; a new VP answers no decision maker or champion left; a competitor dropped from the stack answers competitor; hiring in the function answers timing.</li>
+<li>A model writes the why-now line from the evidence with the source URL. Nothing changed means back to the queue for another cycle. Never reach out on nothing.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Check the people</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">LinkedIn</span><span class="chip">Apollo</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>Confirm the old champion is still at the company. If they left, hand them to Champion Moves at the new company, and keep this account in the play for the new committee.</li>
+<li>Map the committee now: the buying seat plus one level up, by the decision-maker rules in core. Apply core: enrichment. Apply core: verification.</li>
+<li>The old champion first, the new committee second. Store both on the CRM record with their role in the old deal.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Re-engage on what changed</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Phone</span><span class="chip">LinkedIn</span><span class="chip">HeyReach</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span></div>
+<ul>
+<li>Apply core: copy and send rules.</li>
+<li>The frame: "when we spoke in <span class=\"var\">{LAST_CALL_MONTH}</span>, <span class=\"var\">{BLOCKER}</span> was the problem; since then <span class=\"var\">{CHANGE}</span>; worth another look?" The change is the subject, the blocker is proof you listened, and the ask is small.</li>
+<li>Old champion, day 0: a personal note from the original deal owner plus a call the same day. It reads like a person who remembered, not a sequence.</li>
+<li>New committee, day 2: the two-step email. Step one names the earlier conversation at their company, the blocker and the change; step two is the threaded nudge.</li>
+<li>Competitor losses need a switch offer: a concrete reason to leave, such as a done-for-you migration or a term that undercuts their renewal. Feature lists against an incumbent get nothing.</li>
+<li>Value CTA, never a meeting ask, unless the reply bucket shows they asked for a call. Show the champion note, both emails and the switch variant to the user before upload.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Reopen, log and tune</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span><span class="chip">Slack</span></div>
+<ul>
+<li>On a reply or a booking, create a new deal linked to the old one with the blocker, the change and the cycle number. Slack the original owner with the why-now line.</li>
+<li>Log every cycle on the account, including silent ones.</li>
+<li>Weekly: queued, windows opened, changes detected, contacted, reply rate, interested, reopened, split by blocker type and by feed. Tune the windows by which blockers actually revive.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>No reach-out without a change that answers the blocker. A window opening is permission to look, not to email.</li>
+<li>Never a check-in, never "circling back", never a feature list to someone who chose a competitor.</li>
+<li>Someone who was never on the call is never told "when we spoke".</li>
+<li>CRM loss reasons are a hypothesis until a call or a reply confirms them.</li>
+<li>Not-interested inside 180 days stays excluded through core. A dated no is not a not-now.</li>
+<li>One account, one cycle at a time. Two feeds on one domain is one revival; a reopened deal pauses every other play on that domain.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-closed-lost-revival for our data platform, mid-market B2B, 24 months of closed-lost in Attio, calls in Fireflies, replies in EmailBison"</p>
+<ol>
+<li>Confirmed the stack; switch offer set as a 30-day migration done for them.</li>
+<li>CRM feed 412 deals; reply feed 96 not-now and 231 neutral or interested that never booked. 61 removed through exclusions; 678 accounts after the merge.</li>
+<li>287 accounts had a recording; the model moved 94 to a different blocker than the rep entered. Split: 198 timing, 141 budget, 117 competitor, 64 missing feature, 83 champion left, 75 no decision maker.</li>
+<li>214 windows opened in month one. 71 showed a change that answered the blocker: 19 new leaders, 23 funding or hiring, 14 competitor removed from the stack, 15 shipped features. 143 back to the queue.</li>
+<li>44 old champions still in seat, 27 handed to Champion Moves; 118 committee contacts, 101 verified valid, 6 catch-all in their own campaign.</li>
+<li>44 champion notes and calls on day 0, 7 calls answered; 101 committee contacts loaded into "Closed-Lost Revival, November", 14 on the switch variant; copy approved before upload.</li>
+<li>Week 4: 31 replies, 12 interested, 9 deals reopened and linked to the old ones. Timing revived at twice the rate of budget; competitor window moved from 90 to 60 days.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/closed-lost-revival/SKILL.md</b><span>The skill file behind this page, 129 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-closed-lost-revival'>Copy skill file</button></div>
+<pre>---
+name: pipeline-closed-lost-revival
+description: Pipeline.tech play. Revive closed-lost, stalled, no-show and churned deals plus the not-now and neutral replies that never booked, by naming the real blocker from the loss reason and the call recordings, queueing each account to a window set per blocker, checking what actually changed when the window opens (new decision maker, funding, hiring, stack change, shipped feature, competitor renewal), then re-engaging the old champion with a personal note and call and the new committee with a two-step email built on the change. USE WHEN user says &quot;/pipeline-closed-lost-revival&quot; OR &quot;closed lost revival&quot; OR &quot;revive dead deals&quot; OR &quot;re-engage closed lost&quot; OR &quot;work the not-now bucket&quot; OR &quot;retarget neutral replies&quot; OR &quot;reopen old deals&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/closed-lost-revival)
+version: 0.1.0</pre><div class='more'>… 124 more lines</div>
+<pre id='raw-closed-lost-revival' class='hidden'>---
+name: pipeline-closed-lost-revival
+description: Pipeline.tech play. Revive closed-lost, stalled, no-show and churned deals plus the not-now and neutral replies that never booked, by naming the real blocker from the loss reason and the call recordings, queueing each account to a window set per blocker, checking what actually changed when the window opens (new decision maker, funding, hiring, stack change, shipped feature, competitor renewal), then re-engaging the old champion with a personal note and call and the new committee with a two-step email built on the change. USE WHEN user says &quot;/pipeline-closed-lost-revival&quot; OR &quot;closed lost revival&quot; OR &quot;revive dead deals&quot; OR &quot;re-engage closed lost&quot; OR &quot;work the not-now bucket&quot; OR &quot;retarget neutral replies&quot; OR &quot;reopen old deals&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/closed-lost-revival)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: A loss-reason window plus a detected change, or a neutral reply that never converted
+outcome: A deal reopened on what changed
+category: signal
+channels: email, linkedin, call
+tools: Attio, HubSpot, EmailBison, Fireflies, Gong, Claude, Serper, Apollo, Ocean.io, LinkedIn, BuiltWith, LeadMagic, Prospeo, MillionVerifier, BounceBan, Slack, Instantly, HeyReach, Phone, Google Sheets
+---
+
+# Closed-Lost Revival
+
+These accounts already know you, they sat through a call or at least replied, and the CRM holds the reason they said no. That makes them the cheapest pipeline you will ever build, and the easiest to burn with a &quot;just checking in&quot; that proves nothing moved. The opener is never a check-in; it names what changed since the last conversation and ties it to the reason the deal stopped.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1 and save them to `./pipeline-plays.config.json`:
+
+1. The ICP in one paragraph, and the offer in one sentence with one proof point.
+2. Stack answers from core section 1, plus where closed-lost deals, call recordings and reply buckets live.
+3. The loss-reason field and its values, and how far back to pull (default 24 months).
+4. The switch offer for competitor losses: the concrete reason to leave an incumbent, in one line.
+
+## Steps
+
+### 1. Pull both feeds
+Tools: Attio, HubSpot (option), EmailBison, Instantly (option), Google Sheets (option)
+Flow:
+- CRM feed | Deals closed-lost, stalled, no-show or churned in the lookback window, with loss reason, close date, champion and blocker | with: Attio, HubSpot | chips: loss reason, close date, champion, blocker
+- Reply feed | Not-now replies with a date, plus neutral or interested replies that never booked, pulled from Reply Routing | with: EmailBison, Instantly | chips: not now, neutral, interested no booking, reply date
+= Exclude and merge | Customers and open deals out, one row per account with both feeds marked | with: Google Sheets | tag: core: exclusions
+
+- Export every deal closed-lost, stalled past 60 days, no-show without a rebook, or churned, with loss reason, close date, champion, blocker and owner.
+- Pull the reply buckets from Reply Routing: not-now with the date given, and every neutral or interested reply that never became a booking. That second group is the cheapest revival list there is; they already answered once.
+- Remove customers and open deals, then apply core: exclusions. Merge on domain with a `feed` column (crm, reply, both).
+
+### 2. Name the real blocker
+Tools: Fireflies, Gong (option), Claude
+Flow:
+- Read the loss reason | The rep-entered field is the starting point, not the answer | with: Claude | chips: timing, budget cycle, competitor, missing feature, champion left, no decision maker
+= Read the calls | Where recordings or transcripts exist, a model reads the last two calls and writes one line per account with the actual objection and the evidence | with: Fireflies, Gong, Claude | tag: one line per account
+
+- Rep-entered loss reasons are often polite fiction: &quot;timing&quot; covers a lost champion, &quot;budget&quot; covers a cheaper competitor.
+- Where call notes or transcripts exist, a model reads the calls themselves and writes one line per account: the actual objection, who raised it, and the quote that proves it. One blocker per account: timing, budget cycle, competitor, missing feature, champion left, no decision maker.
+- For reply-feed rows with no call, the reply text is the evidence. &quot;Not now, back in Q2&quot; is timing with a date; a neutral &quot;send me more info&quot; that went nowhere is no decision maker.
+- Write the blocker, the evidence line and the source to the CRM. Nothing in this step is sent to anyone.
+
+### 3. Set the window per blocker
+Tools: Claude, Attio, HubSpot (option)
+Flow:
+- Window rules | Timing next quarter; budget next fiscal cycle; competitor 60 to 90 days before their renewal; missing feature the day it ships; champion left when a replacement is hired; not-now the date given, else 90 days | with: Claude | chips: next quarter, fiscal cycle, 60 to 90 days pre-renewal, ship date, replacement hired, 90 days
+= Queue to a date | Every account gets a revival date on the CRM record and sits silent until then | with: Attio, HubSpot | tag: dated recall
+
+- Timing: the start of the next quarter. Budget cycle: 60 days before the next fiscal year, before the plan locks. Competitor: 60 to 90 days before their renewal, usually the anniversary of the loss.
+- Missing feature: the day it ships. Champion left: when a replacement is hired, which step 4 detects. Not-now reply: the date they gave, else 90 days from the reply.
+- Write the revival date and the blocker to the CRM. No date is a mistake, not a free pass to email.
+
+### 4. Check what changed when the window opens
+Tools: Serper, Apollo, Ocean.io, LinkedIn, BuiltWith, Claude
+Flow:
+- People and money | New decision maker or champion in the seat, funding announced, hiring in the function you sell into | with: LinkedIn, Apollo, Serper | chips: new DM, new champion, round, open roles
+- Stack and product | Competitor removed or added, the missing feature shipped on your side, the competitor&#x27;s renewal month arriving | with: BuiltWith, Ocean.io, Serper | chips: stack change, feature shipped, renewal month
+= Why-now line or back to the queue | A model writes one line from the evidence; no evidence means another cycle in the queue and no email | with: Claude | tag: never on nothing
+
+- On the revival date, run a job-change check on the champion and the blocker, a news search, a hiring check on the function, and a stack check on the domain. For missing-feature rows, confirm the feature shipped first.
+- The change has to answer the blocker. Funding answers budget; a new VP answers no decision maker or champion left; a competitor dropped from the stack answers competitor; hiring in the function answers timing.
+- A model writes the why-now line from the evidence with the source URL. Nothing changed means back to the queue for another cycle. Never reach out on nothing.
+
+### 5. Check the people
+Tools: LinkedIn, Apollo, LeadMagic, Prospeo, MillionVerifier, BounceBan
+Flow:
+- Old champion | Still there, moved internally, or gone; a champion who left goes to Champion Moves at their new company | with: LinkedIn, Apollo | chips: still there, new title, left, new company
+- New committee | Who holds the seat now and who sits beside them, by company size | with: Apollo | tag: core: enrichment
+= Enrich and verify | Waterfall on every new address and two-pass verification before any send | with: LeadMagic, Prospeo, MillionVerifier, BounceBan | tag: core: verification
+
+- Confirm the old champion is still at the company. If they left, hand them to Champion Moves at the new company, and keep this account in the play for the new committee.
+- Map the committee now: the buying seat plus one level up, by the decision-maker rules in core. Apply core: enrichment. Apply core: verification.
+- The old champion first, the new committee second. Store both on the CRM record with their role in the old deal.
+
+### 6. Re-engage on what changed
+Tools: Claude, Phone, LinkedIn, HeyReach, EmailBison, Instantly (option)
+Flow:
+- Old champion, day 0 | A personal note from the original owner and a call the same day: when we spoke in that month this was the problem, since then this changed, worth another look | with: Phone, LinkedIn, HeyReach | chips: {LAST_CALL_MONTH}, {BLOCKER}, {CHANGE}, {OWNER}
+- New committee, day 2 | Two-step email that names the earlier conversation at the company and the change, without pretending to know them | with: Claude, EmailBison, Instantly | tag: send
+= Competitor losses | A switch offer with a concrete reason to leave, never a feature list | with: Claude | tag: switch offer
+
+- Apply core: copy and send rules.
+- The frame: &quot;when we spoke in {LAST_CALL_MONTH}, {BLOCKER} was the problem; since then {CHANGE}; worth another look?&quot; The change is the subject, the blocker is proof you listened, and the ask is small.
+- Old champion, day 0: a personal note from the original deal owner plus a call the same day. It reads like a person who remembered, not a sequence.
+- New committee, day 2: the two-step email. Step one names the earlier conversation at their company, the blocker and the change; step two is the threaded nudge.
+- Competitor losses need a switch offer: a concrete reason to leave, such as a done-for-you migration or a term that undercuts their renewal. Feature lists against an incumbent get nothing.
+- Value CTA, never a meeting ask, unless the reply bucket shows they asked for a call. Show the champion note, both emails and the switch variant to the user before upload.
+
+### 7. Reopen, log and tune
+Tools: Attio, HubSpot (option), Slack
+Flow:
+- Reopen and alert | A reply or a booking reopens a new deal linked to the old one and the owner hears in Slack with the why-now line | with: Attio, HubSpot, Slack | chips: linked deal, revival cycle, blocker, feed
+= Weekly read by blocker and feed | Queued, windows opened, changes found, contacted, replies, reopened, split by blocker type and by CRM versus reply feed | with: Attio, Slack | tag: tune the windows
+
+- On a reply or a booking, create a new deal linked to the old one with the blocker, the change and the cycle number. Slack the original owner with the why-now line.
+- Log every cycle on the account, including silent ones.
+- Weekly: queued, windows opened, changes detected, contacted, reply rate, interested, reopened, split by blocker type and by feed. Tune the windows by which blockers actually revive.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- No reach-out without a change that answers the blocker. A window opening is permission to look, not to email.
+- Never a check-in, never &quot;circling back&quot;, never a feature list to someone who chose a competitor.
+- Someone who was never on the call is never told &quot;when we spoke&quot;.
+- CRM loss reasons are a hypothesis until a call or a reply confirms them.
+- Not-interested inside 180 days stays excluded through core. A dated no is not a not-now.
+- One account, one cycle at a time. Two feeds on one domain is one revival; a reopened deal pauses every other play on that domain.
+
+## Example run
+
+User: &quot;/pipeline-closed-lost-revival for our data platform, mid-market B2B, 24 months of closed-lost in Attio, calls in Fireflies, replies in EmailBison&quot;
+
+1. Confirmed the stack; switch offer set as a 30-day migration done for them.
+2. CRM feed 412 deals; reply feed 96 not-now and 231 neutral or interested that never booked. 61 removed through exclusions; 678 accounts after the merge.
+3. 287 accounts had a recording; the model moved 94 to a different blocker than the rep entered. Split: 198 timing, 141 budget, 117 competitor, 64 missing feature, 83 champion left, 75 no decision maker.
+4. 214 windows opened in month one. 71 showed a change that answered the blocker: 19 new leaders, 23 funding or hiring, 14 competitor removed from the stack, 15 shipped features. 143 back to the queue.
+5. 44 old champions still in seat, 27 handed to Champion Moves; 118 committee contacts, 101 verified valid, 6 catch-all in their own campaign.
+6. 44 champion notes and calls on day 0, 7 calls answered; 101 committee contacts loaded into &quot;Closed-Lost Revival, November&quot;, 14 on the switch variant; copy approved before upload.
+7. Week 4: 31 replies, 12 interested, 9 deals reopened and linked to the old ones. Timing revived at twice the rate of budget; competitor window moved from 90 to 60 days.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Closed-Lost Revival end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/closed-lost-revival'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../pre-show-warmup/index.html'><span class='eyebrow'>Previous</span><b>Pre-Show Warmup</b></a>
+<a href='../champion-moves/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Champion Moves</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

@@ -1,0 +1,351 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Ad-Spend Qualifier | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-foundation'>Foundation</a><span>/</span><span>Ad-Spend Qualifier</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 07 · Foundation</div>
+<h1>Ad-Spend Qualifier</h1>
+<div class='meta'><div><b>Trigger</b> A store-tech filter plus live ads in the ad libraries</div><div><b>Outcome</b> E-commerce list where every brand has budget</div><div><b>Channels</b> email</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-ad-spend-qualifier' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-ad-spend-qualifier'>Install the Pipeline.tech &quot;Ad-Spend Qualifier&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/ad-spend-qualifier/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-ad-spend-qualifier/SKILL.md, then run /pipeline-ad-spend-qualifier.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-ad-spend-qualifier.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/ad-spend-qualifier.svg' alt='Ad-Spend Qualifier workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/ad-spend-qualifier.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>E-commerce is the most crowded outbound market there is: tens of thousands of brands sit above any revenue floor, and every agency and tool vendor emails them. Two things still work, qualifying on budget before you write a word and keeping the email short enough to read on a phone. Live ad spend is the best free budget signal there is, so this play builds the list from the ad libraries up.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The ICP in one paragraph: store categories, revenue band, countries, the problem you solve and who owns it.</li>
+<li>Which platforms count: Shopify only, or Shopify plus WooCommerce and BigCommerce.</li>
+<li>The spend floor that means budget; default 10 or more active ads for 30 or more days.</li>
+<li>The offer in one sentence, one proof point, and the free thing you can make them: a welcome flow, ad creative, a teardown.</li>
+<li>Stack answers from core section 1.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Build the brand list from a store-tech filter</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">StoreLeads</span><span class="chip">BuiltWith (option)</span><span class="chip">Apollo (option)</span></div>
+<ul>
+<li>Pull every store on the chosen platforms by category, country and revenue band. StoreLeads filters on all four and estimates monthly sales; BuiltWith covers platform and country, with traffic as the size proxy.</li>
+<li>Apply core: lists. Keep platform, category and revenue band on every row; step 6 splits campaigns on them.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Qualify on live ad spend</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Meta Ad Library</span><span class="chip">Google Ads Transparency</span><span class="chip">Serper</span><span class="chip">Firecrawl</span></div>
+<ul>
+<li>Open each brand's page in the Meta Ad Library (a Serper search on brand name plus domain finds it when the store does not link it), filter to active, and record creatives running and the start date of the oldest still live. Repeat in the Google Ads Transparency Center by domain. Firecrawl or a browser script reads both at volume.</li>
+<li>Band the result. None: zero active ads anywhere, so no budget for you. Light: under 10 creatives or under 30 days. Funded: 10 or more for 30 or more days, a budget and someone whose job is spending it. Heavy: 40 or more. Store counts, oldest start date and check date on every row.</li>
+<li>The none band leaves the list here with a dated flag.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Add context cheaply</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">StoreLeads</span><span class="chip">Firecrawl</span><span class="chip">Claude</span></div>
+<ul>
+<li>Add product count, review count and the installed app stack. Apps show maturity and which offer fits; a brand on Klaviyo and Recharge is a different conversation from one with no email tool.</li>
+<li>A cheap model reads the homepage and returns category in two words, positioning in one sentence and a rough price point; vendor category labels are wrong often enough to split a campaign badly.</li>
+<li>Apply core: exclusions, and drop marketplaces and resellers before any paid people lookup.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Find the buyer, enrich and verify</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Apollo</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>Under about 50 people, the founder or owner. Above that, the head of growth, ecommerce director or CMO, whoever owns the channel your offer touches. One contact per brand, two at most.</li>
+<li>Apply core: enrichment.</li>
+<li>Apply core: verification. A founder with only a personal address goes to a separate lane, only after the business address has failed both verifiers, and sends from its own campaign.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Write 15 to 30 word emails</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span></div>
+<ul>
+<li>Apply core: copy and send rules, with one override: email 1 is 15 to 30 words, not 25 to 55. E-commerce buyers do not read; they want a good offer and a very short email, and every sentence spent on cleverness is one they skip.</li>
+<li>Structure: the offer in one sentence, one proof point in a clause, then a value CTA asking permission to send something made for them: "Mind if I send over a free welcome flow built for <span class=\"var\">{BRAND}</span>?" No compliments about the store, no quoting their ad count, no sign you looked at their ads. Never a call on email 1; a booking link only after a yes.</li>
+<li>Email 2 is a one-line threaded nudge three days later; its only job is a second look at email 1.</li>
+<li>Subject lines per core. Three angle variants for email 1 plus one nudge, approved by the user before upload.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Launch per band and category</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">Attio</span></div>
+<ul>
+<li>Apply core: send rules. One campaign per category and spend band, so beauty funded and beauty heavy read on their own. Never mix bands; the point of step 2 is to learn which band buys.</li>
+<li>Upload with <code><span class=\"var\">{BRAND}</span></code> and <code><span class=\"var\">{CATEGORY}</span></code>, schedule the next business day, and write every contact to the CRM with play, spend band, ad count, category and campaign.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Read weekly by band</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>Weekly: sent, reply rate, interested, contacts per lead and meetings, split by spend band and category. A good offer here lands one lead per few hundred contacts; a band above one per thousand is not paying for its inboxes.</li>
+<li>Cut underperforming bands after two full weeks, move inboxes to bands that convert, and recycle cut brands through the TAM Rotation play. Re-run step 2 on the none band every 90 days.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>Zero active ads means no budget for you. Those brands never enter a campaign; they wait with a date.</li>
+<li>Ad spend is a filter, never an opener. Do not quote ad counts, creative or run dates in any email. Per core, never say you were watching them.</li>
+<li>Email 1 is 15 to 30 words, no exceptions: offer first, one proof point, value CTA. No call and no link.</li>
+<li>One brand, one sequence, at most two contacts. Never run this and another cold play on the same domain in the same month.</li>
+<li>Personal addresses live in their own campaign, only after the business address has failed both verifiers.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-ad-spend-qualifier for our Klaviyo email and SMS agency, Shopify brands in the US, beauty and supplements, 1M to 20M a year, we can build a free welcome flow"</p>
+<ol>
+<li>Asked for offer line and proof point, kept the default spend floor, confirmed EmailBison plus Attio plus Slack.</li>
+<li>StoreLeads returned 6,480 Shopify stores inside the band; BuiltWith added 1,120. Merged to 7,050 brands after dedupe by domain.</li>
+<li>Ad check: 2,310 with zero active ads parked, 2,460 light, 2,280 funded, of which 640 heavy.</li>
+<li>Context added for the 2,280 funded brands; 190 removed as customers, in sequence or marketplaces. 2,090 remain.</li>
+<li>2,640 contacts found; 2,210 verified valid, 160 catch-all to their own campaign, 270 personal-address-only founders held for a later lane.</li>
+<li>Six campaigns: funded and heavy per category, plus one light band per category as a baseline. Copy approved at 22 and 26 words, scheduled for Monday.</li>
+<li>Week three read: funded at one lead per 240 contacts, heavy at one per 180, light at one per 610. Both light bands cut and sent to TAM Rotation.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/ad-spend-qualifier/SKILL.md</b><span>The skill file behind this page, 121 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-ad-spend-qualifier'>Copy skill file</button></div>
+<pre>---
+name: pipeline-ad-spend-qualifier
+description: Pipeline.tech play. Build an e-commerce brand list where every brand has budget. Pulls Shopify, WooCommerce and BigCommerce stores by category and revenue band from a store-tech filter, checks each brand for live ads in the Meta Ad Library and Google Ads Transparency Center, bands them by active creatives and how long the oldest has run, adds cheap store-size context, finds the founder or growth lead, then sends 15 to 30 word offer-first emails with a value CTA, one campaign per category and spend band. USE WHEN user says &quot;/pipeline-ad-spend-qualifier&quot; OR &quot;ad spend qualifier&quot; OR &quot;running ads qualifier&quot; OR &quot;e-commerce list with budget&quot; OR &quot;DTC brands running ads&quot; OR &quot;qualify Shopify brands on ad spend&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/ad-spend-qualifier)
+version: 0.1.0</pre><div class='more'>… 116 more lines</div>
+<pre id='raw-ad-spend-qualifier' class='hidden'>---
+name: pipeline-ad-spend-qualifier
+description: Pipeline.tech play. Build an e-commerce brand list where every brand has budget. Pulls Shopify, WooCommerce and BigCommerce stores by category and revenue band from a store-tech filter, checks each brand for live ads in the Meta Ad Library and Google Ads Transparency Center, bands them by active creatives and how long the oldest has run, adds cheap store-size context, finds the founder or growth lead, then sends 15 to 30 word offer-first emails with a value CTA, one campaign per category and spend band. USE WHEN user says &quot;/pipeline-ad-spend-qualifier&quot; OR &quot;ad spend qualifier&quot; OR &quot;running ads qualifier&quot; OR &quot;e-commerce list with budget&quot; OR &quot;DTC brands running ads&quot; OR &quot;qualify Shopify brands on ad spend&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/ad-spend-qualifier)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: A store-tech filter plus live ads in the ad libraries
+outcome: E-commerce list where every brand has budget
+category: foundation
+channels: email
+tools: StoreLeads, BuiltWith, Apollo, Meta Ad Library, Google Ads Transparency, Serper, Firecrawl, Claude, LeadMagic, Prospeo, MillionVerifier, BounceBan, EmailBison, Instantly, Attio, Slack
+---
+
+# Ad-Spend Qualifier
+
+E-commerce is the most crowded outbound market there is: tens of thousands of brands sit above any revenue floor, and every agency and tool vendor emails them. Two things still work, qualifying on budget before you write a word and keeping the email short enough to read on a phone. Live ad spend is the best free budget signal there is, so this play builds the list from the ad libraries up.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The ICP in one paragraph: store categories, revenue band, countries, the problem you solve and who owns it.
+2. Which platforms count: Shopify only, or Shopify plus WooCommerce and BigCommerce.
+3. The spend floor that means budget; default 10 or more active ads for 30 or more days.
+4. The offer in one sentence, one proof point, and the free thing you can make them: a welcome flow, ad creative, a teardown.
+5. Stack answers from core section 1.
+
+## Steps
+
+### 1. Build the brand list from a store-tech filter
+Tools: StoreLeads, BuiltWith (option), Apollo (option)
+Flow:
+- Store-tech filter | Shopify, WooCommerce and BigCommerce stores by category, country and estimated revenue band | with: StoreLeads, BuiltWith | chips: platform, category, country, revenue band | tag: list source
+- Database tech filter | The same platform filter inside Apollo when the user already pays for it; counts run lower | with: Apollo | tag: option
+= One row per brand | Merged and deduped by domain, raw pull kept with a source column | chips: domain, brand, platform, category, revenue band, source
+
+- Pull every store on the chosen platforms by category, country and revenue band. StoreLeads filters on all four and estimates monthly sales; BuiltWith covers platform and country, with traffic as the size proxy.
+- Apply core: lists. Keep platform, category and revenue band on every row; step 6 splits campaigns on them.
+
+### 2. Qualify on live ad spend
+Tools: Meta Ad Library, Google Ads Transparency, Serper, Firecrawl
+Flow:
+- Meta active ads | Find the brand page, filter to active, count creatives and read the start date of the oldest | with: Meta Ad Library, Serper | chips: active count, oldest start date, platforms
+- Google active ads | Search the domain, same two numbers | with: Google Ads Transparency, Firecrawl | chips: active count, first shown
+= Spend band | None, light or funded; 10 plus active ads for 30 plus days is funded and zero is out | chips: none, light, funded, heavy
+
+- Open each brand&#x27;s page in the Meta Ad Library (a Serper search on brand name plus domain finds it when the store does not link it), filter to active, and record creatives running and the start date of the oldest still live. Repeat in the Google Ads Transparency Center by domain. Firecrawl or a browser script reads both at volume.
+- Band the result. None: zero active ads anywhere, so no budget for you. Light: under 10 creatives or under 30 days. Funded: 10 or more for 30 or more days, a budget and someone whose job is spending it. Heavy: 40 or more. Store counts, oldest start date and check date on every row.
+- The none band leaves the list here with a dated flag.
+
+### 3. Add context cheaply
+Tools: StoreLeads, Firecrawl, Claude
+Flow:
+- Store size signals | Product count, review count and the app stack: Klaviyo, Gorgias, Recharge and the like | with: StoreLeads | chips: products, reviews, apps
+- Homepage read | A cheap model names the category and the positioning in one line each | with: Firecrawl, Claude | chips: category, positioning, price point | tag: core: exclusions
+
+- Add product count, review count and the installed app stack. Apps show maturity and which offer fits; a brand on Klaviyo and Recharge is a different conversation from one with no email tool.
+- A cheap model reads the homepage and returns category in two words, positioning in one sentence and a rough price point; vendor category labels are wrong often enough to split a campaign badly.
+- Apply core: exclusions, and drop marketplaces and resellers before any paid people lookup.
+
+### 4. Find the buyer, enrich and verify
+Tools: Apollo, LeadMagic, Prospeo, MillionVerifier, BounceBan
+Flow:
+- Buyer by size | Founder or owner under about 50 people; head of growth, ecommerce director or CMO above that | with: Apollo | chips: founder, head of growth, ecommerce director, CMO
+- Email waterfall | Each vendor only sees the contacts the one before it missed | with: LeadMagic, Prospeo | tag: core: enrichment
+- Two-pass verification | Valid to the main campaign, catch-all to its own campaign | with: MillionVerifier, BounceBan | tag: core: verification
+
+- Under about 50 people, the founder or owner. Above that, the head of growth, ecommerce director or CMO, whoever owns the channel your offer touches. One contact per brand, two at most.
+- Apply core: enrichment.
+- Apply core: verification. A founder with only a personal address goes to a separate lane, only after the business address has failed both verifiers, and sends from its own campaign.
+
+### 5. Write 15 to 30 word emails
+Tools: Claude
+Flow:
+- Offer first | One sentence of offer and one proof point; no personalization tricks and no data call-outs | with: Claude | chips: {BRAND}, {CATEGORY}, offer, proof
+- Value CTA | Ask permission to send something made for them; never a call on email 1 | with: Claude | tag: value CTA
+= Email 2 | One line that puts email 1 back on top | with: Claude | chips: 3 day delay, threaded
+
+- Apply core: copy and send rules, with one override: email 1 is 15 to 30 words, not 25 to 55. E-commerce buyers do not read; they want a good offer and a very short email, and every sentence spent on cleverness is one they skip.
+- Structure: the offer in one sentence, one proof point in a clause, then a value CTA asking permission to send something made for them: &quot;Mind if I send over a free welcome flow built for {BRAND}?&quot; No compliments about the store, no quoting their ad count, no sign you looked at their ads. Never a call on email 1; a booking link only after a yes.
+- Email 2 is a one-line threaded nudge three days later; its only job is a second look at email 1.
+- Subject lines per core. Three angle variants for email 1 plus one nudge, approved by the user before upload.
+
+### 6. Launch per band and category
+Tools: EmailBison, Instantly (option), Attio
+Flow:
+= One campaign per category and spend band | Own inbox set, scheduled to the next business day, each row written to the CRM with play, band and category | with: EmailBison, Instantly, Attio | tag: send
+
+- Apply core: send rules. One campaign per category and spend band, so beauty funded and beauty heavy read on their own. Never mix bands; the point of step 2 is to learn which band buys.
+- Upload with `{BRAND}` and `{CATEGORY}`, schedule the next business day, and write every contact to the CRM with play, spend band, ad count, category and campaign.
+
+### 7. Read weekly by band
+Tools: Attio, Slack
+Flow:
+= Weekly read by spend band | Sent, reply rate, interested, contacts per lead and meetings, split by band and category; cut what underperforms | with: Attio, Slack
+
+- Weekly: sent, reply rate, interested, contacts per lead and meetings, split by spend band and category. A good offer here lands one lead per few hundred contacts; a band above one per thousand is not paying for its inboxes.
+- Cut underperforming bands after two full weeks, move inboxes to bands that convert, and recycle cut brands through the TAM Rotation play. Re-run step 2 on the none band every 90 days.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- Zero active ads means no budget for you. Those brands never enter a campaign; they wait with a date.
+- Ad spend is a filter, never an opener. Do not quote ad counts, creative or run dates in any email. Per core, never say you were watching them.
+- Email 1 is 15 to 30 words, no exceptions: offer first, one proof point, value CTA. No call and no link.
+- One brand, one sequence, at most two contacts. Never run this and another cold play on the same domain in the same month.
+- Personal addresses live in their own campaign, only after the business address has failed both verifiers.
+
+## Example run
+
+User: &quot;/pipeline-ad-spend-qualifier for our Klaviyo email and SMS agency, Shopify brands in the US, beauty and supplements, 1M to 20M a year, we can build a free welcome flow&quot;
+
+1. Asked for offer line and proof point, kept the default spend floor, confirmed EmailBison plus Attio plus Slack.
+2. StoreLeads returned 6,480 Shopify stores inside the band; BuiltWith added 1,120. Merged to 7,050 brands after dedupe by domain.
+3. Ad check: 2,310 with zero active ads parked, 2,460 light, 2,280 funded, of which 640 heavy.
+4. Context added for the 2,280 funded brands; 190 removed as customers, in sequence or marketplaces. 2,090 remain.
+5. 2,640 contacts found; 2,210 verified valid, 160 catch-all to their own campaign, 270 personal-address-only founders held for a later lane.
+6. Six campaigns: funded and heavy per category, plus one light band per category as a baseline. Copy approved at 22 and 26 words, scheduled for Monday.
+7. Week three read: funded at one lead per 240 contacts, heavy at one per 180, light at one per 610. Both light bands cut and sent to TAM Rotation.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Ad-Spend Qualifier end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/ad-spend-qualifier'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../org-chart-qualifier/index.html'><span class='eyebrow'>Previous</span><b>Org-Chart Qualifier</b></a>
+<a href='../full-tam-cold-email/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Full-TAM Cold Email</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

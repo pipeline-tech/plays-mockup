@@ -1,0 +1,376 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Pain-Qualified Segments | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-foundation'>Foundation</a><span>/</span><span>Pain-Qualified Segments</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 04 · Foundation</div>
+<h1>Pain-Qualified Segments</h1>
+<div class='meta'><div><b>Trigger</b> Buyer calls, won-deal context and public fields</div><div><b>Outcome</b> Segments written as situation plus pain, each with its own opener</div><div><b>Channels</b> email, linkedin</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-pain-qualified-segments' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-pain-qualified-segments'>Install the Pipeline.tech &quot;Pain-Qualified Segments&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/pain-qualified-segments/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-pain-qualified-segments/SKILL.md, then run /pipeline-pain-qualified-segments.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-pain-qualified-segments.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/pain-qualified-segments.svg' alt='Pain-Qualified Segments workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/pain-qualified-segments.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>An ICP tells you which companies to contact, not why any of them would answer. A Pain-Qualified Segment (PQS), the Pipeline.tech framework for this, is a group of personas who share one specific pain your offer fixes, described in the words buyers used on calls. It is the bridge between ICP research and copy, and it decides what each campaign opens on.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The ICP in one paragraph, or the ICP file if one exists. This play names why those companies buy.</li>
+<li>Buyer-side call transcripts from the last 12 months: discovery calls, first calls, demos where the buyer did most of the talking. Under 15 calls, every segment carries the hypothesis label until more come in.</li>
+<li>Won and lost deals from the CRM with close reason, plus support tickets if they exist.</li>
+<li>Stack answers from core section 1.</li>
+<li>The offer in one sentence. A pain the offer does not fix is never a segment.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Gather the raw material</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Fireflies (option)</span><span class="chip">Gong (option)</span><span class="chip">Attio</span><span class="chip">HubSpot</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Pull every buyer-side transcript from the last 12 months. Internal calls and vendor-led demos carry little; the buyer has to be the one talking.</li>
+<li>Pull won and lost deals with close reason, deal size, days to close and what they replaced. Support tickets carry the operational layer word for word.</li>
+<li>Keep one row per document with source, account, persona and stage so every phrase can be traced to its call.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Mine each call for the buying situation</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Run every transcript through the same four questions: what was true in the business when they took the call, why now rather than last quarter, what they had already tried and why it stopped working, and the pain in their own words.</li>
+<li>Copy the phrases verbatim into a language bank, tagged by persona, account and deal outcome. A paraphrase loses the words that make an opener sound like a colleague wrote it.</li>
+<li>Read lost deals as carefully as won ones. A pain the offer did not fix is a segment you exclude on purpose.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Sort pains into four layers</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Tag every phrase with one layer: operational (the daily workflow), strategic (the business outcome), personal (the persona's own career or standing) or financial (budget and return).</li>
+<li>Personal is the layer most teams skip and the one that makes copy land. A persona with no personal entry sends you back to the transcripts.</li>
+<li>Count phrases per layer per persona. A pain named by three or more buyers across different accounts is a candidate; a pain named once is an anecdote.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Write the segments</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Group personas by shared pain, not by title. A VP and a manager naming the same pain in the same situation share a segment; two VPs with different pains do not.</li>
+<li>Write each segment with seven fields: name, the situation (what is true in the business), the pain in the buyers' words, the trigger that makes it urgent now, the impact in numbers (hours, money, headcount, missed targets), solution urgency (how long they can live with it) and a one-line message angle.</li>
+<li>Kill vague segments ("wants to grow") and single-signal segments (a title with no situation behind it). A segment that needs two messages is split.</li>
+<li>Take impact numbers from transcripts or the CRM. A pain without a number is an assertion.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Write the membership test on public data</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Apollo</span><span class="chip">Ocean.io</span><span class="chip">AI Ark</span><span class="chip">Serper</span><span class="chip">Exa</span><span class="chip">Claude</span></div>
+<ul>
+<li>Turn each situation into a membership test: one line per condition with source, field, operator and threshold, such as sales headcount in Apollo greater than 8.</li>
+<li>Mark each condition public (readable in a database), proxy (inferred, such as a job post standing in for a hiring plan, with the proxy named) or not public.</li>
+<li>Not-public conditions cannot filter a list. Move them into the first-call questions for that segment, so the opener asks what the data cannot see.</li>
+<li>A segment with no public or proxy condition is a hypothesis, not a list. Keep it, label it, do not build it yet.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Measure before building</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Apollo</span><span class="chip">Ocean.io</span><span class="chip">AI Ark</span><span class="chip">Attio</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Count every segment with a free query before exporting anything. Under 300 companies is a hand campaign; above 20K the test is too loose.</li>
+<li>Backtest: pull your customers as they looked 90 days before they bought (headcount, hires, stack at the time) and run the test on them, then on a random sample of ICP companies. Lift under 2x means the situation is not the one that made them buy.</li>
+<li>Label each segment measured (counted and backtested), partly measured (counted only) or hypothesis (neither). Build measured segments first.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Build the list and the opener per segment</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Apollo</span><span class="chip">Ocean.io</span><span class="chip">Claude</span><span class="chip">EmailBison</span></div>
+<ul>
+<li>Build one list per segment from its membership test. Apply core: lists, exclusions, enrichment and verification.</li>
+<li>Write the opener per segment like a technician asking a diagnostic question: open on the situation in the buyers' words, say what you saw and where (the public or proxy condition), and ask whether the read is right. Pull language from that segment's part of the bank only.</li>
+<li>Apply core: copy and send rules. One segment per campaign, never mixed. These segments and openers become the industry and persona cells of the Full-TAM Cold Email play.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Hand off and keep the bank alive</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">EmailBison</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Write the segment name and label on every contact in the CRM, so reply and interested rates read per segment.</li>
+<li>Every new buyer call appends to the bank. Revisit the segments each quarter; a hypothesis segment that outperforms the measured ones is the next to count and backtest.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>Never quote one buyer to another. Use the language, never the attribution, never a sentence a prospect could trace to a named company.</li>
+<li>A pain the offer does not fix is not a segment, however often it was named.</li>
+<li>Never mix two segments in one campaign to reach a volume floor. If two segments share one message they were one segment all along.</li>
+<li>Inferred situations stay hypotheses in copy. "Looks like" and "if I read this right" are the register; an inference stated as fact turns a diagnostic opener into a guess.</li>
+<li>Every impact number not traceable to a transcript or the CRM is marked as an estimate.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-pain-qualified-segments for our revenue operations platform, ICP is B2B SaaS 100 to 1K people in North America"</p>
+<ol>
+<li>Confirmed Attio, Apollo and EmailBison. Pulled 64 buyer-side transcripts, 38 won and 41 lost deals with close reasons, 212 support tickets.</li>
+<li>Mined 64 calls into 410 verbatim phrases across 6 personas.</li>
+<li>Layers: 171 operational, 94 strategic, 58 personal, 87 financial. Three personas needed a second pass to fill the personal layer.</li>
+<li>11 candidate segments; 4 killed as vague or single-signal, 1 split, 8 written with all seven fields.</li>
+<li>31 membership conditions: 17 public, 9 proxy, 5 moved to first-call questions.</li>
+<li>Counts from 2.1K to 14K companies. Top segment backtested at 61% hit rate on customers against 12% on the market sample. 5 measured, 2 partly measured, 1 hypothesis.</li>
+<li>5 measured lists built and verified, 5 openers approved from the language bank, loaded into one campaign each with segment and label written to Attio.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/pain-qualified-segments/SKILL.md</b><span>The skill file behind this page, 136 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-pain-qualified-segments'>Copy skill file</button></div>
+<pre>---
+name: pipeline-pain-qualified-segments
+description: Pipeline.tech play. Turn buyer calls, won and lost deals and the ICP into Pain-Qualified Segments, groups of personas that share one specific pain your offer fixes. Mines every call for the buying situation, builds a verbatim language bank, sorts pains into four layers, writes each segment with a public-data membership test, counts and backtests it before any list is built, then produces one list and one diagnostic opener per segment. USE WHEN user says &quot;/pipeline-pain-qualified-segments&quot; OR &quot;pain qualified segments&quot; OR &quot;PQS&quot; OR &quot;segment by pain&quot; OR &quot;mine our calls for segments&quot; OR &quot;what pain should each campaign open on&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/pain-qualified-segments)
+version: 0.1.0</pre><div class='more'>… 131 more lines</div>
+<pre id='raw-pain-qualified-segments' class='hidden'>---
+name: pipeline-pain-qualified-segments
+description: Pipeline.tech play. Turn buyer calls, won and lost deals and the ICP into Pain-Qualified Segments, groups of personas that share one specific pain your offer fixes. Mines every call for the buying situation, builds a verbatim language bank, sorts pains into four layers, writes each segment with a public-data membership test, counts and backtests it before any list is built, then produces one list and one diagnostic opener per segment. USE WHEN user says &quot;/pipeline-pain-qualified-segments&quot; OR &quot;pain qualified segments&quot; OR &quot;PQS&quot; OR &quot;segment by pain&quot; OR &quot;mine our calls for segments&quot; OR &quot;what pain should each campaign open on&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/pain-qualified-segments)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: Buyer calls, won-deal context and public fields
+outcome: Segments written as situation plus pain, each with its own opener
+category: foundation
+channels: email, linkedin
+tools: Fireflies (option), Gong (option), Attio, HubSpot, Claude, Apollo, AI Ark, Ocean.io, Serper, Exa, Google Sheets, EmailBison
+---
+
+# Pain-Qualified Segments
+
+An ICP tells you which companies to contact, not why any of them would answer. A Pain-Qualified Segment (PQS), the Pipeline.tech framework for this, is a group of personas who share one specific pain your offer fixes, described in the words buyers used on calls. It is the bridge between ICP research and copy, and it decides what each campaign opens on.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The ICP in one paragraph, or the ICP file if one exists. This play names why those companies buy.
+2. Buyer-side call transcripts from the last 12 months: discovery calls, first calls, demos where the buyer did most of the talking. Under 15 calls, every segment carries the hypothesis label until more come in.
+3. Won and lost deals from the CRM with close reason, plus support tickets if they exist.
+4. Stack answers from core section 1.
+5. The offer in one sentence. A pain the offer does not fix is never a segment.
+
+## Steps
+
+### 1. Gather the raw material
+Tools: Fireflies (option), Gong (option), Attio, HubSpot, Google Sheets
+Flow:
+- Buyer-side calls | Discovery and first calls from the last 12 months, transcripts exported in full | with: Fireflies, Gong | chips: date, account, persona, outcome
+- Won and lost deals | Close reason, deal size, days to close, what they replaced | with: Attio, HubSpot | chips: won, lost, reason
+= One row per document | Source, account, persona and stage, so every quote stays traceable | with: Google Sheets | tag: traceable
+
+- Pull every buyer-side transcript from the last 12 months. Internal calls and vendor-led demos carry little; the buyer has to be the one talking.
+- Pull won and lost deals with close reason, deal size, days to close and what they replaced. Support tickets carry the operational layer word for word.
+- Keep one row per document with source, account, persona and stage so every phrase can be traced to its call.
+
+### 2. Mine each call for the buying situation
+Tools: Claude, Google Sheets
+Flow:
+- Four questions per call | What was true when they decided to talk, why now, what they had already tried, the pain in their own words | with: Claude | chips: situation, why now, tried, quote
+= Language bank | Verbatim phrases tagged by persona, account and outcome, never paraphrased | with: Google Sheets | tag: verbatim only
+
+- Run every transcript through the same four questions: what was true in the business when they took the call, why now rather than last quarter, what they had already tried and why it stopped working, and the pain in their own words.
+- Copy the phrases verbatim into a language bank, tagged by persona, account and deal outcome. A paraphrase loses the words that make an opener sound like a colleague wrote it.
+- Read lost deals as carefully as won ones. A pain the offer did not fix is a segment you exclude on purpose.
+
+### 3. Sort pains into four layers
+Tools: Claude, Google Sheets
+Flow:
+- Operational | Day-to-day workflow pain | chips: hours, errors, handoffs
+- Strategic | Business outcome and growth pain | chips: targets, markets, competitors
+- Personal | Career and reputation pain for the persona | chips: board, boss, credibility
+= Financial | Budget and return pain, always with the number attached | chips: spend, waste, payback | tag: three or more buyers
+
+- Tag every phrase with one layer: operational (the daily workflow), strategic (the business outcome), personal (the persona&#x27;s own career or standing) or financial (budget and return).
+- Personal is the layer most teams skip and the one that makes copy land. A persona with no personal entry sends you back to the transcripts.
+- Count phrases per layer per persona. A pain named by three or more buyers across different accounts is a candidate; a pain named once is an anecdote.
+
+### 4. Write the segments
+Tools: Claude, Google Sheets
+Flow:
+- Seven fields per segment | Name, situation, pain, trigger, impact in numbers, solution urgency, one-line angle | with: Claude | chips: situation, pain, trigger, impact, urgency, angle
+= Kill or split | Vague and single-signal segments are cut; a segment that needs two messages is two segments | tag: one segment one message
+
+- Group personas by shared pain, not by title. A VP and a manager naming the same pain in the same situation share a segment; two VPs with different pains do not.
+- Write each segment with seven fields: name, the situation (what is true in the business), the pain in the buyers&#x27; words, the trigger that makes it urgent now, the impact in numbers (hours, money, headcount, missed targets), solution urgency (how long they can live with it) and a one-line message angle.
+- Kill vague segments (&quot;wants to grow&quot;) and single-signal segments (a title with no situation behind it). A segment that needs two messages is split.
+- Take impact numbers from transcripts or the CRM. A pain without a number is an assertion.
+
+### 5. Write the membership test on public data
+Tools: Apollo, Ocean.io, AI Ark, Serper, Exa, Claude
+Flow:
+- Field by field | Every condition in the situation gets a source, a field, an operator and a threshold | with: Apollo, Ocean.io, AI Ark | chips: source, field, operator, threshold
+- Public, proxy or not public | Each condition marked for how it can be read from outside | with: Serper, Exa, Claude | tag: honest labels
+= First-call questions | Not-public conditions leave the filter and become the first thing you ask | chips: question, segment
+
+- Turn each situation into a membership test: one line per condition with source, field, operator and threshold, such as sales headcount in Apollo greater than 8.
+- Mark each condition public (readable in a database), proxy (inferred, such as a job post standing in for a hiring plan, with the proxy named) or not public.
+- Not-public conditions cannot filter a list. Move them into the first-call questions for that segment, so the opener asks what the data cannot see.
+- A segment with no public or proxy condition is a hypothesis, not a list. Keep it, label it, do not build it yet.
+
+### 6. Measure before building
+Tools: Apollo, Ocean.io, AI Ark, Attio, Google Sheets
+Flow:
+- Count the segment | The membership test run as a free database query before any export | with: Apollo, Ocean.io, AI Ark | chips: companies, contacts
+- Backtest on customers | Did the test match your customers 90 days before they bought, against a market sample | with: Attio | chips: customer hit rate, market hit rate, lift
+= Label every segment | Measured, partly measured or hypothesis, written on the segment row | with: Google Sheets | tag: no unlabelled segments
+
+- Count every segment with a free query before exporting anything. Under 300 companies is a hand campaign; above 20K the test is too loose.
+- Backtest: pull your customers as they looked 90 days before they bought (headcount, hires, stack at the time) and run the test on them, then on a random sample of ICP companies. Lift under 2x means the situation is not the one that made them buy.
+- Label each segment measured (counted and backtested), partly measured (counted only) or hypothesis (neither). Build measured segments first.
+
+### 7. Build the list and the opener per segment
+Tools: Apollo, Ocean.io, Claude, EmailBison
+Flow:
+- One list per segment | The membership test is the filter; exclusions, enrichment and verification follow core | with: Apollo, Ocean.io | tag: core: lists
+= Diagnostic opener | The situation in the buyers&#x27; words, what you saw and where, then ask if the read is right | with: Claude, EmailBison | chips: {SITUATION}, {SEEN_WHERE}, one segment per campaign
+
+- Build one list per segment from its membership test. Apply core: lists, exclusions, enrichment and verification.
+- Write the opener per segment like a technician asking a diagnostic question: open on the situation in the buyers&#x27; words, say what you saw and where (the public or proxy condition), and ask whether the read is right. Pull language from that segment&#x27;s part of the bank only.
+- Apply core: copy and send rules. One segment per campaign, never mixed. These segments and openers become the industry and persona cells of the Full-TAM Cold Email play.
+
+### 8. Hand off and keep the bank alive
+Tools: Attio, EmailBison, Google Sheets
+Flow:
+= Segment as a CRM field | Every contact carries its segment and label; every new call appends to the bank; a hypothesis that replies gets measured next | with: Attio, EmailBison, Google Sheets | chips: segment, label, reply rate, interested rate
+
+- Write the segment name and label on every contact in the CRM, so reply and interested rates read per segment.
+- Every new buyer call appends to the bank. Revisit the segments each quarter; a hypothesis segment that outperforms the measured ones is the next to count and backtest.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- Never quote one buyer to another. Use the language, never the attribution, never a sentence a prospect could trace to a named company.
+- A pain the offer does not fix is not a segment, however often it was named.
+- Never mix two segments in one campaign to reach a volume floor. If two segments share one message they were one segment all along.
+- Inferred situations stay hypotheses in copy. &quot;Looks like&quot; and &quot;if I read this right&quot; are the register; an inference stated as fact turns a diagnostic opener into a guess.
+- Every impact number not traceable to a transcript or the CRM is marked as an estimate.
+
+## Example run
+
+User: &quot;/pipeline-pain-qualified-segments for our revenue operations platform, ICP is B2B SaaS 100 to 1K people in North America&quot;
+
+1. Confirmed Attio, Apollo and EmailBison. Pulled 64 buyer-side transcripts, 38 won and 41 lost deals with close reasons, 212 support tickets.
+2. Mined 64 calls into 410 verbatim phrases across 6 personas.
+3. Layers: 171 operational, 94 strategic, 58 personal, 87 financial. Three personas needed a second pass to fill the personal layer.
+4. 11 candidate segments; 4 killed as vague or single-signal, 1 split, 8 written with all seven fields.
+5. 31 membership conditions: 17 public, 9 proxy, 5 moved to first-call questions.
+6. Counts from 2.1K to 14K companies. Top segment backtested at 61% hit rate on customers against 12% on the market sample. 5 measured, 2 partly measured, 1 hypothesis.
+7. 5 measured lists built and verified, 5 openers approved from the language bank, loaded into one campaign each with segment and label written to Attio.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Pain-Qualified Segments end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/pain-qualified-segments'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../lookalike-sub-verticals/index.html'><span class='eyebrow'>Previous</span><b>Lookalike Sub-Verticals</b></a>
+<a href='../local-tam-google-maps/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Local TAM from Google Maps</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

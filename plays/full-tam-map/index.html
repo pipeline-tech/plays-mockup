@@ -1,0 +1,364 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Full-TAM Map | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-foundation'>Foundation</a><span>/</span><span>Full-TAM Map</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 02 · Foundation</div>
+<h1>Full-TAM Map</h1>
+<div class='meta'><div><b>Trigger</b> An ICP file and at least two data sources</div><div><b>Outcome</b> Every company that fits, with a count you can trust</div><div><b>Channels</b> email</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-full-tam-map' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-full-tam-map'>Install the Pipeline.tech &quot;Full-TAM Map&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/full-tam-map/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-full-tam-map/SKILL.md, then run /pipeline-full-tam-map.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-full-tam-map.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/full-tam-map.svg' alt='Full-TAM Map workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/full-tam-map.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>Every outbound number you read later sits on top of this list, so it has to be the whole market and not one vendor's slice of it. No single database sees every company, and vendor industry labels are wrong often enough that you cannot filter on them alone. Pull from at least two sources per segment, merge, read every website before you spend a credit, and you get a count to plan a year of campaigns on.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The ICP. Read <code>./icp.md</code> if it exists (from ICP from Won Deals). Otherwise ask for one paragraph: sub-verticals, headcount band, geography, the problem you solve, who owns it, any must-have technology.</li>
+<li>Five to ten seed customers as domains, best accounts first.</li>
+<li>Stack answers from core section 1, plus which account databases and lookalike tools the user can access.</li>
+<li>Where the TAM should live: the CRM or a sheet.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Split the ICP into segments</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span></div>
+<ul>
+<li>Read the ICP and write one row per segment: sub-vertical, headcount band, geography, buyer title, required or excluded technology.</li>
+<li>For each segment, name the two or more sources that can see it. SaaS lives in Apollo and a lookalike tool; a local or licensed segment lives in Google Maps or a registry, where a database under-counts.</li>
+<li>Assign the seeds to segments; a segment with none gets its lookalike pull later, from the first companies that qualify.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Pull the account databases</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Apollo</span><span class="chip">Apify</span><span class="chip">Crunchbase (option)</span><span class="chip">BuiltWith (option)</span></div>
+<ul>
+<li>Apollo is the volume source. Pull each segment on industry, headcount and location filters; when the list is large, export through an Apollo scraper on Apify (about 0.20 USD per 1K rows) rather than credits.</li>
+<li>Have Claude generate 20 to 30 title keyword variations for the buyer, informal and legacy titles included, and run them as a people search on the same company filters. This surfaces companies the industry label hid and gives a buyer count per company for step 7. Do not buy the contacts yet.</li>
+<li>Pull niche databases where the segment lives: Crunchbase for funding stage and investors, BuiltWith for a required technology, StoreLeads for ecommerce brands, Clutch for agencies.</li>
+<li>Every row gets a <code>source</code> column with the database name and the pull date.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Expand from seed customers</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Ocean.io</span><span class="chip">AI Ark (option)</span><span class="chip">DiscoLike (option)</span></div>
+<ul>
+<li>Run Ocean.io first with 5 to 10 seed domains per segment at standard similarity (about 0.79), headcount and country set to the segment. Paginate to the end; the first page is not the market. Drop to 0.70 only when results are thin.</li>
+<li>AI Ark is an alternative when the user has it. DiscoLike sources from Google rather than LinkedIn, so when its count sits far above the database count, the database is under-reporting that segment.</li>
+<li>Keep the similarity score as a column for tiering later.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Pull where databases cannot see</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Google Maps</span><span class="chip">Serper</span><span class="chip">Apify</span><span class="chip">Firecrawl</span></div>
+<ul>
+<li>If a segment is local or owner-operated, query Google Maps by exact category and city and scrape the results. Zip code beats city where categories are dense. The Local TAM from Google Maps play has the full method.</li>
+<li>Where the ICP is defined by a licence, a membership or a hiring pattern, go to the record itself: state licensing registries, association member lists, public ATS job feeds (Greenhouse, Lever and Ashby publish JSON). Serper finds the pages, Firecrawl or Apify fetch them. Pull broad, filter in step 6.</li>
+<li>Rows that arrive without a domain get one in a separate pass (company name plus city into Serper, first non-directory result), since asking inline costs recall.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Merge and dedupe</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">CSV</span><span class="chip">Google Sheets</span><span class="chip">Claude</span></div>
+<ul>
+<li>Normalize domains (strip protocol, www and paths) and merge on domain first. Match the remaining rows on normalized company name plus state, then on phone.</li>
+<li>When sources disagree on headcount or industry, keep both values in their own columns.</li>
+<li>Write a <code>sources</code> column listing every source that saw the company, and a <code>source_count</code>.</li>
+<li>Keep the raw pull from every source as its own file; the merged table is derived. Apply core: lists.</li>
+<li>Read the overlap. Under 30 percent means a third source is worth the pull. Any single source's count is a floor.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Qualify on the website, detect the stack</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Firecrawl</span><span class="chip">Claude</span><span class="chip">BuiltWith (option)</span></div>
+<ul>
+<li>Fetch the homepage and about page of every merged company. Have a cheap model answer: does this company match the ICP, yes or no, one reason, and a confidence. This routinely removes 25 to 40 percent of a raw pull.</li>
+<li>Keep the no's in the file with their verdict, out of the TAM count. A later ICP revision may want them.</li>
+<li>If the ICP names a technology (an ecommerce platform, a CRM, a competitor), search the saved homepage HTML for its script and link patterns; BuiltWith is the paid option when the pattern is not visible.</li>
+<li>Retry blocked and timed-out sites through a headless fetcher before marking them unknown; unknown stays in the TAM, flagged.</li>
+<li>Apply core: exclusions, so customers, open deals and competitors leave before anything is sized.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Size, write and schedule the refresh</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span><span class="chip">Google Sheets (option)</span></div>
+<ul>
+<li>Multiply qualified companies by the buyer count from step 2 for a contact estimate per segment. Above 100K contacts, be aggressive and test broadly. Below 30K, be surgical: every email matters.</li>
+<li>Expect to reach 60 to 80 percent of companies after enrichment. Plan campaign volume on that number, not on the TAM.</li>
+<li>Write every company to the CRM (or a sheet) with columns: segment, sources, source_count, icp_verdict, reason, tech_detected, similarity, pulled_at.</li>
+<li>Refresh in 60 days: re-run steps 2 to 4, merge new companies in, and flag those that no longer appear in any source.</li>
+<li>Print the count per segment with the sources that fed it. Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>Never report one source's count as the market. Say "at least" until a second source has been merged.</li>
+<li>Never spend a people-lookup credit on a company that has not passed the website read.</li>
+<li>Never let a vendor industry label include or exclude a company on its own. The website decides.</li>
+<li>A company without a domain is one to resolve, not one to drop.</li>
+<li>This play ends at a company list. Contacts, enrichment and sending belong to the plays built on it.</li>
+<li>A TAM older than 60 days is an estimate, not a map.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-full-tam-map, ICP is in ./icp.md: payroll and compliance software for US staffing agencies, 20 to 500 people"</p>
+<ol>
+<li>Read icp.md and split into two segments (light industrial staffing, healthcare staffing). Took 8 seed domains, confirmed Apollo, Ocean.io, DiscoLike and Attio.</li>
+<li>Apollo returned 6,400 companies on industry filters; the 24-title people pass added 1,900 more and a buyer count averaging 2.8 per company.</li>
+<li>Ocean.io returned 3,100 lookalikes at 0.79 across both segments. DiscoLike returned 4,700, which marked the database pull as a floor.</li>
+<li>Two association member lists added 900 rows, 740 after domain resolution.</li>
+<li>Merged to 12,300 unique domains, 11,800 after the name plus state and phone passes. Source overlap was 41 percent.</li>
+<li>7,900 passed the website read (67 percent). 212 removed as customers, open deals or competitors. Tech detect not needed for this ICP.</li>
+<li>7,688 companies, about 21,500 contacts, under 30K so surgical. Written to Attio with source columns, raw pulls kept, refresh set for 60 days.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/full-tam-map/SKILL.md</b><span>The skill file behind this page, 126 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-full-tam-map'>Copy skill file</button></div>
+<pre>---
+name: pipeline-full-tam-map
+description: Pipeline.tech play. Map every company that fits the ICP and get a count you can trust. Pulls each segment from at least two sources (account databases with generated title keywords, lookalike tools from seed customers, Google Maps and directories, public registries and ATS feeds), merges and dedupes by domain then name plus state then phone, qualifies every company from its own website before any paid people lookup, detects tech stack where the ICP needs it, sizes the result, and writes the TAM to the CRM with a source column and a 60-day refresh. USE WHEN user says &quot;/pipeline-full-tam-map&quot; OR &quot;full TAM map&quot; OR &quot;map the TAM&quot; OR &quot;how big is our market&quot; OR &quot;build the full account list&quot; OR &quot;size the ICP&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/full-tam-map)
+version: 0.1.0</pre><div class='more'>… 121 more lines</div>
+<pre id='raw-full-tam-map' class='hidden'>---
+name: pipeline-full-tam-map
+description: Pipeline.tech play. Map every company that fits the ICP and get a count you can trust. Pulls each segment from at least two sources (account databases with generated title keywords, lookalike tools from seed customers, Google Maps and directories, public registries and ATS feeds), merges and dedupes by domain then name plus state then phone, qualifies every company from its own website before any paid people lookup, detects tech stack where the ICP needs it, sizes the result, and writes the TAM to the CRM with a source column and a 60-day refresh. USE WHEN user says &quot;/pipeline-full-tam-map&quot; OR &quot;full TAM map&quot; OR &quot;map the TAM&quot; OR &quot;how big is our market&quot; OR &quot;build the full account list&quot; OR &quot;size the ICP&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/full-tam-map)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: An ICP file and at least two data sources
+outcome: Every company that fits, with a count you can trust
+category: foundation
+channels: email
+tools: Apollo, Ocean.io, AI Ark (option), DiscoLike (option), Crunchbase (option), BuiltWith (option), Google Maps, Serper, Apify, Firecrawl, Claude, Attio, HubSpot (option), Google Sheets, CSV
+---
+
+# Full-TAM Map
+
+Every outbound number you read later sits on top of this list, so it has to be the whole market and not one vendor&#x27;s slice of it. No single database sees every company, and vendor industry labels are wrong often enough that you cannot filter on them alone. Pull from at least two sources per segment, merge, read every website before you spend a credit, and you get a count to plan a year of campaigns on.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The ICP. Read `./icp.md` if it exists (from ICP from Won Deals). Otherwise ask for one paragraph: sub-verticals, headcount band, geography, the problem you solve, who owns it, any must-have technology.
+2. Five to ten seed customers as domains, best accounts first.
+3. Stack answers from core section 1, plus which account databases and lookalike tools the user can access.
+4. Where the TAM should live: the CRM or a sheet.
+
+## Steps
+
+### 1. Split the ICP into segments
+Tools: Claude
+Flow:
+= One row per segment | Sub-vertical, headcount band, geography, buyer title, must-have tech, and the sources that can see it | with: Claude | chips: segment, filters, sources, seeds
+
+- Read the ICP and write one row per segment: sub-vertical, headcount band, geography, buyer title, required or excluded technology.
+- For each segment, name the two or more sources that can see it. SaaS lives in Apollo and a lookalike tool; a local or licensed segment lives in Google Maps or a registry, where a database under-counts.
+- Assign the seeds to segments; a segment with none gets its lookalike pull later, from the first companies that qualify.
+
+### 2. Pull the account databases
+Tools: Apollo, Apify, Crunchbase (option), BuiltWith (option)
+Flow:
+- Firmographic pull | Industry, headcount and location filters per segment, exported with every company field the database offers | with: Apollo, Apify | chips: name, domain, headcount, industry, location | tag: volume
+- Title keyword pass | 20 to 30 generated title variations run as a people search on the same filters, to catch mislabelled companies and count buyers | with: Apollo, Claude | chips: titles, buyer count
+- Niche databases | Funding and investors, tech stack, ecommerce or agency directories, where the segment lives there | with: Crunchbase, BuiltWith | tag: option
+
+- Apollo is the volume source. Pull each segment on industry, headcount and location filters; when the list is large, export through an Apollo scraper on Apify (about 0.20 USD per 1K rows) rather than credits.
+- Have Claude generate 20 to 30 title keyword variations for the buyer, informal and legacy titles included, and run them as a people search on the same company filters. This surfaces companies the industry label hid and gives a buyer count per company for step 7. Do not buy the contacts yet.
+- Pull niche databases where the segment lives: Crunchbase for funding stage and investors, BuiltWith for a required technology, StoreLeads for ecommerce brands, Clutch for agencies.
+- Every row gets a `source` column with the database name and the pull date.
+
+### 3. Expand from seed customers
+Tools: Ocean.io, AI Ark (option), DiscoLike (option)
+Flow:
+- Lookalikes from seeds | 5 to 10 seed domains at standard similarity, headcount and country matching the segment, paginated to the end | with: Ocean.io, AI Ark | chips: similarity 0.79, headcount, country
+- Google-sourced check | Indexed from the open web rather than LinkedIn, so its count is a better gauge of the true market | with: DiscoLike | tag: market gauge
+
+- Run Ocean.io first with 5 to 10 seed domains per segment at standard similarity (about 0.79), headcount and country set to the segment. Paginate to the end; the first page is not the market. Drop to 0.70 only when results are thin.
+- AI Ark is an alternative when the user has it. DiscoLike sources from Google rather than LinkedIn, so when its count sits far above the database count, the database is under-reporting that segment.
+- Keep the similarity score as a column for tiering later.
+
+### 4. Pull where databases cannot see
+Tools: Google Maps, Serper, Apify, Firecrawl
+Flow:
+- Google Maps and directories | Exact category by city for local or owner-operated segments, counted before anything is paid for | with: Google Maps, Apify | chips: category, city, phone, website
+- Registries and ATS feeds | Licensing registries, association member lists and public job feeds, pulled broad and filtered later | with: Serper, Firecrawl | tag: free source
+
+- If a segment is local or owner-operated, query Google Maps by exact category and city and scrape the results. Zip code beats city where categories are dense. The Local TAM from Google Maps play has the full method.
+- Where the ICP is defined by a licence, a membership or a hiring pattern, go to the record itself: state licensing registries, association member lists, public ATS job feeds (Greenhouse, Lever and Ashby publish JSON). Serper finds the pages, Firecrawl or Apify fetch them. Pull broad, filter in step 6.
+- Rows that arrive without a domain get one in a separate pass (company name plus city into Serper, first non-directory result), since asking inline costs recall.
+
+### 5. Merge and dedupe
+Tools: CSV, Google Sheets, Claude
+Flow:
+= One company, one row | Dedupe by domain, then company name plus state, then phone; keep every source that saw the company | with: CSV, Claude | chips: domain, name plus state, phone, source count | tag: floor not ceiling
+
+- Normalize domains (strip protocol, www and paths) and merge on domain first. Match the remaining rows on normalized company name plus state, then on phone.
+- When sources disagree on headcount or industry, keep both values in their own columns.
+- Write a `sources` column listing every source that saw the company, and a `source_count`.
+- Keep the raw pull from every source as its own file; the merged table is derived. Apply core: lists.
+- Read the overlap. Under 30 percent means a third source is worth the pull. Any single source&#x27;s count is a floor.
+
+### 6. Qualify on the website, detect the stack
+Tools: Firecrawl, Claude, BuiltWith (option)
+Flow:
+- Website read | Homepage plus about page, a yes or no ICP verdict with one reason from a cheap model, before any paid people lookup | with: Firecrawl, Claude | chips: verdict, reason, confidence | tag: cheap model
+- Tech detect | Saved homepage HTML searched for the vendors the ICP requires or excludes | with: Claude, BuiltWith | chips: tech found, competitor present | tag: when ICP needs it
+
+- Fetch the homepage and about page of every merged company. Have a cheap model answer: does this company match the ICP, yes or no, one reason, and a confidence. This routinely removes 25 to 40 percent of a raw pull.
+- Keep the no&#x27;s in the file with their verdict, out of the TAM count. A later ICP revision may want them.
+- If the ICP names a technology (an ecommerce platform, a CRM, a competitor), search the saved homepage HTML for its script and link patterns; BuiltWith is the paid option when the pattern is not visible.
+- Retry blocked and timed-out sites through a headless fetcher before marking them unknown; unknown stays in the TAM, flagged.
+- Apply core: exclusions, so customers, open deals and competitors leave before anything is sized.
+
+### 7. Size, write and schedule the refresh
+Tools: Claude, Attio, HubSpot (option), Google Sheets (option)
+Flow:
+- Size the market | Qualified companies times buyers per company; over 100K contacts test broadly, under 30K go surgical | with: Claude | chips: companies, contacts, 60 to 80 pct reachable
+= Write the TAM | Every company to the CRM or sheet with segment, source, verdict and tech columns; raw pulls kept; refresh in 60 days | with: Attio, HubSpot, Google Sheets | chips: segment, sources, verdict, pulled_at | tag: refresh 60 days
+
+- Multiply qualified companies by the buyer count from step 2 for a contact estimate per segment. Above 100K contacts, be aggressive and test broadly. Below 30K, be surgical: every email matters.
+- Expect to reach 60 to 80 percent of companies after enrichment. Plan campaign volume on that number, not on the TAM.
+- Write every company to the CRM (or a sheet) with columns: segment, sources, source_count, icp_verdict, reason, tech_detected, similarity, pulled_at.
+- Refresh in 60 days: re-run steps 2 to 4, merge new companies in, and flag those that no longer appear in any source.
+- Print the count per segment with the sources that fed it. Apply core: credits and handoff.
+
+## Guardrails
+
+- Never report one source&#x27;s count as the market. Say &quot;at least&quot; until a second source has been merged.
+- Never spend a people-lookup credit on a company that has not passed the website read.
+- Never let a vendor industry label include or exclude a company on its own. The website decides.
+- A company without a domain is one to resolve, not one to drop.
+- This play ends at a company list. Contacts, enrichment and sending belong to the plays built on it.
+- A TAM older than 60 days is an estimate, not a map.
+
+## Example run
+
+User: &quot;/pipeline-full-tam-map, ICP is in ./icp.md: payroll and compliance software for US staffing agencies, 20 to 500 people&quot;
+
+1. Read icp.md and split into two segments (light industrial staffing, healthcare staffing). Took 8 seed domains, confirmed Apollo, Ocean.io, DiscoLike and Attio.
+2. Apollo returned 6,400 companies on industry filters; the 24-title people pass added 1,900 more and a buyer count averaging 2.8 per company.
+3. Ocean.io returned 3,100 lookalikes at 0.79 across both segments. DiscoLike returned 4,700, which marked the database pull as a floor.
+4. Two association member lists added 900 rows, 740 after domain resolution.
+5. Merged to 12,300 unique domains, 11,800 after the name plus state and phone passes. Source overlap was 41 percent.
+6. 7,900 passed the website read (67 percent). 212 removed as customers, open deals or competitors. Tech detect not needed for this ICP.
+7. 7,688 companies, about 21,500 contacts, under 30K so surgical. Written to Attio with source columns, raw pulls kept, refresh set for 60 days.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Full-TAM Map end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/full-tam-map'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../icp-from-won-deals/index.html'><span class='eyebrow'>Previous</span><b>ICP from Won Deals</b></a>
+<a href='../lookalike-sub-verticals/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Lookalike Sub-Verticals</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

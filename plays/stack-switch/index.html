@@ -1,0 +1,376 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Stack Switch | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-signal'>Third-party signals</a><span>/</span><span>Stack Switch</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 18 · Third-party signals</div>
+<h1>Stack Switch</h1>
+<div class='meta'><div><b>Trigger</b> A competitor removed or added, a pairing tool added, or a renewal due on a target account, with dates</div><div><b>Outcome</b> A displacement conversation with a reason to leave</div><div><b>Channels</b> email, linkedin, call</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-stack-switch' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-stack-switch'>Install the Pipeline.tech &quot;Stack Switch&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/stack-switch/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-stack-switch/SKILL.md, then run /pipeline-stack-switch.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-stack-switch.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/stack-switch.svg' alt='Stack Switch workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/stack-switch.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>The change is the signal, not the state. A company running a competitor is a cold account, a company that dropped that competitor last month has an open window, and a company that just added the tool people pair with yours is heading toward a renewal decision on a date you can estimate. Two dated stack signals inside a quarter earn a call, and the email leads with a reason to leave, never a feature list.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The ICP in one paragraph: industries, headcount band, geography, the problem you solve, who owns it. Read the user's ICP file if one exists.</li>
+<li>The target list as a CSV or CRM view, one domain per row. This play watches a list; it does not build one.</li>
+<li>Stack answers from core section 1.</li>
+<li>The switch offer in one sentence: a concrete reason to leave an incumbent (done-for-you migration, a price or term guarantee, a capability the incumbent lacks that they already pay for elsewhere). Features only: stop and build the offer first.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Write down the tools that matter</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Attio</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Write three lists in a sheet: competitors you displace, pairing tools (what a buyer adopts right before or after your product), and renewal-heavy incumbents on annual contracts.</li>
+<li>Pull two years of won deals from the CRM and note the previous tool on each. Switches that actually closed go to the top; the rest are dropped.</li>
+<li>For each tool, record its category, the usual contract length (12 months when nobody knows), and a fingerprint hint: a script domain, a cookie name, a CSS prefix or a widget path.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Detect the stack, free first</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Firecrawl</span><span class="chip">Claude</span><span class="chip">BuiltWith (option)</span><span class="chip">TheirStack (option)</span></div>
+<ul>
+<li>Fetch the homepage HTML plus one product page per domain. Save the raw HTML so reruns cost nothing.</li>
+<li>Match the watch list fingerprints against script sources, meta tags, cookie names and widget paths; store the matched string as evidence. Then run a cheap model over the same HTML asking which vendors the site runs, so unlisted tools still land in the snapshot.</li>
+<li>Mark each fetch ok, blocked or timeout. Blocked domains and categories that leave no trace in HTML (back-office tools) go to BuiltWith or TheirStack if the user has either; otherwise they stay flagged <code>no detection</code> and are watched through job posts only.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Snapshot and diff</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Google Sheets</span><span class="chip">Attio</span><span class="chip">Claude</span></div>
+<ul>
+<li>Store every detection with first-seen and last-seen dates. Never overwrite; a detection that stops appearing keeps its last-seen date, which is the signal.</li>
+<li>Rerun monthly and diff against the previous snapshot. Absent for two consecutive runs counts as removed (one miss is usually a page change). Present for the first time counts as added.</li>
+<li>Write each change to the CRM as a dated signal with tool, direction and the evidence string as source. Undated changes are not stored.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Split the events and stack them</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">TheirStack</span><span class="chip">Serper</span><span class="chip">PredictLeads (option)</span><span class="chip">Claude</span></div>
+<ul>
+<li>Sort every change into four events: competitor removed, pairing tool added, migration or admin job post, renewal month approaching.</li>
+<li>Job posts: roles that mention the tool alongside migrate, implement, roll out, admin or owner. The post date is the signal date.</li>
+<li>Renewal month: first-seen date plus the contract length from step 1, unless a job post or press mention names a start date. The window opens about 90 days before the anniversary.</li>
+<li>Apply core: tiering. A single signal waits in the CRM. Two dated signals on one account inside a quarter (removed plus a job post, added plus an approaching renewal) earn a call.</li>
+<li>Apply core: exclusions.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Find the team that runs the tool</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Apollo</span><span class="chip">Ocean.io</span><span class="chip">LinkedIn</span></div>
+<ul>
+<li>The buyer is the leader of the function that owns the category: a billing tool belongs to finance, a support tool to the support leader. The CEO only under 50 people or when no function head exists.</li>
+<li>Add one daily user as champion. The job post from step 4 often names the hiring manager; LinkedIn headlines mentioning the tool name the admin.</li>
+<li>Apply core: enrichment for the size bands.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Enrich and verify</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>Apply core: enrichment (one buyer plus one champion per account).</li>
+<li>Apply core: verification.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Launch the switch track and the renewal track</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Slack</span><span class="chip">Phone</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">HeyReach (option)</span><span class="chip">Claude</span></div>
+<ul>
+<li>Tier 1: post a Slack card with the stacked events, the renewal month, the buyer, the LinkedIn URL and the switch offer in one line. The owner calls within 48 hours, opening on the change, not the product.</li>
+<li>Tiers 2 and 3: two-step email, apply core: copy and send rules. Removed goes to the switch track; added and renewal-due go to the renewal track, as two campaigns, never one sequence.</li>
+<li>Every email leads with the concrete reason to leave from the inputs. A feature list is not a reason: for a fintech client, displacement copy that sold features alone produced 0 positives from about 4,400 sends.</li>
+<li>Never name the competitor. Describe the failure mode: "most teams your size hit the ceiling on seat pricing around year two".</li>
+<li>Draft 3 angle variants per track for email 1 and one threaded nudge for email 2; show them to the user before upload. Stop the sequence for any account that replies, books or shows as an open deal.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Report by event type</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>Weekly: detections, changes, stacked accounts, Tier 1 calls, sent, reply rate, interested, meetings, split by event type. Removed should outperform added; if not, the failure mode in the copy is wrong.</li>
+<li>Retire any watch-list tool that has not produced a reply in two quarters.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>One detection alone never triggers outreach. Two dated signals inside a quarter, or the account waits.</li>
+<li>Never name the competitor in an email or call opener; describe the failure mode.</li>
+<li>Never send displacement copy without the switch offer. No reason to leave in one sentence, no play.</li>
+<li>Never say you scanned the site or tracked the stack. "Saw the team moved off its old billing tool" is the limit.</li>
+<li>A renewal month is an estimate unless a source named it. Write "coming up on renewal", not a date you cannot prove.</li>
+<li>One account, one sequence. Do not run this play and a cold play on the same domain in the same month.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-stack-switch for our support platform, target list is 1,800 mid-market SaaS accounts in the sheet"</p>
+<ol>
+<li>Asked for the switch offer (free migration of macros and history plus a 24-month price lock), confirmed EmailBison plus Attio plus Slack. Listed 4 competitors, 3 pairing tools and 2 incumbents; two competitors produced 80 percent of won switches.</li>
+<li>Scraped 1,800 homepages: 1,612 ok, 141 blocked, 47 timeouts, blocked rows sent to TheirStack. 1,090 accounts showed a watch-list tool.</li>
+<li>Diffed against last month: 38 competitor removals, 64 pairing tool additions, 29 migration or admin job posts, 112 accounts inside 90 days of an estimated renewal.</li>
+<li>71 accounts carried two or more dated signals inside the quarter, 9 removed as customers or open deals.</li>
+<li>62 function owners plus 44 champions found, 97 verified valid, 6 catch-all kept in a separate campaign.</li>
+<li>14 Tier 1 Slack cards posted with renewal months. 48 contacts loaded into the switch track and 41 into the renewal track, both scheduled for Monday.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/stack-switch/SKILL.md</b><span>The skill file behind this page, 136 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-stack-switch'>Copy skill file</button></div>
+<pre>---
+name: pipeline-stack-switch
+description: Pipeline.tech play. Reach the team that runs a tool at the moment their stack changes. Detects vendor fingerprints on the target list (free homepage scrape first, BuiltWith or TheirStack as paid options), diffs monthly against the last snapshot, splits competitor removed, pairing tool added, migration job post and renewal due, stacks two dated signals into a call, then launches a switch-led two-step email that leads with a reason to leave. USE WHEN user says &quot;/pipeline-stack-switch&quot; OR &quot;stack switch play&quot; OR &quot;tech stack signal&quot; OR &quot;competitor displacement outreach&quot; OR &quot;who just dropped [competitor]&quot; OR &quot;renewal timing outreach&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/stack-switch)
+version: 0.1.0</pre><div class='more'>… 131 more lines</div>
+<pre id='raw-stack-switch' class='hidden'>---
+name: pipeline-stack-switch
+description: Pipeline.tech play. Reach the team that runs a tool at the moment their stack changes. Detects vendor fingerprints on the target list (free homepage scrape first, BuiltWith or TheirStack as paid options), diffs monthly against the last snapshot, splits competitor removed, pairing tool added, migration job post and renewal due, stacks two dated signals into a call, then launches a switch-led two-step email that leads with a reason to leave. USE WHEN user says &quot;/pipeline-stack-switch&quot; OR &quot;stack switch play&quot; OR &quot;tech stack signal&quot; OR &quot;competitor displacement outreach&quot; OR &quot;who just dropped [competitor]&quot; OR &quot;renewal timing outreach&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/stack-switch)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: A competitor removed or added, a pairing tool added, or a renewal due on a target account, with dates
+outcome: A displacement conversation with a reason to leave
+category: signal
+channels: email, linkedin, call
+tools: Firecrawl, BuiltWith, TheirStack, PredictLeads, Serper, Claude, Apollo, Ocean.io, LinkedIn, LeadMagic, Prospeo, MillionVerifier, BounceBan, Slack, Attio, EmailBison, Google Sheets
+---
+
+# Stack Switch
+
+The change is the signal, not the state. A company running a competitor is a cold account, a company that dropped that competitor last month has an open window, and a company that just added the tool people pair with yours is heading toward a renewal decision on a date you can estimate. Two dated stack signals inside a quarter earn a call, and the email leads with a reason to leave, never a feature list.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The ICP in one paragraph: industries, headcount band, geography, the problem you solve, who owns it. Read the user&#x27;s ICP file if one exists.
+2. The target list as a CSV or CRM view, one domain per row. This play watches a list; it does not build one.
+3. Stack answers from core section 1.
+4. The switch offer in one sentence: a concrete reason to leave an incumbent (done-for-you migration, a price or term guarantee, a capability the incumbent lacks that they already pay for elsewhere). Features only: stop and build the offer first.
+
+## Steps
+
+### 1. Write down the tools that matter
+Tools: Claude, Attio, Google Sheets
+Flow:
+- Three tool lists | Competitors you replace, pairing tools people adopt next to your product, renewal-heavy incumbents in your category | with: Claude, Google Sheets | chips: competitor, pairing, incumbent
+- Won-deal read | Which switches actually closed in the last two years, from the CRM and call notes | with: Attio | tag: evidence first
+= Watch list | One row per tool with category, typical contract length and a fingerprint hint | chips: tool, category, contract months, fingerprint
+
+- Write three lists in a sheet: competitors you displace, pairing tools (what a buyer adopts right before or after your product), and renewal-heavy incumbents on annual contracts.
+- Pull two years of won deals from the CRM and note the previous tool on each. Switches that actually closed go to the top; the rest are dropped.
+- For each tool, record its category, the usual contract length (12 months when nobody knows), and a fingerprint hint: a script domain, a cookie name, a CSS prefix or a widget path.
+
+### 2. Detect the stack, free first
+Tools: Firecrawl, Claude, BuiltWith (option), TheirStack (option)
+Flow:
+- Homepage scrape | Fetch the HTML and every script src on the homepage and one product page, 20 in parallel | with: Firecrawl | chips: script domains, meta generator, cookies, widget paths | tag: free source
+- Fingerprint match | Pattern match against the watch list, then a cheap model pass lists every vendor it can see | with: Claude | chips: tool, evidence string, fetch status
+- Paid fallback | Blocked or timed-out domains and anything invisible in HTML go to a paid lookup | with: BuiltWith, TheirStack | tag: paid
+
+- Fetch the homepage HTML plus one product page per domain. Save the raw HTML so reruns cost nothing.
+- Match the watch list fingerprints against script sources, meta tags, cookie names and widget paths; store the matched string as evidence. Then run a cheap model over the same HTML asking which vendors the site runs, so unlisted tools still land in the snapshot.
+- Mark each fetch ok, blocked or timeout. Blocked domains and categories that leave no trace in HTML (back-office tools) go to BuiltWith or TheirStack if the user has either; otherwise they stay flagged `no detection` and are watched through job posts only.
+
+### 3. Snapshot and diff
+Tools: Google Sheets, Attio, Claude
+Flow:
+- Dated snapshot | Every detection stored with first-seen and last-seen, one row per domain and tool | with: Google Sheets, Attio | chips: domain, tool, first seen, last seen, source
+= Monthly diff | Compare against the previous snapshot; a tool missing for two runs is removed, a new tool is added | with: Claude | chips: removed, added, unchanged | tag: the change is the signal
+
+- Store every detection with first-seen and last-seen dates. Never overwrite; a detection that stops appearing keeps its last-seen date, which is the signal.
+- Rerun monthly and diff against the previous snapshot. Absent for two consecutive runs counts as removed (one miss is usually a page change). Present for the first time counts as added.
+- Write each change to the CRM as a dated signal with tool, direction and the evidence string as source. Undated changes are not stored.
+
+### 4. Split the events and stack them
+Tools: TheirStack, Serper, PredictLeads (option), Claude
+Flow:
+- Competitor removed | Open window, highest priority, the switch has already started | tag: priority 1
+- Pairing tool added | A buyer is assembling the stack your product sits in | tag: priority 2
+- Migration or admin job post | A role to migrate, implement or administer the category, dated by post date | with: TheirStack, Serper, PredictLeads | tag: priority 2
+= Renewal month | From the first-seen date plus contract norms, or named in a job post; two dated signals in one quarter earn a call | with: Claude | chips: renewal month, signal count | tag: core: tiering
+
+- Sort every change into four events: competitor removed, pairing tool added, migration or admin job post, renewal month approaching.
+- Job posts: roles that mention the tool alongside migrate, implement, roll out, admin or owner. The post date is the signal date.
+- Renewal month: first-seen date plus the contract length from step 1, unless a job post or press mention names a start date. The window opens about 90 days before the anniversary.
+- Apply core: tiering. A single signal waits in the CRM. Two dated signals on one account inside a quarter (removed plus a job post, added plus an approaching renewal) earn a call.
+- Apply core: exclusions.
+
+### 5. Find the team that runs the tool
+Tools: Apollo, Ocean.io, LinkedIn
+Flow:
+- Function owner | The leader of the function that owns the category, not the CEO | with: Apollo, Ocean.io | chips: title, function, seniority
+- Daily user | One person who runs the tool day to day, from headlines and the job post itself | with: LinkedIn | tag: champion
+
+- The buyer is the leader of the function that owns the category: a billing tool belongs to finance, a support tool to the support leader. The CEO only under 50 people or when no function head exists.
+- Add one daily user as champion. The job post from step 4 often names the hiring manager; LinkedIn headlines mentioning the tool name the admin.
+- Apply core: enrichment for the size bands.
+
+### 6. Enrich and verify
+Tools: LeadMagic, Prospeo, MillionVerifier, BounceBan
+Flow:
+- Email waterfall | Each vendor only sees the contacts the one before it missed | with: LeadMagic, Prospeo | tag: core: enrichment
+- Two-pass verification | Valid to the main campaign, catch-all to its own campaign | with: MillionVerifier, BounceBan | tag: core: verification
+
+- Apply core: enrichment (one buyer plus one champion per account).
+- Apply core: verification.
+
+### 7. Launch the switch track and the renewal track
+Tools: Slack, Phone, EmailBison, Instantly (option), HeyReach (option), Claude
+Flow:
+- Tier 1 call | Slack card with the event, the renewal month, the buyer and the reason to leave; the owner calls before the renewal window closes | with: Slack, Phone | chips: event, renewal month, buyer, offer | tag: high touch
+- Switch track | Removed accounts: noticed the switch, where that tool usually breaks at their stage, what moving looks like | with: Claude, EmailBison, Instantly | chips: {CATEGORY}, {FAILURE_MODE}, {OFFER}
+- Renewal track | Added and renewal accounts: lands 60 to 90 days ahead of the renewal month with the same shape | with: Claude, EmailBison, HeyReach | chips: {CATEGORY}, {RENEWAL_MONTH}, {OFFER} | tag: send
+
+- Tier 1: post a Slack card with the stacked events, the renewal month, the buyer, the LinkedIn URL and the switch offer in one line. The owner calls within 48 hours, opening on the change, not the product.
+- Tiers 2 and 3: two-step email, apply core: copy and send rules. Removed goes to the switch track; added and renewal-due go to the renewal track, as two campaigns, never one sequence.
+- Every email leads with the concrete reason to leave from the inputs. A feature list is not a reason: for a fintech client, displacement copy that sold features alone produced 0 positives from about 4,400 sends.
+- Never name the competitor. Describe the failure mode: &quot;most teams your size hit the ceiling on seat pricing around year two&quot;.
+- Draft 3 angle variants per track for email 1 and one threaded nudge for email 2; show them to the user before upload. Stop the sequence for any account that replies, books or shows as an open deal.
+
+### 8. Report by event type
+Tools: Attio, Slack
+Flow:
+= Weekly read | Changes detected, stacked accounts, Tier 1 calls, sent, reply rate, interested, meetings, split by removed, added, job post, renewal | with: Attio, Slack
+
+- Weekly: detections, changes, stacked accounts, Tier 1 calls, sent, reply rate, interested, meetings, split by event type. Removed should outperform added; if not, the failure mode in the copy is wrong.
+- Retire any watch-list tool that has not produced a reply in two quarters.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- One detection alone never triggers outreach. Two dated signals inside a quarter, or the account waits.
+- Never name the competitor in an email or call opener; describe the failure mode.
+- Never send displacement copy without the switch offer. No reason to leave in one sentence, no play.
+- Never say you scanned the site or tracked the stack. &quot;Saw the team moved off its old billing tool&quot; is the limit.
+- A renewal month is an estimate unless a source named it. Write &quot;coming up on renewal&quot;, not a date you cannot prove.
+- One account, one sequence. Do not run this play and a cold play on the same domain in the same month.
+
+## Example run
+
+User: &quot;/pipeline-stack-switch for our support platform, target list is 1,800 mid-market SaaS accounts in the sheet&quot;
+
+1. Asked for the switch offer (free migration of macros and history plus a 24-month price lock), confirmed EmailBison plus Attio plus Slack. Listed 4 competitors, 3 pairing tools and 2 incumbents; two competitors produced 80 percent of won switches.
+2. Scraped 1,800 homepages: 1,612 ok, 141 blocked, 47 timeouts, blocked rows sent to TheirStack. 1,090 accounts showed a watch-list tool.
+3. Diffed against last month: 38 competitor removals, 64 pairing tool additions, 29 migration or admin job posts, 112 accounts inside 90 days of an estimated renewal.
+4. 71 accounts carried two or more dated signals inside the quarter, 9 removed as customers or open deals.
+5. 62 function owners plus 44 champions found, 97 verified valid, 6 catch-all kept in a separate campaign.
+6. 14 Tier 1 Slack cards posted with renewal months. 48 contacts loaded into the switch track and 41 into the renewal track, both scheduled for Monday.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Stack Switch end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/stack-switch'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../open-roles/index.html'><span class='eyebrow'>Previous</span><b>Open Roles</b></a>
+<a href='../competitor-complaints/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Competitor Complaints</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

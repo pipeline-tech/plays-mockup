@@ -1,0 +1,376 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Brand and Keyword Mentions | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-social'>Social signals</a><span>/</span><span>Brand and Keyword Mentions</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 26 · Social signals</div>
+<h1>Brand and Keyword Mentions</h1>
+<div class='meta'><div><b>Trigger</b> A public post naming your brand, a competitor or a category pain phrase</div><div><b>Outcome</b> Public reply first, then enriched outreach</div><div><b>Channels</b> linkedin, email, call</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-brand-keyword-mentions' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-brand-keyword-mentions'>Install the Pipeline.tech &quot;Brand and Keyword Mentions&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/brand-keyword-mentions/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-brand-keyword-mentions/SKILL.md, then run /pipeline-brand-keyword-mentions.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-brand-keyword-mentions.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/brand-keyword-mentions.svg' alt='Brand and Keyword Mentions workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/brand-keyword-mentions.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>Someone discussing your category, your competitor or you in public is warmer than any cold list, because they raised the topic themselves where their peers can see. The first move is a useful public reply from a real person, since that thread is public proof that you know the problem. The private follow-up two days later is then a continuation, not an interruption.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The ICP in one paragraph: industries, headcount band, geography, the problem you solve, who owns it.</li>
+<li>Brand, product and founder names, and the three to five competitors that come up on sales calls.</li>
+<li>Who replies publicly, with LinkedIn profile URLs and the hours they cover.</li>
+<li>Stack answers from core section 1, plus one resource per category pain (a post, a template, a short video) shareable without a form.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Define the keyword sets and the exclusion list</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Write three sets in a sheet. Brand: company, products, misspellings people actually type, founder names. Competitors: each name alone and paired with "alternative", "vs", "switching from" and "anyone using". Category pain: 5 to 10 phrases from call transcripts, in the buyer's words.</li>
+<li>Write the exclusion list next to them: listicle and roundup patterns, job posts, your own team, competitor employees, known partners. The classifier in step 3 reads it.</li>
+<li>Monthly, a model proposes additions and retirements from the posts captured since the last review; the user approves every change.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Capture posts, authors and engagers daily</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Trigify</span><span class="chip">LinkedIn</span><span class="chip">Apify (option)</span><span class="chip">Teamfluence (option)</span><span class="chip">Serper (option)</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Run the three sets as daily keyword feeds in Trigify; Apify or Teamfluence cover the same job on LinkedIn if the user already has one. Serper searches X, Reddit and blogs with the same sets.</li>
+<li>For every post store the URL, text, date, author, and each engager with what they did: reaction type or comment text. The comment is often the real signal, so never store only a count. One row per post and one per engager, keyed to the post URL.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Classify every post</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Slack</span></div>
+<ul>
+<li>A model reads each post against the exclusion list and labels it: brand mention (positive, negative or neutral), competitor complaint or switching intent, category pain, or noise. Noise and excluded authors are dropped and logged.</li>
+<li>A negative brand mention goes to the owner in Slack with the post and author. It is handled as support by whoever owns that relationship and never loaded into a sequence.</li>
+<li>Store classification and sentiment on the post row; engagers inherit both.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Public reply first, from a human</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Slack</span><span class="chip">LinkedIn</span><span class="chip">Claude</span></div>
+<ul>
+<li>Every kept post lands in a Slack channel with the classification, the author and a one-line suggested angle: a question to answer, a resource that fits, or a detail worth adding.</li>
+<li>A named person from the inputs replies in the thread from their own profile within hours, while the post is live. The reply answers or adds something specific, never pitches and never argues; when a mention gets a fact wrong, the correction is one calm sentence or nothing.</li>
+<li>Log the reply text and time on the post row. Nothing private goes out until it is filled.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Enrich the author and the engagers</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Ocean.io</span><span class="chip">Apollo</span><span class="chip">Claude</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>Resolve each author and engager to a company, check headcount, industry and location, and get a yes or no ICP verdict from the website. Apply core: exclusions.</li>
+<li>When the author is not the buyer, keep them as the conversation and map the account to its buying seat per core section 4. The author gets the reply and the DM; the buyer gets the email.</li>
+<li>Apply core: enrichment, then core: verification.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Tier and route</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span><span class="chip">Slack</span></div>
+<ul>
+<li>Tier 1: the author of a competitor complaint or category-pain post at an ICP account. The person who replied publicly sends the connection and DM on day 2, and calls if they answer.</li>
+<li>Tier 2: engagers at ICP accounts and the mapped buyer. HeyReach DM or two-step email on the post topic.</li>
+<li>Tier 3: acceptable fit, email only.</li>
+<li>Write every person to the CRM with play name, keyword set, sentiment, post URL, public reply and tier.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Write and launch</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">HeyReach</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">Phone</span></div>
+<ul>
+<li>Apply core: copy and send rules.</li>
+<li>Every private message continues the public thread: name their point, add one thing the public reply did not cover, make one ask. Three variants by class. A competitor complaint gets your take on the problem behind it; the switch offer comes only after they reply. A category-pain post gets the matching resource, no form. A positive brand mention gets a thank-you and nothing else unless they ask.</li>
+<li>Never "I saw you mentioned us" on anything negative; the public reply is why you are in touch.</li>
+<li>Show the three variants plus one threaded nudge to the user before upload. Upload with <code><span class=\"var\">{POST_TOPIC}</span></code>, <code><span class=\"var\">{COMPETITOR}</span></code>, <code><span class=\"var\">{PAIN_PHRASE}</span></code>, <code><span class=\"var\">{RESOURCE}</span></code>; sends start on day 2 from the play's own inbox set. Stop on a reply, a booking or an open deal.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Report</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Attio</span><span class="chip">Slack</span><span class="chip">Claude</span></div>
+<ul>
+<li>Weekly, by keyword set and sentiment: posts captured, kept, replied publicly, Tier 1 count, DM and email reply rate, meetings.</li>
+<li>Retire phrases whose posts are mostly noise and add the ones buyers actually use; both feed the monthly review in step 1.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>The public reply comes before any private touch. No DM, email or call until the reply is logged on the post.</li>
+<li>A negative brand mention is a support issue, not a lead. It goes to the owner and never into a sequence.</li>
+<li>Never argue in public and never pitch in the public reply. It helps or it stays unwritten.</li>
+<li>One person at most once per 60 days across all social plays.</li>
+<li>Scope: third-party posts about your brand, your competitors or the category pain, by people who are not you and not the competitor. Engagers on competitor voices' posts belong to Competitor Post Engagers, engagers on your own or your creators' posts to Content Engagement, review-site and stack data to Competitor Complaints.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-brand-keyword-mentions for our outbound agency, B2B SaaS 50 to 500 people in the US, five competitors, two of us can reply publicly"</p>
+<ol>
+<li>6 brand terms, 25 competitor phrases, 8 category-pain phrases, a 14-pattern exclusion list; confirmed Trigify, Ocean.io, Attio, HeyReach, EmailBison and Slack.</li>
+<li>Month one: 1,140 posts captured, 612 on LinkedIn and 528 across X, Reddit and blogs; 3,870 engagers stored with reaction or comment.</li>
+<li>41 brand mentions (29 positive, 8 neutral, 4 negative routed to the owner), 96 competitor complaints or switching intent, 203 category pain, 800 noise or excluded.</li>
+<li>340 posts to Slack, 318 replied publicly, median 3 hours; 22 skipped as too old or already answered.</li>
+<li>97 authors and 412 engagers at ICP accounts after exclusions; 38 accounts mapped to a buying seat; 489 addresses found, 441 verified valid, 23 catch-all in a separate campaign.</li>
+<li>71 Tier 1 authors, 450 Tier 2, 118 Tier 3; all written to Attio with keyword set, sentiment and post URL.</li>
+<li>Three variants approved; 71 DMs on day 2, 31 replies, 9 calls; 568 emails, 61 replies; 14 meetings booked.</li>
+<li>Retired 2 pain phrases that pulled job posts, added 3 that appeared in 40 kept posts.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/brand-keyword-mentions/SKILL.md</b><span>The skill file behind this page, 137 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-brand-keyword-mentions'>Copy skill file</button></div>
+<pre>---
+name: pipeline-brand-keyword-mentions
+description: Pipeline.tech play. Turn public posts about your brand, your competitors or the category pain you solve into conversations, starting with a useful public reply from a real person. Defines brand, competitor and category-pain keyword sets with an exclusion list, captures matching posts with their authors and engagers daily, classifies each post by type and sentiment with a model, routes negative brand mentions to support, replies publicly first, then enriches the author and engagers, tiers them and runs a connection and DM for Tier 1 and a two-step email on the post topic for the rest. USE WHEN user says &quot;/pipeline-brand-keyword-mentions&quot; OR &quot;brand mentions play&quot; OR &quot;keyword mentions&quot; OR &quot;social listening outreach&quot; OR &quot;competitor mention outreach&quot; OR &quot;who is talking about us&quot; OR &quot;reach people posting about our category&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/brand-keyword-mentions)
+version: 0.1.0</pre><div class='more'>… 132 more lines</div>
+<pre id='raw-brand-keyword-mentions' class='hidden'>---
+name: pipeline-brand-keyword-mentions
+description: Pipeline.tech play. Turn public posts about your brand, your competitors or the category pain you solve into conversations, starting with a useful public reply from a real person. Defines brand, competitor and category-pain keyword sets with an exclusion list, captures matching posts with their authors and engagers daily, classifies each post by type and sentiment with a model, routes negative brand mentions to support, replies publicly first, then enriches the author and engagers, tiers them and runs a connection and DM for Tier 1 and a two-step email on the post topic for the rest. USE WHEN user says &quot;/pipeline-brand-keyword-mentions&quot; OR &quot;brand mentions play&quot; OR &quot;keyword mentions&quot; OR &quot;social listening outreach&quot; OR &quot;competitor mention outreach&quot; OR &quot;who is talking about us&quot; OR &quot;reach people posting about our category&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/brand-keyword-mentions)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: A public post naming your brand, a competitor or a category pain phrase
+outcome: Public reply first, then enriched outreach
+category: social
+channels: linkedin, email, call
+tools: LinkedIn, Trigify, Apify, Teamfluence, Serper, Claude, Google Sheets, Slack, Ocean.io, Apollo, Attio, HubSpot, LeadMagic, Prospeo, MillionVerifier, BounceBan, HeyReach, Phone, EmailBison, Instantly
+---
+
+# Brand and Keyword Mentions
+
+Someone discussing your category, your competitor or you in public is warmer than any cold list, because they raised the topic themselves where their peers can see. The first move is a useful public reply from a real person, since that thread is public proof that you know the problem. The private follow-up two days later is then a continuation, not an interruption.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The ICP in one paragraph: industries, headcount band, geography, the problem you solve, who owns it.
+2. Brand, product and founder names, and the three to five competitors that come up on sales calls.
+3. Who replies publicly, with LinkedIn profile URLs and the hours they cover.
+4. Stack answers from core section 1, plus one resource per category pain (a post, a template, a short video) shareable without a form.
+
+## Steps
+
+### 1. Define the keyword sets and the exclusion list
+Tools: Claude, Google Sheets
+Flow:
+- Brand set | Company, product, common misspellings and founder names | with: Claude, Google Sheets | chips: company, product, misspellings, founders
+- Competitor set | Each competitor name paired with alternative, vs, switching from and anyone using | with: Claude, Google Sheets | chips: alternative, vs, switching from, anyone using
+- Category pain set | 5 to 10 phrases in the words buyers use on calls, not the words on your website | with: Claude | chips: 5 to 10 phrases, buyer language
+= Exclusion list | Listicles, roundups, job posts, your own team, competitor staff and partners; a model expands and reviews every set monthly | with: Claude, Google Sheets | tag: monthly review
+
+- Write three sets in a sheet. Brand: company, products, misspellings people actually type, founder names. Competitors: each name alone and paired with &quot;alternative&quot;, &quot;vs&quot;, &quot;switching from&quot; and &quot;anyone using&quot;. Category pain: 5 to 10 phrases from call transcripts, in the buyer&#x27;s words.
+- Write the exclusion list next to them: listicle and roundup patterns, job posts, your own team, competitor employees, known partners. The classifier in step 3 reads it.
+- Monthly, a model proposes additions and retirements from the posts captured since the last review; the user approves every change.
+
+### 2. Capture posts, authors and engagers daily
+Tools: Trigify, LinkedIn, Apify (option), Teamfluence (option), Serper (option), Google Sheets
+Flow:
+- LinkedIn keyword feed | Every post matching a set, with its author, captured each morning | with: Trigify, LinkedIn, Apify, Teamfluence | chips: post URL, text, date, author
+- Engagers per post | Everyone who reacted or commented on each kept post, with the reaction or comment itself | with: Trigify, Apify | chips: reaction, comment, profile URL
+- Beyond LinkedIn | Searches across X, Reddit and blogs for the same sets, weekly or daily by volume | with: Serper | tag: option
+
+- Run the three sets as daily keyword feeds in Trigify; Apify or Teamfluence cover the same job on LinkedIn if the user already has one. Serper searches X, Reddit and blogs with the same sets.
+- For every post store the URL, text, date, author, and each engager with what they did: reaction type or comment text. The comment is often the real signal, so never store only a count. One row per post and one per engager, keyed to the post URL.
+
+### 3. Classify every post
+Tools: Claude, Slack
+Flow:
+- Model classification | Brand mention split by sentiment, competitor complaint or switching intent, category pain, or noise; excluded authors dropped | with: Claude | chips: positive, negative, neutral, complaint, switching, category pain, noise
+= Negative brand mention | Routed to the owner as a support matter with the post and the author, and never enters outreach | with: Slack | tag: support not lead
+
+- A model reads each post against the exclusion list and labels it: brand mention (positive, negative or neutral), competitor complaint or switching intent, category pain, or noise. Noise and excluded authors are dropped and logged.
+- A negative brand mention goes to the owner in Slack with the post and author. It is handled as support by whoever owns that relationship and never loaded into a sequence.
+- Store classification and sentiment on the post row; engagers inherit both.
+
+### 4. Public reply first, from a human
+Tools: Slack, LinkedIn, Claude
+Flow:
+- Slack post per kept mention | Post text, classification, author and a suggested angle for the reply | with: Slack, Claude | chips: classification, angle, author, post URL
+= A named person replies in the thread | From their real profile within hours: helpful, specific, no pitch, no argument; the reply is logged with the post | with: LinkedIn | tag: human only
+
+- Every kept post lands in a Slack channel with the classification, the author and a one-line suggested angle: a question to answer, a resource that fits, or a detail worth adding.
+- A named person from the inputs replies in the thread from their own profile within hours, while the post is live. The reply answers or adds something specific, never pitches and never argues; when a mention gets a fact wrong, the correction is one calm sentence or nothing.
+- Log the reply text and time on the post row. Nothing private goes out until it is filled.
+
+### 5. Enrich the author and the engagers
+Tools: Ocean.io, Apollo, Claude, LeadMagic, Prospeo, MillionVerifier, BounceBan
+Flow:
+- ICP check | Headcount, industry and location on the author&#x27;s and each engager&#x27;s company, then a yes or no verdict from the website | with: Ocean.io, Apollo, Claude | tag: core: exclusions
+- Map to the buying seat | When the author is not the buyer, find the person who owns the problem at the same account | with: Apollo, Claude | chips: author, buying seat, same account
+= Email waterfall and two-pass verification | Work address for every kept person, checked twice | with: LeadMagic, Prospeo, MillionVerifier, BounceBan | tag: core: enrichment and verification
+
+- Resolve each author and engager to a company, check headcount, industry and location, and get a yes or no ICP verdict from the website. Apply core: exclusions.
+- When the author is not the buyer, keep them as the conversation and map the account to its buying seat per core section 4. The author gets the reply and the DM; the buyer gets the email.
+- Apply core: enrichment, then core: verification.
+
+### 6. Tier and route
+Tools: Claude, Attio, HubSpot (option), Slack
+Flow:
+- Tier 1 | Author of a competitor complaint or category-pain post at an ICP account: connection and DM on day 2 from the person who replied, a call if they answer | with: Slack, Attio | chips: author, ICP account, day 2, call on reply | tag: high touch
+- Tier 2 | Engagers at ICP accounts, plus the mapped buyer: DM or two-step email on the topic | with: Attio | chips: engagers, mapped buyer, topic
+- Tier 3 | Acceptable fit, email only | with: Attio | tag: at volume
+= Write to the CRM | Keyword set, classification, sentiment, post URL, public reply and tier on every person | with: Attio, HubSpot | chips: keyword set, sentiment, post URL, tier
+
+- Tier 1: the author of a competitor complaint or category-pain post at an ICP account. The person who replied publicly sends the connection and DM on day 2, and calls if they answer.
+- Tier 2: engagers at ICP accounts and the mapped buyer. HeyReach DM or two-step email on the post topic.
+- Tier 3: acceptable fit, email only.
+- Write every person to the CRM with play name, keyword set, sentiment, post URL, public reply and tier.
+
+### 7. Write and launch
+Tools: Claude, HeyReach, EmailBison, Instantly (option), Phone
+Flow:
+- Continue the thread | Every private message picks up the topic of the public post, never your product | with: Claude | chips: {POST_TOPIC}, {COMPETITOR}, {PAIN_PHRASE}, {RESOURCE}
+- Three angles by class | Competitor complaint gets your take on the problem; category pain gets a resource; positive brand mention gets a thank-you and nothing else | with: Claude | tag: variants
+= Launch from its own inbox set | Tier 1 DM on day 2 and a call on reply; Tier 2 and 3 email from day 2, stop on a reply, a booking or an open deal | with: HeyReach, EmailBison, Instantly, Phone | tag: send
+
+- Apply core: copy and send rules.
+- Every private message continues the public thread: name their point, add one thing the public reply did not cover, make one ask. Three variants by class. A competitor complaint gets your take on the problem behind it; the switch offer comes only after they reply. A category-pain post gets the matching resource, no form. A positive brand mention gets a thank-you and nothing else unless they ask.
+- Never &quot;I saw you mentioned us&quot; on anything negative; the public reply is why you are in touch.
+- Show the three variants plus one threaded nudge to the user before upload. Upload with `{POST_TOPIC}`, `{COMPETITOR}`, `{PAIN_PHRASE}`, `{RESOURCE}`; sends start on day 2 from the play&#x27;s own inbox set. Stop on a reply, a booking or an open deal.
+
+### 8. Report
+Tools: Attio, Slack, Claude
+Flow:
+= Weekly read by keyword set and sentiment | Posts captured, kept, replied publicly, Tier 1 count, DM and email reply rate, meetings; noisy phrases retired and buyer phrases added | with: Attio, Slack, Claude
+
+- Weekly, by keyword set and sentiment: posts captured, kept, replied publicly, Tier 1 count, DM and email reply rate, meetings.
+- Retire phrases whose posts are mostly noise and add the ones buyers actually use; both feed the monthly review in step 1.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- The public reply comes before any private touch. No DM, email or call until the reply is logged on the post.
+- A negative brand mention is a support issue, not a lead. It goes to the owner and never into a sequence.
+- Never argue in public and never pitch in the public reply. It helps or it stays unwritten.
+- One person at most once per 60 days across all social plays.
+- Scope: third-party posts about your brand, your competitors or the category pain, by people who are not you and not the competitor. Engagers on competitor voices&#x27; posts belong to Competitor Post Engagers, engagers on your own or your creators&#x27; posts to Content Engagement, review-site and stack data to Competitor Complaints.
+
+## Example run
+
+User: &quot;/pipeline-brand-keyword-mentions for our outbound agency, B2B SaaS 50 to 500 people in the US, five competitors, two of us can reply publicly&quot;
+
+1. 6 brand terms, 25 competitor phrases, 8 category-pain phrases, a 14-pattern exclusion list; confirmed Trigify, Ocean.io, Attio, HeyReach, EmailBison and Slack.
+2. Month one: 1,140 posts captured, 612 on LinkedIn and 528 across X, Reddit and blogs; 3,870 engagers stored with reaction or comment.
+3. 41 brand mentions (29 positive, 8 neutral, 4 negative routed to the owner), 96 competitor complaints or switching intent, 203 category pain, 800 noise or excluded.
+4. 340 posts to Slack, 318 replied publicly, median 3 hours; 22 skipped as too old or already answered.
+5. 97 authors and 412 engagers at ICP accounts after exclusions; 38 accounts mapped to a buying seat; 489 addresses found, 441 verified valid, 23 catch-all in a separate campaign.
+6. 71 Tier 1 authors, 450 Tier 2, 118 Tier 3; all written to Attio with keyword set, sentiment and post URL.
+7. Three variants approved; 71 DMs on day 2, 31 replies, 9 calls; 568 emails, 61 replies; 14 meetings booked.
+8. Retired 2 pain phrases that pulled job posts, added 3 that appeared in 40 kept posts.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Brand and Keyword Mentions end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/brand-keyword-mentions'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../content-engagement/index.html'><span class='eyebrow'>Previous</span><b>Content Engagement</b></a>
+<a href='../competitor-page-followers/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Competitor Page Followers</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

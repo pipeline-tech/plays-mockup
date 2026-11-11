@@ -1,0 +1,379 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Competitor Complaints | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-signal'>Third-party signals</a><span>/</span><span>Competitor Complaints</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 19 · Third-party signals</div>
+<h1>Competitor Complaints</h1>
+<div class='meta'><div><b>Trigger</b> A competitor&#x27;s customers, found by stack, reviews or inference, whose public complaints match what you fix</div><div><b>Outcome</b> Their unhappy customers hear the complaint you fix</div><div><b>Channels</b> email, linkedin</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-competitor-complaints' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-competitor-complaints'>Install the Pipeline.tech &quot;Competitor Complaints&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/competitor-complaints/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-competitor-complaints/SKILL.md, then run /pipeline-competitor-complaints.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-competitor-complaints.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/competitor-complaints.svg' alt='Competitor Complaints workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/competitor-complaints.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>A competitor's unhappy customers already feel the problem you fix, and their public reviews tell you the exact words they use for it. Find the companies running that competitor, match each to the complaint its segment keeps raising, and pitch the fix with a concrete reason to leave. Where no tool is detectable, a model infers the likely competitor from the website and the email names it as a question, which earns a reply even when the guess misses.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The ICP in one paragraph: industries, headcount band, geography, the problem you solve, who owns it.</li>
+<li>Three to six named competitors, and which of them you have won deals from.</li>
+<li>Stack answers from core section 1, plus whether the user has G2 Buyer Intent.</li>
+<li>The switch offer in one sentence with one proof point: a concrete reason to leave. Features only: build the offer first.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Mine the reviews into complaint themes</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">G2</span><span class="chip">Capterra</span><span class="chip">Firecrawl</span><span class="chip">Apify</span><span class="chip">Claude</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Name three to six competitors; the ones you have won deals from go first.</li>
+<li>Pull every 1 to 3 star review and every dislikes section from G2 and Capterra, with Firecrawl or an Apify actor. Keep reviewer title, size band, industry and date on each row.</li>
+<li>A model clusters the complaints into themes, each with a frequency, the segments raising it most, and a one-line description in buyer words.</li>
+<li>Keep only themes the offer fixes with a number or a named outcome as proof. Drop the rest however often they appear; three to five survive.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Build the competitor's user list</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">BuiltWith</span><span class="chip">TheirStack</span><span class="chip">G2</span><span class="chip">Capterra</span><span class="chip">Firecrawl</span><span class="chip">Serper</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Apply core: lists. Pull from at least two sources: technographics where the tool leaves a fingerprint, reviewer companies named on reviews, logo and case-study pages on the competitor's site, job posts and "powered by" footers.</li>
+<li>Tag each domain confirmed when a technographic match, a logo page or a named review backs it, likely when only a job post or footprint does, unknown otherwise, with source and date on every row.</li>
+<li>This is the state, not the change. Stack Switch watches a tool removed or added; this play works whoever runs the competitor today.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Add G2 buyer intent, if the user has it</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">G2 (option)</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>Only with a G2 Buyer Intent subscription. Export companies that viewed the competitor's profile, your profile or a comparison page in the last 30 days as confirmed intent rows with page type and date; comparison and pricing views outrank category views.</li>
+<li>No subscription: log the step as skipped and move on; the play runs on steps 2 and 4.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>The poke lane: infer the competitor</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Firecrawl</span><span class="chip">Claude</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>For every target-segment account where step 2 found nothing, fetch the homepage, product, integrations and careers pages.</li>
+<li>A model names the three most likely competitors in use, each with a confidence and one line of reasoning: an integration listed, a tool in a job post, the norm for that size and industry.</li>
+<li>The top guess goes into <code><span class=\"var\">{COMPETITOR}</span></code>; store the runners-up and the confidence. Below the floor the user sets (40 percent to start) the account waits.</li>
+<li>The guess need not be right. The email asks a question, so a wrong guess earns a correction, and a correction is a reply.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Qualify and exclude</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Ocean.io</span><span class="chip">Apollo</span><span class="chip">Claude</span><span class="chip">Attio</span><span class="chip">HubSpot (option)</span></div>
+<ul>
+<li>Qualify every account against the written ICP: headcount, industry, location, and a yes or no verdict from its website.</li>
+<li>Apply core: exclusions. Then remove the competitor's staff, partners, resellers and implementing agencies; a partner page or headline gives them away.</li>
+<li>Assign each account the theme its segment raises most in step 1. Store competitor, confidence, theme, lane and source URL on the CRM record. The buyer is the function leader who owns the category, per core: enrichment.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Enrich and verify</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>Apply core: enrichment.</li>
+<li>Apply core: verification.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Tier and write</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span><span class="chip">Slack</span><span class="chip">Attio</span></div>
+<ul>
+<li>Apply core: copy and send rules.</li>
+<li>Tier 1: a confirmed user whose segment matches a top complaint theme, plus every intent row. Slack alert, switch email, LinkedIn connection. Tier 2: a likely user, switch email plus connection. Tier 3: the poke lane, email only.</li>
+<li>Switch variant: open on the complaint in the prospect's own kind of words. Never the competitor's name in the subject line, never a quoted reviewer. Then a concrete reason to leave: migration done for them, a parallel run, a contract buyout, a fixed timeline. One proof point, one direct ask. Never a feature list; feature-only displacement copy produced 0 positives from about 4,400 sends.</li>
+<li>Poke variant: a question, not a claim. "Most teams on <span class=\"var\">{COMPETITOR}</span> end up &lt;complaint&gt;, is that the case for you?" Then offer to send something, a one-page comparison or a migration checklist, never a meeting.</li>
+<li>Draft one switch variant per kept theme, one poke variant and a threaded nudge for email 2; show the user before upload.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Launch and report by competitor and theme</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">HeyReach</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>Upload leads with <code><span class=\"var\">{COMPETITOR}</span></code>, <code><span class=\"var\">{COMPLAINT}</span></code>, <code><span class=\"var\">{OFFER}</span></code> and <code><span class=\"var\">{PROOF}</span></code>. One campaign per lane from its own inbox set; LinkedIn connections go with email 1.</li>
+<li>Weekly: sent, reply rate, interested, meetings, split by competitor, theme and lane. Confirmed should beat poke; if poke keeps pace, the inference is good and the lane can scale. A theme with no replies after 300 sends is retired. Corrected poke guesses become confirmed rows.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>Never disparage a competitor or quote a reviewer. Themes are plain buyer words; review text never leaves the raw file.</li>
+<li>A theme must be something you fix, with proof. No proof point, no theme.</li>
+<li>A switch offer is required. No concrete reason to leave in one sentence, no play.</li>
+<li>The competitor's name never appears in a subject line, and in the body only in the poke variant, as a question.</li>
+<li>Never say you read their reviews or scanned their site. A poke guess is never written as fact.</li>
+<li>Do not run this play and Stack Switch on the same domain in the same month.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-competitor-complaints for our support platform, mid-market SaaS 100 to 1,000 people in the US and UK, four incumbents"</p>
+<ol>
+<li>Asked for the switch offer (free migration of macros and ticket history plus a 60-day parallel run) and its proof; confirmed BuiltWith, EmailBison, HeyReach, Attio and Slack. No G2 intent, step 3 skipped.</li>
+<li>1,840 low-star reviews across four competitors; 11 themes, 4 survived the proof check: slow vendor support, seat pricing jumps at renewal, reporting that needs an analyst, a six-week migration.</li>
+<li>612 domains confirmed by BuiltWith, 94 reviewer companies, 141 from logo pages, 230 likely from job posts; 918 after dedupe.</li>
+<li>Poke lane: 1,400 accounts with no detected tool, a top competitor above the floor on 1,090.</li>
+<li>ICP check passed 1,560 of 2,008; 38 removed as competitor staff, partners or agencies, 61 as customers, open deals or in sequence.</li>
+<li>1,380 function owners, 1,261 verified valid, 71 catch-all in separate campaigns.</li>
+<li>402 Tier 1, 180 Tier 2, 679 Tier 3 poke rows; four switch variants and one poke variant approved.</li>
+<li>Week three: confirmed 6.1 percent reply, likely 4.2, poke 5.4 with 38 corrected guesses now confirmed; seat pricing leads, reporting retired.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/competitor-complaints/SKILL.md</b><span>The skill file behind this page, 138 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-competitor-complaints'>Copy skill file</button></div>
+<pre>---
+name: pipeline-competitor-complaints
+description: Pipeline.tech play. Reach a competitor&#x27;s unhappy customers with the complaint you fix, in their own kind of words. Mines 1 to 3 star reviews and dislikes on G2 and Capterra into complaint themes, keeps only the themes the offer fixes with proof, builds the competitor&#x27;s user list from technographics, reviewer companies, logo pages and job posts, adds G2 buyer intent when the user has it, infers the likely competitor for accounts with no detectable tool and names it as a question, then runs a switch-led two-step email tiered confirmed, likely and poke. USE WHEN user says &quot;/pipeline-competitor-complaints&quot; OR &quot;competitor complaints play&quot; OR &quot;competitor review outreach&quot; OR &quot;G2 review mining&quot; OR &quot;unhappy customers of [competitor]&quot; OR &quot;poke the bear competitor email&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/competitor-complaints)
+version: 0.1.0</pre><div class='more'>… 133 more lines</div>
+<pre id='raw-competitor-complaints' class='hidden'>---
+name: pipeline-competitor-complaints
+description: Pipeline.tech play. Reach a competitor&#x27;s unhappy customers with the complaint you fix, in their own kind of words. Mines 1 to 3 star reviews and dislikes on G2 and Capterra into complaint themes, keeps only the themes the offer fixes with proof, builds the competitor&#x27;s user list from technographics, reviewer companies, logo pages and job posts, adds G2 buyer intent when the user has it, infers the likely competitor for accounts with no detectable tool and names it as a question, then runs a switch-led two-step email tiered confirmed, likely and poke. USE WHEN user says &quot;/pipeline-competitor-complaints&quot; OR &quot;competitor complaints play&quot; OR &quot;competitor review outreach&quot; OR &quot;G2 review mining&quot; OR &quot;unhappy customers of [competitor]&quot; OR &quot;poke the bear competitor email&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/competitor-complaints)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: A competitor&#x27;s customers, found by stack, reviews or inference, whose public complaints match what you fix
+outcome: Their unhappy customers hear the complaint you fix
+category: signal
+channels: email, linkedin
+tools: G2, Capterra, Firecrawl, Apify, Serper, BuiltWith, TheirStack, Ocean.io, Apollo, Claude, Attio, HubSpot, LeadMagic, Prospeo, MillionVerifier, BounceBan, Slack, EmailBison, Instantly, HeyReach, Google Sheets
+---
+
+# Competitor Complaints
+
+A competitor&#x27;s unhappy customers already feel the problem you fix, and their public reviews tell you the exact words they use for it. Find the companies running that competitor, match each to the complaint its segment keeps raising, and pitch the fix with a concrete reason to leave. Where no tool is detectable, a model infers the likely competitor from the website and the email names it as a question, which earns a reply even when the guess misses.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The ICP in one paragraph: industries, headcount band, geography, the problem you solve, who owns it.
+2. Three to six named competitors, and which of them you have won deals from.
+3. Stack answers from core section 1, plus whether the user has G2 Buyer Intent.
+4. The switch offer in one sentence with one proof point: a concrete reason to leave. Features only: build the offer first.
+
+## Steps
+
+### 1. Mine the reviews into complaint themes
+Tools: G2, Capterra, Firecrawl, Apify, Claude, Google Sheets
+Flow:
+- Pull the low-star reviews | 1 to 3 star reviews plus the dislikes section of every review, for each named competitor | with: G2, Capterra, Firecrawl, Apify | chips: competitor, stars, dislikes, reviewer title, company size, date
+- Cluster into themes | A model groups the complaints into themes with a frequency count and a one-line description in plain words, no quotes | with: Claude | chips: theme, frequency, segment, one-liner
+= Keep what you fix | A theme stays only when the offer is a real fix with a proof point; the rest are dropped | with: Claude, Google Sheets | tag: proof or drop
+
+- Name three to six competitors; the ones you have won deals from go first.
+- Pull every 1 to 3 star review and every dislikes section from G2 and Capterra, with Firecrawl or an Apify actor. Keep reviewer title, size band, industry and date on each row.
+- A model clusters the complaints into themes, each with a frequency, the segments raising it most, and a one-line description in buyer words.
+- Keep only themes the offer fixes with a number or a named outcome as proof. Drop the rest however often they appear; three to five survive.
+
+### 2. Build the competitor&#x27;s user list
+Tools: BuiltWith, TheirStack, G2, Capterra, Firecrawl, Serper, Google Sheets
+Flow:
+- Technographics | Domains where the competitor&#x27;s tool is detectable, with the evidence string | with: BuiltWith, TheirStack | chips: domain, tool, evidence, last seen | tag: confirmed
+- Reviewers and logos | Companies named on reviews, plus customer logo and case-study pages scraped from the competitor&#x27;s own site | with: G2, Capterra, Firecrawl | chips: company, source URL, review date | tag: confirmed
+- Footprints | Job posts naming the tool and powered-by lines found through search | with: Serper | chips: job post, powered by, post date | tag: likely
+= One row per domain | Merged and deduped, each tagged confirmed, likely or unknown with its source | with: Google Sheets | chips: confirmed, likely, unknown, source
+
+- Apply core: lists. Pull from at least two sources: technographics where the tool leaves a fingerprint, reviewer companies named on reviews, logo and case-study pages on the competitor&#x27;s site, job posts and &quot;powered by&quot; footers.
+- Tag each domain confirmed when a technographic match, a logo page or a named review backs it, likely when only a job post or footprint does, unknown otherwise, with source and date on every row.
+- This is the state, not the change. Stack Switch watches a tool removed or added; this play works whoever runs the competitor today.
+
+### 3. Add G2 buyer intent, if the user has it
+Tools: G2 (option), Google Sheets
+Flow:
+= Intent rows | Companies that viewed the competitor&#x27;s profile, your profile or a comparison page in the last 30 days, added as confirmed intent | with: G2, Google Sheets | chips: profile view, comparison view, pricing view, last 30 days | tag: skip without G2
+
+- Only with a G2 Buyer Intent subscription. Export companies that viewed the competitor&#x27;s profile, your profile or a comparison page in the last 30 days as confirmed intent rows with page type and date; comparison and pricing views outrank category views.
+- No subscription: log the step as skipped and move on; the play runs on steps 2 and 4.
+
+### 4. The poke lane: infer the competitor
+Tools: Firecrawl, Claude, Google Sheets
+Flow:
+- Read the website | Homepage, product, integrations and careers pages for every target-segment account with no detected tool | with: Firecrawl | chips: integrations page, pricing page, careers page
+= Three likely competitors | A model lists the three most likely tools in use with a confidence each; the top one becomes {COMPETITOR} on the row | with: Claude, Google Sheets | chips: {COMPETITOR}, confidence, runner-up, reasoning | tag: inference
+
+- For every target-segment account where step 2 found nothing, fetch the homepage, product, integrations and careers pages.
+- A model names the three most likely competitors in use, each with a confidence and one line of reasoning: an integration listed, a tool in a job post, the norm for that size and industry.
+- The top guess goes into `{COMPETITOR}`; store the runners-up and the confidence. Below the floor the user sets (40 percent to start) the account waits.
+- The guess need not be right. The email asks a question, so a wrong guess earns a correction, and a correction is a reply.
+
+### 5. Qualify and exclude
+Tools: Ocean.io, Apollo, Claude, Attio, HubSpot (option)
+Flow:
+- ICP check | Headcount, industry and location, then a yes or no verdict from the company website | with: Ocean.io, Apollo, Claude | tag: core: exclusions
+- Competitor-side removals | Competitor staff, partners, resellers and agencies dropped | with: Claude, Apollo | chips: staff, partner, agency, reseller
+= Write to the CRM | Competitor, confidence, complaint theme, lane and source URL stored on every record | with: Attio, HubSpot | chips: competitor, confidence, theme, lane, source URL
+
+- Qualify every account against the written ICP: headcount, industry, location, and a yes or no verdict from its website.
+- Apply core: exclusions. Then remove the competitor&#x27;s staff, partners, resellers and implementing agencies; a partner page or headline gives them away.
+- Assign each account the theme its segment raises most in step 1. Store competitor, confidence, theme, lane and source URL on the CRM record. The buyer is the function leader who owns the category, per core: enrichment.
+
+### 6. Enrich and verify
+Tools: LeadMagic, Prospeo, MillionVerifier, BounceBan
+Flow:
+- Email waterfall | Each vendor only sees the contacts the one before it missed | with: LeadMagic, Prospeo | tag: core: enrichment
+- Two-pass verification | Valid to the main campaign, catch-all to its own campaign | with: MillionVerifier, BounceBan | tag: core: verification
+
+- Apply core: enrichment.
+- Apply core: verification.
+
+### 7. Tier and write
+Tools: Claude, Slack, Attio
+Flow:
+- Tier 1 | Confirmed user at an ICP account whose segment matches a top complaint theme, or any intent row: Slack alert, switch email, LinkedIn connection | with: Slack, Claude | chips: confirmed, theme match, intent | tag: high touch
+- Tier 2 | Likely user at an ICP account: switch email plus LinkedIn connection | with: Claude | tag: at volume
+- Tier 3 | Poke lane: the question variant, email only | with: Claude | chips: {COMPETITOR}, {COMPLAINT} | tag: inference
+= Two variants | The switch variant leads with the complaint and a reason to leave; the poke variant asks a question and offers to send something | with: Claude, Attio | chips: {COMPLAINT}, {OFFER}, {PROOF}, {COMPETITOR}
+
+- Apply core: copy and send rules.
+- Tier 1: a confirmed user whose segment matches a top complaint theme, plus every intent row. Slack alert, switch email, LinkedIn connection. Tier 2: a likely user, switch email plus connection. Tier 3: the poke lane, email only.
+- Switch variant: open on the complaint in the prospect&#x27;s own kind of words. Never the competitor&#x27;s name in the subject line, never a quoted reviewer. Then a concrete reason to leave: migration done for them, a parallel run, a contract buyout, a fixed timeline. One proof point, one direct ask. Never a feature list; feature-only displacement copy produced 0 positives from about 4,400 sends.
+- Poke variant: a question, not a claim. &quot;Most teams on {COMPETITOR} end up &lt;complaint&gt;, is that the case for you?&quot; Then offer to send something, a one-page comparison or a migration checklist, never a meeting.
+- Draft one switch variant per kept theme, one poke variant and a threaded nudge for email 2; show the user before upload.
+
+### 8. Launch and report by competitor and theme
+Tools: EmailBison, Instantly (option), HeyReach, Attio, Slack
+Flow:
+- Launch one campaign per lane | Confirmed, likely and poke each from its own inbox set, so results read on their own; stop on a reply, a booking or an open deal | with: EmailBison, Instantly, HeyReach | tag: send
+= Weekly read | Sent, reply rate, interested and meetings split by competitor, by theme and by lane confirmed, likely and poke | with: Attio, Slack | chips: competitor, theme, confirmed, likely, poke
+
+- Upload leads with `{COMPETITOR}`, `{COMPLAINT}`, `{OFFER}` and `{PROOF}`. One campaign per lane from its own inbox set; LinkedIn connections go with email 1.
+- Weekly: sent, reply rate, interested, meetings, split by competitor, theme and lane. Confirmed should beat poke; if poke keeps pace, the inference is good and the lane can scale. A theme with no replies after 300 sends is retired. Corrected poke guesses become confirmed rows.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- Never disparage a competitor or quote a reviewer. Themes are plain buyer words; review text never leaves the raw file.
+- A theme must be something you fix, with proof. No proof point, no theme.
+- A switch offer is required. No concrete reason to leave in one sentence, no play.
+- The competitor&#x27;s name never appears in a subject line, and in the body only in the poke variant, as a question.
+- Never say you read their reviews or scanned their site. A poke guess is never written as fact.
+- Do not run this play and Stack Switch on the same domain in the same month.
+
+## Example run
+
+User: &quot;/pipeline-competitor-complaints for our support platform, mid-market SaaS 100 to 1,000 people in the US and UK, four incumbents&quot;
+
+1. Asked for the switch offer (free migration of macros and ticket history plus a 60-day parallel run) and its proof; confirmed BuiltWith, EmailBison, HeyReach, Attio and Slack. No G2 intent, step 3 skipped.
+2. 1,840 low-star reviews across four competitors; 11 themes, 4 survived the proof check: slow vendor support, seat pricing jumps at renewal, reporting that needs an analyst, a six-week migration.
+3. 612 domains confirmed by BuiltWith, 94 reviewer companies, 141 from logo pages, 230 likely from job posts; 918 after dedupe.
+4. Poke lane: 1,400 accounts with no detected tool, a top competitor above the floor on 1,090.
+5. ICP check passed 1,560 of 2,008; 38 removed as competitor staff, partners or agencies, 61 as customers, open deals or in sequence.
+6. 1,380 function owners, 1,261 verified valid, 71 catch-all in separate campaigns.
+7. 402 Tier 1, 180 Tier 2, 679 Tier 3 poke rows; four switch variants and one poke variant approved.
+8. Week three: confirmed 6.1 percent reply, likely 4.2, poke 5.4 with 38 corrected guesses now confirmed; seat pricing leads, reporting retired.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Competitor Complaints end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/competitor-complaints'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../stack-switch/index.html'><span class='eyebrow'>Previous</span><b>Stack Switch</b></a>
+<a href='../public-record-flags/index.html' style='text-align:right'><span class='eyebrow'>Next</span><b>Public Record Flags</b></a>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>

@@ -1,0 +1,388 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Lead-Magnet Campaigns | Pipeline.tech plays</title><link rel='preconnect' href='https://fonts.googleapis.com'><link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap' rel='stylesheet'><link rel='icon' href='../../assets/logo-chevron.svg'><style>
+:root{--ink:#1A130D;--grey:#2E2B28;--mute:#6B625A;--orange:#E85404;--orange2:#FCC1A1;--orange3:#FFF5F0;--canvas:#FFE8DD;--line:#F0D9CC;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.eyebrow{font-family:"Geist Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px}
+header.top img{height:18px;display:block}
+header.top nav{display:flex;gap:18px;font-size:13px;color:var(--grey);flex:1;flex-wrap:wrap}
+header.top nav a{text-decoration:none}
+header.top nav a:hover{color:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.orange{background:var(--orange);color:#fff;box-shadow:0 6px 18px rgba(232,84,4,.25)}
+.btn.peach{background:var(--orange2);color:var(--ink)}
+.btn.outline{border-color:var(--orange2);background:var(--orange3);color:var(--ink)}
+.btn.ghost{border-color:var(--line);background:#fff;color:var(--grey)}
+.btn.small{padding:7px 13px;font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.hero{padding:84px 0 48px;background:radial-gradient(1200px 500px at 50% -10%,var(--orange3),#fff 70%)}
+.hero h1{font-size:56px;line-height:1.05;font-weight:400;margin:14px 0 18px;letter-spacing:-.02em;max-width:900px}
+.hero h1 b{font-weight:700}
+.hero p.sub{font-size:20px;color:var(--grey);max-width:760px;margin:0 0 28px}
+.hero p.sub em{font-family:Georgia,serif;font-style:italic}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .stat{font-family:"Geist Mono",monospace;font-size:12px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-left:8px}
+.catnav{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 0}
+.catnav a{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;text-decoration:none;color:var(--grey)}
+.catnav a:hover{border-color:var(--orange2);background:var(--orange3)}
+.index{padding:12px 0 72px}
+.index .cat{padding:44px 0 0;scroll-margin-top:80px}
+.index .cat h2{font-size:26px;font-weight:400;margin:4px 0 4px;letter-spacing:-.02em}
+.index .cat p{color:var(--grey);margin:0 0 18px;max-width:720px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:16px;text-decoration:none;background:#fff;transition:transform .12s,border-color .12s,box-shadow .12s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:var(--orange2);box-shadow:0 14px 30px rgba(26,19,13,.08)}
+.card .thumb{aspect-ratio:4/3;background:var(--canvas);overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card .thumb::after{content:"";position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(rgba(255,232,221,0),var(--canvas))}
+.card .body{padding:14px 16px 16px}
+.card .n{font-family:"Geist Mono",monospace;font-size:11px;color:var(--orange);letter-spacing:.14em;display:flex;justify-content:space-between}
+.card .n span{color:var(--mute);letter-spacing:.04em;text-transform:none}
+.card .t{font-weight:600;font-size:16px;margin:6px 0 4px;line-height:1.3}
+.card .o{font-size:13px;color:var(--mute)}
+.crumbs{font-size:13px;color:var(--mute);padding:22px 0 0;display:flex;gap:8px;align-items:center}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--orange)}
+article.play{padding:22px 0 56px}
+article.play .head{max-width:900px}
+article.play h1{font-size:44px;font-weight:700;letter-spacing:-.025em;margin:10px 0 12px;line-height:1.08}
+article.play .meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mute);margin-bottom:16px}
+article.play .meta b{color:var(--ink);font-weight:600}
+article.play p.hook{font-size:19px;color:var(--grey);margin:0 0 24px}
+.copybox{background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px 14px;max-width:900px;margin:0 0 36px}
+.copybox .lbl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.copybox .lbl .eyebrow{color:var(--orange2)}
+.copybox pre{margin:0;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#F6EDE6}
+.copybox .hint{font-size:12px;color:#B9ADA3;margin-top:8px}
+.grid{display:grid;grid-template-columns:minmax(360px,520px) 1fr;gap:44px;align-items:start}
+.diagram{position:sticky;top:84px}
+.diagram img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);background:var(--canvas)}
+.diagram .cap{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:flex;justify-content:space-between}
+.diagram .cap a{color:var(--orange);text-decoration:none}
+.prose{max-width:680px;font-size:15.5px}
+.prose h3.section{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-family:"Geist Mono",monospace;font-weight:500;margin:34px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+.prose h3.section:first-child{border-top:0;padding-top:0;margin-top:0}
+.prose h4.step{font-size:18px;font-weight:600;margin:26px 0 8px;display:flex;gap:10px;align-items:center}
+.prose h4.step .num{display:inline-flex;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-family:"Geist Mono",monospace;font-size:12px;align-items:center;justify-content:center;flex:none}
+.prose ul,.prose ol{padding-left:20px;margin:6px 0 10px}
+.prose li{margin:4px 0}
+.prose p{margin:8px 0 10px}
+.prose code{font-family:"Geist Mono",monospace;font-size:.88em;background:var(--orange3);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+.prose .var{font-family:"Geist Mono",monospace;font-size:.88em;color:var(--orange)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:2px 0 8px}
+.tools-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.chip{font-size:12px;border:1px solid var(--orange2);background:var(--orange3);border-radius:999px;padding:2px 9px}
+.teaser{margin:40px 0 0;border:1px solid var(--line);border-radius:16px;background:#FFFBF9;overflow:hidden;max-width:900px}
+.teaser .hd{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.teaser .hd b{font-family:"Geist Mono",monospace;font-weight:500;font-size:13px}
+.teaser .hd span{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.teaser pre{margin:0;padding:14px 18px;font-family:"Geist Mono",monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#fff;position:relative}
+.teaser pre::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.teaser .more{font-family:"Geist Mono",monospace;font-size:11px;color:var(--mute);padding:0 18px 12px;background:#fff}
+.hidden{display:none}
+.cta{margin:32px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:22px 24px;border-radius:16px;background:var(--orange3);border:1px solid var(--orange2);max-width:900px}
+.cta .txt{flex:1;min-width:240px}
+.cta .txt b{display:block;font-size:17px}
+.cta .txt span{color:var(--grey);font-size:14px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line);font-size:14px}
+.pager a{text-decoration:none;max-width:48%}
+.pager a .eyebrow{display:block;margin-bottom:2px}
+.pager a b{font-weight:600}
+.pager a:hover b{color:var(--orange)}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .in{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+footer img{height:16px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;opacity:0;transition:all .2s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+dialog.modal{border:0;border-radius:20px;padding:0;max-width:460px;width:calc(100% - 40px);box-shadow:0 30px 80px rgba(26,19,13,.3)}
+dialog.modal::backdrop{background:rgba(26,19,13,.45)}
+dialog.modal .in{padding:28px 28px 24px}
+dialog.modal h3{margin:8px 0 6px;font-size:24px;font-weight:700;letter-spacing:-.02em}
+dialog.modal p{margin:0 0 18px;color:var(--grey);font-size:15px}
+dialog.modal form{display:flex;gap:8px}
+dialog.modal input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 16px;font-size:14px;font-family:inherit}
+dialog.modal .skip{display:block;margin-top:14px;font-size:13px;color:var(--mute);text-decoration:none;text-align:center}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.diagram{position:static}.hero h1{font-size:40px}article.play h1{font-size:32px}}
+</style></head><body>
+<header class='top'><div class='in'><a href='../../index.html'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'></a><nav><a href='../../index.html#cat-foundation'>Foundation</a><a href='../../index.html#cat-send-reply'>Send, reply and conversion</a><a href='../../index.html#cat-signal'>Third-party signals</a><a href='../../index.html#cat-social'>Social signals</a><a href='../../index.html#cat-first-party'>First-party signals</a></nav><a class='btn solid small' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Run a play with us</a></div></header>
+<article class='play'><div class='wrap'>
+<div class='crumbs'><a href='../../index.html'>Plays</a><span>/</span><a href='../../index.html#cat-first-party'>First-party signals</a><span>/</span><span>Lead-Magnet Campaigns</span></div>
+<div class='head'>
+<div class='eyebrow'>Play 31 · First-party signals</div>
+<h1>Lead-Magnet Campaigns</h1>
+<div class='meta'><div><b>Trigger</b> Your own lead magnets, one cold campaign each</div><div><b>Outcome</b> Cold email run like ad sets, opt-ins routed by segment</div><div><b>Channels</b> email</div></div>
+<p class='hook'></p>
+</div>
+<div class='copybox'><div class='lbl'><span class='eyebrow'>Give this to your agent</span>
+<button class='btn peach small' data-copy='prompt-lead-magnet-campaigns' data-modal='1'>Copy prompt</button></div>
+<pre id='prompt-lead-magnet-campaigns'>Install the Pipeline.tech &quot;Lead-Magnet Campaigns&quot; outbound play. Fetch
+https://raw.githubusercontent.com/pipeline-tech/plays/main/core/SKILL.md and
+https://raw.githubusercontent.com/pipeline-tech/plays/main/plays/lead-magnet-campaigns/SKILL.md,
+save them as ~/.claude/skills/pipeline-outbound-core/SKILL.md and
+~/.claude/skills/pipeline-lead-magnet-campaigns/SKILL.md, then run /pipeline-lead-magnet-campaigns.</pre>
+<div class='hint'>Paste into Claude Code. It installs the shared core rules plus this play, then runs it as /pipeline-lead-magnet-campaigns.</div></div>
+<div class='grid'>
+<div class='diagram'><img src='../../assets/lead-magnet-campaigns.svg' alt='Lead-Magnet Campaigns workflow diagram'><div class='cap'><span>Workflow, generated from the skill</span><a href='../../assets/lead-magnet-campaigns.svg' target='_blank'>Open full size</a></div></div>
+<div class='prose'>
+<p>Most companies post their lead magnets on social and wait. Cold email puts the same magnet in front of the whole TAM this week, and one campaign per magnet per size band on equal budgets shows in two weeks which magnet converts. Every opt-in arrives with a work email, so it is enriched, segmented and scored before the welcome email lands.</p>
+<p>Load <code>pipeline-outbound-core</code> first. Where a step says "apply core", follow that section of the core skill. List and send mechanics are shared with <code>pipeline-full-tam-cold-email</code> through core and are not repeated here.</p>
+<h3 class="section">Inputs</h3>
+<p>Ask for these before step 1, and save them to <code>./pipeline-plays.config.json</code>:</p>
+<ol>
+<li>The candidate lead magnets, with what each delivers and how it is produced today.</li>
+<li>The newsletter size bands (from Newsletter Readers), so lists and segments line up.</li>
+<li>The TAM: output of <code>pipeline-full-tam-map</code>, or a CSV with domain, employee count and industry.</li>
+<li>Newsletter tool, form tool, orchestration (n8n or Claude Code), plus stack answers from core section 1.</li>
+</ol>
+<h3 class="section">Steps</h3>
+<h4 class="step"><span class="num">1</span>Pick two or three magnets</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span></div>
+<ul>
+<li>Every magnet is an offer with its own fulfilment automation, so launch with two or three, never six. Good candidates: a free lead list for their ICP, a library of plays as runnable skills, a market map with stack, roadmap and costs.</li>
+<li>Three questions per candidate. Is it the product in miniature? Claimable with a work email? Deliverable inside 24 hours with nobody in the loop? One no and it is not a magnet.</li>
+<li>A free call gated behind a qualification floor is a site CTA, not a magnet, and gets no campaign here.</li>
+<li>Decide the heavy-user upsell now: a domain that claims lists every month is offered the full universe build for less than they can build it themselves.</li>
+</ul>
+<h4 class="step"><span class="num">2</span>Build the form and the plumbing</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">n8n</span><span class="chip">Claude (option)</span><span class="chip">Ocean.io</span><span class="chip">LeadMagic</span><span class="chip">Beehiiv</span><span class="chip">Attio</span><span class="chip">Supabase</span></div>
+<ul>
+<li>The form takes 60 seconds to 3 minutes and posts to the orchestration layer. Work email is required to claim; a personal address joins the newsletter but claims nothing.</li>
+<li>Enrich the domain for real employee count and industry; self-reported headcount is unreliable.</li>
+<li>Push the subscriber to the newsletter with the size segment set, then to the CRM. Apply core: CRM and alerts.</li>
+<li>One UTM per campaign, variant in <code>utm_content</code>, so every opt-in is attributed to magnet, band and variant.</li>
+<li>Where the magnet is a list, deliver through a portal with credits per company domain per month, so heavy users surface by themselves.</li>
+</ul>
+<h4 class="step"><span class="num">3</span>Build the lists</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Ocean.io</span><span class="chip">Apollo (option)</span><span class="chip">AI Ark (option)</span><span class="chip">BlitzAPI</span><span class="chip">Supabase</span><span class="chip">Attio</span><span class="chip">Beehiiv</span><span class="chip">EmailBison</span><span class="chip">LeadMagic</span><span class="chip">Prospeo</span><span class="chip">MillionVerifier</span><span class="chip">BounceBan</span></div>
+<ul>
+<li>Apply core: lists, for the full TAM, split into the newsletter's size bands so dashboard and welcome flow share one band.</li>
+<li>One list per magnet and band. The lists are the audiences; a company sits in one at a time.</li>
+<li>Apply core: exclusions, plus existing subscribers and anyone who has claimed a magnet before.</li>
+<li>Apply core: enrichment and core: verification.</li>
+</ul>
+<h4 class="step"><span class="num">4</span>Write one campaign per magnet</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Claude</span></div>
+<ul>
+<li>Apply core: copy and send rules.</li>
+<li>The magnet is the entire ask: "want me to send the list for your ICP?" No call or demo anywhere in the sequence.</li>
+<li>Two variants per magnet. Reply-to-claim: email 1 asks, the reply gets the form link through Reply Routing. Link-to-claim: the threaded nudge carries the link, so email 1 stays link-free per core.</li>
+<li>Two or three angles per magnet are the creatives, differing in opener and proof, not in synonyms.</li>
+<li>Approve plain text, then apply the spintax and QA gate from <code>pipeline-full-tam-cold-email</code> step 5.</li>
+</ul>
+<h4 class="step"><span class="num">5</span>Launch like ad sets</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Instantly (option)</span><span class="chip">Google Sheets</span></div>
+<ul>
+<li>One inbox set per magnet so deliverability reads per magnet. Apply core: send rules.</li>
+<li>Every magnet-band-variant pair gets the same daily send budget for two weeks, no favourites before the data is in.</li>
+<li>The metric is opt-ins per 1K sent. Reply rate misleads because the link variant converts without a reply.</li>
+<li>At two weeks, kill every pair under the median, move its budget to the pairs above it, rotate a new creative into the freed slot. Repeat fortnightly.</li>
+</ul>
+<h4 class="step"><span class="num">6</span>Fulfil and route the opt-ins</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">n8n</span><span class="chip">Supabase</span><span class="chip">LinkedIn</span><span class="chip">Beehiiv</span><span class="chip">Claude</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>Deliver every claim inside 24 hours, automated. A list ships unverified and says so in plain words, with LinkedIn URLs so the claimant can verify cheaply.</li>
+<li>The welcome flow for their segment starts on opt-in. Newsletter Readers owns the flows; this play sets the segment.</li>
+<li>Score the signup on TAM size, offer and website. Apply core: tiering. Tier 1s enter the loop Website Visitors owns, with a Slack alert.</li>
+<li>A domain that claims repeatedly gets the step 1 upsell, sent by a person, not an automation.</li>
+</ul>
+<h4 class="step"><span class="num">7</span>Handle replies and non-claimers</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">EmailBison</span><span class="chip">Claude</span><span class="chip">Slack</span><span class="chip">Attio</span></div>
+<ul>
+<li>Replies go through Reply Routing. Here "interested" means they want the magnet, so the drafted answer carries the form link only.</li>
+<li>A claimer who never opens the magnet gets one nudge after 3 days, then silence. The newsletter does the rest.</li>
+<li>Non-claimers stay on the list and are eligible for a different magnet after 30 days, never the one they ignored. Log the magnet seen in the CRM.</li>
+<li>Not-interested and unsubscribes apply across every magnet, not just the one answered.</li>
+</ul>
+<h4 class="step"><span class="num">8</span>Report weekly like a media dashboard</h4>
+<div class="tools"><span class="tools-label">Tools</span><span class="chip">Google Sheets</span><span class="chip">EmailBison</span><span class="chip">Beehiiv</span><span class="chip">Attio</span><span class="chip">Slack</span></div>
+<ul>
+<li>One row per magnet, band and variant: sent, opt-in rate, work-email rate, delivered inside 24 hours, Tier 1 rate, calls booked, revenue, plus inbox and data cost, so cost per opt-in and per call are known per magnet.</li>
+<li>Read it top down. Low opt-in rate indicts the magnet or creative. Low work-email rate indicts the band. Low Tier 1 rate with healthy opt-ins means the wrong company size; move budget to another band.</li>
+<li>Post the table to Slack every Monday with the step 5 kill and scale decisions.</li>
+<li>Apply core: credits and handoff.</li>
+</ul>
+<h3 class="section">Guardrails</h3>
+<ul>
+<li>A magnet must be the product in miniature, never a PDF nobody asked for.</li>
+<li>Never gate content to force an opt-in. Forced opt-ins produce dead subscribers.</li>
+<li>Every claim is fulfilled within 24 hours. If that cannot be automated, the magnet is not ready.</li>
+<li>The same domain never sees two magnets in the same month.</li>
+<li>A list handed over unverified says so in plain words, every time.</li>
+<li>The campaigns follow core send rules. Ad-set framing changes the budgeting, not the deliverability rules.</li>
+<li>No meeting ask anywhere in the sequence or the reply. Calls come from the loop and the newsletter.</li>
+</ul>
+<h3 class="section">Example run</h3>
+<p>User: "/pipeline-lead-magnet-campaigns with the free lead list and the plays library, bands under 11, 11 to 50 and 50 plus"</p>
+<ol>
+<li>Two magnets kept, market map parked. Form, enrichment and newsletter push live, portal credits at 3 list claims per domain per month.</li>
+<li>48,200 companies split into three bands, 41,600 after suppressing customers, open deals and 2,900 existing subscribers. Six lists, 36,400 verified contacts.</li>
+<li>Two variants and three angles per magnet, 12 campaigns, QA clean, launched on 24 inboxes with equal daily budgets.</li>
+<li>Week 2: 31,000 sent, 0.7% bounce, 196 opt-ins, 6.3 per 1K. Free list in the 11 to 50 band hit 11.2 per 1K on the link variant; plays library under 11 hit 2.1. Three pairs under the median killed, budget moved, one new creative rotated in.</li>
+<li>Week 4: 64,000 sent, 445 opt-ins, 88% work email, all delivered inside 24 hours, 41 Tier 1s into the loop, 9 calls booked, 2 domains at the credit cap offered the upsell.</li>
+</ol>
+</div></div>
+<section class='teaser'><div class='hd'><div><b>plays/lead-magnet-campaigns/SKILL.md</b><span>The skill file behind this page, 141 lines. Copy it whole, or use the prompt above and let the agent fetch it.</span></div>
+<button class='btn outline small' data-copy='raw-lead-magnet-campaigns'>Copy skill file</button></div>
+<pre>---
+name: pipeline-lead-magnet-campaigns
+description: Pipeline.tech play. Run cold email for your own lead magnets the way a media buyer runs ad sets. One two-step campaign per magnet per company-size band, the magnet as the whole CTA, equal send budget for two weeks, then kill the pairs under the median opt-in rate and scale the winners. Every opt-in is enriched on its work-email domain, pushed to a segmented newsletter and scored into a Tier 1 loop. USE WHEN user says &quot;/pipeline-lead-magnet-campaigns&quot; OR &quot;lead magnet campaigns&quot; OR &quot;cold email our lead magnets&quot; OR &quot;run cold email like ad sets&quot; OR &quot;one campaign per magnet&quot; OR &quot;promote the free list&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/lead-magnet-campaigns)
+version: 0.1.0</pre><div class='more'>… 136 more lines</div>
+<pre id='raw-lead-magnet-campaigns' class='hidden'>---
+name: pipeline-lead-magnet-campaigns
+description: Pipeline.tech play. Run cold email for your own lead magnets the way a media buyer runs ad sets. One two-step campaign per magnet per company-size band, the magnet as the whole CTA, equal send budget for two weeks, then kill the pairs under the median opt-in rate and scale the winners. Every opt-in is enriched on its work-email domain, pushed to a segmented newsletter and scored into a Tier 1 loop. USE WHEN user says &quot;/pipeline-lead-magnet-campaigns&quot; OR &quot;lead magnet campaigns&quot; OR &quot;cold email our lead magnets&quot; OR &quot;run cold email like ad sets&quot; OR &quot;one campaign per magnet&quot; OR &quot;promote the free list&quot;.
+author: Pipeline.tech (https://pipeline.tech/plays/lead-magnet-campaigns)
+version: 0.1.0
+requires: pipeline-outbound-core
+trigger: Your own lead magnets, one cold campaign each
+outcome: Cold email run like ad sets, opt-ins routed by segment
+category: first-party
+channels: email
+tools: Claude, n8n, Beehiiv, Ocean.io, Apollo (option), AI Ark (option), BlitzAPI, Supabase, LeadMagic, Prospeo, MillionVerifier, BounceBan, EmailBison, Instantly (option), Attio, Slack, Google Sheets, LinkedIn
+---
+
+# Lead-Magnet Campaigns
+
+Most companies post their lead magnets on social and wait. Cold email puts the same magnet in front of the whole TAM this week, and one campaign per magnet per size band on equal budgets shows in two weeks which magnet converts. Every opt-in arrives with a work email, so it is enriched, segmented and scored before the welcome email lands.
+
+Load `pipeline-outbound-core` first. Where a step says &quot;apply core&quot;, follow that section of the core skill. List and send mechanics are shared with `pipeline-full-tam-cold-email` through core and are not repeated here.
+
+## Inputs
+
+Ask for these before step 1, and save them to `./pipeline-plays.config.json`:
+
+1. The candidate lead magnets, with what each delivers and how it is produced today.
+2. The newsletter size bands (from Newsletter Readers), so lists and segments line up.
+3. The TAM: output of `pipeline-full-tam-map`, or a CSV with domain, employee count and industry.
+4. Newsletter tool, form tool, orchestration (n8n or Claude Code), plus stack answers from core section 1.
+
+## Steps
+
+### 1. Pick two or three magnets
+Tools: Claude
+Flow:
+= Two or three magnets, not six | Each one is the product in miniature, claimable with a work email, deliverable inside 24 hours; a gated free call is a separate CTA | with: Claude | chips: free lead list, plays as skills, market map
+
+- Every magnet is an offer with its own fulfilment automation, so launch with two or three, never six. Good candidates: a free lead list for their ICP, a library of plays as runnable skills, a market map with stack, roadmap and costs.
+- Three questions per candidate. Is it the product in miniature? Claimable with a work email? Deliverable inside 24 hours with nobody in the loop? One no and it is not a magnet.
+- A free call gated behind a qualification floor is a site CTA, not a magnet, and gets no campaign here.
+- Decide the heavy-user upsell now: a domain that claims lists every month is offered the full universe build for less than they can build it themselves.
+
+### 2. Build the form and the plumbing
+Tools: n8n, Claude (option), Ocean.io, LeadMagic, Beehiiv, Attio, Supabase
+Flow:
+- Form posts to orchestration | 60 seconds to 3 minutes to fill, work email required to claim | with: n8n, Claude | chips: name, work email, ICP in one line
+- Enrich the domain | Real employee count from the domain, never self-reported | with: Ocean.io, LeadMagic | chips: employees, industry, website
+- Push with segment and UTM | Subscriber lands in the newsletter with size band, magnet, campaign and variant | with: Beehiiv, Attio | chips: utm_campaign, utm_content
+= Portal with credits | Where the magnet is a list, delivery runs through a portal with credits per company domain per month | with: Supabase | tag: heavy users surface
+
+- The form takes 60 seconds to 3 minutes and posts to the orchestration layer. Work email is required to claim; a personal address joins the newsletter but claims nothing.
+- Enrich the domain for real employee count and industry; self-reported headcount is unreliable.
+- Push the subscriber to the newsletter with the size segment set, then to the CRM. Apply core: CRM and alerts.
+- One UTM per campaign, variant in `utm_content`, so every opt-in is attributed to magnet, band and variant.
+- Where the magnet is a list, deliver through a portal with credits per company domain per month, so heavy users surface by themselves.
+
+### 3. Build the lists
+Tools: Ocean.io, Apollo (option), AI Ark (option), BlitzAPI, Supabase, Attio, Beehiiv, EmailBison, LeadMagic, Prospeo, MillionVerifier, BounceBan
+Flow:
+- Full TAM in size bands | Same bands as the newsletter; one list per magnet and band | with: Ocean.io, Apollo, AI Ark, BlitzAPI, Supabase | tag: core: lists
+- Suppress | Customers, open deals, existing subscribers, anyone emailed in 90 days | with: Attio, Beehiiv, EmailBison | tag: core: exclusions
+- Enrich and verify | Waterfall, then two passes | with: LeadMagic, Prospeo, MillionVerifier, BounceBan | tag: core: verification
+
+- Apply core: lists, for the full TAM, split into the newsletter&#x27;s size bands so dashboard and welcome flow share one band.
+- One list per magnet and band. The lists are the audiences; a company sits in one at a time.
+- Apply core: exclusions, plus existing subscribers and anyone who has claimed a magnet before.
+- Apply core: enrichment and core: verification.
+
+### 4. Write one campaign per magnet
+Tools: Claude
+Flow:
+= Two steps, the magnet is the whole CTA | Reply-to-claim and link-to-claim as two variants, two or three angles per magnet as the creatives, no meeting ask anywhere | with: Claude | chips: email 1 x3, threaded nudge, reply variant, link variant
+
+- Apply core: copy and send rules.
+- The magnet is the entire ask: &quot;want me to send the list for your ICP?&quot; No call or demo anywhere in the sequence.
+- Two variants per magnet. Reply-to-claim: email 1 asks, the reply gets the form link through Reply Routing. Link-to-claim: the threaded nudge carries the link, so email 1 stays link-free per core.
+- Two or three angles per magnet are the creatives, differing in opener and proof, not in synonyms.
+- Approve plain text, then apply the spintax and QA gate from `pipeline-full-tam-cold-email` step 5.
+
+### 5. Launch like ad sets
+Tools: EmailBison, Instantly (option), Google Sheets
+Flow:
+- Inbox set per magnet | Even daily volume, the same send budget for every magnet-band-variant pair for two weeks | with: EmailBison, Instantly | tag: send
+- Read opt-ins per 1K sent | Not reply rate; kill pairs under the median, move the budget to the winners, rotate a new creative into the freed slot | with: Google Sheets | chips: opt-ins per 1K, median cut, new creative
+
+- One inbox set per magnet so deliverability reads per magnet. Apply core: send rules.
+- Every magnet-band-variant pair gets the same daily send budget for two weeks, no favourites before the data is in.
+- The metric is opt-ins per 1K sent. Reply rate misleads because the link variant converts without a reply.
+- At two weeks, kill every pair under the median, move its budget to the pairs above it, rotate a new creative into the freed slot. Repeat fortnightly.
+
+### 6. Fulfil and route the opt-ins
+Tools: n8n, Supabase, LinkedIn, Beehiiv, Claude, Attio, Slack
+Flow:
+- Deliver inside 24 hours | A list is handed over unverified and says so, with LinkedIn URLs so the still-there check is cheap | with: n8n, Supabase, LinkedIn | chips: unverified, LinkedIn URL, phone where available
+- Welcome flow by segment | Newsletter Readers owns the flow | with: Beehiiv | tag: hand-off
+- Score and loop | TAM size, offer and website; Tier 1 enters the Website Visitors loop; repeat claimers get the upsell | with: Claude, Attio, Slack | tag: hand-off
+
+- Deliver every claim inside 24 hours, automated. A list ships unverified and says so in plain words, with LinkedIn URLs so the claimant can verify cheaply.
+- The welcome flow for their segment starts on opt-in. Newsletter Readers owns the flows; this play sets the segment.
+- Score the signup on TAM size, offer and website. Apply core: tiering. Tier 1s enter the loop Website Visitors owns, with a Slack alert.
+- A domain that claims repeatedly gets the step 1 upsell, sent by a person, not an automation.
+
+### 7. Handle replies and non-claimers
+Tools: EmailBison, Claude, Slack, Attio
+Flow:
+- Replies | Every reply goes through Reply Routing; interested means send the form link, not book a call | with: EmailBison, Claude, Slack
+- One nudge | Claimers who never open the magnet get one reminder after 3 days | with: EmailBison | chips: one nudge, then stop
+- Rotate non-claimers | Eligible for a different magnet after 30 days, never the same one | with: Attio | chips: 30 days, new magnet
+
+- Replies go through Reply Routing. Here &quot;interested&quot; means they want the magnet, so the drafted answer carries the form link only.
+- A claimer who never opens the magnet gets one nudge after 3 days, then silence. The newsletter does the rest.
+- Non-claimers stay on the list and are eligible for a different magnet after 30 days, never the one they ignored. Log the magnet seen in the CRM.
+- Not-interested and unsubscribes apply across every magnet, not just the one answered.
+
+### 8. Report weekly like a media dashboard
+Tools: Google Sheets, EmailBison, Beehiiv, Attio, Slack
+Flow:
+= Per magnet, band and variant | Sent, opt-in rate, work-email rate, delivered, Tier 1 rate, calls booked, revenue | with: Google Sheets, EmailBison, Beehiiv, Attio | chips: cost per opt-in, cost per call
+
+- One row per magnet, band and variant: sent, opt-in rate, work-email rate, delivered inside 24 hours, Tier 1 rate, calls booked, revenue, plus inbox and data cost, so cost per opt-in and per call are known per magnet.
+- Read it top down. Low opt-in rate indicts the magnet or creative. Low work-email rate indicts the band. Low Tier 1 rate with healthy opt-ins means the wrong company size; move budget to another band.
+- Post the table to Slack every Monday with the step 5 kill and scale decisions.
+- Apply core: credits and handoff.
+
+## Guardrails
+
+- A magnet must be the product in miniature, never a PDF nobody asked for.
+- Never gate content to force an opt-in. Forced opt-ins produce dead subscribers.
+- Every claim is fulfilled within 24 hours. If that cannot be automated, the magnet is not ready.
+- The same domain never sees two magnets in the same month.
+- A list handed over unverified says so in plain words, every time.
+- The campaigns follow core send rules. Ad-set framing changes the budgeting, not the deliverability rules.
+- No meeting ask anywhere in the sequence or the reply. Calls come from the loop and the newsletter.
+
+## Example run
+
+User: &quot;/pipeline-lead-magnet-campaigns with the free lead list and the plays library, bands under 11, 11 to 50 and 50 plus&quot;
+
+1. Two magnets kept, market map parked. Form, enrichment and newsletter push live, portal credits at 3 list claims per domain per month.
+2. 48,200 companies split into three bands, 41,600 after suppressing customers, open deals and 2,900 existing subscribers. Six lists, 36,400 verified contacts.
+3. Two variants and three angles per magnet, 12 campaigns, QA clean, launched on 24 inboxes with equal daily budgets.
+4. Week 2: 31,000 sent, 0.7% bounce, 196 opt-ins, 6.3 per 1K. Free list in the 11 to 50 band hit 11.2 per 1K on the link variant; plays library under 11 hit 2.1. Three pairs under the median killed, budget moved, one new creative rotated in.
+5. Week 4: 64,000 sent, 445 opt-ins, 88% work email, all delivered inside 24 hours, 41 Tier 1s into the loop, 9 calls booked, 2 domains at the credit cap offered the upsell.
+</pre></section>
+<div class='cta'><div class='txt'><b>Run this play with us</b><span>Pipeline.tech runs Lead-Magnet Campaigns end to end for clients: infrastructure, lists, copy, sends and replies.</span></div><a class='btn orange' href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a><a class='btn outline' href='https://github.com/pipeline-tech/plays/tree/main/plays/lead-magnet-campaigns'>View on GitHub</a></div>
+<div class='pager'>
+<a href='../founder-connections/index.html'><span class='eyebrow'>Previous</span><b>Founder Connections</b></a>
+<span></span>
+</div>
+</div></article>
+<footer><div class='wrap in'><img src='../../assets/logo-wordmark.svg' alt='Pipeline.tech'><div>Every play is free, originals included. Credit stays in the skill file.</div><div><a href='https://calendly.com/christian-pipeline/discovery-call-with-christian'>Book a call</a> · <a href='https://github.com/pipeline-tech/plays'>GitHub</a> · <a href='https://pipeline.tech'>pipeline.tech</a></div></div></footer><div class='toast' id='toast'></div><dialog class='modal' id='modal'><div class='in'><div class='eyebrow'>One more thing</div><h3>Want all 31 plays in one install?</h3><p>Drop your work email and we send the full repo plus every new play as it ships, through The Pipeline newsletter.</p><form id='mform'><input type='email' placeholder='you@company.com' required><button class='btn orange' type='submit'>Send me the repo</button></form><a class='skip' href='#' onclick="document.getElementById('modal').close();return false">No thanks, I have what I need</a></div></dialog><script>
+function copyText(t,btn){navigator.clipboard.writeText(t).then(()=>{toast('Copied. Paste it into Claude Code.');if(btn&&btn.dataset.modal){setTimeout(()=>document.getElementById('modal').showModal(),500)}})}
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const src=document.getElementById(b.dataset.copy);copyText(src.textContent,b)});
+document.getElementById('mform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('modal').close();toast('Mockup only: nothing was sent.')});
+</script></body></html>
